@@ -1,0 +1,42 @@
+[
+  {
+    "scenario": "normal",
+    "kind": "programmatic_service_flow",
+    "mode": "demo",
+    "recovery_mode": "manual",
+    "human_or_ui_pass": false,
+    "api_calls": 0,
+    "case_id": "3a30eb5233e94e3bbfe8e017d834da80",
+    "status": "passed",
+    "amount_usd": "2.35",
+    "order_status": "exchange requested",
+    "counts": {
+      "operations": 1,
+      "approvals": 2,
+      "consents": 1,
+      "deliveries": 2
+    },
+    "exact_approved_text_delivered": true,
+    "delivered_text": "Зарегистрирована заявка на обмен по заказу #O1. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+  },
+  {
+    "scenario": "changed",
+    "kind": "programmatic_service_flow",
+    "mode": "demo",
+    "recovery_mode": "manual",
+    "human_or_ui_pass": false,
+    "api_calls": 0,
+    "case_id": "4b66b9ef776d4bb5a6f8d6bd76a9be99",
+    "status": "passed",
+    "amount_usd": "9.99",
+    "order_status": "exchange requested",
+    "counts": {
+      "operations": 1,
+      "approvals": 3,
+      "consents": 2,
+      "deliveries": 3
+    },
+    "exact_approved_text_delivered": true,
+    "delivered_text": "Зарегистрирована заявка на обмен по заказу #O1. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+  }
+]

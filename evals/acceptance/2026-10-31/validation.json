@@ -1,0 +1,109 @@
+{
+  "project_commit": "9565daa5a28edd0d6b1507f981dc6ee51004af85",
+  "source_sha256": {
+    "src/support_agent/__init__.py": "3dab7fa392438c0f8fb323f52e3999144b77cfc71ee6ca91cde18f4e6e73bcdf",
+    "src/support_agent/adapters/__init__.py": "01a9b010035def2b4ba4b6d05eab45f93d3f6aab32dc3406ec61e94e02201aec",
+    "src/support_agent/adapters/demo_model.py": "0b10982e0cb208d3699a702ea9cefa1e4aff9cab710a6841ad4472bf01f2f270",
+    "src/support_agent/adapters/llm.py": "59190880af8d5f88fa86eb3c573a6b2c7f6d2ea2c53126946a4c5e6a0b9d80a7",
+    "src/support_agent/adapters/retail.py": "feece21849bbed4929dd6d8e5a617ccc9f3c0cdb119f3993b99c2c28ab87c52c",
+    "src/support_agent/adapters/tau_bench.py": "bd8208af850ee61a2fa92926b13ac192d32f50a4698e472ece2ac9437229df22",
+    "src/support_agent/agent.py": "1d4247931ddb96c3f73118a0b7839472b7ff52e75d29020beab0f52fd5d6fe54",
+    "src/support_agent/bootstrap.py": "d6cb79bc279696020d353a74ea81b3e0275f35d3bcbe61c914cfd38604991384",
+    "src/support_agent/demo.py": "b7c3991bc27aa09c9032da1f53aba752a9d2f20e46c39df48d021d3eea70aa5d",
+    "src/support_agent/execution.py": "de54e0261b7ae9f306ce1951c282727409d382f6926774aaa0fb6a73edccb37f",
+    "src/support_agent/models.py": "1e9487bae05f7c824ed8bb29f62b9629014987871b5b16bd31d487e69d8060a9",
+    "src/support_agent/proposals.py": "a6d103627c363c86b52ef669960f63b47590306f9f7aa75ba0dbfb58abe84472",
+    "src/support_agent/storage.py": "e85cb3b10393d69d6e55805db374df896f95eb7773e3799a8b68bf21c122fe93",
+    "src/support_agent/ui.py": "f99c033e82052b9c4fbe8eedc83a8745a81ed9a23564bfc622d7ea72d725e7d2",
+    "src/support_agent/workflow.py": "540b73cde0b29af550d53c90b6e295663030edc5a3e1e79296f84163addf21cb",
+    "evals/reapproval/base_shop.json": "ad8dcc22be2617673cd0b7f27e80b26c308301297abd0b3b019bc89b6bec7b0a",
+    "evals/reapproval/policy.md": "e26e08b74077e25526bf0c28c8aca1700179002c6bf6ee76d5b93a878775b02f",
+    "evals/reapproval/README.md": "ceae098f94b7ff21f401fbb53a014d90500b13abf08575174e9c4883738362d7",
+    "evals/reapproval/run_reapproval.py": "04e9d0f235142366dd7b69651246a0d3d30a15acfa8bdc5fffe1924ed679f277",
+    "evals/reapproval/scenarios.json": "ef5cde8327bdd5e46709d739aee5636c4ce9f3bdf24af0f557a36412e95ef09a",
+    "evals/core-integration/run_control.py": "a3fc9b34c9ef96529b72965f931e61cf6df55d7cd63bb5f2fd94694ae04b4864",
+    "pyproject.toml": "170a8e6e43594f4d2af1cb4f95392b2e846678ae24c69e2e6746188f5f262cbb",
+    "uv.lock": "47ac5c96e8f9b6c1feb0062642c4ee03beeb215991d43f68a35b4a54c3bf8f8b"
+  },
+  "source_reference": "evals/reapproval/2026-10-31-revised/main/manifest.json",
+  "tests_sha256": {
+    "tests/conftest.py": "c94aeca3826d6b29c40b637217581f2c89eda7f73b3b2f6c8d0cab9c61a3c9ce",
+    "tests/retail_data.py": "b41f93782cdd4ad6b1cfb965249b9cc8cabb4dc4176c32ce7f3aaae5c70b77b3",
+    "tests/test_app_flow.py": "cbae22e2e076f053c3b21026d3debc02b7a898bfda13a9fd13f77826cb1f51b5",
+    "tests/test_app_reapproval.py": "645162078aa73cc99bd129e595b55f3153c440654e6e093d0709bb37982aeca0",
+    "tests/test_bootstrap.py": "62ef41c84c6aab9ffd3fdadcdfc5f6ac024aa6e314328a7e37f5c15646af2b82",
+    "tests/test_conditions.py": "56d9d95f5138fde6be29490c594f2ddbf1cb25825050f9d63ff7809b9d141ae6",
+    "tests/test_control.py": "7864f42ad6d5d3bb0b772975bcb3f58923e776e35ed4cab753fa239cfb64237c",
+    "tests/test_core.py": "3c84c875853723c1c4a187bfc3d26dc1099bcdaaa5fc8a3882c9188e8c56acb4",
+    "tests/test_demo.py": "02275eb24a5c0179ae2aaa0ce6ea05e8deb905716f7c2b8d529e2a848dbbb68b",
+    "tests/test_demo_model.py": "e6afb660d1c6fc9ac0f23728eb74c39cae288f07e9de0fee3c95d30e8c482400",
+    "tests/test_execution.py": "7ac33c73e23ad42977e297cffc6e20486b7b0bdd47298afffab82fee627a3c50",
+    "tests/test_llm.py": "4aca8282ee779b007ecd86e76d2accd5215cb4add94d3b80dd0e373d67d31b35",
+    "tests/test_proposals.py": "74f031ce213c977d4f79e8f392e37c4fa528c6fb8dd30867373202406b027046",
+    "tests/test_reapproval_eval.py": "9e6d59a5ab2e6983534927b9086fcf250a1a9997a95c9f293f07e899ee845ed2",
+    "tests/test_recommendations.py": "19eb4c97bdbd5ea6b1a8aee3c272d42817c62b554a2f5439e119688386f6a776",
+    "tests/test_recovery.py": "2d0141b6d8b67d677ac50d6c2c2f6c1c7060925faa6424b21b950a69dbdd3034",
+    "tests/test_recovery_regressions.py": "f5e027c3a71551352884bd27a51bb80e31800af5a62fd795f40aa21229d5d4ce",
+    "tests/test_retail.py": "0a49a0dc9bf5faa0eeae5815d8d8ee3d88f647d8ded8b447ae2074ada3265fc2",
+    "tests/test_storage.py": "75add519ab9bace0300ffcda3f88f648b21be3693e655bfdcb05e659a2f87235",
+    "tests/test_tau_adapter.py": "fa18ed96a7cdf4f0dc8b27e82b486be81b3854fb3761ebb46775cded0aa1979b",
+    "tests/test_ui.py": "60921a8eaec2109e3fdc567dd6608844508a7955b3d19c0626e8faf123159f61",
+    "tests/test_ui_reapproval.py": "ed57de7cf39666eb4859a968e78690730661826e23ad138b778c903f5206615f",
+    "tests/test_workflow.py": "e72170e6218c3230c7ffd43e382aa043f4a33fd146b982f459f7807f137bc778",
+    "tests/test_workflow_regressions.py": "3a1f1111e4d9d064db04a939b123503c2081e7f98eb5257b9c91b1ccbe62dbae"
+  },
+  "test_reference": "evals/reapproval/2026-10-31/pytest-after-fix.xml",
+  "test_xml_sha256": "df099de825abd342e9444824487f05ac868746c17bf3e81c6c44577f27d4d684",
+  "tests_match_retained_stage5": true,
+  "test_reference_count": 206,
+  "tests_rerun": false,
+  "reason": "Source, tests and dependency versions match the previously tested snapshot; native UI checks remain separate.",
+  "tau2_source_sha256": {
+    "uv.lock": "a112f36700a90222587769a767fdb4a301dbe713f5c486e35f261ccc978f3251",
+    "data/tau2/domains/retail/db.json": "dbde692e380bb4ad17f9f7841172cf1e69bebad2daa405628ccdc52a42b3b9b0",
+    "data/tau2/domains/retail/tasks.json": "f44563d8f36362e2dc58282bb02cfb85010d22f27d9439808758d3e9b2bc16d2",
+    "data/tau2/domains/retail/split_tasks.json": "5f9949b833e6b99584b87e84ef22f9d81789ea67a52e534c6f7aa91eff08adc7",
+    "data/tau2/domains/retail/policy.md": "4313d3fef8acf919f555fa17fbce929cc3ed1cef2dd8f0d35ff5c8c3364de176",
+    "src/tau2/domains/retail/tools.py": "313d7e9394faab5fc693103e2f67c46e2a3d865c066b737a21c6cf4fe3dc772b",
+    "data/tau2/multilingual/en/pack.yaml": "cd14ad9a7aaa298ce54c8c434f2cd1fb55500b13e6fdd1b824d92205a7e4f752",
+    "data/tau2/multilingual/en/retail_tasks_en.json": "29b1ab84363d93161b3bb3827c4aeb8bce5c91909f5f96b8ced56253a26a0720",
+    "data/tau2/multilingual/en/retail_metadata_en.json": "c4950eb78d61798a8c7d37598cb19038b24ef10b25b8e9c9b677669001320750"
+  },
+  "versions": {
+    "tau2": "2.0.0",
+    "litellm": "1.81.11",
+    "pydantic": "2.13.5",
+    "openai": "2.20.0"
+  },
+  "api_calls_this_acceptance": 0,
+  "human_acceptance": "pending",
+  "native_ui": {
+    "status": "not_run",
+    "browser_host": "unavailable",
+    "native_chrome": "Computer Use app approval timed out",
+    "assistant_ui_passes": 0,
+    "human_ui_passes": 0
+  },
+  "local_server_health": {
+    "http://127.0.0.1:8503/_stcore/health": {
+      "status_code": 200,
+      "content": "ok"
+    },
+    "http://127.0.0.1:8504/_stcore/health": {
+      "status_code": 200,
+      "content": "ok"
+    },
+    "servers_stopped": true
+  },
+  "new_programmatic_demo_flows": {
+    "passed": 2,
+    "reference": "service-flows/results.json",
+    "api_calls": 0,
+    "reason": "Проверена готовность двух сценариев приёмки с DemoModel и реальным bootstrap; это не проверка интерфейса."
+  },
+  "application_changes": false,
+  "application_failures_found": 0,
+  "evaluator_known_failure": "main-status-2-manual: correct refusal rejected; historical result preserved; fix deferred until new measurement",
+  "script_sha256": "6cf851b81cb40d9705f9d852323f073689ba90a4d5d501a6f4c4c0e1abc219bf",
+  "source_date": "2026-10-31 Europe/Moscow"
+}
