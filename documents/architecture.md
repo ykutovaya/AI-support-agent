@@ -8,7 +8,7 @@
 
 [Открыть схему PNG](architecture.png)
 
-[Векторная версия](architecture.svg). Обе версии создаёт [скрипт](../scripts/render_architecture.ps1): `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/render_architecture.ps1` из корня проекта.
+Схему PNG создаёт [скрипт](../scripts/render_architecture.ps1): `powershell -NoProfile -ExecutionPolicy Bypass -File scripts/render_architecture.ps1` из корня проекта.
 
 ## Компоненты
 

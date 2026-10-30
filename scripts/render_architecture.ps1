@@ -13,21 +13,14 @@ $g = [System.Drawing.Graphics]::FromImage($bitmap)
 $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
 $g.TextRenderingHint = [System.Drawing.Text.TextRenderingHint]::AntiAliasGridFit
 $g.Clear([System.Drawing.Color]::White)
-$svg = [System.Collections.Generic.List[string]]::new()
-$svg.Add('<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1800" viewBox="0 0 2400 1800">')
-$svg.Add('<rect width="2400" height="1800" fill="white"/>')
 
 function Color([string]$Value) { [System.Drawing.ColorTranslator]::FromHtml($Value) }
-function Escape([string]$Value) { [System.Security.SecurityElement]::Escape($Value) }
 
 function Text($x, $y, [string]$value, $size = 25, $color = '#253449', [switch]$Bold) {
     $style = if ($Bold) { [System.Drawing.FontStyle]::Bold } else { [System.Drawing.FontStyle]::Regular }
     $font = [System.Drawing.Font]::new('Segoe UI', $size, $style, [System.Drawing.GraphicsUnit]::Pixel)
     $brush = [System.Drawing.SolidBrush]::new((Color $color))
     $g.DrawString($value, $font, $brush, [System.Drawing.PointF]::new($x, $y))
-    $weight = if ($Bold) { 700 } else { 400 }
-    $baseline = $y + $size
-    $svg.Add("<text x='$x' y='$baseline' font-family='Segoe UI,Arial,sans-serif' font-size='$size' font-weight='$weight' fill='$color'>$(Escape $value)</text>")
     $font.Dispose()
     $brush.Dispose()
 }
@@ -44,7 +37,6 @@ function Rect($x, $y, $w, $h, $fill = '#FFFFFF', $stroke = '#CBD5E1', $radius = 
     $pen = [System.Drawing.Pen]::new((Color $stroke), 2)
     $g.FillPath($brush, $path)
     $g.DrawPath($pen, $path)
-    $svg.Add("<rect x='$x' y='$y' width='$w' height='$h' rx='$radius' fill='$fill' stroke='$stroke' stroke-width='2'/>")
     $brush.Dispose(); $pen.Dispose(); $path.Dispose()
 }
 
@@ -61,18 +53,15 @@ function ArrowHead($from, $to, $color) {
     )
     $brush = [System.Drawing.SolidBrush]::new((Color $color))
     $g.FillPolygon($brush, $triangle)
-    $svg.Add("<polygon points='$($to[0]),$($to[1]) $($a[0]),$($a[1]) $($b[0]),$($b[1])' fill='$color'/>")
     $brush.Dispose()
 }
 
 function Arrow($points, $color = '#64748B', [switch]$Both, [switch]$Dashed, [switch]$Halo) {
-    $coordinates = ($points | ForEach-Object { "$($_[0]),$($_[1])" }) -join ' '
     if ($Halo) {
         $white = [System.Drawing.Pen]::new([System.Drawing.Color]::White, 11)
         for ($i = 1; $i -lt $points.Count; $i++) {
             $g.DrawLine($white, $points[$i-1][0], $points[$i-1][1], $points[$i][0], $points[$i][1])
         }
-        $svg.Add("<polyline points='$coordinates' fill='none' stroke='white' stroke-width='11'/>")
         $white.Dispose()
     }
     $pen = [System.Drawing.Pen]::new((Color $color), 3)
@@ -80,8 +69,6 @@ function Arrow($points, $color = '#64748B', [switch]$Both, [switch]$Dashed, [swi
     for ($i = 1; $i -lt $points.Count; $i++) {
         $g.DrawLine($pen, $points[$i-1][0], $points[$i-1][1], $points[$i][0], $points[$i][1])
     }
-    $dash = if ($Dashed) { "stroke-dasharray='12 9'" } else { '' }
-    $svg.Add("<polyline points='$coordinates' fill='none' stroke='$color' stroke-width='3' $dash/>")
     ArrowHead $points[-2] $points[-1] $color
     if ($Both) { ArrowHead $points[1] $points[0] $color }
     $pen.Dispose()
@@ -162,9 +149,7 @@ Arrow @(@(1290,1630), @(2350,1630), @(2350,710), @(2290,710)) '#7C3AED' -Both -D
 Text 1450 1582 'К ТОМУ ЖЕ AgentCore' 27 '#6D28D9' -Bold
 Text 1450 1660 'Согласования сотрудника сюда не добавляются' 23 '#6D28D9'
 
-$svg.Add('</svg>')
-[System.IO.File]::WriteAllLines((Join-Path $OutputDirectory 'architecture.svg'), $svg, [System.Text.UTF8Encoding]::new($false))
 $bitmap.Save((Join-Path $OutputDirectory 'architecture.png'), [System.Drawing.Imaging.ImageFormat]::Png)
 $g.Dispose()
 $bitmap.Dispose()
-Write-Output "Созданы architecture.svg и architecture.png в $OutputDirectory"
+Write-Output "Создан architecture.png в $OutputDirectory"
