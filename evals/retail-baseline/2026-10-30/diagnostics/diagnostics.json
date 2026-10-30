@@ -1,0 +1,29 @@
+{
+  "status": "waiting_for_api_credits",
+  "date": "2026-10-30",
+  "model": "gpt-6-luna",
+  "completed_dialogues": 0,
+  "quality_score": null,
+  "successful_generation_responses": 0,
+  "cost_usd": null,
+  "cost_note": "No generated responses or token usage received; billing not checked.",
+  "attempts": [
+    {
+      "directory": "blocked-network",
+      "task_id": "75",
+      "termination_reason": "infrastructure_error",
+      "reward": null,
+      "saved_messages": 0,
+      "error": "litellm.InternalServerError: InternalServerError: OpenAIException - [WinError 10013] Сделана попытка доступа к сокету методом, запрещенным правами доступа"
+    },
+    {
+      "directory": "blocked-quota",
+      "task_id": "75",
+      "termination_reason": "infrastructure_error",
+      "reward": null,
+      "saved_messages": 0,
+      "error": "litellm.RateLimitError: RateLimitError: OpenAIException - {\n  \"error\": {\n    \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n    \"type\": \"insufficient_quota\",\n    \"param\": null,\n    \"code\": \"credit_balance_exhausted\"\n  }\n}"
+    }
+  ],
+  "next_step": "Wait for user confirmation, then rerun task 75 only."
+}

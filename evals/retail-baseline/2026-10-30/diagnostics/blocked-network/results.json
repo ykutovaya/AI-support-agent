@@ -1,0 +1,297 @@
+{
+  "timestamp": "2026-10-30T17:57:15.105448",
+  "info": {
+    "domain_tools_version": "speech-identity-v1",
+    "voice_instruction_prompt_version": null,
+    "language": "en",
+    "pack_extension": null,
+    "localize_db": null,
+    "language_artifacts": {
+      "pack_sha256": "cd14ad9a7aaa298ce54c8c434f2cd1fb55500b13e6fdd1b824d92205a7e4f752",
+      "tasks_sha256": "94956f2aea8a41ef016a887acf50b7cfe5ef1264958bbd1c2bc43cd714f9eaa4",
+      "metadata_sha256": "4e6c16c7f15578c93e71b8cad0ac7fc45a1b964fc9bac165811d4ce5c511a7cc",
+      "scenario_mode": "pack",
+      "scenario_sha256": "18afc4a833fcbe5586cf28bb4b09fff66616468d4091668afd98b83943321c55",
+      "localization_map_sha256": null,
+      "localization_revision": null,
+      "runtime_rules_version": "regional-tools-v1",
+      "runtime_rules_sha256": "794587eb3341b18b1e376fb7781488d03af71cd766f048ea6082e9bc3bca3aed"
+    },
+    "language_tasks": {
+      "75": {
+        "language": "en",
+        "mode": "text",
+        "cross_lingual": false,
+        "pack_revision": "voice-v2-entity-order-v5-schema3-textneutral-voiceclauses",
+        "pack_sha256": "cd14ad9a7aaa298ce54c8c434f2cd1fb55500b13e6fdd1b824d92205a7e4f752",
+        "domain_revision": "voice-v2-frozen50-v1",
+        "tasks_sha256": "94956f2aea8a41ef016a887acf50b7cfe5ef1264958bbd1c2bc43cd714f9eaa4",
+        "metadata_sha256": "4e6c16c7f15578c93e71b8cad0ac7fc45a1b964fc9bac165811d4ce5c511a7cc",
+        "scenario_mode": "pack",
+        "scenario_sha256": "18afc4a833fcbe5586cf28bb4b09fff66616468d4091668afd98b83943321c55",
+        "localization_map_sha256": null,
+        "localization_revision": null,
+        "runtime_rules_version": "regional-tools-v1",
+        "runtime_rules_sha256": "794587eb3341b18b1e376fb7781488d03af71cd766f048ea6082e9bc3bca3aed",
+        "task_selection": {
+          "task_set_name": null,
+          "task_split_name": "train",
+          "task_kwargs": {}
+        },
+        "task_sha256": "497663dc191505c2d60fe019ebd8580e329ddf033cd89bc6237eeb8d5fe9ba92",
+        "canonical_task_id": "75",
+        "agent_greeting": "Hi! How can I help you today?",
+        "agent_language_clause": "Respond in English using Latin script; keep all tool calls, arguments, and structured outputs in English exactly as specified.",
+        "speech_insert_events_per_minute": null,
+        "backchannel_level": null,
+        "backchannel_prompt_version": null,
+        "caller_gender": null,
+        "persona": {
+          "verbosity": "standard",
+          "interrupt_tendency": null,
+          "persona_id": "mamadou_diallo",
+          "mode": "text",
+          "gender": "male",
+          "locale": "Senegal",
+          "variety": "English",
+          "language": "en",
+          "display_language": "English",
+          "gender_guidance": "You are a male customer (he/him).",
+          "pragmatics_clauses": [
+            "Your register is mildly informal: short sentences, plain words, and small conversational fillers woven in naturally \u2014 'yeah', 'sure', 'let me see here', 'okay so', 'no worries'.",
+            "When you open in a relaxed way, natural forms are 'Hi there', 'Hey, how's it going', or straight into it \u2014 'Yeah, hi, I'm contacting you about an order I placed'.",
+            "When you are cooperative and unhurried, that surfaces as working the problem with the agent rather than against them and assuming good faith. If you're asked to wait and you're fine with it, natural forms are \u2014 'Yeah, no problem, take your time', 'Sure, I'll hang on'.",
+            "When you disagree or need to decline, you do it gently and reasonably: 'Hmm, yeah, I don't think that's gonna work for me', 'Let me think about that one', 'Honestly I'd rather not do that if there's another way'. You give a reason rather than a flat 'no'.",
+            "When frustration rises, it stays mild. First you become more deliberate \u2014 'Okay... hm, let me see here'. If it really drags, you get a touch firmer but not rude \u2014 'Yeah, I get that, but this is the third time I've explained it'.",
+            "When the conversation wraps up cordially, closings run: 'Alright, that's great, thanks a lot', 'Okay, sounds good, appreciate it', 'Take care, bye now'. A wrap-up, then you end the conversation."
+          ],
+          "user_guidelines": "",
+          "mode_guidelines": "",
+          "agent_background_clause": "",
+          "language_directive": null,
+          "spellout_section": "",
+          "voice": null
+        },
+        "spelling_normalization_version": null,
+        "prompt_version": "language-runtime-v8",
+        "guideline_template_version": "language-guidelines-v4",
+        "assignment_version": "canonical-id-sha256-v1"
+      }
+    },
+    "communicate_scoring": {
+      "scorer": "semantic",
+      "judge": {
+        "model": "gpt-5.5",
+        "model_args": {
+          "reasoning_effort": "low"
+        },
+        "prompt_version": "communicate-semantic-v1"
+      }
+    },
+    "benchmark": null,
+    "git_commit": "e3c5a8e25c76acd88e51c2b17d86a412044a8c32",
+    "elicitation": null,
+    "elicitation_scoring_version": null,
+    "elicitation_prompt_version": null,
+    "elicitation_catalog_version": null,
+    "elicitation_spell_detection_version": null,
+    "num_trials": 1,
+    "max_steps": 60,
+    "max_errors": 5,
+    "user_info": {
+      "implementation": "user_simulator",
+      "llm": "openai/responses/gpt-6-luna",
+      "llm_args": {
+        "reasoning_effort": "low",
+        "max_tokens": 8192,
+        "timeout": 90,
+        "num_retries": 0
+      },
+      "global_simulation_guidelines": null,
+      "voice_settings": null,
+      "persona_config": null
+    },
+    "agent_info": {
+      "implementation": "llm_agent",
+      "llm": "openai/responses/gpt-6-luna",
+      "llm_args": {
+        "reasoning_effort": "low",
+        "max_tokens": 8192,
+        "timeout": 90,
+        "num_retries": 0
+      },
+      "voice_settings": null
+    },
+    "environment_info": {
+      "domain_name": "retail",
+      "policy": "# Retail agent policy\n\nAs a retail agent, you can help users:\n\n- **cancel or modify pending orders**\n- **return or exchange delivered orders**\n- **modify their default user address**\n- **provide information about their own profile, orders, and related products**\n\nAt the beginning of the conversation, you have to authenticate the user identity by locating their user id via email, or via name + zip code. This has to be done even when the user already provides the user id.\n\nOnce the user has been authenticated, you can provide the user with information about order, product, profile information, e.g. help the user look up order id.\n\nYou can only help one user per conversation (but you can handle multiple requests from the same user), and must deny any requests for tasks related to any other user.\n\nBefore taking any action that updates the database (cancel, modify, return, exchange), you must list the action details and obtain explicit user confirmation (yes) to proceed.\n\nYou should not make up any information or knowledge or procedures not provided by the user or the tools, or give subjective recommendations or comments.\n\nYou should at most make one tool call at a time, and if you take a tool call, you should not respond to the user at the same time. If you respond to the user, you should not make a tool call at the same time.\n\nYou should deny user requests that are against this policy.\n\nYou should transfer the user to a human agent if and only if the request cannot be handled within the scope of your actions. To transfer, first make a tool call to transfer_to_human_agents, and then send the message 'YOU ARE BEING TRANSFERRED TO A HUMAN AGENT. PLEASE HOLD ON.' to the user.\n\n## Domain basic\n\n- All times in the database are EST and 24 hour based. For example \"02:30:00\" means 2:30 AM EST.\n\n### User\n\nEach user has a profile containing:\n\n- unique user id\n- email\n- default address\n- payment methods.\n\nThere are three types of payment methods: **gift card**, **paypal account**, **credit card**.\n\n### Product\n\nOur retail store has 50 types of products.\n\nFor each **type of product**, there are **variant items** of different **options**.\n\nFor example, for a 't-shirt' product, there could be a variant item with option 'color blue size M', and another variant item with option 'color red size L'.\n\nEach product has the following attributes:\n\n- unique product id\n- name\n- list of variants\n\nEach variant item has the following attributes:\n\n- unique item id\n- information about the value of the product options for this item.\n- availability\n- price\n\nNote: Product ID and Item ID have no relations and should not be confused!\n\n### Order\n\nEach order has the following attributes:\n\n- unique order id\n- user id\n- address\n- items ordered\n- status\n- fullfilments info (tracking id and item ids)\n- payment history\n\nThe status of an order can be: **pending**, **processed**, **delivered**, or **cancelled**.\n\nOrders can have other optional attributes based on the actions that have been taken (cancellation reason, which items have been exchanged, what was the exchane price difference etc)\n\n## Generic action rules\n\nGenerally, you can only take action on pending or delivered orders.\n\nExchange or modify order tools can only be called once per order. Be sure that all items to be changed are collected into a list before making the tool call!!!\n\n## Cancel pending order\n\nAn order can only be cancelled if its status is 'pending', and you should check its status before taking the action.\n\nThe user needs to confirm the order id and the reason (either 'no longer needed' or 'ordered by mistake') for cancellation. Other reasons are not acceptable.\n\nAfter user confirmation, the order status will be changed to 'cancelled', and the total will be refunded via the original payment method immediately if it is gift card, otherwise in 5 to 7 business days.\n\n## Modify pending order\n\nAn order can only be modified if its status is 'pending', and you should check its status before taking the action.\n\nFor a pending order, you can take actions to modify its shipping address, payment method, or product item options, but nothing else.\n\n### Modify payment\n\nThe user can only choose a single payment method different from the original payment method.\n\nIf the user wants the modify the payment method to gift card, it must have enough balance to cover the total amount.\n\nAfter user confirmation, the order status will be kept as 'pending'. The original payment method will be refunded immediately if it is a gift card, otherwise it will be refunded within 5 to 7 business days.\n\n### Modify items\n\nThis action can only be called once, and will change the order status to 'pending (items modifed)'. The agent will not be able to modify or cancel the order anymore. So you must confirm all the details are correct and be cautious before taking this action. In particular, remember to remind the customer to confirm they have provided all the items they want to modify.\n\nFor a pending order, each item can be modified to an available new item of the same product but of different product option. There cannot be any change of product types, e.g. modify shirt to shoe.\n\nThe user must provide a payment method to pay or receive refund of the price difference. If the user provides a gift card, it must have enough balance to cover the price difference.\n\n## Return delivered order\n\nAn order can only be returned if its status is 'delivered', and you should check its status before taking the action.\n\nThe user needs to confirm the order id and the list of items to be returned.\n\nThe user needs to provide a payment method to receive the refund.\n\nThe refund must either go to the original payment method, or an existing gift card.\n\nAfter user confirmation, the order status will be changed to 'return requested', and the user will receive an email regarding how to return items.\n\n## Exchange delivered order\n\nAn order can only be exchanged if its status is 'delivered', and you should check its status before taking the action. In particular, remember to remind the customer to confirm they have provided all items to be exchanged.\n\nFor a delivered order, each item can be exchanged to an available new item of the same product but of different product option. There cannot be any change of product types, e.g. modify shirt to shoe.\n\nThe user must provide a payment method to pay or receive refund of the price difference. If the user provides a gift card, it must have enough balance to cover the price difference.\n\nAfter user confirmation, the order status will be changed to 'exchange requested', and the user will receive an email regarding how to return items. There is no need to place a new order.\n",
+      "tool_defs": null
+    },
+    "seed": 300,
+    "text_streaming_config": {
+      "chunk_by": "words",
+      "chunk_size": 1
+    },
+    "speech_complexity": null,
+    "channel_effects_mode": null,
+    "speech_effects_mode": null,
+    "pass3_condition": null,
+    "voice_sampling_seed": null,
+    "audio_native_config": null,
+    "retrieval_config": null,
+    "retrieval_config_kwargs": null
+  },
+  "tasks": [
+    {
+      "id": "75",
+      "description": {
+        "purpose": null,
+        "relevant_policies": null,
+        "notes": null
+      },
+      "user_scenario": {
+        "persona": null,
+        "instructions": {
+          "domain": "retail",
+          "reason_for_call": "For #W6908222, you want to exchange Wireless Earbuds {'color': 'blue', 'battery life': '8 hours', 'water resistance': 'IPX4'} to one with the following attributes: {'color': 'black', 'battery life': '4 hours', 'water resistance': 'not resistant'}",
+          "known_info": "You name is Liam Moore and your email is liam.moore6985@example.com.",
+          "unknown_info": null,
+          "task_instructions": "You are direct, patient, organized, optimistic."
+        }
+      },
+      "ticket": null,
+      "initial_state": null,
+      "evaluation_criteria": {
+        "actions": [
+          {
+            "action_id": "75_0",
+            "requestor": "assistant",
+            "name": "exchange_delivered_order_items",
+            "arguments": {
+              "order_id": "#W6908222",
+              "item_ids": [
+                "8555936349"
+              ],
+              "new_item_ids": [
+                "4063058357"
+              ],
+              "payment_method_id": "paypal_4518393"
+            },
+            "info": null,
+            "compare_args": null
+          }
+        ],
+        "env_assertions": null,
+        "communicate_info": [],
+        "nl_assertions": null,
+        "reward_basis": [
+          "DB",
+          "NL_ASSERTION"
+        ]
+      },
+      "issues": null,
+      "required_documents": null,
+      "user_tools": null,
+      "agent_opener": null
+    }
+  ],
+  "simulations": [
+    {
+      "language_context": {
+        "language": "en",
+        "mode": "text",
+        "cross_lingual": false,
+        "pack_revision": "voice-v2-entity-order-v5-schema3-textneutral-voiceclauses",
+        "pack_sha256": "cd14ad9a7aaa298ce54c8c434f2cd1fb55500b13e6fdd1b824d92205a7e4f752",
+        "domain_revision": "voice-v2-frozen50-v1",
+        "tasks_sha256": "94956f2aea8a41ef016a887acf50b7cfe5ef1264958bbd1c2bc43cd714f9eaa4",
+        "metadata_sha256": "4e6c16c7f15578c93e71b8cad0ac7fc45a1b964fc9bac165811d4ce5c511a7cc",
+        "scenario_mode": "pack",
+        "scenario_sha256": "18afc4a833fcbe5586cf28bb4b09fff66616468d4091668afd98b83943321c55",
+        "localization_map_sha256": null,
+        "localization_revision": null,
+        "runtime_rules_version": "regional-tools-v1",
+        "runtime_rules_sha256": "794587eb3341b18b1e376fb7781488d03af71cd766f048ea6082e9bc3bca3aed",
+        "task_selection": {
+          "task_set_name": null,
+          "task_split_name": "train",
+          "task_kwargs": {}
+        },
+        "task_sha256": "497663dc191505c2d60fe019ebd8580e329ddf033cd89bc6237eeb8d5fe9ba92",
+        "canonical_task_id": "75",
+        "agent_greeting": "Hi! How can I help you today?",
+        "agent_language_clause": "Respond in English using Latin script; keep all tool calls, arguments, and structured outputs in English exactly as specified.",
+        "speech_insert_events_per_minute": null,
+        "backchannel_level": null,
+        "backchannel_prompt_version": null,
+        "caller_gender": null,
+        "persona": {
+          "verbosity": "standard",
+          "interrupt_tendency": null,
+          "persona_id": "mamadou_diallo",
+          "mode": "text",
+          "gender": "male",
+          "locale": "Senegal",
+          "variety": "English",
+          "language": "en",
+          "display_language": "English",
+          "gender_guidance": "You are a male customer (he/him).",
+          "pragmatics_clauses": [
+            "Your register is mildly informal: short sentences, plain words, and small conversational fillers woven in naturally \u2014 'yeah', 'sure', 'let me see here', 'okay so', 'no worries'.",
+            "When you open in a relaxed way, natural forms are 'Hi there', 'Hey, how's it going', or straight into it \u2014 'Yeah, hi, I'm contacting you about an order I placed'.",
+            "When you are cooperative and unhurried, that surfaces as working the problem with the agent rather than against them and assuming good faith. If you're asked to wait and you're fine with it, natural forms are \u2014 'Yeah, no problem, take your time', 'Sure, I'll hang on'.",
+            "When you disagree or need to decline, you do it gently and reasonably: 'Hmm, yeah, I don't think that's gonna work for me', 'Let me think about that one', 'Honestly I'd rather not do that if there's another way'. You give a reason rather than a flat 'no'.",
+            "When frustration rises, it stays mild. First you become more deliberate \u2014 'Okay... hm, let me see here'. If it really drags, you get a touch firmer but not rude \u2014 'Yeah, I get that, but this is the third time I've explained it'.",
+            "When the conversation wraps up cordially, closings run: 'Alright, that's great, thanks a lot', 'Okay, sounds good, appreciate it', 'Take care, bye now'. A wrap-up, then you end the conversation."
+          ],
+          "user_guidelines": "",
+          "mode_guidelines": "",
+          "agent_background_clause": "",
+          "language_directive": null,
+          "spellout_section": "",
+          "voice": null
+        },
+        "spelling_normalization_version": null,
+        "prompt_version": "language-runtime-v8",
+        "guideline_template_version": "language-guidelines-v4",
+        "assignment_version": "canonical-id-sha256-v1"
+      },
+      "agent_voice": null,
+      "agent_voice_gender": null,
+      "agent_voice_catalog": null,
+      "id": "19fca265-44fc-4f83-af80-f4155e99cb1a",
+      "complication": null,
+      "task_id": "75",
+      "timestamp": "2026-10-30T17:57:16.268665",
+      "start_time": "2026-10-30T17:57:16.268665",
+      "end_time": "2026-10-30T17:57:16.268665",
+      "duration": 0.0,
+      "termination_reason": "infrastructure_error",
+      "agent_cost": null,
+      "user_cost": null,
+      "agent_usage": null,
+      "reward_info": null,
+      "messages": [],
+      "ticks": null,
+      "trial": 0,
+      "seed": 626729,
+      "mode": "half_duplex",
+      "speech_environment": null,
+      "review": null,
+      "user_only_review": null,
+      "info": {
+        "error": "litellm.InternalServerError: InternalServerError: OpenAIException - [WinError 10013] \u0421\u0434\u0435\u043b\u0430\u043d\u0430 \u043f\u043e\u043f\u044b\u0442\u043a\u0430 \u0434\u043e\u0441\u0442\u0443\u043f\u0430 \u043a \u0441\u043e\u043a\u0435\u0442\u0443 \u043c\u0435\u0442\u043e\u0434\u043e\u043c, \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d\u043d\u044b\u043c \u043f\u0440\u0430\u0432\u0430\u043c\u0438 \u0434\u043e\u0441\u0442\u0443\u043f\u0430",
+        "error_type": "InternalServerError",
+        "error_traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\httpx\\_transports\\default.py\", line 101, in map_httpcore_exceptions\n    yield\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\httpx\\_transports\\default.py\", line 250, in handle_request\n    resp = self._pool.handle_request(req)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\httpcore\\_sync\\connection_pool.py\", line 256, in handle_request\n    raise exc from None\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\httpcore\\_sync\\connection_pool.py\", line 236, in handle_request\n    response = connection.handle_request(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\httpcore\\_sync\\connection.py\", line 101, in handle_request\n    raise exc\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\httpcore\\_sync\\connection.py\", line 78, in handle_request\n    stream = self._connect(request)\n             ^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\httpcore\\_sync\\connection.py\", line 124, in _connect\n    stream = self._network_backend.connect_tcp(**kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\httpcore\\_backends\\sync.py\", line 207, in connect_tcp\n    with map_exceptions(exc_map):\n         ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\AppData\\Roaming\\uv\\python\\cpython-3.12.12-windows-x86_64-none\\Lib\\contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\httpcore\\_exceptions.py\", line 14, in map_exceptions\n    raise to_exc(exc) from exc\nhttpcore.ConnectError: [WinError 10013] \u0421\u0434\u0435\u043b\u0430\u043d\u0430 \u043f\u043e\u043f\u044b\u0442\u043a\u0430 \u0434\u043e\u0441\u0442\u0443\u043f\u0430 \u043a \u0441\u043e\u043a\u0435\u0442\u0443 \u043c\u0435\u0442\u043e\u0434\u043e\u043c, \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d\u043d\u044b\u043c \u043f\u0440\u0430\u0432\u0430\u043c\u0438 \u0434\u043e\u0441\u0442\u0443\u043f\u0430\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\litellm\\llms\\custom_httpx\\llm_http_handler.py\", line 2181, in response_api_handler\n    response = sync_httpx_client.post(\n               ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\litellm\\llms\\custom_httpx\\http_handler.py\", line 1044, in post\n    raise e\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\litellm\\llms\\custom_httpx\\http_handler.py\", line 1023, in post\n    response = self.client.send(req, stream=stream)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\httpx\\_client.py\", line 914, in send\n    response = self._send_handling_auth(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\httpx\\_client.py\", line 942, in _send_handling_auth\n    response = self._send_handling_redirects(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\httpx\\_client.py\", line 979, in _send_handling_redirects\n    response = self._send_single_request(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\httpx\\_client.py\", line 1014, in _send_single_request\n    response = transport.handle_request(request)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\httpx\\_transports\\default.py\", line 249, in handle_request\n    with map_httpcore_exceptions():\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\AppData\\Roaming\\uv\\python\\cpython-3.12.12-windows-x86_64-none\\Lib\\contextlib.py\", line 158, in __exit__\n    self.gen.throw(value)\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\httpx\\_transports\\default.py\", line 118, in map_httpcore_exceptions\n    raise mapped_exc(message) from exc\nhttpx.ConnectError: [WinError 10013] \u0421\u0434\u0435\u043b\u0430\u043d\u0430 \u043f\u043e\u043f\u044b\u0442\u043a\u0430 \u0434\u043e\u0441\u0442\u0443\u043f\u0430 \u043a \u0441\u043e\u043a\u0435\u0442\u0443 \u043c\u0435\u0442\u043e\u0434\u043e\u043c, \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d\u043d\u044b\u043c \u043f\u0440\u0430\u0432\u0430\u043c\u0438 \u0434\u043e\u0441\u0442\u0443\u043f\u0430\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\litellm\\responses\\main.py\", line 713, in responses\n    response = base_llm_http_handler.response_api_handler(\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\litellm\\llms\\custom_httpx\\llm_http_handler.py\", line 2189, in response_api_handler\n    raise self._handle_error(\n          ^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\litellm\\llms\\custom_httpx\\llm_http_handler.py\", line 4630, in _handle_error\n    raise provider_config.get_error_class(\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\litellm\\llms\\base_llm\\responses\\transformation.py\", line 206, in get_error_class\n    raise BaseLLMException(\nlitellm.llms.base_llm.chat.transformation.BaseLLMException: [WinError 10013] \u0421\u0434\u0435\u043b\u0430\u043d\u0430 \u043f\u043e\u043f\u044b\u0442\u043a\u0430 \u0434\u043e\u0441\u0442\u0443\u043f\u0430 \u043a \u0441\u043e\u043a\u0435\u0442\u0443 \u043c\u0435\u0442\u043e\u0434\u043e\u043c, \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d\u043d\u044b\u043c \u043f\u0440\u0430\u0432\u0430\u043c\u0438 \u0434\u043e\u0441\u0442\u0443\u043f\u0430\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\src\\tau2\\runner\\progress.py\", line 77, in run_with_retry\n    simulation = run_fn()\n                 ^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\src\\tau2\\runner\\batch.py\", line 617, in _execute\n    return run_single_task(\n           ^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\src\\tau2\\runner\\batch.py\", line 447, in run_single_task\n    simulation = run_simulation(\n                 ^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\src\\tau2\\runner\\simulation.py\", line 117, in run_simulation\n    simulation = orchestrator.run()\n                 ^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\src\\tau2\\orchestrator\\orchestrator.py\", line 294, in run\n    self.step()\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\src\\tau2\\orchestrator\\orchestrator.py\", line 858, in step\n    user_msg, self.user_state = self.user.generate_next_message(\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\src\\tau2\\user\\user_simulator.py\", line 160, in generate_next_message\n    user_message = self._generate_next_message(message, state)\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\src\\tau2\\user\\user_simulator.py\", line 194, in _generate_next_message\n    assistant_message = generate(\n                        ^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\src\\tau2\\utils\\llm_utils.py\", line 542, in generate\n    reply = _generate_once(\n            ^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\src\\tau2\\utils\\llm_utils.py\", line 686, in _generate_once\n    raise e\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\src\\tau2\\utils\\llm_utils.py\", line 677, in _generate_once\n    response = completion(\n               ^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\litellm\\utils.py\", line 1748, in wrapper\n    raise e\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\litellm\\utils.py\", line 1569, in wrapper\n    result = original_function(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\litellm\\main.py\", line 4305, in completion\n    raise exception_type(\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\litellm\\main.py\", line 1567, in completion\n    return responses_api_bridge.completion(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\litellm\\completion_extras\\litellm_responses_transformation\\handler.py\", line 178, in completion\n    result = responses(\n             ^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\litellm\\utils.py\", line 1748, in wrapper\n    raise e\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\litellm\\utils.py\", line 1569, in wrapper\n    result = original_function(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\litellm\\responses\\main.py\", line 743, in responses\n    raise litellm.exception_type(\n          ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\litellm\\litellm_core_utils\\exception_mapping_utils.py\", line 2398, in exception_type\n    raise e\n  File \"C:\\Users\\USER\\Documents\\portfolio\\tau2-bench\\.venv\\Lib\\site-packages\\litellm\\litellm_core_utils\\exception_mapping_utils.py\", line 561, in exception_type\n    raise InternalServerError(\nlitellm.exceptions.InternalServerError: litellm.InternalServerError: InternalServerError: OpenAIException - [WinError 10013] \u0421\u0434\u0435\u043b\u0430\u043d\u0430 \u043f\u043e\u043f\u044b\u0442\u043a\u0430 \u0434\u043e\u0441\u0442\u0443\u043f\u0430 \u043a \u0441\u043e\u043a\u0435\u0442\u0443 \u043c\u0435\u0442\u043e\u0434\u043e\u043c, \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d\u043d\u044b\u043c \u043f\u0440\u0430\u0432\u0430\u043c\u0438 \u0434\u043e\u0441\u0442\u0443\u043f\u0430\n",
+        "failed_after_attempts": 1
+      },
+      "auth_classification": null,
+      "hallucination_retries_used": 0,
+      "hallucination_check": null,
+      "provider_session_id": null,
+      "policy": null,
+      "effect_timeline": null
+    }
+  ],
+  "simulation_index": null
+}

@@ -1,0 +1,72 @@
+{
+  "status": "waiting_for_model_configuration",
+  "date": "2026-10-30",
+  "completed_simulations": 0,
+  "api_calls_made": 0,
+  "quality_score": null,
+  "repository": "C:/Users/USER/Documents/portfolio/tau2-bench",
+  "git_commit": "da0835f6c67baef58bdda18f2a3b037dfb3a1754",
+  "git_worktree_clean": true,
+  "versions": {
+    "python": "3.12.12",
+    "tau2": "2.0.0",
+    "litellm": "1.81.11",
+    "pydantic": "2.13.5",
+    "python-dotenv": "1.2.4"
+  },
+  "selection": {
+    "domain": "retail",
+    "language": "en",
+    "benchmark": "none",
+    "source_split": "train",
+    "purpose": "development baseline; not a held-out evaluation",
+    "task_ids": ["75", "0", "6", "95", "105"],
+    "first_task_id": "75",
+    "tasks_requiring_nl_judge": ["95", "105"]
+  },
+  "planned_run": {
+    "agent": "llm_agent",
+    "user": "user_simulator",
+    "agent_model": null,
+    "user_model": null,
+    "nl_judge_model": null,
+    "api_budget": null,
+    "num_trials": 1,
+    "max_steps": 60,
+    "max_errors": 5,
+    "timeout_seconds": 600,
+    "max_concurrency": 1,
+    "workers": 0,
+    "max_task_retries": 0,
+    "seed": 300,
+    "verbose_logs": true,
+    "llm_log_mode": "all"
+  },
+  "checks": {
+    "check_data": "passed after setting PYTHONIOENCODING=utf-8 and PYTHONUTF8=1",
+    "cli_dry_run": "passed; repository default agent/user model used for validation only",
+    "retail_environment": "loaded",
+    "selected_ids_present": true,
+    "selected_ids_in_train": true,
+    "tasks_total": 114,
+    "train_tasks": 74,
+    "test_tasks": 40,
+    "users": 500,
+    "orders": 1000,
+    "products": 50
+  },
+  "sha256": {
+    "uv.lock": "a112f36700a90222587769a767fdb4a301dbe713f5c486e35f261ccc978f3251",
+    "data/tau2/domains/retail/db.json": "dbde692e380bb4ad17f9f7841172cf1e69bebad2daa405628ccdc52a42b3b9b0",
+    "data/tau2/domains/retail/tasks.json": "f44563d8f36362e2dc58282bb02cfb85010d22f27d9439808758d3e9b2bc16d2",
+    "data/tau2/domains/retail/split_tasks.json": "5f9949b833e6b99584b87e84ef22f9d81789ea67a52e534c6f7aa91eff08adc7",
+    "data/tau2/domains/retail/policy.md": "4313d3fef8acf919f555fa17fbce929cc3ed1cef2dd8f0d35ff5c8c3364de176",
+    "src/tau2/domains/retail/tools.py": "313d7e9394faab5fc693103e2f67c46e2a3d865c066b737a21c6cf4fe3dc772b"
+  },
+  "limitations": [
+    "No configured provider credentials were found in the checked process/user/machine variables or project .env files.",
+    "Agent, user and NL-judge models and the monetary limit are not yet selected.",
+    "No model-generated dialogue, quality result, measured latency or model cost exists yet.",
+    "The native NL evaluator model is not configurable through the CLI; effective judge settings must be recorded explicitly."
+  ]
+}

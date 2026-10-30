@@ -1,0 +1,17 @@
+documents/tmp
+evals/**/artifacts/
+evals/**/*-viewer.txt
+
+# Локальные настройки и ключи API
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Окружение и кеши Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.ruff_cache/

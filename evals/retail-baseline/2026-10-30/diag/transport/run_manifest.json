@@ -1,0 +1,112 @@
+{
+  "started_at_utc": "2026-10-30T15:10:06.985955+00:00",
+  "status": "finished",
+  "config": {
+    "elicitation": null,
+    "communicate_scoring": {
+      "scorer": "semantic",
+      "judge": {
+        "model": "gpt-5.5",
+        "model_args": {
+          "reasoning_effort": "low"
+        },
+        "prompt_version": "communicate-semantic-v1"
+      }
+    },
+    "llm_user": "openai/responses/gpt-6-luna",
+    "llm_args_user": {
+      "reasoning_effort": "low",
+      "max_tokens": 8192,
+      "timeout": 90,
+      "num_retries": 0
+    },
+    "num_trials": 1,
+    "max_errors": 5,
+    "timeout": 600.0,
+    "max_concurrency": 1,
+    "workers": 0,
+    "provider_limits": null,
+    "seed": 300,
+    "log_level": "INFO",
+    "verbose_logs": true,
+    "max_retries": 0,
+    "retry_delay": 1.0,
+    "auto_resume": false,
+    "auto_review": false,
+    "review_mode": "full",
+    "review_model": "claude-opus-4-5",
+    "hallucination_retries": 0,
+    "is_remote": false,
+    "retrieval_config": null,
+    "retrieval_config_kwargs": null,
+    "agent": "llm_agent",
+    "llm_agent": "openai/responses/gpt-6-luna",
+    "llm_args_agent": {
+      "reasoning_effort": "low",
+      "max_tokens": 8192,
+      "timeout": 90,
+      "num_retries": 0
+    },
+    "user": "user_simulator",
+    "max_steps": 60,
+    "enforce_communication_protocol": false,
+    "text_streaming_config": null,
+    "language": "en",
+    "pack_extension": null,
+    "localize_db": null,
+    "language_artifacts": null,
+    "benchmark": null,
+    "domain": "retail",
+    "task_set_name": null,
+    "task_split_name": "train",
+    "task_ids": [
+      "75"
+    ],
+    "num_tasks": null,
+    "save_to": "C:\\Users\\USER\\AppData\\Local\\Temp\\tau-baseline-live-20261030-task75-trusted"
+  },
+  "nl_judge": {
+    "model": "openai/responses/gpt-6-luna",
+    "args": {
+      "reasoning_effort": "low",
+      "max_tokens": 8192,
+      "timeout": 90,
+      "num_retries": 0
+    }
+  },
+  "llm_log_mode": "all",
+  "monetary_cap": null,
+  "volume_limit": "one trial per task, no automatic task/API retries",
+  "pricing_source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+  "price_usd_per_million": {
+    "input": 0.1,
+    "cached_input": 0.01,
+    "output": 0.5
+  },
+  "sha256_before": {
+    "uv.lock": "a112f36700a90222587769a767fdb4a301dbe713f5c486e35f261ccc978f3251",
+    "data/tau2/domains/retail/db.json": "dbde692e380bb4ad17f9f7841172cf1e69bebad2daa405628ccdc52a42b3b9b0",
+    "data/tau2/domains/retail/tasks.json": "f44563d8f36362e2dc58282bb02cfb85010d22f27d9439808758d3e9b2bc16d2",
+    "data/tau2/domains/retail/split_tasks.json": "5f9949b833e6b99584b87e84ef22f9d81789ea67a52e534c6f7aa91eff08adc7",
+    "data/tau2/domains/retail/policy.md": "4313d3fef8acf919f555fa17fbce929cc3ed1cef2dd8f0d35ff5c8c3364de176",
+    "src/tau2/domains/retail/tools.py": "313d7e9394faab5fc693103e2f67c46e2a3d865c066b737a21c6cf4fe3dc772b"
+  },
+  "simulations": [
+    {
+      "task_id": "75",
+      "termination_reason": "TerminationReason.INFRASTRUCTURE_ERROR",
+      "reward": null
+    }
+  ],
+  "wall_seconds": 31.362,
+  "finished_at_utc": "2026-10-30T15:10:38.354774+00:00",
+  "sha256_after": {
+    "uv.lock": "a112f36700a90222587769a767fdb4a301dbe713f5c486e35f261ccc978f3251",
+    "data/tau2/domains/retail/db.json": "dbde692e380bb4ad17f9f7841172cf1e69bebad2daa405628ccdc52a42b3b9b0",
+    "data/tau2/domains/retail/tasks.json": "f44563d8f36362e2dc58282bb02cfb85010d22f27d9439808758d3e9b2bc16d2",
+    "data/tau2/domains/retail/split_tasks.json": "5f9949b833e6b99584b87e84ef22f9d81789ea67a52e534c6f7aa91eff08adc7",
+    "data/tau2/domains/retail/policy.md": "4313d3fef8acf919f555fa17fbce929cc3ed1cef2dd8f0d35ff5c8c3364de176",
+    "src/tau2/domains/retail/tools.py": "313d7e9394faab5fc693103e2f67c46e2a3d865c066b737a21c6cf4fe3dc772b"
+  },
+  "input_files_unchanged": true
+}
