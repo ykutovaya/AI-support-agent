@@ -1,4 +1,4 @@
-"""Run the fixed retail development baseline without changing tau2 source files."""
+"""Запуск исходной оценки retail без изменения файлов tau2."""
 import argparse
 import hashlib
 import json
@@ -29,7 +29,7 @@ if not model or not os.environ.get('OPENAI_API_KEY'):
     raise SystemExit('OPENAI_MODEL and OPENAI_API_KEY must be configured')
 if model != 'gpt-6-luna':
     raise SystemExit('Model changed since preparation; review configuration first')
-# Use Windows trusted certificates without disabling TLS verification.
+# Используем доверенные сертификаты Windows с включённой проверкой TLS.
 if sys.platform == 'win32' and not os.environ.get('SSL_CERT_FILE'):
     import ssl
     import tempfile
@@ -97,7 +97,7 @@ try:
 except BaseException as e:
     manifest['status'] = 'runner_error'
     manifest['error_type'] = type(e).__name__
-    # Native logs preserve the detailed failure; redact credentials before export.
+    # Подробности сбоя остаются в штатных журналах; перед сохранением удаляем секреты.
     raise
 finally:
     manifest['wall_seconds'] = round(time.perf_counter()-t0, 3)

@@ -1,0 +1,96 @@
+{
+  "purpose": "Проверка подключения общего ядра; один случай не доказывает преимущество",
+  "source": "results.json",
+  "task_id": "75",
+  "trial": 0,
+  "seed": 626729,
+  "termination_reason": "user_stop",
+  "reward": 1.0,
+  "db_match": true,
+  "action_checks": [
+    {
+      "action": {
+        "action_id": "75_0",
+        "requestor": "assistant",
+        "name": "exchange_delivered_order_items",
+        "arguments": {
+          "order_id": "#W6908222",
+          "item_ids": [
+            "8555936349"
+          ],
+          "new_item_ids": [
+            "4063058357"
+          ],
+          "payment_method_id": "paypal_4518393"
+        },
+        "info": null,
+        "compare_args": null
+      },
+      "action_match": true,
+      "action_reward": 1.0,
+      "tool_type": "write"
+    }
+  ],
+  "nl_assertions_count": 0,
+  "duration_seconds": 48.661517500004265,
+  "wall_seconds": 50.497,
+  "tool_calls": {
+    "find_user_id_by_email": 1,
+    "get_order_details": 1,
+    "get_product_details": 1,
+    "exchange_delivered_order_items": 1
+  },
+  "roles": {
+    "assistant": {
+      "model_calls": 8,
+      "prompt_tokens": 35497,
+      "completion_tokens": 694,
+      "cached_input_tokens": 29752,
+      "estimated_usd_without_cache": 0.0038967,
+      "estimated_usd_with_reported_cache": 0.00121902
+    },
+    "user": {
+      "model_calls": 5,
+      "prompt_tokens": 4860,
+      "completion_tokens": 328,
+      "cached_input_tokens": 1104,
+      "estimated_usd_without_cache": 0.00065,
+      "estimated_usd_with_reported_cache": 0.00055064
+    }
+  },
+  "estimated_usd_without_cache": 0.0045467,
+  "estimated_usd_with_reported_cache": 0.00176966,
+  "price_usd_per_million": {
+    "input": 0.1,
+    "cached_input": 0.01,
+    "output": 0.5
+  },
+  "pricing_basis": "Тарифы исходного отчёта; расчёт по токенам, не выписка провайдера",
+  "pricing_source": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+  "input_files_unchanged": true,
+  "employee_approval": "Не добавлялось в штатную задачу",
+  "review_findings": [
+    "Клиент подтвердил товар, доплату 16.85 и исходный PayPal до операции.",
+    "Создана заявка exchange requested; фактическое списание и письмо среда не выполняет.",
+    "Итоговая фраза модели о текущем списании и будущем письме не подтверждается исполнением среды.",
+    "Ответы иногда содержат JSON-обёртку message: это следствие сохранённой инструкции исходного агента."
+  ],
+  "post_run_explanation_translation": {
+    "files": [
+      "src/support_agent/__init__.py",
+      "src/support_agent/adapters/__init__.py",
+      "src/support_agent/adapters/llm.py",
+      "src/support_agent/adapters/tau_bench.py",
+      "src/support_agent/agent.py",
+      "src/support_agent/demo.py",
+      "src/support_agent/models.py",
+      "tests/conftest.py",
+      "tests/test_llm.py",
+      "tests/test_tau_adapter.py",
+      "evals/core-integration/run_control.py",
+      "evals/retail-baseline/run_baseline.py"
+    ],
+    "ast_equal_ignoring_docstrings": true,
+    "api_run_repeated": false
+  }
+}

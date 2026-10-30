@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "support-agent"
+version = "0.1.0"
+description = "Ядро агента поддержки и адаптер для контрольной оценки τ-bench"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "pydantic==2.13.5",
+    "jsonschema==4.25.1",
+    "litellm==1.81.11",
+    "python-dotenv==1.2.4",
+    "openai==2.20.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==8.3.5", "ruff==0.11.7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

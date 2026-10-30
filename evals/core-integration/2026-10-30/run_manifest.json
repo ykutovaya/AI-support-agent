@@ -1,0 +1,138 @@
+{
+  "started_at_utc": "2026-10-30T19:15:22.972597+00:00",
+  "status": "finished",
+  "config": {
+    "elicitation": null,
+    "communicate_scoring": {
+      "scorer": "semantic",
+      "judge": {
+        "model": "gpt-5.5",
+        "model_args": {
+          "reasoning_effort": "low"
+        },
+        "prompt_version": "communicate-semantic-v1"
+      }
+    },
+    "llm_user": "openai/responses/gpt-6-luna",
+    "llm_args_user": {
+      "reasoning_effort": "low",
+      "max_tokens": 8192,
+      "timeout": 90,
+      "num_retries": 1
+    },
+    "num_trials": 1,
+    "max_errors": 5,
+    "timeout": 600.0,
+    "max_concurrency": 1,
+    "workers": 0,
+    "provider_limits": null,
+    "seed": 300,
+    "log_level": "INFO",
+    "verbose_logs": true,
+    "max_retries": 0,
+    "retry_delay": 1.0,
+    "auto_resume": false,
+    "auto_review": false,
+    "review_mode": "full",
+    "review_model": "claude-opus-4-5",
+    "hallucination_retries": 0,
+    "is_remote": false,
+    "retrieval_config": null,
+    "retrieval_config_kwargs": null,
+    "agent": "support_agent",
+    "llm_agent": "openai/responses/gpt-6-luna",
+    "llm_args_agent": {
+      "reasoning_effort": "low",
+      "max_tokens": 8192,
+      "timeout": 90,
+      "num_retries": 1
+    },
+    "user": "user_simulator",
+    "max_steps": 60,
+    "enforce_communication_protocol": false,
+    "text_streaming_config": null,
+    "language": "en",
+    "pack_extension": null,
+    "localize_db": null,
+    "language_artifacts": null,
+    "benchmark": null,
+    "domain": "retail",
+    "task_set_name": null,
+    "task_split_name": "train",
+    "task_ids": [
+      "75"
+    ],
+    "num_tasks": null,
+    "save_to": "C:\\Users\\USER\\Documents\\portfolio\\ai-support-agent\\evals\\core-integration\\2026-10-30"
+  },
+  "nl_judge": {
+    "model": "openai/responses/gpt-6-luna",
+    "args": {
+      "reasoning_effort": "low",
+      "max_tokens": 8192,
+      "timeout": 90,
+      "num_retries": 1
+    }
+  },
+  "versions": {
+    "tau2": "2.0.0",
+    "litellm": "1.81.11",
+    "openai": "2.20.0",
+    "pydantic": "2.13.5",
+    "python-dotenv": "1.2.4"
+  },
+  "python": "3.12.12 (main, Feb 12 2026, 00:40:26) [MSC v.1944 64 bit (AMD64)]",
+  "project_commit": "8226d37ec3c09c5ae48d2f3653856dee9d8ecc6a",
+  "sha256_before": {
+    "uv.lock": "a112f36700a90222587769a767fdb4a301dbe713f5c486e35f261ccc978f3251",
+    "data/tau2/domains/retail/db.json": "dbde692e380bb4ad17f9f7841172cf1e69bebad2daa405628ccdc52a42b3b9b0",
+    "data/tau2/domains/retail/tasks.json": "f44563d8f36362e2dc58282bb02cfb85010d22f27d9439808758d3e9b2bc16d2",
+    "data/tau2/domains/retail/split_tasks.json": "5f9949b833e6b99584b87e84ef22f9d81789ea67a52e534c6f7aa91eff08adc7",
+    "data/tau2/domains/retail/policy.md": "4313d3fef8acf919f555fa17fbce929cc3ed1cef2dd8f0d35ff5c8c3364de176",
+    "src/tau2/domains/retail/tools.py": "313d7e9394faab5fc693103e2f67c46e2a3d865c066b737a21c6cf4fe3dc772b",
+    "data/tau2/multilingual/en/pack.yaml": "cd14ad9a7aaa298ce54c8c434f2cd1fb55500b13e6fdd1b824d92205a7e4f752",
+    "data/tau2/multilingual/en/retail_tasks_en.json": "29b1ab84363d93161b3bb3827c4aeb8bce5c91909f5f96b8ced56253a26a0720",
+    "data/tau2/multilingual/en/retail_metadata_en.json": "c4950eb78d61798a8c7d37598cb19038b24ef10b25b8e9c9b677669001320750"
+  },
+  "tau2_commit": "da0835f6c67baef58bdda18f2a3b037dfb3a1754",
+  "code_sha256": {
+    "src\\support_agent\\__init__.py": "3fde6844d609893d7c827d9db44f405175334b0893316ff47ea9e86f3e630bcb",
+    "src\\support_agent\\adapters\\__init__.py": "6b8760145989ae7515be6c87ce851bfaaf0c309e25925915ba6a129755057a06",
+    "src\\support_agent\\adapters\\llm.py": "9e2c6b8d409083b4ee07e4e5bfe6ea940a19c77a862df13cf6e9b4aca0fb854d",
+    "src\\support_agent\\adapters\\tau_bench.py": "e1cc28a0190f89164020a977944b5a3b4a72d35f2e44b2436a1b3ba19cf99201",
+    "src\\support_agent\\agent.py": "16cfcf8bce2b6c147ab2fb96ae2c3e2d595c4bac5998282eb2a9b0c74c038a82",
+    "src\\support_agent\\demo.py": "ff258844fbd560b1bb960659d914ce8e89f64d3091be3aace8f581b302b2008a",
+    "src\\support_agent\\models.py": "7ef8952e89f9d552cbf93fcebd3886678eeba5d0c0278dfacf9ad33aac6b63dd",
+    "evals\\core-integration\\run_control.py": "66b9392918b69525514be19f5341016534908671fabe978929b05c6ba319a0b9"
+  },
+  "baseline_manifest_sha256": "5713adcf1a586a352658462d4650086fe42cf11b676bbaf6fbe261096c418e6e",
+  "llm_log_mode": "all",
+  "monetary_cap": null,
+  "volume_limit": "one trial for task 75; no task retries; one transient API retry",
+  "comparison": "Only agent implementation changed; employee work is not measured",
+  "tls": "TLS verification enabled; certifi plus trusted Windows ROOT/CA certificates",
+  "simulations": [
+    {
+      "task_id": "75",
+      "seed": 626729,
+      "termination_reason": "user_stop",
+      "reward": 1.0
+    }
+  ],
+  "wall_seconds": 50.497,
+  "finished_at_utc": "2026-10-30T19:16:13.505360+00:00",
+  "sha256_after": {
+    "uv.lock": "a112f36700a90222587769a767fdb4a301dbe713f5c486e35f261ccc978f3251",
+    "data/tau2/domains/retail/db.json": "dbde692e380bb4ad17f9f7841172cf1e69bebad2daa405628ccdc52a42b3b9b0",
+    "data/tau2/domains/retail/tasks.json": "f44563d8f36362e2dc58282bb02cfb85010d22f27d9439808758d3e9b2bc16d2",
+    "data/tau2/domains/retail/split_tasks.json": "5f9949b833e6b99584b87e84ef22f9d81789ea67a52e534c6f7aa91eff08adc7",
+    "data/tau2/domains/retail/policy.md": "4313d3fef8acf919f555fa17fbce929cc3ed1cef2dd8f0d35ff5c8c3364de176",
+    "src/tau2/domains/retail/tools.py": "313d7e9394faab5fc693103e2f67c46e2a3d865c066b737a21c6cf4fe3dc772b",
+    "data/tau2/multilingual/en/pack.yaml": "cd14ad9a7aaa298ce54c8c434f2cd1fb55500b13e6fdd1b824d92205a7e4f752",
+    "data/tau2/multilingual/en/retail_tasks_en.json": "29b1ab84363d93161b3bb3827c4aeb8bce5c91909f5f96b8ced56253a26a0720",
+    "data/tau2/multilingual/en/retail_metadata_en.json": "c4950eb78d61798a8c7d37598cb19038b24ef10b25b8e9c9b677669001320750"
+  },
+  "input_files_unchanged": true,
+  "tau2_commit_after": "da0835f6c67baef58bdda18f2a3b037dfb3a1754",
+  "tau2_commit_unchanged": true
+}
