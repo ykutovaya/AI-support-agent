@@ -1,0 +1,92 @@
+{
+  "checked_at_utc": "2026-10-30T20:34:12.715924+00:00",
+  "scope": "Минимальный экран сотрудника, согласования, исполнение и восстановление доставки",
+  "api_calls": 0,
+  "paid_tau2_run": false,
+  "model": "DemoModel и подставные ответы",
+  "data": "Синтетический retail в тестах; исходные данные tau2 не изменялись",
+  "python": "3.12.12",
+  "versions": {
+    "tau2": "2.0.0",
+    "streamlit": "1.66.0",
+    "pytest": "8.3.5",
+    "ruff": "0.11.7",
+    "pydantic": "2.13.5",
+    "litellm": "1.81.11"
+  },
+  "command": "..\\tau2-bench\\.venv\\Scripts\\python.exe -B -m pytest tests -q -p no:cacheprovider --junitxml=evals/staff-workspace/2026-10-30/pytest.xml",
+  "pytest": {
+    "tests": 138,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "test_seconds": 11.127,
+  "ruff": {
+    "check": "passed",
+    "format_check": "passed"
+  },
+  "streamlit_health": {
+    "status": "passed",
+    "url": "http://127.0.0.1:8513/_stcore/health",
+    "response": "ok",
+    "mode": "demo",
+    "api_calls": 0
+  },
+  "tau2_commit": "da0835f6c67baef58bdda18f2a3b037dfb3a1754",
+  "reference_manifest": "evals/core-integration/2026-10-30/run_manifest.json",
+  "input_files_unchanged": true,
+  "tau2_source_sha256": {
+    "uv.lock": "a112f36700a90222587769a767fdb4a301dbe713f5c486e35f261ccc978f3251",
+    "data/tau2/domains/retail/db.json": "dbde692e380bb4ad17f9f7841172cf1e69bebad2daa405628ccdc52a42b3b9b0",
+    "data/tau2/domains/retail/tasks.json": "f44563d8f36362e2dc58282bb02cfb85010d22f27d9439808758d3e9b2bc16d2",
+    "data/tau2/domains/retail/split_tasks.json": "5f9949b833e6b99584b87e84ef22f9d81789ea67a52e534c6f7aa91eff08adc7",
+    "data/tau2/domains/retail/policy.md": "4313d3fef8acf919f555fa17fbce929cc3ed1cef2dd8f0d35ff5c8c3364de176",
+    "src/tau2/domains/retail/tools.py": "313d7e9394faab5fc693103e2f67c46e2a3d865c066b737a21c6cf4fe3dc772b",
+    "data/tau2/multilingual/en/pack.yaml": "cd14ad9a7aaa298ce54c8c434f2cd1fb55500b13e6fdd1b824d92205a7e4f752",
+    "data/tau2/multilingual/en/retail_tasks_en.json": "29b1ab84363d93161b3bb3827c4aeb8bce5c91909f5f96b8ced56253a26a0720",
+    "data/tau2/multilingual/en/retail_metadata_en.json": "c4950eb78d61798a8c7d37598cb19038b24ef10b25b8e9c9b677669001320750"
+  },
+  "code_and_tests_sha256": {
+    "src/support_agent/agent.py": "929571618f0939b833de8470d06ba15804338d472bec3ad77891404f9703294b",
+    "src/support_agent/bootstrap.py": "dd9cadd11fd8098e8bcf864612ade2bd449d2e700b3b79376a59bbfde4db1be0",
+    "src/support_agent/demo.py": "b7c3991bc27aa09c9032da1f53aba752a9d2f20e46c39df48d021d3eea70aa5d",
+    "src/support_agent/execution.py": "7ce6ad030f53cb2cef44ebdf3866cbac6c2fe26ebe891c109d43144a18df8e5d",
+    "src/support_agent/models.py": "1e9487bae05f7c824ed8bb29f62b9629014987871b5b16bd31d487e69d8060a9",
+    "src/support_agent/proposals.py": "b07ac03e4faad1a05f852689c5a73e4165f5b5ae321199a42fbc2c0fba3fbc62",
+    "src/support_agent/storage.py": "7688e215da3a99ceef095a66e6c869e1b6ab284cba151ebedcb4ea21fded4174",
+    "src/support_agent/ui.py": "9ec174a4adfd77a250a4324fca20bd3226ae7a792f74f20891a3bc7a3a2172f3",
+    "src/support_agent/workflow.py": "b507f9f4ede47ae18c69d495d3892cdcac2ce22b4da729ce406d6bf701ec6eab",
+    "src/support_agent/__init__.py": "3dab7fa392438c0f8fb323f52e3999144b77cfc71ee6ca91cde18f4e6e73bcdf",
+    "src/support_agent/adapters/demo_model.py": "0b10982e0cb208d3699a702ea9cefa1e4aff9cab710a6841ad4472bf01f2f270",
+    "src/support_agent/adapters/llm.py": "59190880af8d5f88fa86eb3c573a6b2c7f6d2ea2c53126946a4c5e6a0b9d80a7",
+    "src/support_agent/adapters/retail.py": "19b6449a2e5104e2494ea593387d1dc2825e02b1eb8a735ec420e2e15778ef78",
+    "src/support_agent/adapters/tau_bench.py": "bd8208af850ee61a2fa92926b13ac192d32f50a4698e472ece2ac9437229df22",
+    "src/support_agent/adapters/__init__.py": "01a9b010035def2b4ba4b6d05eab45f93d3f6aab32dc3406ec61e94e02201aec",
+    "tests/conftest.py": "c94aeca3826d6b29c40b637217581f2c89eda7f73b3b2f6c8d0cab9c61a3c9ce",
+    "tests/retail_data.py": "b41f93782cdd4ad6b1cfb965249b9cc8cabb4dc4176c32ce7f3aaae5c70b77b3",
+    "tests/test_app_flow.py": "cbae22e2e076f053c3b21026d3debc02b7a898bfda13a9fd13f77826cb1f51b5",
+    "tests/test_bootstrap.py": "b30b63eb9686d001fe21d46dfed0bff212ccffd8f2815fcd9af5e7335aa28f16",
+    "tests/test_control.py": "7864f42ad6d5d3bb0b772975bcb3f58923e776e35ed4cab753fa239cfb64237c",
+    "tests/test_core.py": "3c84c875853723c1c4a187bfc3d26dc1099bcdaaa5fc8a3882c9188e8c56acb4",
+    "tests/test_demo.py": "02275eb24a5c0179ae2aaa0ce6ea05e8deb905716f7c2b8d529e2a848dbbb68b",
+    "tests/test_demo_model.py": "e6afb660d1c6fc9ac0f23728eb74c39cae288f07e9de0fee3c95d30e8c482400",
+    "tests/test_execution.py": "7ac33c73e23ad42977e297cffc6e20486b7b0bdd47298afffab82fee627a3c50",
+    "tests/test_llm.py": "4aca8282ee779b007ecd86e76d2accd5215cb4add94d3b80dd0e373d67d31b35",
+    "tests/test_proposals.py": "74f031ce213c977d4f79e8f392e37c4fa528c6fb8dd30867373202406b027046",
+    "tests/test_recommendations.py": "19eb4c97bdbd5ea6b1a8aee3c272d42817c62b554a2f5439e119688386f6a776",
+    "tests/test_retail.py": "0a49a0dc9bf5faa0eeae5815d8d8ee3d88f647d8ded8b447ae2074ada3265fc2",
+    "tests/test_storage.py": "75add519ab9bace0300ffcda3f88f648b21be3693e655bfdcb05e659a2f87235",
+    "tests/test_tau_adapter.py": "fa18ed96a7cdf4f0dc8b27e82b486be81b3854fb3761ebb46775cded0aa1979b",
+    "tests/test_ui.py": "60921a8eaec2109e3fdc567dd6608844508a7955b3d19c0626e8faf123159f61",
+    "tests/test_workflow.py": "e72170e6218c3230c7ffd43e382aa043f4a33fd146b982f459f7807f137bc778",
+    "tests/test_workflow_regressions.py": "3a1f1111e4d9d064db04a939b123503c2081e7f98eb5257b9c91b1ccbe62dbae"
+  },
+  "limits": [
+    "Нет проверки качества живой модели",
+    "Нет реальной авторизации и внешней доставки",
+    "Обмен и возврат создают заявки, без платежа",
+    "Продолжение очереди запускает сотрудник; фонового отправителя нет",
+    "Метрики и эксперимент этапа 5 не реализованы"
+  ]
+}

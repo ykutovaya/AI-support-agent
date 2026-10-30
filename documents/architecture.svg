@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1800" viewBox="0 0 2400 1800">
+<rect width="2400" height="1800" fill="white"/>
+<text x='80' y='79' font-family='Segoe UI,Arial,sans-serif' font-size='44' font-weight='700' fill='#172B4D'>ИИ-агент поддержки · реализованная архитектура</text>
+<text x='80' y='122' font-family='Segoe UI,Arial,sans-serif' font-size='28' font-weight='400' fill='#526478'>Этап 3  |  Одно ядро для приложения и испытаний τ-bench</text>
+<polyline points='80,1180 35,1180 35,440 960,440 960,360 1000,360' fill='none' stroke='#94A3B8' stroke-width='3' />
+<polygon points='1000,360 985,353 985,367' fill='#94A3B8'/>
+<polyline points='770,600 770,485 1150,485 1150,420' fill='none' stroke='#94A3B8' stroke-width='3' />
+<polygon points='1150,420 1143,435 1157,435' fill='#94A3B8'/>
+<polygon points='770,600 777,585 763,585' fill='#94A3B8'/>
+<polyline points='1000,1095 1090,1095 1090,520 1520,520 1520,420' fill='none' stroke='#94A3B8' stroke-width='3' />
+<polygon points='1520,420 1513,435 1527,435' fill='#94A3B8'/>
+<polygon points='1000,1095 1015,1102 1015,1088' fill='#94A3B8'/>
+<text x='90' y='472' font-family='Segoe UI,Arial,sans-serif' font-size='22' font-weight='400' fill='#64748B'>Результат доставки</text>
+<text x='790' y='557' font-family='Segoe UI,Arial,sans-serif' font-size='22' font-weight='400' fill='#64748B'>Диалог и версии</text>
+<text x='1160' y='552' font-family='Segoe UI,Arial,sans-serif' font-size='22' font-weight='400' fill='#64748B'>Условия, операция и очередь</text>
+<polyline points='430,290 500,290' fill='none' stroke='#64748B' stroke-width='3' />
+<polygon points='500,290 485,283 485,297' fill='#64748B'/>
+<polyline points='890,290 1000,290' fill='none' stroke='#64748B' stroke-width='3' />
+<polygon points='1000,290 985,283 985,297' fill='#64748B'/>
+<polyline points='430,710 540,710' fill='none' stroke='white' stroke-width='11'/>
+<polyline points='430,710 540,710' fill='none' stroke='#2563EB' stroke-width='3' />
+<polygon points='540,710 525,703 525,717' fill='#2563EB'/>
+<polyline points='1000,710 1840,710' fill='none' stroke='white' stroke-width='11'/>
+<polyline points='1000,710 1840,710' fill='none' stroke='#2563EB' stroke-width='3' />
+<polygon points='1840,710 1825,703 1825,717' fill='#2563EB'/>
+<polygon points='1000,710 1015,717 1015,703' fill='#2563EB'/>
+<text x='1170' y='685' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#1D4ED8'>Сообщения · правила · схемы</text>
+<polyline points='2065,600 2065,460' fill='none' stroke='#2563EB' stroke-width='3' />
+<polygon points='2065,460 2058,475 2072,475' fill='#2563EB'/>
+<polygon points='2065,600 2072,585 2058,585' fill='#2563EB'/>
+<text x='2100' y='544' font-family='Segoe UI,Arial,sans-serif' font-size='24' font-weight='400' fill='#1D4ED8'>generate()</text>
+<polyline points='770,820 770,1060' fill='none' stroke='#B45309' stroke-width='3' />
+<polygon points='770,1060 777,1045 763,1045' fill='#B45309'/>
+<text x='795' y='949' font-family='Segoe UI,Arial,sans-serif' font-size='24' font-weight='400' fill='#92400E'>Подтверждение</text>
+<polyline points='1000,790 1410,790 1410,1050' fill='none' stroke='white' stroke-width='11'/>
+<polyline points='1000,790 1410,790 1410,1050' fill='none' stroke='#15803D' stroke-width='3' />
+<polygon points='1410,1050 1417,1035 1403,1035' fill='#15803D'/>
+<polygon points='1000,790 1015,797 1015,783' fill='#15803D'/>
+<text x='1110' y='900' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#166534'>Чтения и предложения</text>
+<polyline points='1000,1190 1160,1190' fill='none' stroke='#B45309' stroke-width='3' />
+<polygon points='1160,1190 1145,1183 1145,1197' fill='#B45309'/>
+<polygon points='1000,1190 1015,1197 1015,1183' fill='#B45309'/>
+<text x='1020' y='1232' font-family='Segoe UI,Arial,sans-serif' font-size='22' font-weight='400' fill='#92400E'>execute</text>
+<polyline points='1650,1190 1840,1190' fill='none' stroke='#15803D' stroke-width='3' />
+<polygon points='1840,1190 1825,1183 1825,1197' fill='#15803D'/>
+<polygon points='1650,1190 1665,1197 1665,1183' fill='#15803D'/>
+<text x='1690' y='1232' font-family='Segoe UI,Arial,sans-serif' font-size='22' font-weight='400' fill='#166534'>Копия</text>
+<polyline points='540,1180 430,1180' fill='none' stroke='#B45309' stroke-width='3' />
+<polygon points='430,1180 445,1187 445,1173' fill='#B45309'/>
+<text x='445' y='1232' font-family='Segoe UI,Arial,sans-serif' font-size='22' font-weight='400' fill='#92400E'>Ответ</text>
+<rect x='80' y='200' width='350' height='180' rx='14' fill='#FFFFFF' stroke='#94A3B8' stroke-width='2'/>
+<text x='104' y='251' font-family='Segoe UI,Arial,sans-serif' font-size='31' font-weight='700' fill='#172B4D'>Исходные данные</text>
+<text x='104' y='289' font-family='Segoe UI,Arial,sans-serif' font-size='23' font-weight='400' fill='#526478'>retail/db.json + policy.md</text>
+<text x='104' y='337' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Только чтение</text>
+<rect x='500' y='200' width='390' height='180' rx='14' fill='#FFFFFF' stroke='#94A3B8' stroke-width='2'/>
+<text x='524' y='251' font-family='Segoe UI,Arial,sans-serif' font-size='31' font-weight='700' fill='#172B4D'>Инициализация</text>
+<text x='524' y='289' font-family='Segoe UI,Arial,sans-serif' font-size='23' font-weight='400' fill='#526478'>bootstrap.py</text>
+<text x='524' y='337' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>При пустом снимке</text>
+<rect x='1000' y='160' width='650' height='260' rx='14' fill='#F8FAFC' stroke='#94A3B8' stroke-width='2'/>
+<text x='1024' y='211' font-family='Segoe UI,Arial,sans-serif' font-size='31' font-weight='700' fill='#172B4D'>SQLite · Store</text>
+<text x='1024' y='249' font-family='Segoe UI,Arial,sans-serif' font-size='23' font-weight='400' fill='#526478'>storage.py  |  var/support.sqlite3</text>
+<text x='1024' y='297' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Рабочий retail_state + правила</text>
+<text x='1024' y='333' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Диалог · версии · согласия · подтверждения</text>
+<text x='1024' y='369' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Операции · очередь · доставка · журнал</text>
+<rect x='1840' y='160' width='450' height='300' rx='14' fill='#EFF6FF' stroke='#93C5FD' stroke-width='2'/>
+<text x='1864' y='211' font-family='Segoe UI,Arial,sans-serif' font-size='31' font-weight='700' fill='#172B4D'>Выбор модели</text>
+<text x='1864' y='259' font-family='Segoe UI,Arial,sans-serif' font-size='24' font-weight='400' fill='#253449'>demo_model.py · DemoModel</text>
+<text x='1864' y='298' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#526478'>Учебные правила, без API</text>
+<text x='1864' y='337' font-family='Segoe UI,Arial,sans-serif' font-size='20' font-weight='700' fill='#1D4ED8'>ИЛИ</text>
+<text x='1864' y='379' font-family='Segoe UI,Arial,sans-serif' font-size='24' font-weight='400' fill='#253449'>llm.py · LiteLLMClient</text>
+<text x='1864' y='418' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#526478'>Внешний API в режиме api</text>
+<rect x='80' y='600' width='350' height='220' rx='14' fill='#EFF6FF' stroke='#93C5FD' stroke-width='2'/>
+<text x='104' y='651' font-family='Segoe UI,Arial,sans-serif' font-size='31' font-weight='700' fill='#172B4D'>Экран сотрудника</text>
+<text x='104' y='689' font-family='Segoe UI,Arial,sans-serif' font-size='23' font-weight='400' fill='#526478'>ui.py · Streamlit</text>
+<text x='104' y='737' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>История · предложения</text>
+<text x='104' y='773' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Согласования · результат</text>
+<rect x='540' y='600' width='460' height='220' rx='14' fill='#EFF6FF' stroke='#93C5FD' stroke-width='2'/>
+<text x='564' y='651' font-family='Segoe UI,Arial,sans-serif' font-size='31' font-weight='700' fill='#172B4D'>Управление обращением</text>
+<text x='564' y='689' font-family='Segoe UI,Arial,sans-serif' font-size='23' font-weight='400' fill='#526478'>workflow.py · SupportService</text>
+<text x='564' y='737' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Диалог · версии предложений</text>
+<text x='564' y='773' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Согласие клиента отдельно</text>
+<rect x='1840' y='600' width='450' height='220' rx='14' fill='#DBEAFE' stroke='#2563EB' stroke-width='2'/>
+<text x='1864' y='651' font-family='Segoe UI,Arial,sans-serif' font-size='31' font-weight='700' fill='#172B4D'>AgentCore</text>
+<text x='1864' y='689' font-family='Segoe UI,Arial,sans-serif' font-size='23' font-weight='400' fill='#526478'>agent.py · ОДНО ЯДРО</text>
+<text x='1864' y='737' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Следующий шаг + состояние</text>
+<text x='1864' y='773' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Инструменты не исполняет</text>
+<rect x='80' y='1060' width='350' height='240' rx='14' fill='#FFF7ED' stroke='#FDBA74' stroke-width='2'/>
+<text x='104' y='1111' font-family='Segoe UI,Arial,sans-serif' font-size='31' font-weight='700' fill='#172B4D'>Тестовый канал</text>
+<text x='104' y='1149' font-family='Segoe UI,Arial,sans-serif' font-size='23' font-weight='400' fill='#526478'>execution.py · TestChannel</text>
+<text x='104' y='1197' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Локальная запись в SQLite</text>
+<text x='104' y='1233' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Почта не отправляется</text>
+<rect x='540' y='1060' width='460' height='260' rx='14' fill='#FFF7ED' stroke='#FDBA74' stroke-width='2'/>
+<text x='564' y='1111' font-family='Segoe UI,Arial,sans-serif' font-size='31' font-weight='700' fill='#172B4D'>Исполнитель</text>
+<text x='564' y='1149' font-family='Segoe UI,Arial,sans-serif' font-size='23' font-weight='400' fill='#526478'>execution.py · Executor</text>
+<text x='564' y='1197' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Версии · согласия · права</text>
+<text x='564' y='1233' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Транзакция SQLite</text>
+<text x='564' y='1269' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Защита от повтора</text>
+<rect x='1160' y='1050' width='490' height='270' rx='14' fill='#F0FDF4' stroke='#86EFAC' stroke-width='2'/>
+<text x='1184' y='1101' font-family='Segoe UI,Arial,sans-serif' font-size='31' font-weight='700' fill='#172B4D'>Адаптер магазина</text>
+<text x='1184' y='1139' font-family='Segoe UI,Arial,sans-serif' font-size='23' font-weight='400' fill='#526478'>adapters/retail.py · RetailAdapter</text>
+<text x='1184' y='1187' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Чтение: доступ ДО выдачи</text>
+<text x='1184' y='1223' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Предложение: условия + сумма</text>
+<text x='1184' y='1259' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>execute: копия + проверка</text>
+<rect x='1840' y='1060' width='450' height='240' rx='14' fill='#F0FDF4' stroke='#86EFAC' stroke-width='2'/>
+<text x='1864' y='1111' font-family='Segoe UI,Arial,sans-serif' font-size='31' font-weight='700' fill='#172B4D'>RetailTools</text>
+<text x='1864' y='1149' font-family='Segoe UI,Arial,sans-serif' font-size='23' font-weight='400' fill='#526478'>tau2 · рабочая копия</text>
+<text x='1864' y='1197' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Создаёт заявку обмена/возврата</text>
+<text x='1864' y='1233' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Без платежа и письма</text>
+<text x='80' y='1385' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#526478'>Доставка после фиксации операции; её повтор не выполняет действие заново.</text>
+<rect x='60' y='1470' width='2230' height='280' rx='14' fill='#FAF8FF' stroke='#D8CFF2' stroke-width='2'/>
+<text x='85' y='1517' font-family='Segoe UI,Arial,sans-serif' font-size='27' font-weight='700' fill='#6D28D9'>τ-bench · отдельный путь</text>
+<rect x='80' y='1550' width='500' height='160' rx='14' fill='#FFFFFF' stroke='#B6A3E2' stroke-width='2'/>
+<text x='104' y='1601' font-family='Segoe UI,Arial,sans-serif' font-size='31' font-weight='700' fill='#172B4D'>Штатная среда τ-bench</text>
+<text x='104' y='1639' font-family='Segoe UI,Arial,sans-serif' font-size='23' font-weight='400' fill='#526478'>Окружение и оркестратор</text>
+<text x='104' y='1687' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Инструменты исполняет среда</text>
+<rect x='730' y='1550' width='560' height='160' rx='14' fill='#FFFFFF' stroke='#B6A3E2' stroke-width='2'/>
+<text x='754' y='1601' font-family='Segoe UI,Arial,sans-serif' font-size='31' font-weight='700' fill='#172B4D'>Адаптер испытаний</text>
+<text x='754' y='1639' font-family='Segoe UI,Arial,sans-serif' font-size='23' font-weight='400' fill='#526478'>adapters/tau_bench.py</text>
+<text x='754' y='1687' font-family='Segoe UI,Arial,sans-serif' font-size='25' font-weight='400' fill='#253449'>Сообщения ↔ вызовы инструментов</text>
+<polyline points='580,1630 730,1630' fill='none' stroke='#7C3AED' stroke-width='3' />
+<polygon points='730,1630 715,1623 715,1637' fill='#7C3AED'/>
+<polygon points='580,1630 595,1637 595,1623' fill='#7C3AED'/>
+<polyline points='1290,1630 2350,1630 2350,710 2290,710' fill='none' stroke='#7C3AED' stroke-width='3' stroke-dasharray='12 9'/>
+<polygon points='2290,710 2305,717 2305,703' fill='#7C3AED'/>
+<polygon points='1290,1630 1305,1637 1305,1623' fill='#7C3AED'/>
+<text x='1450' y='1609' font-family='Segoe UI,Arial,sans-serif' font-size='27' font-weight='700' fill='#6D28D9'>К ТОМУ ЖЕ AgentCore</text>
+<text x='1450' y='1683' font-family='Segoe UI,Arial,sans-serif' font-size='23' font-weight='400' fill='#6D28D9'>Согласования сотрудника сюда не добавляются</text>
+</svg>
