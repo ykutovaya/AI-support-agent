@@ -47,6 +47,11 @@ class Store:
                 CREATE TABLE IF NOT EXISTS events (
                     id INTEGER PRIMARY KEY AUTOINCREMENT, case_id TEXT NOT NULL REFERENCES cases(id),
                     kind TEXT NOT NULL, text TEXT NOT NULL);
+                CREATE TABLE IF NOT EXISTS recoveries (
+                    source_proposal_id TEXT PRIMARY KEY REFERENCES proposals(id),
+                    case_id TEXT NOT NULL REFERENCES cases(id), body TEXT NOT NULL,
+                    status TEXT NOT NULL DEFAULT 'pending',
+                    proposal_id TEXT REFERENCES proposals(id), reason TEXT NOT NULL DEFAULT '');
             """)
 
     @contextmanager

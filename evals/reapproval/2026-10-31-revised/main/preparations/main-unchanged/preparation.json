@@ -1,0 +1,11 @@
+{
+  "scenario_id": "main-unchanged",
+  "status": "prepared",
+  "case_id": "032adb5f7eac430d828bcdf7858d9c5f",
+  "proposal_id": "55da9ab82ab046859bbc5e6eaee17712",
+  "event_boundary": 10,
+  "checkpoint_sha256": "0933ef3fc7d9a92eb08cc963912e8dddfae39c13a93ad794fd8abc8da5044be3",
+  "model_calls": 5,
+  "api_calls": 5,
+  "elapsed_seconds": 12.625
+}

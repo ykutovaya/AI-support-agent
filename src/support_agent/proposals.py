@@ -3,9 +3,9 @@
 import hashlib
 import json
 from decimal import Decimal
-from typing import Literal
+from typing import Any, Literal
 
-from pydantic import Field, model_validator
+from pydantic import Field, model_serializer, model_validator
 
 from support_agent.models import Contract
 
@@ -32,9 +32,32 @@ class Action(Contract):
     result_status: Literal["exchange requested", "return requested"]
     description: str
     evidence: list[Evidence]
+    condition_values: dict = Field(default_factory=dict)
+
+    @model_serializer(mode="wrap")
+    def preserve_legacy_signature(self, handler):
+        """Пустое новое поле не меняет подписи ранее сохранённых предложений."""
+        result = handler(self)
+        if not self.condition_values:
+            result.pop("condition_values", None)
+        return result
 
     def fingerprint(self) -> str:
         return digest(self.model_dump(mode="json"))
+
+
+class ConditionChange(Contract):
+    field: str
+    label: str
+    before: Any
+    after: Any
+
+
+class ConditionCheck(Contract):
+    status: Literal["unchanged", "changed", "forbidden"]
+    reason: str
+    changes: list[ConditionChange] = Field(default_factory=list)
+    current: Action | None = None
 
 
 class Proposal(Contract):

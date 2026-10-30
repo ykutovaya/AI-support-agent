@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "kind": "synthetic_application_scenarios_not_tau_benchmark",
+  "pilot": [
+    {"id":"pilot-unchanged","mutation":"none","order_id":"#P101","user_id":"pilot1","product_id":"pilot-product1","old_price":"10.00","new_price":"12.35","changed_price":null},
+    {"id":"pilot-price","mutation":"price","order_id":"#P102","user_id":"pilot2","product_id":"pilot-product2","old_price":"40.00","new_price":"45.50","changed_price":"49.75"},
+    {"id":"pilot-status","mutation":"status","order_id":"#P103","user_id":"pilot3","product_id":"pilot-product3","old_price":"75.00","new_price":"78.10","changed_price":null}
+  ],
+  "main": [
+    {"id":"main-unchanged","mutation":"none","order_id":"#M201","user_id":"main1","product_id":"main-product1","old_price":"20.00","new_price":"21.80","changed_price":null},
+    {"id":"main-price","mutation":"price","order_id":"#M202","user_id":"main2","product_id":"main-product2","old_price":"120.00","new_price":"124.35","changed_price":"131.20"},
+    {"id":"main-status","mutation":"status","order_id":"#M203","user_id":"main3","product_id":"main-product3","old_price":"60.00","new_price":"65.40","changed_price":null}
+  ]
+}

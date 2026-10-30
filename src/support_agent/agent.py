@@ -69,6 +69,25 @@ class AgentCore:
             )
         next_state = state.model_copy(deep=True)
         next_state.messages.extend(m.model_copy(deep=True) for m in messages)
+        return self._generate(next_state)
+
+    def continue_with_event(self, text: str, state: AgentState):
+        """Продолжить после события приложения, не создавая реплику клиента."""
+        next_state = state.model_copy(deep=True)
+        pending = {c.id for m in next_state.messages for c in m.tool_calls or []}
+        pending -= {m.tool_call_id for m in next_state.messages if m.role == "tool"}
+        if pending:
+            raise ValueError("Сначала нужны результаты предыдущих инструментов")
+        next_state.messages.append(
+            Message(
+                role="assistant",
+                content="Служебное событие приложения (не сообщение клиента): " + text,
+            )
+        )
+        return self._generate(next_state)
+
+    def _generate(self, next_state):
+        """Общий вызов модели и проверка её ответа для обоих источников событий."""
         request = [
             Message(role="system", content=self.system_prompt),
             *next_state.messages,

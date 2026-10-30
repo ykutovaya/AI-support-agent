@@ -1,0 +1,11 @@
+{
+  "scenario_id": "pilot-price",
+  "status": "prepared",
+  "case_id": "8e428fc12a304a11a877c2b223032a20",
+  "proposal_id": "66fa786f31bb4089a614baf20283e6ae",
+  "event_boundary": 10,
+  "checkpoint_sha256": "ade8657c3776ff50e5e3aa66c478b9e8b6030837b82fb1f7aafb6434c354caf2",
+  "model_calls": 4,
+  "api_calls": 4,
+  "elapsed_seconds": 13.937
+}

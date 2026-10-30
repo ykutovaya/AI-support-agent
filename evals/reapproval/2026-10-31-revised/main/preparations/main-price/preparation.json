@@ -1,0 +1,11 @@
+{
+  "scenario_id": "main-price",
+  "status": "prepared",
+  "case_id": "3834de873ccc4b86ba72277d7a487086",
+  "proposal_id": "53d8416a3ece4c09ad27462d7bd1a415",
+  "event_boundary": 10,
+  "checkpoint_sha256": "5e506f7a57704778c03e1c369676efc7bd7fa49143e9a025a094358f8ebf4249",
+  "model_calls": 4,
+  "api_calls": 4,
+  "elapsed_seconds": 9.937
+}

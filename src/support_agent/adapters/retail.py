@@ -10,7 +10,13 @@ from tau2.domains.retail.tools import RetailTools
 from tau2.utils.text_match import fold_for_match
 
 from support_agent.models import ToolSpec
-from support_agent.proposals import Action, Evidence, digest
+from support_agent.proposals import (
+    Action,
+    ConditionChange,
+    ConditionCheck,
+    Evidence,
+    digest,
+)
 
 READS = frozenset(
     {
@@ -46,6 +52,49 @@ def _money(value) -> Decimal:
     if not amount.is_finite() or amount < 0:
         raise ValueError("Цена и баланс должны быть конечными неотрицательными числами")
     return amount
+
+
+def _condition_label(field: str) -> str:
+    """Подписи различий предназначены сотруднику, пути остаются стабильными."""
+    if field == "order.status":
+        return "Статус заказа"
+    if field == "amount":
+        return "Сумма доплаты / возврата, USD"
+    if field == "policy":
+        return "Правила обслуживания"
+    parts = field.split(".")
+    if len(parts) >= 5 and parts[0] == "products" and parts[2] == "variants":
+        name = {"price": "Цена", "available": "Наличие", "options": "Параметры"}.get(
+            parts[4], "Данные"
+        )
+        return f"{name} варианта {parts[3]} товара {parts[1]}"
+    if field.startswith("payment_methods."):
+        name = "Баланс" if parts[-1] == "balance" else "Данные"
+        return f"{name} способа оплаты {parts[1]}"
+    if field.startswith("order.items."):
+        return f"Позиция заказа: {field.removeprefix('order.items.')}"
+    return f"Условие: {field}"
+
+
+def _condition_changes(before: dict, after: dict) -> list[ConditionChange]:
+    changes = []
+
+    def visit(old, new, field):
+        if isinstance(old, dict) and isinstance(new, dict):
+            for key in sorted(old.keys() | new.keys()):
+                visit(old.get(key), new.get(key), f"{field}.{key}" if field else key)
+        elif isinstance(old, list) and isinstance(new, list) and len(old) == len(new):
+            for index, (old_item, new_item) in enumerate(zip(old, new)):
+                visit(old_item, new_item, f"{field}.{index}")
+        elif old != new:
+            changes.append(
+                ConditionChange(
+                    field=field, label=_condition_label(field), before=old, after=new
+                )
+            )
+
+    visit(before, after, "")
+    return changes
 
 
 class RetailAdapter:
@@ -98,6 +147,22 @@ class RetailAdapter:
         if order is None or order.user_id != user_id or order_id not in user.orders:
             raise ValueError("Заказ недоступен в этом обращении")
         return order
+
+    def _condition_data(self, order, user, product_ids) -> dict:
+        """Снимок только доступного заказа, способов оплаты и связанных товаров."""
+        return {
+            "order": order.model_dump(mode="json"),
+            "payment_methods": {
+                key: value.model_dump(mode="json")
+                for key, value in user.payment_methods.items()
+            },
+            "products": {
+                pid: self._db.products[pid].model_dump(mode="json")
+                for pid in sorted(product_ids)
+                if pid in self._db.products
+            },
+            "policy": self.policy,
+        }
 
     def read(self, name: str, args: dict, user_id: str):
         """Проверить принадлежность до вызова чтения в RetailTools."""
@@ -203,20 +268,9 @@ class RetailAdapter:
         product_ids = sorted({item.product_id for item in selected})
         if any(pid not in self._db.products for pid in product_ids):
             raise ValueError("Товар заказа отсутствует в снимке")
-        products = {
-            pid: self._db.products[pid].model_dump(mode="json") for pid in product_ids
-        }
-        conditions = digest(
-            {
-                "order": order.model_dump(mode="json"),
-                "payment_methods": {
-                    key: value.model_dump(mode="json")
-                    for key, value in user.payment_methods.items()
-                },
-                "products": products,
-                "policy": self.policy,
-            }
-        )
+        condition_values = self._condition_data(order, user, product_ids)
+        conditions = digest(condition_values)
+        condition_values["amount"] = str(amount)
         evidence = [
             Evidence(
                 title="Заказ клиента",
@@ -265,9 +319,80 @@ class RetailAdapter:
             arguments=args,
             amount=amount,
             conditions=conditions,
+            condition_values=condition_values,
             result_status="exchange requested" if exchange else "return requested",
             description=f"Заявка на {'обмен' if exchange else 'возврат'} {len(selected)} позиций заказа {order.order_id}",
             evidence=evidence,
+        )
+
+    def check(self, action: Action, user_id: str) -> ConditionCheck:
+        """Показать прежние и текущие условия, не исполняя действие."""
+        try:
+            native = PROPOSALS.get(action.name, action.name)
+            if native not in PROPOSALS.values():
+                raise ValueError("Действие не разрешено")
+            args = self._arguments(native, action.arguments)
+            # Проверка доступа предшествует чтению значений для сравнения.
+            order = self._order(args["order_id"], user_id)
+            user = self._user(user_id)
+        except ValueError as error:
+            return ConditionCheck(status="forbidden", reason=str(error))
+
+        before = deepcopy(action.condition_values)
+        try:
+            if set(before) != {
+                "order",
+                "payment_methods",
+                "products",
+                "policy",
+                "amount",
+            }:
+                raise ValueError
+            previous_amount = before.pop("amount")
+            if (
+                before["order"]["order_id"] != args["order_id"]
+                or before["order"]["user_id"] != user_id
+                or digest(before) != action.conditions
+                or Decimal(str(previous_amount)) != action.amount
+            ):
+                raise ValueError
+        except (ValueError, KeyError, TypeError, InvalidOperation):
+            return ConditionCheck(
+                status="forbidden",
+                reason="Прежние значения условий отсутствуют или повреждены; сформируйте новое предложение",
+            )
+
+        try:
+            current = self.plan(native, args, user_id)
+        except ValueError as error:
+            product_ids = {
+                item.product_id
+                for item in order.items
+                if item.item_id in args["item_ids"]
+            }
+            after = self._condition_data(order, user, product_ids)
+            return ConditionCheck(
+                status="forbidden",
+                reason=str(error),
+                changes=_condition_changes(before, after),
+            )
+
+        if current.fingerprint() == action.fingerprint():
+            return ConditionCheck(
+                status="unchanged", reason="Условия не изменились", current=current
+            )
+        before["amount"] = previous_amount
+        changes = _condition_changes(before, current.condition_values)
+        if not changes:
+            return ConditionCheck(
+                status="forbidden",
+                reason="Сохранённое действие не соответствует условиям; сформируйте новое предложение",
+            )
+        return ConditionCheck(
+            status="changed",
+            reason="Условия изменились; требуется новое согласование",
+            changes=changes,
+            current=current,
         )
 
     def execute(self, action: Action, user_id: str) -> dict:

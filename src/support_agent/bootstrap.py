@@ -83,6 +83,11 @@ def create_service(root: Path | None = None):
                 "Не удалось прочитать исходные db.json и соседний policy.md; задайте SUPPORT_AGENT_RETAIL_DB"
             ) from error
         store.initialize(RetailAdapter(snapshot, policy).snapshot(), policy)
-    service = SupportService(store, model, RetailAdapter)
+    service = SupportService(
+        store,
+        model,
+        RetailAdapter,
+        recovery_mode=os.environ.get("SUPPORT_AGENT_RECOVERY_MODE", "manual"),
+    )
     service.mode = mode
     return service

@@ -1,0 +1,26 @@
+{
+  "pytest": {
+    "passed": 206,
+    "failed": 0,
+    "skipped": 0
+  },
+  "ruff": "passed",
+  "format": "passed",
+  "tau2_source_sha256": {
+    "uv.lock": "a112f36700a90222587769a767fdb4a301dbe713f5c486e35f261ccc978f3251",
+    "data/tau2/domains/retail/db.json": "dbde692e380bb4ad17f9f7841172cf1e69bebad2daa405628ccdc52a42b3b9b0",
+    "data/tau2/domains/retail/tasks.json": "f44563d8f36362e2dc58282bb02cfb85010d22f27d9439808758d3e9b2bc16d2",
+    "data/tau2/domains/retail/split_tasks.json": "5f9949b833e6b99584b87e84ef22f9d81789ea67a52e534c6f7aa91eff08adc7",
+    "data/tau2/domains/retail/policy.md": "4313d3fef8acf919f555fa17fbce929cc3ed1cef2dd8f0d35ff5c8c3364de176",
+    "src/tau2/domains/retail/tools.py": "313d7e9394faab5fc693103e2f67c46e2a3d865c066b737a21c6cf4fe3dc772b",
+    "data/tau2/multilingual/en/pack.yaml": "cd14ad9a7aaa298ce54c8c434f2cd1fb55500b13e6fdd1b824d92205a7e4f752",
+    "data/tau2/multilingual/en/retail_tasks_en.json": "29b1ab84363d93161b3bb3827c4aeb8bce5c91909f5f96b8ced56253a26a0720",
+    "data/tau2/multilingual/en/retail_metadata_en.json": "c4950eb78d61798a8c7d37598cb19038b24ef10b25b8e9c9b677669001320750"
+  },
+  "tau2_unchanged_against_reference": true,
+  "reference": "evals/core-integration/2026-10-30/run_manifest.json",
+  "approved_budget_usd": 5,
+  "endpoint_host": "api.openai.com",
+  "model": "openai/responses/gpt-6-luna",
+  "change": "Исправление текстовой проверки после первого пилота; без нового API-прогона"
+}

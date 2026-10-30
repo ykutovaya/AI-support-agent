@@ -1,0 +1,67 @@
+{
+  "scenario_id": "pilot-status",
+  "mutation": "status",
+  "mode": "manual",
+  "trial": 0,
+  "checkpoint_sha256": "666bfd89369b05d33f281e331f491a2ee1baafa4be084c03c9d36a5211649bdd",
+  "status": "success",
+  "correct": true,
+  "interventions": 1,
+  "technical_complete": true,
+  "counts": {
+    "manual_resume": 1,
+    "automatic_resume": 0,
+    "rejected": 0,
+    "approval": 1,
+    "consent": 0,
+    "customer": 0,
+    "operation": 0,
+    "sent": 1,
+    "conditions_changed": 1,
+    "recovery_prepared": 1
+  },
+  "violations": [],
+  "elapsed_seconds": 3.75,
+  "steps": 4,
+  "events": [
+    {
+      "id": 11,
+      "case_id": "e70a9b6d4e02442c9978274b79565034",
+      "kind": "conditions_changed",
+      "text": "{\"status\": \"forbidden\", \"reason\": \"Заявка возможна только для доставленного заказа\", \"changes\": [{\"field\": \"order.status\", \"label\": \"Статус заказа\", \"before\": \"delivered\", \"after\": \"cancelled\"}], \"current\": null}"
+    },
+    {
+      "id": 12,
+      "case_id": "e70a9b6d4e02442c9978274b79565034",
+      "kind": "manual_resume",
+      "text": "0e6fd2f0af7144199809f0518813c14f"
+    },
+    {
+      "id": 13,
+      "case_id": "e70a9b6d4e02442c9978274b79565034",
+      "kind": "application",
+      "text": "{\"type\": \"conditions_changed\", \"proposal_id\": \"0e6fd2f0af7144199809f0518813c14f\", \"check\": {\"status\": \"forbidden\", \"reason\": \"Заявка возможна только для доставленного заказа\", \"changes\": [{\"field\": \"order.status\", \"label\": \"Статус заказа\", \"before\": \"delivered\", \"after\": \"cancelled\"}], \"current\": null}}"
+    },
+    {
+      "id": 14,
+      "case_id": "e70a9b6d4e02442c9978274b79565034",
+      "kind": "recovery_prepared",
+      "text": "62280e4bc16049df9e9bdbbaf161726a"
+    },
+    {
+      "id": 15,
+      "case_id": "e70a9b6d4e02442c9978274b79565034",
+      "kind": "approval",
+      "text": "Сотрудник подтвердил предложение версии 3"
+    },
+    {
+      "id": 16,
+      "case_id": "e70a9b6d4e02442c9978274b79565034",
+      "kind": "sent",
+      "text": "{\"сообщение\":\"Статус заказа #P103 изменился на «отменён». По правилам обмен возможен только для доставленного заказа, поэтому оформить обмен и доплату сейчас нельзя. Обмен не выполнен.\"}"
+    }
+  ],
+  "model_calls": 1,
+  "api_calls": 1,
+  "model_seconds": 3.688
+}

@@ -22,6 +22,7 @@ def project(tmp_path, snapshot, monkeypatch):
         "SUPPORT_AGENT_MODE",
         "SUPPORT_AGENT_DB",
         "SUPPORT_AGENT_RETAIL_DB",
+        "SUPPORT_AGENT_RECOVERY_MODE",
         "OPENAI_API_KEY",
         "OPENAI_MODEL",
     ):
@@ -126,3 +127,14 @@ def test_runtime_disables_implicit_env_and_remote_price_download(project, monkey
 
     assert os.environ["PYTHON_DOTENV_DISABLED"] == "1"
     assert os.environ["LITELLM_LOCAL_MODEL_COST_MAP"] == "True"
+
+
+@pytest.mark.parametrize("mode", ["manual", "auto", "invalid"])
+def test_recovery_mode_is_explicit_and_validated(project, monkeypatch, mode):
+    root, _ = project
+    monkeypatch.setenv("SUPPORT_AGENT_RECOVERY_MODE", mode)
+    if mode == "invalid":
+        with pytest.raises(ValueError):
+            create_service(root)
+    else:
+        assert create_service(root).recovery_mode == mode

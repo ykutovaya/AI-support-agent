@@ -77,7 +77,17 @@ def identified(state, user_id):
 
 
 class SupportService:
-    def __init__(self, store, model, adapter_factory=None, channel=None):
+    def __init__(
+        self,
+        store,
+        model,
+        adapter_factory=None,
+        channel=None,
+        *,
+        recovery_mode="manual",
+    ):
+        if recovery_mode not in ("manual", "auto"):
+            raise ValueError("Режим продолжения должен быть manual или auto")
         if adapter_factory is None:
             from support_agent.adapters.retail import RetailAdapter
 
@@ -86,6 +96,7 @@ class SupportService:
         self.model = model
         self.adapter_factory = adapter_factory
         self.executor = Executor(store, adapter_factory, channel)
+        self.recovery_mode = recovery_mode
 
     def create_case(self, user_id, employee_id):
         return self.store.create_case(user_id, employee_id)
@@ -107,12 +118,31 @@ class SupportService:
         return p
 
     def investigate(self, case_id, text, employee_id, *, kind="customer"):
+        if kind not in ("customer", "employee"):
+            raise ValueError("Неизвестный автор входящего сообщения")
+        return self._prepare(case_id, text, employee_id, kind=kind)
+
+    def _prepare(
+        self, case_id, text, employee_id, *, kind="customer", recovery_source=None
+    ):
         if not text.strip():
             raise ValueError("Введите сообщение")
         # Короткая транзакция резервирует версию; модель вызывается уже после неё.
         with self.store.transaction() as conn:
             case = self.store.load_case(conn, case_id)
             check_employee(case, employee_id)
+            if recovery_source:
+                recovery = conn.execute(
+                    "SELECT * FROM recoveries WHERE source_proposal_id=? AND case_id=?",
+                    (recovery_source, case_id),
+                ).fetchone()
+                if recovery is None or recovery["status"] != "running":
+                    raise ValueError("Продолжение отменено или уже завершено")
+            else:
+                conn.execute(
+                    "UPDATE recoveries SET status='cancelled',reason='Получено новое сообщение' WHERE case_id=? AND status!='cancelled'",
+                    (case_id,),
+                )
             if conn.execute(
                 "SELECT 1 FROM outbox WHERE case_id=? AND status!='delivered'",
                 (case_id,),
@@ -128,11 +158,19 @@ class SupportService:
                 conn.execute(
                     "UPDATE consents SET revoked=1 WHERE case_id=?", (case_id,)
                 )
-            self.store.event(conn, case_id, kind, text)
+            self.store.event(
+                conn, case_id, "application" if recovery_source else kind, text
+            )
             previous_state = case["state"].model_copy(deep=True)
             incoming = Message(
-                role="user",
-                content=("Комментарий сотрудника: " if kind == "employee" else "")
+                role="assistant" if recovery_source else "user",
+                content=(
+                    "Служебное событие приложения (не сообщение клиента): "
+                    if recovery_source
+                    else "Комментарий сотрудника: "
+                    if kind == "employee"
+                    else ""
+                )
                 + text,
             )
             case["state"].messages.append(incoming)
@@ -152,8 +190,11 @@ class SupportService:
         answer = None
         logs = []
         try:
-            for _ in range(12):
-                generation, state = core.step(incoming, state)
+            for step in range(12):
+                if recovery_source and step == 0:
+                    generation, state = core.continue_with_event(text, state)
+                else:
+                    generation, state = core.step(incoming, state)
                 message = generation.message
                 if not message.tool_calls:
                     answer = draft_text(message.content)
@@ -244,26 +285,107 @@ class SupportService:
                 self.store.event(conn, case_id, "tool", entry)
             if action:
                 if has_consent(conn, case_id, action):
-                    return self._proposal(
+                    proposal = self._proposal(
                         conn,
                         case_id,
                         text=result_text(action),
                         action=action,
                         evidence=action.evidence,
                     )
-                return self._proposal(
-                    conn,
-                    case_id,
-                    text=confirmation_text(action),
-                    consent_request=action,
-                    evidence=action.evidence,
-                )
-            return self._proposal(conn, case_id, text=answer, evidence=evidence)
+                else:
+                    proposal = self._proposal(
+                        conn,
+                        case_id,
+                        text=confirmation_text(action),
+                        consent_request=action,
+                        evidence=action.evidence,
+                    )
+            else:
+                proposal = self._proposal(conn, case_id, text=answer, evidence=evidence)
+            if recovery_source:
+                changed = conn.execute(
+                    "UPDATE recoveries SET status='prepared',proposal_id=? WHERE source_proposal_id=? AND status='running'",
+                    (proposal.id, recovery_source),
+                ).rowcount
+                if changed != 1:
+                    raise ValueError("Продолжение отменено новым событием")
+                self.store.event(conn, case_id, "recovery_prepared", proposal.id)
+            return proposal
 
     def approve(self, case_id, proposal_id, version, expected_digest, employee_id):
-        return self.executor.approve(
+        result = self.executor.approve(
             case_id, proposal_id, version, expected_digest, employee_id
         )
+        if self.recovery_mode == "auto" and result.get("recovery_id"):
+            with self.store.connection() as conn:
+                recovery = conn.execute(
+                    "SELECT status FROM recoveries WHERE source_proposal_id=?",
+                    (proposal_id,),
+                ).fetchone()
+            if recovery and recovery["status"] == "pending":
+                try:
+                    proposal = self.resume(
+                        case_id, proposal_id, employee_id, automatic=True
+                    )
+                    result["new_proposal_id"] = proposal.id
+                except ValueError:
+                    result["reason"] = (
+                        "Подготовка новой версии остановлена; проверьте журнал"
+                    )
+        return result
+
+    def resume(self, case_id, source_proposal_id, employee_id, *, automatic=False):
+        """Один запуск общей подготовки на событие; запись и отправка не разрешаются."""
+        with self.store.transaction() as conn:
+            case = self.store.load_case(conn, case_id)
+            check_employee(case, employee_id)
+            row = conn.execute(
+                "SELECT * FROM recoveries WHERE source_proposal_id=? AND case_id=?",
+                (source_proposal_id, case_id),
+            ).fetchone()
+            if row is None:
+                raise ValueError("Нет события для продолжения расследования")
+            if row["status"] == "prepared":
+                return self.store.proposal(conn, row["proposal_id"])["proposal"]
+            if row["status"] != "pending":
+                raise ValueError(
+                    "Продолжение уже выполняется, отменено или завершилось ошибкой"
+                )
+            conn.execute(
+                "UPDATE recoveries SET status='running' WHERE source_proposal_id=?",
+                (source_proposal_id,),
+            )
+            self.store.event(
+                conn,
+                case_id,
+                "automatic_resume" if automatic else "manual_resume",
+                source_proposal_id,
+            )
+            event = encode(
+                {
+                    "type": "conditions_changed",
+                    "proposal_id": source_proposal_id,
+                    "check": json.loads(row["body"]),
+                }
+            )
+        try:
+            return self._prepare(
+                case_id,
+                event,
+                employee_id,
+                kind="application",
+                recovery_source=source_proposal_id,
+            )
+        except Exception as error:
+            with self.store.transaction() as conn:
+                conn.execute(
+                    "UPDATE recoveries SET status='failed',reason=? WHERE source_proposal_id=? AND status='running'",
+                    (type(error).__name__, source_proposal_id),
+                )
+                self.store.event(conn, case_id, "recovery_failed", type(error).__name__)
+            raise ValueError(
+                "Не удалось продолжить расследование; автоматического повтора нет"
+            ) from error
 
     def reject(
         self, case_id, proposal_id, version, expected_digest, reason, employee_id
@@ -312,49 +434,68 @@ class SupportService:
                 raise ValueError("Нет актуального доставленного запроса согласия")
             snapshot, policy = self.store.retail(conn)
             action = question.consent_request
-            fresh = self.adapter_factory(snapshot, policy).plan(
-                action.name, action.arguments, case["user_id"]
-            )
-            if fresh.fingerprint() != action.fingerprint():
-                raise ValueError(
-                    "Условия изменились; подготовьте и согласуйте новый запрос клиенту"
-                )
-            conn.execute("UPDATE consents SET revoked=1 WHERE case_id=?", (case_id,))
-            conn.execute(
-                "INSERT INTO consents(id,case_id,question_id,action_hash,accepted,response) VALUES (?,?,?,?,?,?)",
-                (
-                    uuid4().hex,
-                    case_id,
-                    question_id,
-                    action.fingerprint(),
-                    int(accepted),
-                    response,
-                ),
-            )
             self.store.event(conn, case_id, "customer", response)
-            self.store.event(
-                conn,
-                case_id,
-                "consent",
-                "Клиент подтвердил текущие условия"
-                if accepted
-                else "Клиент отказался от операции",
-            )
             case["state"].messages.append(Message(role="user", content=response))
-            self.store.save_case(conn, case, case["revision"])
-            if accepted:
+            check = (
+                self.adapter_factory(snapshot, policy).check(action, case["user_id"])
+                if accepted
+                else None
+            )
+            if check and check.status != "unchanged":
+                self.executor.mark_changed(conn, case, question, check)
+                self.store.event(
+                    conn,
+                    case_id,
+                    "consent_outdated",
+                    "Ответ относится к прежним условиям; согласие не принято",
+                )
+            else:
+                conn.execute(
+                    "UPDATE consents SET revoked=1 WHERE case_id=?", (case_id,)
+                )
+                conn.execute(
+                    "INSERT INTO consents(id,case_id,question_id,action_hash,accepted,response) VALUES (?,?,?,?,?,?)",
+                    (
+                        uuid4().hex,
+                        case_id,
+                        question_id,
+                        action.fingerprint(),
+                        int(accepted),
+                        response,
+                    ),
+                )
+                self.store.event(
+                    conn,
+                    case_id,
+                    "consent" if accepted else "consent_refused",
+                    "Клиент подтвердил текущие условия"
+                    if accepted
+                    else "Клиент отказался от операции",
+                )
+                self.store.save_case(conn, case, case["revision"])
+                if accepted:
+                    return self._proposal(
+                        conn,
+                        case_id,
+                        text=result_text(action),
+                        action=action,
+                        evidence=action.evidence,
+                    )
+                conn.execute(
+                    "UPDATE recoveries SET status='cancelled',reason='Клиент отказался' WHERE case_id=?",
+                    (case_id,),
+                )
                 return self._proposal(
                     conn,
                     case_id,
-                    text=result_text(action),
-                    action=action,
-                    evidence=action.evidence,
+                    text="Операция не выполнена. Уточните, чем ещё мы можем помочь.",
                 )
-            return self._proposal(
-                conn,
-                case_id,
-                text="Операция не выполнена. Уточните, чем ещё мы можем помочь.",
-            )
+        # Устаревшее согласие не принимается; новое событие уже сохранено.
+        if self.recovery_mode == "auto":
+            return self.resume(case_id, question_id, employee_id, automatic=True)
+        raise ValueError(
+            "Условия изменились; продолжите расследование и согласуйте новый запрос"
+        )
 
     def view(self, case_id, employee_id):
         case = self.store.case(case_id)
@@ -362,6 +503,13 @@ class SupportService:
         row = self.store.latest(case_id)
         proposal = row["proposal"] if row else None
         with self.store.connection() as conn:
+            recovery = conn.execute(
+                "SELECT * FROM recoveries WHERE case_id=? ORDER BY rowid DESC LIMIT 1",
+                (case_id,),
+            ).fetchone()
+            recovery = dict(recovery) if recovery else None
+            if recovery:
+                recovery["check"] = json.loads(recovery.pop("body"))
             deliveries = [
                 dict(r)
                 for r in conn.execute(
@@ -377,6 +525,8 @@ class SupportService:
                 else None
             )
         return {
+            "recovery_mode": self.recovery_mode,
+            "recovery": recovery,
             "case": case,
             "proposal": proposal,
             "proposal_status": row["status"] if row else "",

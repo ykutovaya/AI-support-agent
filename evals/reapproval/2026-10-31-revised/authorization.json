@@ -1,0 +1,10 @@
+{
+  "approved_total_attempts": 30,
+  "original_pilot_attempts": 6,
+  "revised_pilot_attempts": 6,
+  "main_attempts": 18,
+  "total_budget_usd": 5,
+  "carried_budget_from": "../2026-10-31/budget.json",
+  "carried_expense_usd": 0.003512,
+  "reason": "User approved repeated pilot and conditional main after measurement correction"
+}

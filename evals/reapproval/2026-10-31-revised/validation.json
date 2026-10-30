@@ -1,0 +1,14 @@
+{
+  "tests_reference": "../2026-10-31/validation-after-fix.json",
+  "tests_passed": 206,
+  "source_unchanged_between_revised_pilot_and_main": true,
+  "tau2_reference": "../2026-10-31/validation-after-fix.json",
+  "tau2_9_hashes_unchanged_after_all_runs": true,
+  "approved_total_attempts": 30,
+  "actual_total_attempts": 30,
+  "api_calls_including_initial_pilot": 58,
+  "used_bound_usd_including_initial_pilot": 0.0133641,
+  "budget_usd": 5,
+  "original_results_preserved": true,
+  "note": "После основных измерений поведение и оценщик не изменялись; успешные тесты повторно не запускались."
+}

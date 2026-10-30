@@ -1,0 +1,49 @@
+{
+  "scenario_id": "pilot-unchanged",
+  "mutation": "none",
+  "mode": "auto",
+  "trial": 0,
+  "checkpoint_sha256": "59e9a611e66a86aa16a0224de11d5f89143d4a7eb242a203491c244ce5a85cb5",
+  "status": "success",
+  "correct": true,
+  "interventions": 0,
+  "technical_complete": true,
+  "counts": {
+    "manual_resume": 0,
+    "automatic_resume": 0,
+    "rejected": 0,
+    "approval": 1,
+    "consent": 0,
+    "customer": 0,
+    "operation": 1,
+    "sent": 1,
+    "conditions_changed": 0,
+    "recovery_prepared": 0
+  },
+  "violations": [],
+  "elapsed_seconds": 0.016,
+  "steps": 1,
+  "events": [
+    {
+      "id": 11,
+      "case_id": "7a35845390c14fae8cfe3f9974de2a69",
+      "kind": "approval",
+      "text": "Сотрудник подтвердил предложение версии 2"
+    },
+    {
+      "id": 12,
+      "case_id": "7a35845390c14fae8cfe3f9974de2a69",
+      "kind": "operation",
+      "text": "{\"order_id\": \"#P101\", \"user_id\": \"pilot1\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"pilot-product1\", \"item_id\": \"old\", \"price\": 10.0, \"options\": {\"color\": \"black\"}}], \"status\": \"exchange requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 10.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": [\"old\"], \"exchange_new_items\": [\"new\"], \"exchange_payment_method_id\": \"card\", \"exchange_price_difference\": 2.35, \"return_items\": null, \"return_payment_method_id\": null}"
+    },
+    {
+      "id": 13,
+      "case_id": "7a35845390c14fae8cfe3f9974de2a69",
+      "kind": "sent",
+      "text": "Зарегистрирована заявка на обмен по заказу #P101. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+    }
+  ],
+  "model_calls": 0,
+  "api_calls": 0,
+  "model_seconds": 0
+}

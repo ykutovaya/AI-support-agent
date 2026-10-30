@@ -1,0 +1,131 @@
+{
+  "limit_usd": 5.0,
+  "model": "openai/responses/gpt-6-luna",
+  "pricing": {
+    "model": "openai/responses/gpt-6-luna",
+    "url": "https://developers.openai.com/api/docs/models/gpt-6-luna",
+    "verified_on": "2026-10-31",
+    "verification": "Official model page checked before this experiment",
+    "currency": "USD",
+    "input_per_million": 0.1,
+    "output_per_million": 0.5,
+    "long_context_threshold": 272000,
+    "long_context_input_multiplier": 2,
+    "long_context_output_multiplier": 1.5,
+    "cache_discount": "ignored for conservative upper estimate"
+  },
+  "calls": [
+    {
+      "id": 0,
+      "label": "pilot/prepare/pilot-unchanged",
+      "reserved_usd": 0.0095234,
+      "charged_bound_usd": 0.0001384,
+      "status": "received"
+    },
+    {
+      "id": 1,
+      "label": "pilot/prepare/pilot-unchanged",
+      "reserved_usd": 0.009587,
+      "charged_bound_usd": 0.0001663,
+      "status": "received"
+    },
+    {
+      "id": 2,
+      "label": "pilot/prepare/pilot-unchanged",
+      "reserved_usd": 0.0099688,
+      "charged_bound_usd": 0.0001955,
+      "status": "received"
+    },
+    {
+      "id": 3,
+      "label": "pilot/prepare/pilot-unchanged",
+      "reserved_usd": 0.0101104,
+      "charged_bound_usd": 0.00022510000000000002,
+      "status": "received"
+    },
+    {
+      "id": 4,
+      "label": "pilot/prepare/pilot-price",
+      "reserved_usd": 0.0095226,
+      "charged_bound_usd": 0.0001502,
+      "status": "received"
+    },
+    {
+      "id": 5,
+      "label": "pilot/prepare/pilot-price",
+      "reserved_usd": 0.009585399999999999,
+      "charged_bound_usd": 0.00016790000000000002,
+      "status": "received"
+    },
+    {
+      "id": 6,
+      "label": "pilot/prepare/pilot-price",
+      "reserved_usd": 0.0099656,
+      "charged_bound_usd": 0.0001932,
+      "status": "received"
+    },
+    {
+      "id": 7,
+      "label": "pilot/prepare/pilot-price",
+      "reserved_usd": 0.010107,
+      "charged_bound_usd": 0.00021030000000000002,
+      "status": "received"
+    },
+    {
+      "id": 8,
+      "label": "pilot/pilot-price/0/manual",
+      "reserved_usd": 0.011353799999999999,
+      "charged_bound_usd": 0.00035620000000000004,
+      "status": "received"
+    },
+    {
+      "id": 9,
+      "label": "pilot/pilot-price/0/auto",
+      "reserved_usd": 0.011353799999999999,
+      "charged_bound_usd": 0.00035970000000000007,
+      "status": "received"
+    },
+    {
+      "id": 10,
+      "label": "pilot/prepare/pilot-status",
+      "reserved_usd": 0.0095228,
+      "charged_bound_usd": 0.0001372,
+      "status": "received"
+    },
+    {
+      "id": 11,
+      "label": "pilot/prepare/pilot-status",
+      "reserved_usd": 0.009585799999999998,
+      "charged_bound_usd": 0.0001739,
+      "status": "received"
+    },
+    {
+      "id": 12,
+      "label": "pilot/prepare/pilot-status",
+      "reserved_usd": 0.0099664,
+      "charged_bound_usd": 0.0001957,
+      "status": "received"
+    },
+    {
+      "id": 13,
+      "label": "pilot/prepare/pilot-status",
+      "reserved_usd": 0.0101078,
+      "charged_bound_usd": 0.0002598,
+      "status": "received"
+    },
+    {
+      "id": 14,
+      "label": "pilot/pilot-status/0/manual",
+      "reserved_usd": 0.010399400000000001,
+      "charged_bound_usd": 0.0002718,
+      "status": "received"
+    },
+    {
+      "id": 15,
+      "label": "pilot/pilot-status/0/auto",
+      "reserved_usd": 0.010399400000000001,
+      "charged_bound_usd": 0.0003108,
+      "status": "received"
+    }
+  ]
+}

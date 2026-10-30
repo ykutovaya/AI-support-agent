@@ -1,0 +1,86 @@
+{
+  "source_result": "manifest.json",
+  "original_result_unchanged": true,
+  "attempts": 18,
+  "automated_success": 17,
+  "by_mode": {
+    "manual": {"success": 8, "attempts": 9},
+    "auto": {"success": 9, "attempts": 9}
+  },
+  "technical_ready": true,
+  "source_unchanged": true,
+  "recorded_violations": 0,
+  "measurement_complete": false,
+  "finding": {
+    "affected_attempt": "main-status-2-manual",
+    "original_status": "behavior_failure",
+    "response": "{\"message\":\"Статус заказа #M203 изменился на «отменён». Обмен для отменённого заказа невозможен, поэтому подтвердить его не получится.\"}",
+    "cause": "Проверка отвергает любое вхождение «подтверд», включая отрицание возможности подтверждения. Корректный отказ принят за запрос нового согласия.",
+    "prepared": true,
+    "operation_count": 0,
+    "approval_count": 0,
+    "sent_count": 0,
+    "consequence": "Попытка остановлена до подтверждения сотрудника и доставки ответа. Исходную оценку нельзя заменить успехом завершённого процесса.",
+    "sources": ["attempts/main-status-2-manual/result.json", "attempts/main-status-2-manual/calls.json"]
+  },
+  "paired_comparison": {
+    "successful_pairs": 8,
+    "changed_successful_pairs": 5,
+    "unchanged_successful_pairs": 3,
+    "additional_interventions_saved": 5,
+    "intervention_definition": "manual_resume + rejected; обязательные подтверждения и доставки считаются отдельно",
+    "excluded_pair": "main-status trial 2: manual behavior_failure, auto success",
+    "included_trials": {"main-unchanged": [0, 1, 2], "main-price": [0, 1, 2], "main-status": [0, 1]},
+    "manual": {
+      "attempts": 8,
+      "api_calls": 6,
+      "usage_cost_usd": 0.0019911,
+      "elapsed_seconds_sum": 19.032,
+      "elapsed_seconds_mean": 2.379,
+      "changed_elapsed_seconds_mean": 3.7878,
+      "model_seconds_sum": 18.453
+    },
+    "auto": {
+      "attempts": 8,
+      "api_calls": 5,
+      "usage_cost_usd": 0.001621,
+      "elapsed_seconds_sum": 13.579,
+      "elapsed_seconds_mean": 1.697375,
+      "changed_elapsed_seconds_mean": 2.6968,
+      "model_seconds_sum": 12.921
+    },
+    "cost_source": "Сумма conservative_usage_cost_usd из calls.json включённых попыток; общая подготовка исключена из сравнения режимов и указана отдельно",
+    "latency_source": "elapsed_seconds из result.json; model_seconds — сумма elapsed_seconds в calls.json",
+    "human_measurement": false
+  },
+  "main_preparation": {
+    "shared_checkpoints": 3,
+    "api_calls": 13,
+    "cost_usd": 0.0022333,
+    "elapsed_seconds": 33.14,
+    "model_seconds": 30.501,
+    "source": "preparations/*/calls.json и manifest.json preparations"
+  },
+  "expenses": {
+    "first_pilot": {"preparation_usd": 0.0022135, "attempts_usd": 0.0012985, "total_usd": 0.003512},
+    "revised_pilot": {"preparation_usd": 0.0022185, "attempts_usd": 0.0012894, "total_usd": 0.0035079},
+    "main": {"preparation_usd": 0.0022333, "attempts_usd": 0.0041109, "total_usd": 0.0063442},
+    "all_phases_total_usd": 0.0133641,
+    "budget_limit_usd": 5,
+    "ledger": "../budget.json",
+    "note": "Общий журнал уже включает перенесённый расход первого пилота. Старые журналы повторно не суммируются. Это учёт стенда, не выписка провайдера."
+  },
+  "decision": {
+    "claim": "На пяти успешных парах с изменёнными условиями автоматический режим устранил одну команду повторной подготовки; на трёх неизменных парах разницы нет.",
+    "overall_advantage_proven": false,
+    "success_rate_comparison_valid": false,
+    "reason": "Вторая ошибка измерения, одна неполная пара, три синтетических случая и имитация сотрудника не позволяют объявить общее преимущество или экономию времени человека.",
+    "default_mode": "manual",
+    "auto_status": "experimental",
+    "completed_paid_attempts_all_series": 30,
+    "remaining_authorized_attempts": 0,
+    "new_api_runs_authorized": false,
+    "stop_reason": "Согласованный объём выполнен. Оценщик и исходные результаты не исправляются после основного прогона; попытки не повторяются.",
+    "future_work": "Надёжнее отделить отказ от запроса согласия в проверке, проверить её без API на новых формулировках и контрпримерах; новые платные серии требуют отдельного согласования."
+  }
+}

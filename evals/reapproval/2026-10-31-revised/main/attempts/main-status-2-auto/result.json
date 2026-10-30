@@ -1,0 +1,67 @@
+{
+  "scenario_id": "main-status",
+  "mutation": "status",
+  "mode": "auto",
+  "trial": 2,
+  "checkpoint_sha256": "35b4c5b101a338be53dd1fae7785bab560562626028da572ea8b540c664648bc",
+  "status": "success",
+  "correct": true,
+  "interventions": 0,
+  "technical_complete": true,
+  "counts": {
+    "manual_resume": 0,
+    "automatic_resume": 1,
+    "rejected": 0,
+    "approval": 1,
+    "consent": 0,
+    "customer": 0,
+    "operation": 0,
+    "sent": 1,
+    "conditions_changed": 1,
+    "recovery_prepared": 1
+  },
+  "violations": [],
+  "elapsed_seconds": 3.344,
+  "steps": 3,
+  "events": [
+    {
+      "id": 10,
+      "case_id": "84b2aed2a24946afad4cd08f664ad1cc",
+      "kind": "conditions_changed",
+      "text": "{\"status\": \"forbidden\", \"reason\": \"Заявка возможна только для доставленного заказа\", \"changes\": [{\"field\": \"order.status\", \"label\": \"Статус заказа\", \"before\": \"delivered\", \"after\": \"cancelled\"}], \"current\": null}"
+    },
+    {
+      "id": 11,
+      "case_id": "84b2aed2a24946afad4cd08f664ad1cc",
+      "kind": "automatic_resume",
+      "text": "faa18b11e0d243b98be8c873145bd1f9"
+    },
+    {
+      "id": 12,
+      "case_id": "84b2aed2a24946afad4cd08f664ad1cc",
+      "kind": "application",
+      "text": "{\"type\": \"conditions_changed\", \"proposal_id\": \"faa18b11e0d243b98be8c873145bd1f9\", \"check\": {\"status\": \"forbidden\", \"reason\": \"Заявка возможна только для доставленного заказа\", \"changes\": [{\"field\": \"order.status\", \"label\": \"Статус заказа\", \"before\": \"delivered\", \"after\": \"cancelled\"}], \"current\": null}}"
+    },
+    {
+      "id": 13,
+      "case_id": "84b2aed2a24946afad4cd08f664ad1cc",
+      "kind": "recovery_prepared",
+      "text": "1922cb0e75c04b8492e35cac4ebd84c8"
+    },
+    {
+      "id": 14,
+      "case_id": "84b2aed2a24946afad4cd08f664ad1cc",
+      "kind": "approval",
+      "text": "Сотрудник подтвердил предложение версии 3"
+    },
+    {
+      "id": 15,
+      "case_id": "84b2aed2a24946afad4cd08f664ad1cc",
+      "kind": "sent",
+      "text": "Статус заказа изменился на «отменён», поэтому обмен оформить нельзя. Обмен не выполнен и заявка не создана."
+    }
+  ],
+  "model_calls": 1,
+  "api_calls": 1,
+  "model_seconds": 3.296
+}

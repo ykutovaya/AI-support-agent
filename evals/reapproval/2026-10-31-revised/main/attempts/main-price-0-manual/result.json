@@ -1,0 +1,103 @@
+{
+  "scenario_id": "main-price",
+  "mutation": "price",
+  "mode": "manual",
+  "trial": 0,
+  "checkpoint_sha256": "5e506f7a57704778c03e1c369676efc7bd7fa49143e9a025a094358f8ebf4249",
+  "status": "success",
+  "correct": true,
+  "interventions": 1,
+  "technical_complete": true,
+  "counts": {
+    "manual_resume": 1,
+    "automatic_resume": 0,
+    "rejected": 0,
+    "approval": 2,
+    "consent": 1,
+    "customer": 1,
+    "operation": 1,
+    "sent": 2,
+    "conditions_changed": 1,
+    "recovery_prepared": 1
+  },
+  "violations": [],
+  "elapsed_seconds": 2.328,
+  "steps": 7,
+  "events": [
+    {
+      "id": 11,
+      "case_id": "3834de873ccc4b86ba72277d7a487086",
+      "kind": "conditions_changed",
+      "text": "{\"status\": \"changed\", \"reason\": \"Условия изменились; требуется новое согласование\", \"changes\": [{\"field\": \"amount\", \"label\": \"Сумма доплаты / возврата, USD\", \"before\": \"4.35\", \"after\": \"11.20\"}, {\"field\": \"products.main-product2.variants.new.price\", \"label\": \"Цена варианта new товара main-product2\", \"before\": 124.35, \"after\": 131.2}], \"current\": {\"name\": \"exchange_delivered_order_items\", \"arguments\": {\"order_id\": \"#M202\", \"item_ids\": [\"old\"], \"new_item_ids\": [\"new\"], \"payment_method_id\": \"card\"}, \"amount\": \"11.20\", \"currency\": \"USD\", \"conditions\": \"b1e8e757e61a461fffa101360e7e4aba1e797708202c7272c5f5d22460b6f2b6\", \"result_status\": \"exchange requested\", \"description\": \"Заявка на обмен 1 позиций заказа #M202\", \"evidence\": [{\"title\": \"Заказ клиента\", \"source\": \"orders/#M202\", \"detail\": \"Заказ #M202, статус delivered, клиент main2.\"}, {\"title\": \"Наушники\", \"source\": \"products/main-product2\", \"detail\": \"new: {'color': 'white'}, 131.20 USD, доступен\"}, {\"title\": \"Правила обмена\", \"source\": \"policy.md#exchange-delivered-order\", \"detail\": \"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}], \"condition_values\": {\"order\": {\"order_id\": \"#M202\", \"user_id\": \"main2\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"main-product2\", \"item_id\": \"old\", \"price\": 120.0, \"options\": {\"color\": \"black\"}}], \"status\": \"delivered\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 120.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": null, \"return_payment_method_id\": null}, \"payment_methods\": {\"card\": {\"source\": \"credit_card\", \"id\": \"card\", \"brand\": \"visa\", \"last_four\": \"1111\"}, \"other_card\": {\"source\": \"credit_card\", \"id\": \"other_card\", \"brand\": \"visa\", \"last_four\": \"2222\"}, \"gift\": {\"source\": \"gift_card\", \"id\": \"gift\", \"balance\": 5.0}}, \"products\": {\"main-product2\": {\"name\": \"Наушники\", \"product_id\": \"main-product2\", \"variants\": {\"old\": {\"item_id\": \"old\", \"options\": {\"color\": \"black\"}, \"available\": true, \"price\": 120.0}, \"new\": {\"item_id\": \"new\", \"options\": {\"color\": \"white\"}, \"available\": true, \"price\": 131.2}, \"cheap\": {\"item_id\": \"cheap\", \"options\": {\"color\": \"blue\"}, \"available\": true, \"price\": 8.9}}}}, \"policy\": \"# Учебные правила обмена\\n\\nЭто синтетический магазин для проверки приложения, не правила Softline.\\n\\n1. Проверьте email клиента либо имя и почтовый индекс через инструмент поиска.\\n2. Для обмена допустим только статус `delivered`. При `cancelled` обмен невозможен; объясните клиенту причину без обещания выполненного обмена.\\n3. Менять можно только доступный вариант того же товара. Согласуйте все позиции, способ оплаты и разницу между текущей ценой замены и покупной ценой.\\n4. Инструмент `propose_exchange` готовит предложение. Он не исполняет обмен и не отправляет сообщения.\\n5. Запрос согласия клиента и итоговое действие отдельно подтверждает сотрудник. Модель не создаёт эти подтверждения.\\n6. После изменения суммы старое согласие клиента недействительно. Подготовьте предложение на актуальных условиях и запросите новое согласие.\\n7. Если изменился статус и операция недопустима, подготовьте объяснение нового статуса. Не просите согласие на запрещённый обмен и не предлагайте другую операцию без запроса клиента.\\n8. Итог исполнения — регистрация заявки `exchange requested`. Реальные выплаты и письма не выполняются.\\n\", \"amount\": \"11.20\"}}}"
+    },
+    {
+      "id": 12,
+      "case_id": "3834de873ccc4b86ba72277d7a487086",
+      "kind": "manual_resume",
+      "text": "53d8416a3ece4c09ad27462d7bd1a415"
+    },
+    {
+      "id": 13,
+      "case_id": "3834de873ccc4b86ba72277d7a487086",
+      "kind": "application",
+      "text": "{\"type\": \"conditions_changed\", \"proposal_id\": \"53d8416a3ece4c09ad27462d7bd1a415\", \"check\": {\"status\": \"changed\", \"reason\": \"Условия изменились; требуется новое согласование\", \"changes\": [{\"field\": \"amount\", \"label\": \"Сумма доплаты / возврата, USD\", \"before\": \"4.35\", \"after\": \"11.20\"}, {\"field\": \"products.main-product2.variants.new.price\", \"label\": \"Цена варианта new товара main-product2\", \"before\": 124.35, \"after\": 131.2}], \"current\": {\"name\": \"exchange_delivered_order_items\", \"arguments\": {\"order_id\": \"#M202\", \"item_ids\": [\"old\"], \"new_item_ids\": [\"new\"], \"payment_method_id\": \"card\"}, \"amount\": \"11.20\", \"currency\": \"USD\", \"conditions\": \"b1e8e757e61a461fffa101360e7e4aba1e797708202c7272c5f5d22460b6f2b6\", \"result_status\": \"exchange requested\", \"description\": \"Заявка на обмен 1 позиций заказа #M202\", \"evidence\": [{\"title\": \"Заказ клиента\", \"source\": \"orders/#M202\", \"detail\": \"Заказ #M202, статус delivered, клиент main2.\"}, {\"title\": \"Наушники\", \"source\": \"products/main-product2\", \"detail\": \"new: {'color': 'white'}, 131.20 USD, доступен\"}, {\"title\": \"Правила обмена\", \"source\": \"policy.md#exchange-delivered-order\", \"detail\": \"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}], \"condition_values\": {\"order\": {\"order_id\": \"#M202\", \"user_id\": \"main2\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"main-product2\", \"item_id\": \"old\", \"price\": 120.0, \"options\": {\"color\": \"black\"}}], \"status\": \"delivered\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 120.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": null, \"return_payment_method_id\": null}, \"payment_methods\": {\"card\": {\"source\": \"credit_card\", \"id\": \"card\", \"brand\": \"visa\", \"last_four\": \"1111\"}, \"other_card\": {\"source\": \"credit_card\", \"id\": \"other_card\", \"brand\": \"visa\", \"last_four\": \"2222\"}, \"gift\": {\"source\": \"gift_card\", \"id\": \"gift\", \"balance\": 5.0}}, \"products\": {\"main-product2\": {\"name\": \"Наушники\", \"product_id\": \"main-product2\", \"variants\": {\"old\": {\"item_id\": \"old\", \"options\": {\"color\": \"black\"}, \"available\": true, \"price\": 120.0}, \"new\": {\"item_id\": \"new\", \"options\": {\"color\": \"white\"}, \"available\": true, \"price\": 131.2}, \"cheap\": {\"item_id\": \"cheap\", \"options\": {\"color\": \"blue\"}, \"available\": true, \"price\": 8.9}}}}, \"policy\": \"# Учебные правила обмена\\n\\nЭто синтетический магазин для проверки приложения, не правила Softline.\\n\\n1. Проверьте email клиента либо имя и почтовый индекс через инструмент поиска.\\n2. Для обмена допустим только статус `delivered`. При `cancelled` обмен невозможен; объясните клиенту причину без обещания выполненного обмена.\\n3. Менять можно только доступный вариант того же товара. Согласуйте все позиции, способ оплаты и разницу между текущей ценой замены и покупной ценой.\\n4. Инструмент `propose_exchange` готовит предложение. Он не исполняет обмен и не отправляет сообщения.\\n5. Запрос согласия клиента и итоговое действие отдельно подтверждает сотрудник. Модель не создаёт эти подтверждения.\\n6. После изменения суммы старое согласие клиента недействительно. Подготовьте предложение на актуальных условиях и запросите новое согласие.\\n7. Если изменился статус и операция недопустима, подготовьте объяснение нового статуса. Не просите согласие на запрещённый обмен и не предлагайте другую операцию без запроса клиента.\\n8. Итог исполнения — регистрация заявки `exchange requested`. Реальные выплаты и письма не выполняются.\\n\", \"amount\": \"11.20\"}}}}"
+    },
+    {
+      "id": 14,
+      "case_id": "3834de873ccc4b86ba72277d7a487086",
+      "kind": "tool",
+      "text": "propose_exchange: {\"order_id\": \"#M202\", \"item_ids\": [\"old\"], \"new_item_ids\": [\"new\"], \"payment_method_id\": \"card\"}"
+    },
+    {
+      "id": 15,
+      "case_id": "3834de873ccc4b86ba72277d7a487086",
+      "kind": "recovery_prepared",
+      "text": "7d6672d57ded451c9877555c6e5af716"
+    },
+    {
+      "id": 16,
+      "case_id": "3834de873ccc4b86ba72277d7a487086",
+      "kind": "approval",
+      "text": "Сотрудник подтвердил предложение версии 3"
+    },
+    {
+      "id": 17,
+      "case_id": "3834de873ccc4b86ba72277d7a487086",
+      "kind": "sent",
+      "text": "Заявка на обмен 1 позиций заказа #M202. Заказ #M202. Позиции: old. Замена на: new. Доплата: 11.20 USD. Способ оплаты: card. Подтвердите эти условия."
+    },
+    {
+      "id": 18,
+      "case_id": "3834de873ccc4b86ba72277d7a487086",
+      "kind": "customer",
+      "text": "Да, подтверждаю обмен той же единственной позиции и новую доплату 11.20 USD с карты card."
+    },
+    {
+      "id": 19,
+      "case_id": "3834de873ccc4b86ba72277d7a487086",
+      "kind": "consent",
+      "text": "Клиент подтвердил текущие условия"
+    },
+    {
+      "id": 20,
+      "case_id": "3834de873ccc4b86ba72277d7a487086",
+      "kind": "approval",
+      "text": "Сотрудник подтвердил предложение версии 4"
+    },
+    {
+      "id": 21,
+      "case_id": "3834de873ccc4b86ba72277d7a487086",
+      "kind": "operation",
+      "text": "{\"order_id\": \"#M202\", \"user_id\": \"main2\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"main-product2\", \"item_id\": \"old\", \"price\": 120.0, \"options\": {\"color\": \"black\"}}], \"status\": \"exchange requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 120.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": [\"old\"], \"exchange_new_items\": [\"new\"], \"exchange_payment_method_id\": \"card\", \"exchange_price_difference\": 11.2, \"return_items\": null, \"return_payment_method_id\": null}"
+    },
+    {
+      "id": 22,
+      "case_id": "3834de873ccc4b86ba72277d7a487086",
+      "kind": "sent",
+      "text": "Зарегистрирована заявка на обмен по заказу #M202. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+    }
+  ],
+  "model_calls": 1,
+  "api_calls": 1,
+  "model_seconds": 2.204
+}

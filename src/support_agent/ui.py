@@ -24,6 +24,8 @@ EVENT_LABELS = {
     "approval": "Согласование сотрудника",
     "delivery_retry": "Продолжение доставки",
     "consent": "Согласие клиента",
+    "consent_refused": "Отказ клиента",
+    "consent_outdated": "Устаревшее согласие",
     "blocked": "Исполнение остановлено",
     "error": "Ошибка",
     "operation": "Фактический результат действия",
@@ -89,6 +91,17 @@ def _approve(case_id, proposal_id, version, digest):
     )
     if ok:
         st.session_state["_last_result"] = result
+
+
+def _resume(case_id, source_proposal_id):
+    ok, _ = _invoke(
+        st.session_state["_service"].resume,
+        case_id,
+        source_proposal_id,
+        EMPLOYEE,
+    )
+    if ok:
+        st.session_state.pop("_last_result", None)
 
 
 def _reject(case_id, proposal_id, version, digest):
@@ -188,8 +201,48 @@ def _evidence(proposal):
         st.text(item.detail)
 
 
+def _recovery(view):
+    recovery = view.get("recovery")
+    if not recovery:
+        return
+    check = recovery.get("check") or {}
+    if check.get("reason"):
+        st.warning(check["reason"])
+    mode = view.get("recovery_mode", "manual")
+    if mode == "auto":
+        for change in check.get("changes", []):
+            st.text(
+                f"{change['label']}\nБыло: {change['before']}\nСтало: {change['after']}"
+            )
+    status = recovery.get("status")
+    if status == "failed":
+        st.error("Не удалось подготовить новую версию.")
+        st.caption("Проверьте историю обращения перед новой попыткой расследования.")
+    elif status == "running":
+        st.info("Готовится новая версия предложения.")
+    elif status == "prepared":
+        st.caption("Новая версия подготовлена. Проверьте её перед согласованием.")
+    elif status == "cancelled":
+        st.caption("Подготовка новой версии отменена.")
+    elif status == "pending" and mode == "auto":
+        st.info("Ожидает автоматической подготовки новой версии.")
+    if mode == "manual":
+        st.button(
+            "Продолжить расследование",
+            key="resume_recovery",
+            disabled=status != "pending",
+            on_click=_resume,
+            args=(view["case"]["id"], recovery["source_proposal_id"]),
+        )
+
+
 def _card(view):
     st.subheader("Предложение сотруднику")
+    st.caption(
+        "Автоматическая подготовка новой версии"
+        if view.get("recovery_mode", "manual") == "auto"
+        else "Подготовка новой версии по команде сотрудника"
+    )
     proposal = view["proposal"]
     if proposal is None:
         st.info("Введите сообщение клиента и подготовьте решение.")
@@ -199,6 +252,7 @@ def _card(view):
         st.caption(
             f"Версия {proposal.version} · {STATUS_LABELS.get(status, 'Состояние уточняется')}"
         )
+        _recovery(view)
         st.write("Действие и ответ" if proposal.action else "Только сообщение")
         action = proposal.action or proposal.consent_request
         if action:

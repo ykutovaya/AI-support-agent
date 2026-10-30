@@ -1,0 +1,11 @@
+{
+  "scenario_id": "pilot-status",
+  "status": "prepared",
+  "case_id": "d09c14ca6c8e463a960b30d091410f94",
+  "proposal_id": "4b539111dd0546d19ed93e2a296237c7",
+  "event_boundary": 10,
+  "checkpoint_sha256": "38f7d44bf3d3e24895782d30d7edd5a857d83fbfcb3296ba7585d28cee21b7e4",
+  "model_calls": 4,
+  "api_calls": 4,
+  "elapsed_seconds": 9.75
+}

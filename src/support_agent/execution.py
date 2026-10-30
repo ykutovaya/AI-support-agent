@@ -101,6 +101,18 @@ class Executor:
                 )
                 delivery_id = delivery["id"]
             else:
+                recovery = conn.execute(
+                    "SELECT body FROM recoveries WHERE source_proposal_id=?",
+                    (proposal_id,),
+                ).fetchone()
+                if record["status"] == "stale" and recovery:
+                    check = json.loads(recovery["body"])
+                    return {
+                        "status": "stale",
+                        "reason": check["reason"],
+                        "recovery_id": proposal_id,
+                        "check": check,
+                    }
                 if record["status"] != "pending":
                     raise ValueError(
                         "Нужно подготовить новое предложение и согласовать его"
@@ -111,13 +123,9 @@ class Executor:
                     snapshot, policy = self.store.retail(conn)
                     adapter = self.adapter_factory(snapshot, policy)
                     try:
-                        current = adapter.plan(
-                            action.name, action.arguments, case["user_id"]
-                        )
-                        if current.fingerprint() != action.fingerprint():
-                            raise ValueError(
-                                "Условия изменились; требуется новое согласование"
-                            )
+                        check = adapter.check(action, case["user_id"])
+                        if check.status != "unchanged":
+                            return self.mark_changed(conn, case, proposal, check)
                         if proposal.action and not has_consent(conn, case_id, action):
                             raise ValueError("Нет согласия клиента на текущие условия")
                     except ValueError as error:
@@ -208,6 +216,27 @@ class Executor:
                     conn.execute("RELEASE operation_attempt")
         # Отправка выполняется после фиксации результата, с постоянным ключом доставки.
         return self._deliver(delivery_id)
+
+    def mark_changed(self, conn, case, proposal, check):
+        """Зафиксировать изменение и отозвать согласие в текущей транзакции."""
+        body = check.model_dump(mode="json")
+        conn.execute(
+            "UPDATE proposals SET status='stale',reason=? WHERE id=?",
+            (check.reason, proposal.id),
+        )
+        conn.execute("UPDATE consents SET revoked=1 WHERE case_id=?", (case["id"],))
+        conn.execute(
+            "INSERT INTO recoveries(source_proposal_id,case_id,body) VALUES (?,?,?)",
+            (proposal.id, case["id"], encode(body)),
+        )
+        self.store.event(conn, case["id"], "conditions_changed", encode(body))
+        self.store.save_case(conn, case, case["revision"])
+        return {
+            "status": "stale",
+            "reason": check.reason,
+            "recovery_id": proposal.id,
+            "check": body,
+        }
 
     def _deliver(self, delivery_id):
         with self.store.connection() as conn:

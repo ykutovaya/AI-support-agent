@@ -1,0 +1,57 @@
+{
+  "scenario_id": "pilot-status",
+  "mutation": "status",
+  "mode": "auto",
+  "trial": 0,
+  "checkpoint_sha256": "666bfd89369b05d33f281e331f491a2ee1baafa4be084c03c9d36a5211649bdd",
+  "status": "behavior_failure",
+  "correct": false,
+  "interventions": 0,
+  "technical_complete": true,
+  "error_type": "ValueError",
+  "failure_reason": "Нет законченного объяснения недопустимости обмена",
+  "counts": {
+    "manual_resume": 0,
+    "automatic_resume": 1,
+    "rejected": 0,
+    "approval": 0,
+    "consent": 0,
+    "customer": 0,
+    "operation": 0,
+    "sent": 0,
+    "conditions_changed": 1,
+    "recovery_prepared": 1
+  },
+  "violations": [],
+  "elapsed_seconds": 5.985,
+  "steps": 2,
+  "events": [
+    {
+      "id": 11,
+      "case_id": "e70a9b6d4e02442c9978274b79565034",
+      "kind": "conditions_changed",
+      "text": "{\"status\": \"forbidden\", \"reason\": \"Заявка возможна только для доставленного заказа\", \"changes\": [{\"field\": \"order.status\", \"label\": \"Статус заказа\", \"before\": \"delivered\", \"after\": \"cancelled\"}], \"current\": null}"
+    },
+    {
+      "id": 12,
+      "case_id": "e70a9b6d4e02442c9978274b79565034",
+      "kind": "automatic_resume",
+      "text": "0e6fd2f0af7144199809f0518813c14f"
+    },
+    {
+      "id": 13,
+      "case_id": "e70a9b6d4e02442c9978274b79565034",
+      "kind": "application",
+      "text": "{\"type\": \"conditions_changed\", \"proposal_id\": \"0e6fd2f0af7144199809f0518813c14f\", \"check\": {\"status\": \"forbidden\", \"reason\": \"Заявка возможна только для доставленного заказа\", \"changes\": [{\"field\": \"order.status\", \"label\": \"Статус заказа\", \"before\": \"delivered\", \"after\": \"cancelled\"}], \"current\": null}}"
+    },
+    {
+      "id": 14,
+      "case_id": "e70a9b6d4e02442c9978274b79565034",
+      "kind": "recovery_prepared",
+      "text": "fe3b4778fa474fdab256d39baa8693c3"
+    }
+  ],
+  "model_calls": 1,
+  "api_calls": 1,
+  "model_seconds": 5.922
+}

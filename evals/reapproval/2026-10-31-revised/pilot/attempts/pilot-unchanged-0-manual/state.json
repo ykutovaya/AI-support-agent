@@ -1,0 +1,455 @@
+{
+  "tables": {
+    "proposals": [
+      {
+        "id": "b3a7309c633343df979df5b49344e391",
+        "case_id": "dde2c6b3c2a84e4f803dcb059e842230",
+        "version": 1,
+        "body": "{\"id\":\"b3a7309c633343df979df5b49344e391\",\"case_id\":\"dde2c6b3c2a84e4f803dcb059e842230\",\"version\":1,\"kind\":\"message\",\"text\":\"Заявка на обмен 1 позиций заказа #P101. Заказ #P101. Позиции: old. Замена на: new. Доплата: 2.35 USD. Способ оплаты: card. Подтвердите эти условия.\",\"action\":null,\"consent_request\":{\"name\":\"exchange_delivered_order_items\",\"arguments\":{\"order_id\":\"#P101\",\"item_ids\":[\"old\"],\"new_item_ids\":[\"new\"],\"payment_method_id\":\"card\"},\"amount\":\"2.35\",\"currency\":\"USD\",\"conditions\":\"0b49b8999920418626daff6a8bc0b9589508f76a595dacfa59958f4461bde753\",\"result_status\":\"exchange requested\",\"description\":\"Заявка на обмен 1 позиций заказа #P101\",\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#P101\",\"detail\":\"Заказ #P101, статус delivered, клиент pilot1.\"},{\"title\":\"Наушники\",\"source\":\"products/pilot-product1\",\"detail\":\"new: {'color': 'white'}, 12.35 USD, доступен\"},{\"title\":\"Правила обмена\",\"source\":\"policy.md#exchange-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}],\"condition_values\":{\"order\":{\"order_id\":\"#P101\",\"user_id\":\"pilot1\",\"address\":{\"address1\":\"Учебная 1\",\"address2\":\"\",\"city\":\"Город\",\"country\":\"US\",\"state\":\"CA\",\"zip\":\"12345\"},\"items\":[{\"name\":\"Наушники\",\"product_id\":\"pilot-product1\",\"item_id\":\"old\",\"price\":10.0,\"options\":{\"color\":\"black\"}}],\"status\":\"delivered\",\"fulfillments\":[],\"payment_history\":[{\"transaction_type\":\"payment\",\"amount\":10.0,\"payment_method_id\":\"card\"}],\"cancel_reason\":null,\"exchange_items\":null,\"exchange_new_items\":null,\"exchange_payment_method_id\":null,\"exchange_price_difference\":null,\"return_items\":null,\"return_payment_method_id\":null},\"payment_methods\":{\"card\":{\"source\":\"credit_card\",\"id\":\"card\",\"brand\":\"visa\",\"last_four\":\"1111\"},\"other_card\":{\"source\":\"credit_card\",\"id\":\"other_card\",\"brand\":\"visa\",\"last_four\":\"2222\"},\"gift\":{\"source\":\"gift_card\",\"id\":\"gift\",\"balance\":5.0}},\"products\":{\"pilot-product1\":{\"name\":\"Наушники\",\"product_id\":\"pilot-product1\",\"variants\":{\"old\":{\"item_id\":\"old\",\"options\":{\"color\":\"black\"},\"available\":true,\"price\":10.0},\"new\":{\"item_id\":\"new\",\"options\":{\"color\":\"white\"},\"available\":true,\"price\":12.35},\"cheap\":{\"item_id\":\"cheap\",\"options\":{\"color\":\"blue\"},\"available\":true,\"price\":8.9}}}},\"policy\":\"# Учебные правила обмена\\n\\nЭто синтетический магазин для проверки приложения, не правила Softline.\\n\\n1. Проверьте email клиента либо имя и почтовый индекс через инструмент поиска.\\n2. Для обмена допустим только статус `delivered`. При `cancelled` обмен невозможен; объясните клиенту причину без обещания выполненного обмена.\\n3. Менять можно только доступный вариант того же товара. Согласуйте все позиции, способ оплаты и разницу между текущей ценой замены и покупной ценой.\\n4. Инструмент `propose_exchange` готовит предложение. Он не исполняет обмен и не отправляет сообщения.\\n5. Запрос согласия клиента и итоговое действие отдельно подтверждает сотрудник. Модель не создаёт эти подтверждения.\\n6. После изменения суммы старое согласие клиента недействительно. Подготовьте предложение на актуальных условиях и запросите новое согласие.\\n7. Если изменился статус и операция недопустима, подготовьте объяснение нового статуса. Не просите согласие на запрещённый обмен и не предлагайте другую операцию без запроса клиента.\\n8. Итог исполнения — регистрация заявки `exchange requested`. Реальные выплаты и письма не выполняются.\\n\",\"amount\":\"2.35\"}},\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#P101\",\"detail\":\"Заказ #P101, статус delivered, клиент pilot1.\"},{\"title\":\"Наушники\",\"source\":\"products/pilot-product1\",\"detail\":\"new: {'color': 'white'}, 12.35 USD, доступен\"},{\"title\":\"Правила обмена\",\"source\":\"policy.md#exchange-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}]}",
+        "status": "delivered",
+        "reason": ""
+      },
+      {
+        "id": "ce28d6fffd8e46f78b654522e1721a83",
+        "case_id": "dde2c6b3c2a84e4f803dcb059e842230",
+        "version": 2,
+        "body": "{\"id\":\"ce28d6fffd8e46f78b654522e1721a83\",\"case_id\":\"dde2c6b3c2a84e4f803dcb059e842230\",\"version\":2,\"kind\":\"action\",\"text\":\"Зарегистрирована заявка на обмен по заказу #P101. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось.\",\"action\":{\"name\":\"exchange_delivered_order_items\",\"arguments\":{\"order_id\":\"#P101\",\"item_ids\":[\"old\"],\"new_item_ids\":[\"new\"],\"payment_method_id\":\"card\"},\"amount\":\"2.35\",\"currency\":\"USD\",\"conditions\":\"0b49b8999920418626daff6a8bc0b9589508f76a595dacfa59958f4461bde753\",\"result_status\":\"exchange requested\",\"description\":\"Заявка на обмен 1 позиций заказа #P101\",\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#P101\",\"detail\":\"Заказ #P101, статус delivered, клиент pilot1.\"},{\"title\":\"Наушники\",\"source\":\"products/pilot-product1\",\"detail\":\"new: {'color': 'white'}, 12.35 USD, доступен\"},{\"title\":\"Правила обмена\",\"source\":\"policy.md#exchange-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}],\"condition_values\":{\"order\":{\"order_id\":\"#P101\",\"user_id\":\"pilot1\",\"address\":{\"address1\":\"Учебная 1\",\"address2\":\"\",\"city\":\"Город\",\"country\":\"US\",\"state\":\"CA\",\"zip\":\"12345\"},\"items\":[{\"name\":\"Наушники\",\"product_id\":\"pilot-product1\",\"item_id\":\"old\",\"price\":10.0,\"options\":{\"color\":\"black\"}}],\"status\":\"delivered\",\"fulfillments\":[],\"payment_history\":[{\"transaction_type\":\"payment\",\"amount\":10.0,\"payment_method_id\":\"card\"}],\"cancel_reason\":null,\"exchange_items\":null,\"exchange_new_items\":null,\"exchange_payment_method_id\":null,\"exchange_price_difference\":null,\"return_items\":null,\"return_payment_method_id\":null},\"payment_methods\":{\"card\":{\"source\":\"credit_card\",\"id\":\"card\",\"brand\":\"visa\",\"last_four\":\"1111\"},\"other_card\":{\"source\":\"credit_card\",\"id\":\"other_card\",\"brand\":\"visa\",\"last_four\":\"2222\"},\"gift\":{\"source\":\"gift_card\",\"id\":\"gift\",\"balance\":5.0}},\"products\":{\"pilot-product1\":{\"name\":\"Наушники\",\"product_id\":\"pilot-product1\",\"variants\":{\"old\":{\"item_id\":\"old\",\"options\":{\"color\":\"black\"},\"available\":true,\"price\":10.0},\"new\":{\"item_id\":\"new\",\"options\":{\"color\":\"white\"},\"available\":true,\"price\":12.35},\"cheap\":{\"item_id\":\"cheap\",\"options\":{\"color\":\"blue\"},\"available\":true,\"price\":8.9}}}},\"policy\":\"# Учебные правила обмена\\n\\nЭто синтетический магазин для проверки приложения, не правила Softline.\\n\\n1. Проверьте email клиента либо имя и почтовый индекс через инструмент поиска.\\n2. Для обмена допустим только статус `delivered`. При `cancelled` обмен невозможен; объясните клиенту причину без обещания выполненного обмена.\\n3. Менять можно только доступный вариант того же товара. Согласуйте все позиции, способ оплаты и разницу между текущей ценой замены и покупной ценой.\\n4. Инструмент `propose_exchange` готовит предложение. Он не исполняет обмен и не отправляет сообщения.\\n5. Запрос согласия клиента и итоговое действие отдельно подтверждает сотрудник. Модель не создаёт эти подтверждения.\\n6. После изменения суммы старое согласие клиента недействительно. Подготовьте предложение на актуальных условиях и запросите новое согласие.\\n7. Если изменился статус и операция недопустима, подготовьте объяснение нового статуса. Не просите согласие на запрещённый обмен и не предлагайте другую операцию без запроса клиента.\\n8. Итог исполнения — регистрация заявки `exchange requested`. Реальные выплаты и письма не выполняются.\\n\",\"amount\":\"2.35\"}},\"consent_request\":null,\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#P101\",\"detail\":\"Заказ #P101, статус delivered, клиент pilot1.\"},{\"title\":\"Наушники\",\"source\":\"products/pilot-product1\",\"detail\":\"new: {'color': 'white'}, 12.35 USD, доступен\"},{\"title\":\"Правила обмена\",\"source\":\"policy.md#exchange-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}]}",
+        "status": "delivered",
+        "reason": ""
+      }
+    ],
+    "consents": [
+      {
+        "id": "93e28948ad5b43e5a73789b75b5639e7",
+        "case_id": "dde2c6b3c2a84e4f803dcb059e842230",
+        "question_id": "b3a7309c633343df979df5b49344e391",
+        "action_hash": "78e938b751640f7d455e3be3c3c88b3d8367b20afa1fb8845ea9bcceeaf72921",
+        "accepted": 1,
+        "revoked": 1,
+        "response": "Да, подтверждаю обмен единственной позиции на белый вариант и доплату 2.35 USD с карты card."
+      }
+    ],
+    "approvals": [
+      {
+        "proposal_id": "b3a7309c633343df979df5b49344e391",
+        "digest": "014b486a7901efe0191630985a1fe5146c8f1e390265ed11a85ab8109f467ebf",
+        "employee_id": "evaluation-employee"
+      },
+      {
+        "proposal_id": "ce28d6fffd8e46f78b654522e1721a83",
+        "digest": "0d9ccfa45b7bfeaf017fda84f870cf8e216053ac9920b137a03267281c418aac",
+        "employee_id": "evaluation-employee"
+      }
+    ],
+    "operations": [
+      {
+        "proposal_id": "ce28d6fffd8e46f78b654522e1721a83",
+        "result": "{\"order_id\": \"#P101\", \"user_id\": \"pilot1\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"pilot-product1\", \"item_id\": \"old\", \"price\": 10.0, \"options\": {\"color\": \"black\"}}], \"status\": \"exchange requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 10.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": [\"old\"], \"exchange_new_items\": [\"new\"], \"exchange_payment_method_id\": \"card\", \"exchange_price_difference\": 2.35, \"return_items\": null, \"return_payment_method_id\": null}"
+      }
+    ],
+    "outbox": [
+      {
+        "id": "24b89762c3d448048c81bb70a695ff14",
+        "proposal_id": "b3a7309c633343df979df5b49344e391",
+        "case_id": "dde2c6b3c2a84e4f803dcb059e842230",
+        "text": "Заявка на обмен 1 позиций заказа #P101. Заказ #P101. Позиции: old. Замена на: new. Доплата: 2.35 USD. Способ оплаты: card. Подтвердите эти условия.",
+        "status": "delivered",
+        "error": ""
+      },
+      {
+        "id": "d80dd2f4d29a4ffcbd215e02a90102be",
+        "proposal_id": "ce28d6fffd8e46f78b654522e1721a83",
+        "case_id": "dde2c6b3c2a84e4f803dcb059e842230",
+        "text": "Зарегистрирована заявка на обмен по заказу #P101. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось.",
+        "status": "delivered",
+        "error": ""
+      }
+    ],
+    "deliveries": [
+      {
+        "id": "24b89762c3d448048c81bb70a695ff14",
+        "case_id": "dde2c6b3c2a84e4f803dcb059e842230",
+        "text": "Заявка на обмен 1 позиций заказа #P101. Заказ #P101. Позиции: old. Замена на: new. Доплата: 2.35 USD. Способ оплаты: card. Подтвердите эти условия."
+      },
+      {
+        "id": "d80dd2f4d29a4ffcbd215e02a90102be",
+        "case_id": "dde2c6b3c2a84e4f803dcb059e842230",
+        "text": "Зарегистрирована заявка на обмен по заказу #P101. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+      }
+    ],
+    "recoveries": []
+  },
+  "case": {
+    "id": "dde2c6b3c2a84e4f803dcb059e842230",
+    "user_id": "pilot1",
+    "employee_id": "evaluation-employee"
+  },
+  "retail": {
+    "products": {
+      "p2": {
+        "name": "Чайник",
+        "product_id": "p2",
+        "variants": {
+          "foreign": {
+            "item_id": "foreign",
+            "options": {},
+            "available": true,
+            "price": 20.0
+          }
+        }
+      },
+      "pilot-product1": {
+        "name": "Наушники",
+        "product_id": "pilot-product1",
+        "variants": {
+          "old": {
+            "item_id": "old",
+            "options": {
+              "color": "black"
+            },
+            "available": true,
+            "price": 10.0
+          },
+          "new": {
+            "item_id": "new",
+            "options": {
+              "color": "white"
+            },
+            "available": true,
+            "price": 12.35
+          },
+          "cheap": {
+            "item_id": "cheap",
+            "options": {
+              "color": "blue"
+            },
+            "available": true,
+            "price": 8.9
+          }
+        }
+      }
+    },
+    "users": {
+      "u2": {
+        "user_id": "u2",
+        "name": {
+          "first_name": "Имя2",
+          "last_name": "Фамилия"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "user2@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#O2"
+        ]
+      },
+      "pilot1": {
+        "user_id": "pilot1",
+        "name": {
+          "first_name": "Учебный",
+          "last_name": "pilot-unchanged"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "pilot-unchanged@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#P101"
+        ]
+      }
+    },
+    "orders": {
+      "#O2": {
+        "order_id": "#O2",
+        "user_id": "u2",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Чайник",
+            "product_id": "p2",
+            "item_id": "foreign",
+            "price": 10.0,
+            "options": {
+              "color": "black"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 10.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      },
+      "#P101": {
+        "order_id": "#P101",
+        "user_id": "pilot1",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Наушники",
+            "product_id": "pilot-product1",
+            "item_id": "old",
+            "price": 10.0,
+            "options": {
+              "color": "black"
+            }
+          }
+        ],
+        "status": "exchange requested",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 10.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": [
+          "old"
+        ],
+        "exchange_new_items": [
+          "new"
+        ],
+        "exchange_payment_method_id": "card",
+        "exchange_price_difference": 2.35,
+        "return_items": null,
+        "return_payment_method_id": null
+      }
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "Мой email pilot-unchanged@example.test. Хочу обменять чёрные наушники из доставленного заказа #P101 на белый вариант того же товара. Это единственная позиция для обмена. Для разницы в цене выбираю карту card, Visa с последними цифрами 1111. Подготовьте условия обмена.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_Oy73VyEj4ipg0vK4b0DSp5uT",
+          "name": "find_user_id_by_email",
+          "arguments": {
+            "email": "pilot-unchanged@example.test"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "\"pilot1\"",
+      "tool_calls": null,
+      "tool_call_id": "call_Oy73VyEj4ipg0vK4b0DSp5uT",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_q15UtIr2hNNg3w9NbPp2KLBq",
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "#P101"
+          }
+        },
+        {
+          "id": "call_ZRIOewGPz7iUjmbLTu4UYBjP",
+          "name": "get_user_details",
+          "arguments": {
+            "user_id": "pilot1"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"order_id\": \"#P101\", \"user_id\": \"pilot1\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"pilot-product1\", \"item_id\": \"old\", \"price\": 10.0, \"options\": {\"color\": \"black\"}}], \"status\": \"delivered\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 10.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": null, \"return_payment_method_id\": null}",
+      "tool_calls": null,
+      "tool_call_id": "call_q15UtIr2hNNg3w9NbPp2KLBq",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"user_id\": \"pilot1\", \"name\": {\"first_name\": \"Учебный\", \"last_name\": \"pilot-unchanged\"}, \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"email\": \"pilot-unchanged@example.test\", \"payment_methods\": {\"card\": {\"source\": \"credit_card\", \"id\": \"card\", \"brand\": \"visa\", \"last_four\": \"1111\"}, \"other_card\": {\"source\": \"credit_card\", \"id\": \"other_card\", \"brand\": \"visa\", \"last_four\": \"2222\"}, \"gift\": {\"source\": \"gift_card\", \"id\": \"gift\", \"balance\": 5.0}}, \"orders\": [\"#P101\"]}",
+      "tool_calls": null,
+      "tool_call_id": "call_ZRIOewGPz7iUjmbLTu4UYBjP",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_LdqcBc1OEetxikWoQM9407rp",
+          "name": "get_product_details",
+          "arguments": {
+            "product_id": "pilot-product1"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"name\": \"Наушники\", \"product_id\": \"pilot-product1\", \"variants\": {\"old\": {\"item_id\": \"old\", \"options\": {\"color\": \"black\"}, \"available\": true, \"price\": 10.0}, \"new\": {\"item_id\": \"new\", \"options\": {\"color\": \"white\"}, \"available\": true, \"price\": 12.35}, \"cheap\": {\"item_id\": \"cheap\", \"options\": {\"color\": \"blue\"}, \"available\": true, \"price\": 8.9}}}",
+      "tool_calls": null,
+      "tool_call_id": "call_LdqcBc1OEetxikWoQM9407rp",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_BCe2IDuztxryp5xTROUzl4Ao",
+          "name": "propose_exchange",
+          "arguments": {
+            "order_id": "#P101",
+            "item_ids": [
+              "old"
+            ],
+            "new_item_ids": [
+              "new"
+            ],
+            "payment_method_id": "card"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"status\": \"proposal_prepared\", \"executed\": false}",
+      "tool_calls": null,
+      "tool_call_id": "call_BCe2IDuztxryp5xTROUzl4Ao",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "Заявка на обмен 1 позиций заказа #P101. Заказ #P101. Позиции: old. Замена на: new. Доплата: 2.35 USD. Способ оплаты: card. Подтвердите эти условия.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "user",
+      "content": "Да, подтверждаю обмен единственной позиции на белый вариант и доплату 2.35 USD с карты card.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "Служебный результат исполнителя (не сообщение клиенту): {\"order_id\": \"#P101\", \"user_id\": \"pilot1\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"pilot-product1\", \"item_id\": \"old\", \"price\": 10.0, \"options\": {\"color\": \"black\"}}], \"status\": \"exchange requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 10.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": [\"old\"], \"exchange_new_items\": [\"new\"], \"exchange_payment_method_id\": \"card\", \"exchange_price_difference\": 2.35, \"return_items\": null, \"return_payment_method_id\": null}",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "Зарегистрирована заявка на обмен по заказу #P101. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    }
+  ]
+}

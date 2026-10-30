@@ -1,0 +1,11 @@
+{
+  "source_result": "pilot/manifest.json",
+  "original_result_unchanged": true,
+  "automated_success": 5,
+  "attempts": 6,
+  "finding": "Корректное объяснение невозможности обмена отклонено текстовой эвристикой; до доставки сценарий остановлен.",
+  "affected_attempt": "pilot-status-0-auto",
+  "comparison_valid_for_main": false,
+  "reason": "Требуется исправление и отдельная проверка измерения. Преимущество по пилоту не объявляется.",
+  "main_started": false
+}

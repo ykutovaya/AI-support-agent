@@ -1,0 +1,67 @@
+{
+  "scenario_id": "pilot-status",
+  "mutation": "status",
+  "mode": "manual",
+  "trial": 0,
+  "checkpoint_sha256": "38f7d44bf3d3e24895782d30d7edd5a857d83fbfcb3296ba7585d28cee21b7e4",
+  "status": "success",
+  "correct": true,
+  "interventions": 1,
+  "technical_complete": true,
+  "counts": {
+    "manual_resume": 1,
+    "automatic_resume": 0,
+    "rejected": 0,
+    "approval": 1,
+    "consent": 0,
+    "customer": 0,
+    "operation": 0,
+    "sent": 1,
+    "conditions_changed": 1,
+    "recovery_prepared": 1
+  },
+  "violations": [],
+  "elapsed_seconds": 2.985,
+  "steps": 4,
+  "events": [
+    {
+      "id": 11,
+      "case_id": "d09c14ca6c8e463a960b30d091410f94",
+      "kind": "conditions_changed",
+      "text": "{\"status\": \"forbidden\", \"reason\": \"Заявка возможна только для доставленного заказа\", \"changes\": [{\"field\": \"order.status\", \"label\": \"Статус заказа\", \"before\": \"delivered\", \"after\": \"cancelled\"}], \"current\": null}"
+    },
+    {
+      "id": 12,
+      "case_id": "d09c14ca6c8e463a960b30d091410f94",
+      "kind": "manual_resume",
+      "text": "4b539111dd0546d19ed93e2a296237c7"
+    },
+    {
+      "id": 13,
+      "case_id": "d09c14ca6c8e463a960b30d091410f94",
+      "kind": "application",
+      "text": "{\"type\": \"conditions_changed\", \"proposal_id\": \"4b539111dd0546d19ed93e2a296237c7\", \"check\": {\"status\": \"forbidden\", \"reason\": \"Заявка возможна только для доставленного заказа\", \"changes\": [{\"field\": \"order.status\", \"label\": \"Статус заказа\", \"before\": \"delivered\", \"after\": \"cancelled\"}], \"current\": null}}"
+    },
+    {
+      "id": 14,
+      "case_id": "d09c14ca6c8e463a960b30d091410f94",
+      "kind": "recovery_prepared",
+      "text": "dd4acd2e42744a2e9dde1cf7138d802a"
+    },
+    {
+      "id": 15,
+      "case_id": "d09c14ca6c8e463a960b30d091410f94",
+      "kind": "approval",
+      "text": "Сотрудник подтвердил предложение версии 3"
+    },
+    {
+      "id": 16,
+      "case_id": "d09c14ca6c8e463a960b30d091410f94",
+      "kind": "sent",
+      "text": "{\"сообщение\":\"Статус заказа изменился с «доставлен» на «отменён». По правилам обмен возможен только для доставленного заказа, поэтому обмен оформить нельзя. Подтверждение доплаты не может быть применено; обмен не зарегистрирован.\"}"
+    }
+  ],
+  "model_calls": 1,
+  "api_calls": 1,
+  "model_seconds": 2.922
+}
