@@ -1,0 +1,223 @@
+{
+  "status": "passed",
+  "kind": "separate_process_lifecycle",
+  "api_calls": 0,
+  "ui_or_human_check": false,
+  "fixture_hashes_before": {
+    "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\evals\\reapproval\\base_shop.json": "ad8dcc22be2617673cd0b7f27e80b26c308301297abd0b3b019bc89b6bec7b0a",
+    "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\evals\\reapproval\\policy.md": "12b4c1ff398015524dbd8129d3855dcfd400dafd02dc81f191a27e5a87ec05b4"
+  },
+  "fixture_hashes_after": {
+    "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\evals\\reapproval\\base_shop.json": "ad8dcc22be2617673cd0b7f27e80b26c308301297abd0b3b019bc89b6bec7b0a",
+    "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\evals\\reapproval\\policy.md": "12b4c1ff398015524dbd8129d3855dcfd400dafd02dc81f191a27e5a87ec05b4"
+  },
+  "restores_unchanged": true,
+  "fresh_snapshot_preserves_previous_database": true,
+  "phases": [
+    {
+      "phase": "prepare",
+      "pid": 23536,
+      "python": "3.12.12 (main, Feb 12 2026, 00:40:26) [MSC v.1944 64 bit (AMD64)]",
+      "executable": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env\\Scripts\\python.exe",
+      "prefix": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env",
+      "versions": {
+        "support-agent": "0.1.0",
+        "tau2": "2.0.0",
+        "streamlit": "1.66.0",
+        "pydantic": "2.13.5",
+        "litellm": "1.81.11"
+      },
+      "module_paths": {
+        "support_agent": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\src\\support_agent\\__init__.py",
+        "tau2": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env\\Lib\\site-packages\\tau2\\__init__.py"
+      },
+      "database": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\evals\\startup\\2026-10-31\\lifecycle\\working.sqlite3",
+      "mode": "demo",
+      "recovery_mode": "manual",
+      "case_id": "1290039d0c8446a6ad758d9b455cbe2a",
+      "proposal_id": "1564b4163e5043b893cae49227431ab1",
+      "counts": {
+        "approvals": 0,
+        "cases": 1,
+        "consents": 0,
+        "deliveries": 0,
+        "events": 6,
+        "operations": 0,
+        "outbox": 0,
+        "proposals": 1,
+        "recoveries": 0,
+        "retail_state": 1,
+        "sqlite_sequence": 1
+      },
+      "shop_sha256": "09790b1a6ddaa371f9ef5ef58cd27659a2b547750d1d0a554d30f4c602c7fa28",
+      "state_sha256": "e2fc5f9c330cd0f19451f9ed529021ac4e5a8c3364ac80814703eb47c8a96bbf",
+      "database_sha256": "d8d27a7e6398648a15dff72224a2af91b5ce3759cd131a576f6e3ab5cd96b298",
+      "api_calls": 0,
+      "ui_or_human_check": false
+    },
+    {
+      "phase": "restore_pending",
+      "pid": 8584,
+      "python": "3.12.12 (main, Feb 12 2026, 00:40:26) [MSC v.1944 64 bit (AMD64)]",
+      "executable": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env\\Scripts\\python.exe",
+      "prefix": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env",
+      "versions": {
+        "support-agent": "0.1.0",
+        "tau2": "2.0.0",
+        "streamlit": "1.66.0",
+        "pydantic": "2.13.5",
+        "litellm": "1.81.11"
+      },
+      "module_paths": {
+        "support_agent": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\src\\support_agent\\__init__.py",
+        "tau2": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env\\Lib\\site-packages\\tau2\\__init__.py"
+      },
+      "database": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\evals\\startup\\2026-10-31\\lifecycle\\working.sqlite3",
+      "mode": "demo",
+      "recovery_mode": "manual",
+      "case_id": "1290039d0c8446a6ad758d9b455cbe2a",
+      "proposal_id": "1564b4163e5043b893cae49227431ab1",
+      "counts": {
+        "approvals": 0,
+        "cases": 1,
+        "consents": 0,
+        "deliveries": 0,
+        "events": 6,
+        "operations": 0,
+        "outbox": 0,
+        "proposals": 1,
+        "recoveries": 0,
+        "retail_state": 1,
+        "sqlite_sequence": 1
+      },
+      "shop_sha256": "09790b1a6ddaa371f9ef5ef58cd27659a2b547750d1d0a554d30f4c602c7fa28",
+      "state_sha256": "e2fc5f9c330cd0f19451f9ed529021ac4e5a8c3364ac80814703eb47c8a96bbf",
+      "database_sha256": "d8d27a7e6398648a15dff72224a2af91b5ce3759cd131a576f6e3ab5cd96b298",
+      "api_calls": 0,
+      "ui_or_human_check": false
+    },
+    {
+      "phase": "execute",
+      "pid": 9240,
+      "python": "3.12.12 (main, Feb 12 2026, 00:40:26) [MSC v.1944 64 bit (AMD64)]",
+      "executable": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env\\Scripts\\python.exe",
+      "prefix": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env",
+      "versions": {
+        "support-agent": "0.1.0",
+        "tau2": "2.0.0",
+        "streamlit": "1.66.0",
+        "pydantic": "2.13.5",
+        "litellm": "1.81.11"
+      },
+      "module_paths": {
+        "support_agent": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\src\\support_agent\\__init__.py",
+        "tau2": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env\\Lib\\site-packages\\tau2\\__init__.py"
+      },
+      "database": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\evals\\startup\\2026-10-31\\lifecycle\\working.sqlite3",
+      "mode": "demo",
+      "recovery_mode": "manual",
+      "case_id": "1290039d0c8446a6ad758d9b455cbe2a",
+      "proposal_id": "35520dfad55c4180b9691af5e1ed5e9a",
+      "counts": {
+        "approvals": 2,
+        "cases": 1,
+        "consents": 1,
+        "deliveries": 2,
+        "events": 13,
+        "operations": 1,
+        "outbox": 2,
+        "proposals": 2,
+        "recoveries": 0,
+        "retail_state": 1,
+        "sqlite_sequence": 1
+      },
+      "shop_sha256": "016c8210c2212b84cdead210c1df421944a98e27432bcb3c017fd8b63d87a3a2",
+      "state_sha256": "1b9730d1a485667d55b3240ed3787ce48d1367dce1a7d7051680f9b18cd41fac",
+      "database_sha256": "9d40b22084d87c74f8d9e81065a46f2f4d58c361d275e556e542363f87f60ba8",
+      "api_calls": 0,
+      "ui_or_human_check": false
+    },
+    {
+      "phase": "restore_complete",
+      "pid": 8332,
+      "python": "3.12.12 (main, Feb 12 2026, 00:40:26) [MSC v.1944 64 bit (AMD64)]",
+      "executable": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env\\Scripts\\python.exe",
+      "prefix": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env",
+      "versions": {
+        "support-agent": "0.1.0",
+        "tau2": "2.0.0",
+        "streamlit": "1.66.0",
+        "pydantic": "2.13.5",
+        "litellm": "1.81.11"
+      },
+      "module_paths": {
+        "support_agent": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\src\\support_agent\\__init__.py",
+        "tau2": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env\\Lib\\site-packages\\tau2\\__init__.py"
+      },
+      "database": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\evals\\startup\\2026-10-31\\lifecycle\\working.sqlite3",
+      "mode": "demo",
+      "recovery_mode": "manual",
+      "case_id": "1290039d0c8446a6ad758d9b455cbe2a",
+      "proposal_id": "35520dfad55c4180b9691af5e1ed5e9a",
+      "counts": {
+        "approvals": 2,
+        "cases": 1,
+        "consents": 1,
+        "deliveries": 2,
+        "events": 13,
+        "operations": 1,
+        "outbox": 2,
+        "proposals": 2,
+        "recoveries": 0,
+        "retail_state": 1,
+        "sqlite_sequence": 1
+      },
+      "shop_sha256": "016c8210c2212b84cdead210c1df421944a98e27432bcb3c017fd8b63d87a3a2",
+      "state_sha256": "1b9730d1a485667d55b3240ed3787ce48d1367dce1a7d7051680f9b18cd41fac",
+      "database_sha256": "9d40b22084d87c74f8d9e81065a46f2f4d58c361d275e556e542363f87f60ba8",
+      "api_calls": 0,
+      "ui_or_human_check": false
+    },
+    {
+      "phase": "new_snapshot",
+      "pid": 16348,
+      "python": "3.12.12 (main, Feb 12 2026, 00:40:26) [MSC v.1944 64 bit (AMD64)]",
+      "executable": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env\\Scripts\\python.exe",
+      "prefix": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env",
+      "versions": {
+        "support-agent": "0.1.0",
+        "tau2": "2.0.0",
+        "streamlit": "1.66.0",
+        "pydantic": "2.13.5",
+        "litellm": "1.81.11"
+      },
+      "module_paths": {
+        "support_agent": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\src\\support_agent\\__init__.py",
+        "tau2": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env\\Lib\\site-packages\\tau2\\__init__.py"
+      },
+      "database": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\evals\\startup\\2026-10-31\\lifecycle\\fresh.sqlite3",
+      "mode": "demo",
+      "recovery_mode": "manual",
+      "case_id": null,
+      "proposal_id": null,
+      "counts": {
+        "approvals": 0,
+        "cases": 0,
+        "consents": 0,
+        "deliveries": 0,
+        "events": 0,
+        "operations": 0,
+        "outbox": 0,
+        "proposals": 0,
+        "recoveries": 0,
+        "retail_state": 1,
+        "sqlite_sequence": 0
+      },
+      "shop_sha256": "09790b1a6ddaa371f9ef5ef58cd27659a2b547750d1d0a554d30f4c602c7fa28",
+      "state_sha256": "3e6142aea91efe11128abdbfcd89118363cce3d030cf3071136f2cbd096ad529",
+      "database_sha256": "e8349f7d2ac75db97fbc62b9a19307a0084acc356d3c145d9caa1bb726e0cb43",
+      "api_calls": 0,
+      "ui_or_human_check": false
+    }
+  ]
+}

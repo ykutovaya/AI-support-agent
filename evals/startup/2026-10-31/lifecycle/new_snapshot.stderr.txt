@@ -1,0 +1,4 @@
+[32m2026-10-31 03:38:36.172[0m | [33m[1mWARNING [0m | [36mtau2.utils.utils[0m:[36m<module>[0m:[36m29[0m - [33m[1mData directory does not exist: C:\Users\USER\AppData\Local\Temp\support-startup-2026-10-31\clean-env\Lib\data[0m
+[32m2026-10-31 03:38:36.172[0m | [33m[1mWARNING [0m | [36mtau2.utils.utils[0m:[36m<module>[0m:[36m30[0m - [33m[1mSet TAU2_DATA_DIR environment variable to point to your data directory[0m
+[32m2026-10-31 03:38:36.172[0m | [33m[1mWARNING [0m | [36mtau2.utils.utils[0m:[36m<module>[0m:[36m33[0m - [33m[1mOr ensure the data directory exists in the expected location[0m
+[32m2026-10-31 03:38:40.688[0m | [34m[1mDEBUG   [0m | [36mtau2.registry[0m:[36m<module>[0m:[36m297[0m - [34m[1mVoice dependencies not installed, skipping voice user registration[0m

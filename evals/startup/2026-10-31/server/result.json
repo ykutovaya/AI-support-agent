@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "command": [
+    "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env\\Scripts\\python.exe",
+    "-B",
+    "-m",
+    "streamlit",
+    "run",
+    "src/support_agent/ui.py",
+    "--server.address",
+    "127.0.0.1",
+    "--server.port",
+    "8505",
+    "--server.headless",
+    "true",
+    "--browser.gatherUsageStats",
+    "false"
+  ],
+  "database_sha256": "9d40b22084d87c74f8d9e81065a46f2f4d58c361d275e556e542363f87f60ba8",
+  "runs": [
+    {
+      "launch": 1,
+      "pid": 19960,
+      "health": [
+        200,
+        "ok"
+      ],
+      "stopped": true
+    },
+    {
+      "launch": 2,
+      "pid": 22476,
+      "health": [
+        200,
+        "ok"
+      ],
+      "stopped": true
+    }
+  ],
+  "database_unchanged": true,
+  "api_calls": 0,
+  "scope": "HTTP health и остановка; сценарий интерфейса проверен отдельно AppTest"
+}

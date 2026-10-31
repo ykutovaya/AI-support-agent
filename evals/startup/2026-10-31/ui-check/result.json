@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "kind": "streamlit_apptest_real_bootstrap",
+  "model": "DemoModel",
+  "mode": "demo",
+  "recovery_mode": "manual",
+  "service_replaced": false,
+  "api_calls": 0,
+  "human_pass": false,
+  "browser_pass": false,
+  "python": "3.12.12 (main, Feb 12 2026, 00:40:26) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env\\Scripts\\python.exe",
+  "prefix": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env",
+  "streamlit_version": "1.66.0",
+  "ui_source": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\src\\support_agent\\ui.py",
+  "ui_sha256": "b9fb9b92994d24cc90af9b2d1d11de5c41eb9274096fea66c78586e43d05e2ef",
+  "case_id": "b6abc29d9c6e4e6c91c5578311e3233a",
+  "proposal_id": "68f30ac6e7284e60a99f251b041d6d48",
+  "proposal_status": "pending",
+  "amount_usd": "2.35",
+  "rerun_unchanged": true,
+  "new_apptest_session_unchanged": true,
+  "database_sha256": "d857301a71b18871f662f836bb3da0826e5ed393a3c55a5e596eab3409fdd2a9",
+  "counts": {
+    "approvals": 0,
+    "cases": 1,
+    "consents": 0,
+    "deliveries": 0,
+    "events": 6,
+    "operations": 0,
+    "outbox": 0,
+    "proposals": 1,
+    "recoveries": 0,
+    "retail_state": 1,
+    "sqlite_sequence": 1
+  },
+  "fixture_hashes_before": {
+    "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\evals\\reapproval\\base_shop.json": "ad8dcc22be2617673cd0b7f27e80b26c308301297abd0b3b019bc89b6bec7b0a",
+    "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\evals\\reapproval\\policy.md": "12b4c1ff398015524dbd8129d3855dcfd400dafd02dc81f191a27e5a87ec05b4"
+  },
+  "fixture_hashes_after": {
+    "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\evals\\reapproval\\base_shop.json": "ad8dcc22be2617673cd0b7f27e80b26c308301297abd0b3b019bc89b6bec7b0a",
+    "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project\\evals\\reapproval\\policy.md": "12b4c1ff398015524dbd8129d3855dcfd400dafd02dc81f191a27e5a87ec05b4"
+  }
+}

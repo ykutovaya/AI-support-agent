@@ -18,6 +18,10 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest==8.3.5", "ruff==0.11.7"]
+retail = ["tau2==2.0.0"]
+
+[tool.uv.sources]
+tau2 = { git = "https://github.com/sierra-research/tau2-bench.git", rev = "da0835f6c67baef58bdda18f2a3b037dfb3a1754" }
 
 [tool.setuptools.packages.find]
 where = ["src"]

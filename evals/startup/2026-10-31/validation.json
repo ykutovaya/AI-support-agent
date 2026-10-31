@@ -1,0 +1,294 @@
+{
+  "status": "passed",
+  "recorded_at": "2026-10-31T00:40:46.056504+00:00",
+  "original_project_commit": "5c68a5e46b67fc78d438572b1173eaf65084a597",
+  "staging_project": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\project",
+  "environment": {
+    "python": "3.12.12 (main, Feb 12 2026, 00:40:26) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env\\Scripts\\python.exe",
+    "prefix": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env",
+    "uv": "uv 0.10.4 (079e3fd05 2026-02-17)",
+    "package_versions": {
+      "support-agent": "0.1.0",
+      "tau2": "2.0.0",
+      "streamlit": "1.66.0",
+      "pydantic": "2.13.5",
+      "litellm": "1.81.11",
+      "openai": "2.20.0",
+      "pytest": "8.3.5",
+      "ruff": "0.11.7",
+      "uvicorn": "0.54.0",
+      "websockets": "17.4"
+    },
+    "installed_packages_unique": 96,
+    "tau2_direct_url": {
+      "url": "https://github.com/sierra-research/tau2-bench.git",
+      "vcs_info": {
+        "vcs": "git",
+        "commit_id": "da0835f6c67baef58bdda18f2a3b037dfb3a1754",
+        "requested_revision": "da0835f6c67baef58bdda18f2a3b037dfb3a1754"
+      }
+    }
+  },
+  "source_sha256": {
+    "src/support_agent/__init__.py": "8d53b46792e4a7b4cb9510971b865f3d6ee61490c6a79a41f8187d78ba826669",
+    "src/support_agent/adapters/__init__.py": "6728211c5409c4aff90be49603661733f6d576a6be492a501cf35fde39304de9",
+    "src/support_agent/adapters/demo_model.py": "866905251949b526aada82ebfd2c5dfef6e1851582082162cde32355fb97bfa6",
+    "src/support_agent/adapters/llm.py": "84fdb43943cb0765a2a33b26034fc35568d4f38accad286987dd5d182d8053fd",
+    "src/support_agent/adapters/retail.py": "aa652945e71cc2190d6b45db13b656315eac7a71e241fd618f14a58ca5d5e55e",
+    "src/support_agent/adapters/tau_bench.py": "4b6c5cc8ddddbd636ce9d4f20828fbf1a25f81ac2087efe147a1fd3a2ea4a4fa",
+    "src/support_agent/agent.py": "51024f6793af3f4d6ba998101388ef7fe095589704d5f5fb41c89f3d8ca8142d",
+    "src/support_agent/bootstrap.py": "ca0a1f39c0b562fe033610f06d6159616e0092d6a39a9b83c5dbe4b4a7134f0d",
+    "src/support_agent/demo.py": "6bb0f937e7f4115c5cd44c81b9e2b2cde03a77a8ab2053460919b3d0a1c00da6",
+    "src/support_agent/execution.py": "9f77b255aebb38ef0b7b5e55755c9cd099fcde4d88f230653049a06649f1391d",
+    "src/support_agent/models.py": "f90b98b2eb88fb59495a6b1fa5c2384bd52533e618ac07791c26c7366abbb466",
+    "src/support_agent/proposals.py": "b89413176277d260f405abe6870039586280ce330694d3ebc6dd6db5caa79462",
+    "src/support_agent/storage.py": "3a5037d6e604ffb7459a2d8f8de0cf4fcb8b7121f3118e91693827ef74c1cf29",
+    "src/support_agent/ui.py": "b9fb9b92994d24cc90af9b2d1d11de5c41eb9274096fea66c78586e43d05e2ef",
+    "src/support_agent/workflow.py": "b592a2603d41b213917ee300c3991666cb24d93fbdf878c8d18319808de5fab5"
+  },
+  "tests_sha256": {
+    "tests/conftest.py": "2f2f8a98db73b87d66d0cb73868505fcbca01c8eb8eef0208d1ac605048c3e20",
+    "tests/retail_data.py": "99a7a84f9ce2c4538405aaa19614b30224d8d4feed1b443ff4bf0c39cbf110a2",
+    "tests/test_app_flow.py": "4e0d7ddee02681a3b45af195d0199f12960d6a99feda9a23df9348372d3c1d77",
+    "tests/test_app_reapproval.py": "623ae5c49d4a385947fe01a924d881096adb6e6eaff2be7ac16062c817fafc0c",
+    "tests/test_bootstrap.py": "4fd9e7cd0402083b1395a8d16d77778a3ef67806547f9340aa26792bf333fff8",
+    "tests/test_conditions.py": "0b5a06ba79f1d71b5486eaeaad78f00645bcbeb0d92f54ac38f35a0f7ce5e0fa",
+    "tests/test_control.py": "7a73f47382a583f1eda31d0b3211362582402dbefae6fabd59232860542d81e1",
+    "tests/test_core.py": "2b996b4e5f9189d5394a672c935a45a45db63c24a1339a1bf144d10dc7652ff0",
+    "tests/test_demo.py": "7ba90d20edd3999d0d6949e09446c08587fc1116c9bfc26efdf3577851ab6a23",
+    "tests/test_demo_model.py": "4bda5ec4c6490661675c3e64e697b857ebc63e8e419f36e3cb2a9ee404ae0abc",
+    "tests/test_execution.py": "b4669b2b108ca6720489a9674a3ccae9824e790b6e971462aa82479412cbceff",
+    "tests/test_llm.py": "564db5b1377ae7eba540081edc7005b7f727b85223cd15a50822770ffba0f210",
+    "tests/test_proposals.py": "57333201b9c27e833b85d3892ce1a3ceca8d2ccbc87c1d7b1d67a1798ca2ff95",
+    "tests/test_reapproval_eval.py": "bdaa8d0d6136e1d88a7bd020ba7ce64566492820e459a5b73c6643fa8a279833",
+    "tests/test_recommendations.py": "68bb6dc94e8c4fb438e4de9b274e81fb81558cb9a5e2d2c5e4bf74e0c76430d0",
+    "tests/test_recovery.py": "6f75f96695080cd7ad74d9d0758b1e9e4cb2394ab976f414079d82c5f666b48c",
+    "tests/test_recovery_regressions.py": "73186258ccb35b21a604b1894c53c7d4d91467f13234cb85a0a8cfeaa64359a6",
+    "tests/test_retail.py": "9f5350c116eec5ee7a118a66adf1e55bb328d94d266c9534cb9f376ca9111d29",
+    "tests/test_storage.py": "69f2608ba01f71db4f0257bcddde5d5f2cfc7a84f0e97dfb6d5492437fad3f19",
+    "tests/test_tau_adapter.py": "1336ca83ae5df915f566798766caab3b946e96133d4262f1f17c5a88e1bcd871",
+    "tests/test_ui.py": "c02f52c40031ae1b73508b8af8d1ce9d978532cf525a6a92b257d7e53c289dd0",
+    "tests/test_ui_reapproval.py": "22feecf9d15fb4d0fb3290b8413c301a690ea29c70b86dcd5c0315a4e5d6851c",
+    "tests/test_workflow.py": "df94b8cef50496e347e88471a91b7519d084009d6bfb4f8118ed4d8c86218c49",
+    "tests/test_workflow_regressions.py": "64b7861123a9e47ef82dc0b163d8ef471fd1f2ba0912f659c8343cb85879fa2f"
+  },
+  "configuration_sha256": {
+    "pyproject.toml": "8cb4068416e9137589b8db94f0cab6080bb30eca08cb0483e6b9e5182658e777",
+    "uv.lock": "5d48fc5adaadad43ea3db7c439eb93a887b8b592fd60a2977cda004114905643",
+    ".env.example": "a05798b212d4006f70057f8a7869806fd9021abc1d179a9778aae269a4996b85",
+    ".gitignore": "f62a3648203f3108bc95a3c3109a1556ecfc9c222316ea46cda15f50c52a2683"
+  },
+  "synthetic_data_sha256": {
+    "evals/reapproval/base_shop.json": "ad8dcc22be2617673cd0b7f27e80b26c308301297abd0b3b019bc89b6bec7b0a",
+    "evals/reapproval/policy.md": "12b4c1ff398015524dbd8129d3855dcfd400dafd02dc81f191a27e5a87ec05b4",
+    "evals/reapproval/scenarios.json": "20fb7f59a3b1c4283cd32933e02e33eb3c1061ebb0c043bfa0d95dc5b46d996c"
+  },
+  "validation_scripts_sha256": {
+    "evals/startup/check_lifecycle.py": "3b5b86a6a99e7e257822bd35eccd90cb73019081144d966a846607b7f73bf02e",
+    "evals/startup/check_server.py": "2afad20bea6392dfc3fe7e850fe6312d695db94cb82f6291b1414d00793c21dc",
+    "evals/startup/check_ui.py": "462e4a8758143319715ad0eb7c0885fe458444c98fa2c5cf06f53bffdd1e9486"
+  },
+  "installation": {
+    "red": {
+      "status": "reproduced",
+      "environment": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\before-env",
+      "failure": "ModuleNotFoundError: No module named tau2",
+      "cause": "Исходный проект не устанавливал зависимость полного рабочего места tau2",
+      "evidence": "Воспроизведено основным ассистентом до изменения зависимостей"
+    },
+    "green": {
+      "status": "passed",
+      "environment": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-startup-2026-10-31\\clean-env",
+      "extras": [
+        "dev",
+        "retail"
+      ],
+      "tau2_commit": "da0835f6c67baef58bdda18f2a3b037dfb3a1754",
+      "pip_check": {
+        "status": "passed",
+        "packages": 96,
+        "evidence": "uv pip check выполнен основным ассистентом; повторно не запускался"
+      }
+    }
+  },
+  "checks": {
+    "pytest": {
+      "tests": "206",
+      "failures": "0",
+      "errors": "0",
+      "skipped": "0",
+      "time": "31.797",
+      "status": "passed",
+      "reference": "pytest.xml",
+      "sha256": "0ee6def33099ae1a310ab8cbca85438b4f20f4e3a9323ad79a861c6b7972714f",
+      "reason": "Новое чистое окружение и объединённый lock зависимостей"
+    },
+    "lifecycle": {
+      "status": "passed",
+      "reference": "lifecycle/result.json",
+      "sha256": "f19e329ef3b4e0725037dd0dcdefd958af95628cdf31c627989167fdacf0e146",
+      "processes": 5,
+      "restores_unchanged": true,
+      "fresh_snapshot_preserves_previous_database": true
+    },
+    "ui": {
+      "status": "passed",
+      "reference": "ui-check/result.json",
+      "sha256": "960bf495446ba666d0c2aa894516c863adf184136a4f7cfa74d12a446c51e54d",
+      "method": "Streamlit AppTest, настоящий bootstrap, DemoModel/manual, без подмены сервиса",
+      "rerun_unchanged": true,
+      "new_apptest_session_unchanged": true,
+      "amount_usd": "2.35",
+      "human_pass": false,
+      "browser_pass": false
+    },
+    "server": {
+      "status": "passed",
+      "reference": "server/result.json",
+      "sha256": "6ca093662b52175be5341cab45cd63af4e5615784c52782b90441b3aea65956c",
+      "runs": [
+        {
+          "launch": 1,
+          "pid": 19960,
+          "health": [
+            200,
+            "ok"
+          ],
+          "stopped": true
+        },
+        {
+          "launch": 2,
+          "pid": 22476,
+          "health": [
+            200,
+            "ok"
+          ],
+          "stopped": true
+        }
+      ],
+      "database_unchanged": true,
+      "scope": "HTTP health и остановка; сценарий интерфейса проверен отдельно AppTest"
+    }
+  },
+  "original_environments": {
+    "app": {
+      "unchanged": true,
+      "before_count_including_editable_duplicates": 58,
+      "after_count_including_editable_duplicates": 58,
+      "removed": [],
+      "added": [],
+      "reference": "app-original-packages.json",
+      "reference_sha256": "386968e132fee9b3bb75f620e71bb536c195791ac9161a5c1543556cfdc122fc",
+      "method": "importlib.metadata без импорта приложения; сравнение имён, версий и числа экземпляров"
+    },
+    "tau2": {
+      "unchanged": true,
+      "before_count_including_editable_duplicates": 94,
+      "after_count_including_editable_duplicates": 94,
+      "removed": [],
+      "added": [],
+      "reference": "tau2-original-packages.json",
+      "reference_sha256": "30a9a4fb8bd4e92e0ae19448f2ccafc728935fc4e6fcc7c5f410d14a92546e6a",
+      "method": "importlib.metadata без импорта приложения; сравнение имён, версий и числа экземпляров"
+    }
+  },
+  "tau2_source": {
+    "repository": "C:\\Users\\USER\\Documents\\portfolio\\tau2-bench",
+    "reference": "evals/acceptance/2026-10-31/validation.json",
+    "sha256": {
+      "uv.lock": "a112f36700a90222587769a767fdb4a301dbe713f5c486e35f261ccc978f3251",
+      "data/tau2/domains/retail/db.json": "dbde692e380bb4ad17f9f7841172cf1e69bebad2daa405628ccdc52a42b3b9b0",
+      "data/tau2/domains/retail/tasks.json": "f44563d8f36362e2dc58282bb02cfb85010d22f27d9439808758d3e9b2bc16d2",
+      "data/tau2/domains/retail/split_tasks.json": "5f9949b833e6b99584b87e84ef22f9d81789ea67a52e534c6f7aa91eff08adc7",
+      "data/tau2/domains/retail/policy.md": "4313d3fef8acf919f555fa17fbce929cc3ed1cef2dd8f0d35ff5c8c3364de176",
+      "src/tau2/domains/retail/tools.py": "313d7e9394faab5fc693103e2f67c46e2a3d865c066b737a21c6cf4fe3dc772b",
+      "data/tau2/multilingual/en/pack.yaml": "cd14ad9a7aaa298ce54c8c434f2cd1fb55500b13e6fdd1b824d92205a7e4f752",
+      "data/tau2/multilingual/en/retail_tasks_en.json": "29b1ab84363d93161b3bb3827c4aeb8bce5c91909f5f96b8ced56253a26a0720",
+      "data/tau2/multilingual/en/retail_metadata_en.json": "c4950eb78d61798a8c7d37598cb19038b24ef10b25b8e9c9b677669001320750"
+    },
+    "matches_reference": {
+      "uv.lock": true,
+      "data/tau2/domains/retail/db.json": true,
+      "data/tau2/domains/retail/tasks.json": true,
+      "data/tau2/domains/retail/split_tasks.json": true,
+      "data/tau2/domains/retail/policy.md": true,
+      "src/tau2/domains/retail/tools.py": true,
+      "data/tau2/multilingual/en/pack.yaml": true,
+      "data/tau2/multilingual/en/retail_tasks_en.json": true,
+      "data/tau2/multilingual/en/retail_metadata_en.json": true
+    },
+    "all_unchanged": true
+  },
+  "delivery_materials_audit": {
+    "repository": "C:\\Users\\USER\\Documents\\portfolio\\ai-support-agent",
+    "tracked_file_count": 230,
+    "tracked_disallowed_paths": [],
+    "secret_contents_read": false,
+    "audit_scope": "Имена отслеживаемых файлов и правила исключения; не поиск значений секретов внутри файлов",
+    "ignore_probes": {
+      ".env": {
+        "ignored": true,
+        "rule": ".gitignore:6:.env\t.env"
+      },
+      ".env.local": {
+        "ignored": true,
+        "rule": ".gitignore:7:.env.*\t.env.local"
+      },
+      "var/runtime/state.json": {
+        "ignored": true,
+        "rule": ".gitignore:23:var/\tvar/runtime/state.json"
+      },
+      "var/workspace.sqlite3": {
+        "ignored": true,
+        "rule": ".gitignore:23:var/\tvar/workspace.sqlite3"
+      },
+      "evals/startup/2026-10-31/lifecycle/working.sqlite3": {
+        "ignored": true,
+        "rule": ".gitignore:26:evals/**/*.sqlite3\tevals/startup/2026-10-31/lifecycle/working.sqlite3"
+      },
+      "evals/startup/2026-10-31/lifecycle/working.sqlite3-wal": {
+        "ignored": true,
+        "rule": ".gitignore:27:evals/**/*.sqlite3-*\tevals/startup/2026-10-31/lifecycle/working.sqlite3-wal"
+      },
+      ".venv/pyvenv.cfg": {
+        "ignored": true,
+        "rule": ".gitignore:12:.venv/\t.venv/pyvenv.cfg"
+      },
+      "__pycache__/example.pyc": {
+        "ignored": true,
+        "rule": ".gitignore:13:__pycache__/\t__pycache__/example.pyc"
+      },
+      ".pytest_cache/v/cache/nodeids": {
+        "ignored": true,
+        "rule": ".gitignore:16:.pytest_cache/\t.pytest_cache/v/cache/nodeids"
+      },
+      ".ruff_cache/cache": {
+        "ignored": true,
+        "rule": ".gitignore:17:.ruff_cache/\t.ruff_cache/cache"
+      },
+      "src/support_agent.egg-info/PKG-INFO": {
+        "ignored": true,
+        "rule": ".gitignore:20:*.egg-info/\tsrc/support_agent.egg-info/PKG-INFO"
+      }
+    },
+    "configuration_examples": {
+      ".env.example": {
+        "ignored": false
+      },
+      ".env.local.example": {
+        "ignored": false
+      }
+    },
+    "staging_gitignore_sha256": "f62a3648203f3108bc95a3c3109a1556ecfc9c222316ea46cda15f50c52a2683"
+  },
+  "api_calls": 0,
+  "application_changes": false,
+  "human_acceptance": "pending",
+  "remaining_limitations": [
+    "Человеческая приёмка двух сценариев остаётся открытой",
+    "AppTest не подтверждает визуальную проверку браузером",
+    "Учебная модель и синтетический магазин; внешние интеграции и API модели здесь не проверялись",
+    "Данные tau2 отсутствуют в установленном wheel; для полного benchmark нужен отдельный источник данных и TAU2_DATA_DIR"
+  ]
+}
