@@ -1,0 +1,146 @@
+{
+  "date": "2026-11-02",
+  "status": "passed",
+  "base_commit": "015507267c91e893203fdf1c81c041401550a250",
+  "fix_in_working_tree": true,
+  "model_mode": "demo",
+  "recovery_mode": "manual",
+  "python": "3.12.12",
+  "versions": {
+    "streamlit": "1.66.0",
+    "uvicorn": "0.54.0",
+    "websockets": "17.4"
+  },
+  "cause": "CPython Proactor: socket.shutdown raises WinError 10054 before server._detach; asyncio.Server.wait_closed remains pending. Reproduced by controlled fault injection matching the user traceback.",
+  "baseline_fault": {
+    "result": "before-fault.json",
+    "log": "before-fault.txt",
+    "active_connections_in_asyncio_server": 1,
+    "uvicorn_connections": 0,
+    "uvicorn_tasks": 0,
+    "forced_cleanup": true
+  },
+  "natural_reset_before_fix": {
+    "case": "reset",
+    "selector": false,
+    "port": 54423,
+    "signal": "CTRL_C_EVENT",
+    "physical_keyboard": false,
+    "shell_pid": 8808,
+    "health": true,
+    "ui_script_finished": 0,
+    "shell_ready": true,
+    "shutdown_seconds": 1.313,
+    "port_closed": true,
+    "database_unchanged": true,
+    "forced_cleanup": false,
+    "passed": true
+  },
+  "checks": {
+    "final-idle": {
+      "case": "idle",
+      "project_launcher": true,
+      "injected_reset": false,
+      "port": 63631,
+      "signal": "CTRL_C_EVENT",
+      "physical_keyboard": false,
+      "database": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-shutdown-2026-11-02\\final-idle\\normal.sqlite3",
+      "counts_before": {
+        "cases": 1,
+        "operations": 1,
+        "deliveries": 2
+      },
+      "shell_pid": 20244,
+      "health": true,
+      "shell_ready": true,
+      "shutdown_seconds": 0.687,
+      "port_closed": true,
+      "database_unchanged": true,
+      "counts_after": {
+        "cases": 1,
+        "operations": 1,
+        "deliveries": 2
+      },
+      "forced_cleanup": false,
+      "passed": true
+    },
+    "final-connected": {
+      "case": "connected",
+      "project_launcher": true,
+      "injected_reset": true,
+      "port": 63632,
+      "signal": "CTRL_C_EVENT",
+      "physical_keyboard": false,
+      "database": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-shutdown-2026-11-02\\final-connected\\normal.sqlite3",
+      "counts_before": {
+        "cases": 1,
+        "operations": 1,
+        "deliveries": 2
+      },
+      "shell_pid": 6668,
+      "health": true,
+      "ui_script_finished": 0,
+      "saved_case_visible": true,
+      "shell_ready": true,
+      "shutdown_seconds": 1.329,
+      "port_closed": true,
+      "database_unchanged": true,
+      "counts_after": {
+        "cases": 1,
+        "operations": 1,
+        "deliveries": 2
+      },
+      "forced_cleanup": false,
+      "passed": true
+    },
+    "final-restart": {
+      "case": "connected",
+      "project_launcher": true,
+      "injected_reset": false,
+      "port": 61668,
+      "signal": "CTRL_C_EVENT",
+      "physical_keyboard": false,
+      "database": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-shutdown-2026-11-02\\final-connected\\normal.sqlite3",
+      "counts_before": {
+        "cases": 1,
+        "operations": 1,
+        "deliveries": 2
+      },
+      "shell_pid": 28152,
+      "health": true,
+      "ui_script_finished": 0,
+      "saved_case_visible": true,
+      "shell_ready": true,
+      "shutdown_seconds": 1.203,
+      "port_closed": true,
+      "database_unchanged": true,
+      "counts_after": {
+        "cases": 1,
+        "operations": 1,
+        "deliveries": 2
+      },
+      "forced_cleanup": false,
+      "passed": true
+    }
+  },
+  "regression": {
+    "red": "red.xml",
+    "green": "green.xml",
+    "focused": "regression.xml",
+    "passed": 15,
+    "full_suite_rerun": false
+  },
+  "limitations": [
+    "Native CTRL_C_EVENT in isolated hidden PowerShell; no physical keyboard press or repeated human acceptance.",
+    "Natural TCP reset alone did not reproduce the hang.",
+    "Windows Selector does not support asyncio subprocess/pipes and is limited to 512 sockets.",
+    "Validated on Python 3.12.12; other supported Python versions were not tested."
+  ],
+  "api_calls": 0,
+  "original_acceptance_databases_changed": false,
+  "source_sha256": {
+    "src/support_agent/launcher.py": "89b33e75ff49cf1f0a1cb4e67a53f1200915ed7d08a019f1747feee9da4147c0",
+    "tests/test_shutdown.py": "311af8a607d26aab5186b5efb72e332a4b76d4937f5126413c8cf4d3b4d5d38e",
+    "evals/shutdown/check_shutdown.py": "2582e4147411322843638185f581f933a5e2477e3dc3b1eb123d45aab7363306"
+  }
+}

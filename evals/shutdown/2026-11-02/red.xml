@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="1.370" timestamp="2026-11-02T23:10:15.245357+03:00" hostname="DESKTOP-PNPT252"><testcase classname="test_shutdown" name="test_shutdown_after_connection_reset" time="1.300"><failure message="AssertionError: Traceback (most recent call last):&#10;    File &quot;C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\tasks.py&quot;, line 520, in wait_for&#10;      return await fut&#10;             ^^^^^^^^^&#10;    File &quot;C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\base_events.py&quot;, line 405, in wait_closed&#10;      await waiter&#10;  asyncio.exceptions.CancelledError&#10;  &#10;  The above exception was the direct cause of the following exception:&#10;  &#10;  Traceback (most recent call last):&#10;    File &quot;&lt;string&gt;&quot;, line 32, in check&#10;    File &quot;C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\tasks.py&quot;, line 519, in wait_for&#10;      async with timeouts.timeout(timeout):&#10;                 ^^^^^^^^^^^^^^^^^^^^^^^^^&#10;    File &quot;C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\timeouts.py&quot;, line 115, in __aexit__&#10;      raise TimeoutError from exc_val&#10;  TimeoutError&#10;  &#10;  During handling of the above exception, another exception occurred:&#10;  &#10;  Traceback (most recent call last):&#10;    File &quot;&lt;string&gt;&quot;, line 38, in &lt;module&gt;&#10;    File &quot;C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\runners.py&quot;, line 195, in run&#10;      return runner.run(main)&#10;             ^^^^^^^^^^^^^^^^&#10;    File &quot;C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\runners.py&quot;, line 118, in run&#10;      return self._loop.run_until_complete(task)&#10;             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^&#10;    File &quot;C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\base_events.py&quot;, line 691, in run_until_complete&#10;      return future.result()&#10;             ^^^^^^^^^^^^^^^&#10;    File &quot;&lt;string&gt;&quot;, line 34, in check&#10;  AssertionError: Сервер завис после WinError 10054: ['[Errno 10054] peer reset during shutdown']&#10;  &#10;assert 1 == 0&#10; +  where 1 = CompletedProcess(args=['C:\\Users\\USER\\Documents\\portfolio\\ai-support-agent\\var\\runtime\\Scripts\\python.exe', '...ine 34, in check\nAssertionError: Сервер завис после WinError 10054: [\'[Errno 10054] peer reset during shutdown\']\n').returncode">@pytest.mark.skipif(sys.platform != 'win32', reason='Ошибка транспорта Windows')
+    def test_shutdown_after_connection_reset():
+        # Моделируем показанный пользователем WinError 10054 в socket.shutdown.
+        # Проверяем закрытие настоящего TCP-сервера, а не выбор класса event loop.
+        script = r'''
+    import asyncio, socket, sys
+    sys.stderr.reconfigure(encoding='utf-8')
+    from unittest.mock import patch
+    try:
+        from support_agent.launcher import configure_event_loop
+    except ModuleNotFoundError:
+        configure_event_loop = lambda: None
+    configure_event_loop()
+    async def check():
+        loop=asyncio.get_running_loop()
+        errors=[]
+        loop.set_exception_handler(lambda loop,ctx: errors.append(str(ctx.get('exception'))))
+        connection=loop.create_future()
+        class Protocol(asyncio.Protocol):
+            def connection_made(self, transport):
+                connection.set_result(transport)
+        server=await loop.create_server(Protocol,'127.0.0.1',0)
+        port=server.sockets[0].getsockname()[1]
+        reader,writer=await asyncio.open_connection('127.0.0.1',port)
+        transport=await connection
+        original=socket.socket.shutdown
+        def reset(sock,how):
+            if sock.getsockname()[1]==port:
+                raise ConnectionResetError(10054,'peer reset during shutdown')
+            return original(sock,how)
+        with patch.object(socket.socket,'shutdown',reset):
+            transport.close()
+            await asyncio.sleep(.05)
+            server.close()
+            try:
+                await asyncio.wait_for(server.wait_closed(),1)
+            except TimeoutError:
+                raise AssertionError('Сервер завис после WinError 10054: '+repr(errors))
+        writer.close()
+        await writer.wait_closed()
+        assert not errors,errors
+    asyncio.run(check())
+    '''
+        result = subprocess.run(
+            [sys.executable, '-B', '-c', script],
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            encoding='utf-8',
+            timeout=10,
+        )
+&gt;       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\tasks.py", line 520, in wait_for
+E             return await fut
+E                    ^^^^^^^^^
+E           File "C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\base_events.py", line 405, in wait_closed
+E             await waiter
+E         asyncio.exceptions.CancelledError
+E         
+E         The above exception was the direct cause of the following exception:
+E         
+E         Traceback (most recent call last):
+E           File "&lt;string&gt;", line 32, in check
+E           File "C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\tasks.py", line 519, in wait_for
+E             async with timeouts.timeout(timeout):
+E                        ^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\timeouts.py", line 115, in __aexit__
+E             raise TimeoutError from exc_val
+E         TimeoutError
+E         
+E         During handling of the above exception, another exception occurred:
+E         
+E         Traceback (most recent call last):
+E           File "&lt;string&gt;", line 38, in &lt;module&gt;
+E           File "C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\runners.py", line 195, in run
+E             return runner.run(main)
+E                    ^^^^^^^^^^^^^^^^
+E           File "C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\runners.py", line 118, in run
+E             return self._loop.run_until_complete(task)
+E                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\base_events.py", line 691, in run_until_complete
+E             return future.result()
+E                    ^^^^^^^^^^^^^^^
+E           File "&lt;string&gt;", line 34, in check
+E         AssertionError: Сервер завис после WinError 10054: ['[Errno 10054] peer reset during shutdown']
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['C:\\Users\\USER\\Documents\\portfolio\\ai-support-agent\\var\\runtime\\Scripts\\python.exe', '...ine 34, in check\nAssertionError: Сервер завис после WinError 10054: [\'[Errno 10054] peer reset during shutdown\']\n').returncode
+
+test_shutdown.py:63: AssertionError</failure></testcase></testsuite></testsuites>

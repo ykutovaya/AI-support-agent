@@ -38,6 +38,12 @@ class Store:
                     employee_id TEXT NOT NULL);
                 CREATE TABLE IF NOT EXISTS operations (
                     proposal_id TEXT PRIMARY KEY REFERENCES proposals(id), result TEXT NOT NULL);
+                CREATE TABLE IF NOT EXISTS support_tickets (
+                    id INTEGER PRIMARY KEY, proposal_id TEXT UNIQUE NOT NULL REFERENCES proposals(id),
+                    case_id TEXT NOT NULL REFERENCES cases(id), user_id TEXT NOT NULL,
+                    order_id TEXT NOT NULL, reason_code TEXT NOT NULL,
+                    title TEXT NOT NULL, body TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'open',
+                    UNIQUE(case_id,order_id,reason_code));
                 CREATE TABLE IF NOT EXISTS outbox (
                     id TEXT PRIMARY KEY, proposal_id TEXT UNIQUE NOT NULL REFERENCES proposals(id),
                     case_id TEXT NOT NULL REFERENCES cases(id), text TEXT NOT NULL,
@@ -149,6 +155,13 @@ class Store:
                 (case_id,),
             ).fetchone()
             return self.proposal(conn, row["id"]) if row else None
+
+    def ticket(self, proposal_id):
+        with self.connection() as conn:
+            row = conn.execute(
+                "SELECT * FROM support_tickets WHERE proposal_id=?", (proposal_id,)
+            ).fetchone()
+            return dict(row) if row else None
 
     @staticmethod
     def next_version(conn, case_id):

@@ -1,0 +1,80 @@
+SERVER_PID 30072
+2026-11-02 23:13:06.813 No ASGI app assignments found in C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\ui.py
+2026-11-02 23:13:06.948 Filtered 97 packages down to 3 candidates for component scanning
+2026-11-02 23:13:06.948 Scanning 3 candidate packages for component manifests using 3 worker threads
+2026-11-02 23:13:07.002 Found 0 component manifests total
+2026-11-02 23:13:07.002 No asset roots to watch
+2026-11-02 23:13:07.002 File watching not started
+2026-11-02 23:13:07.002 Starting new event loop for server
+2026-11-02 23:13:07.002 Starting server...
+2026-11-02 23:13:07.048 Starting uvicorn server on 127.0.0.1:64042
+2026-11-02 23:13:07.095 Runtime state: RuntimeState.INITIAL -> RuntimeState.NO_SESSIONS_CONNECTED
+2026-11-02 23:13:07.095 Uvicorn server started on 127.0.0.1:64042
+
+  You can now view your Streamlit app in your browser.
+
+  URL: http://127.0.0.1:64042
+
+2026-11-02 23:13:07.137 Setting up signal handler
+INJECTED_WINERROR_10054
+Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+  File "C:\Users\USER\AppData\Local\Temp\support-shutdown-2026-11-02\before-fault\run_server.py", line 18, in failed_shutdown
+    raise ConnectionResetError(10054,'peer reset during shutdown')
+ConnectionResetError: [Errno 10054] peer reset during shutdown
+2026-11-02 23:13:07.587 No singleton. Registering one.
+2026-11-02 23:13:07.587 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\ui.py
+2026-11-02 23:13:07.587 AppSession initialized (id=2697988c-dae9-4929-8960-54b4a3cb535e)
+2026-11-02 23:13:07.587 Created new session for client 2873580600016. Session ID: 2697988c-dae9-4929-8960-54b4a3cb535e
+2026-11-02 23:13:07.587 Runtime state: RuntimeState.NO_SESSIONS_CONNECTED -> RuntimeState.ONE_OR_MORE_SESSIONS_CONNECTED
+2026-11-02 23:13:07.587 Beginning script thread
+2026-11-02 23:13:07.587 Running script
+2026-11-02 23:13:07.587 Disconnecting files for session with ID 2697988c-dae9-4929-8960-54b4a3cb535e
+2026-11-02 23:13:07.587 Sessions still active: dict_keys([])
+2026-11-02 23:13:07.587 Files: 0; Sessions with files: 0
+[32m2026-11-02 23:13:10.861[0m | [34m[1mDEBUG   [0m | [36mtau2.registry[0m:[36m<module>[0m:[36m297[0m - [34m[1mVoice dependencies not installed, skipping voice user registration[0m
+2026-11-02 23:13:11.035 Removing orphaned files...
+2026-11-02 23:13:11.035 Removing orphaned deferred callables...
+2026-11-02 23:13:12.279 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\__init__.py
+2026-11-02 23:13:12.279 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\bootstrap.py
+2026-11-02 23:13:12.288 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\adapters\__init__.py
+2026-11-02 23:13:12.288 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\models.py
+2026-11-02 23:13:12.288 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\adapters\demo_model.py
+2026-11-02 23:13:12.288 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\proposals.py
+2026-11-02 23:13:12.288 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\adapters\retail.py
+2026-11-02 23:13:12.288 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\storage.py
+2026-11-02 23:13:12.288 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\agent.py
+2026-11-02 23:13:12.288 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\execution.py
+2026-11-02 23:13:12.288 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\workflow.py
+  Stopping...
+2026-11-02 23:13:12.503 Runtime state: RuntimeState.ONE_OR_MORE_SESSIONS_CONNECTED -> RuntimeState.NO_SESSIONS_CONNECTED
+SHUTDOWN_STATE [(1, None)] connections 0 requests 0
+TASK <Task pending name='Task-3' coro=<LifespanOn.main() running at C:\Users\USER\Documents\portfolio\ai-support-agent\var\runtime\Lib\site-packages\uvicorn\lifespan\on.py:86> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+Stack for <Task pending name='Task-3' coro=<LifespanOn.main() running at C:\Users\USER\Documents\portfolio\ai-support-agent\var\runtime\Lib\site-packages\uvicorn\lifespan\on.py:86> wait_for=<Future pending cb=[Task.task_wakeup()]>> (most recent call last):
+  File "C:\Users\USER\Documents\portfolio\ai-support-agent\var\runtime\Lib\site-packages\uvicorn\lifespan\on.py", line 86, in main
+    await app(scope, self.receive, self.send)
+TASK <Task pending name='Runtime.loop_coroutine' coro=<Runtime._loop_coroutine() running at C:\Users\USER\Documents\portfolio\ai-support-agent\var\runtime\Lib\site-packages\streamlit\runtime\runtime.py:695> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+Stack for <Task pending name='Runtime.loop_coroutine' coro=<Runtime._loop_coroutine() running at C:\Users\USER\Documents\portfolio\ai-support-agent\var\runtime\Lib\site-packages\streamlit\runtime\runtime.py:695> wait_for=<Future pending cb=[Task.task_wakeup()]>> (most recent call last):
+  File "C:\Users\USER\Documents\portfolio\ai-support-agent\var\runtime\Lib\site-packages\streamlit\runtime\runtime.py", line 695, in _loop_coroutine
+    done_tasks, pending_tasks = await asyncio.wait(  # type: ignore[unreachable]
+TASK <Task pending name='uvicorn-server' coro=<UvicornServer.start.<locals>.serve_with_signal() running at C:\Users\USER\Documents\portfolio\ai-support-agent\var\runtime\Lib\site-packages\streamlit\web\server\starlette\starlette_server.py:496> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+Stack for <Task pending name='uvicorn-server' coro=<UvicornServer.start.<locals>.serve_with_signal() running at C:\Users\USER\Documents\portfolio\ai-support-agent\var\runtime\Lib\site-packages\streamlit\web\server\starlette\starlette_server.py:496> wait_for=<Future pending cb=[Task.task_wakeup()]>> (most recent call last):
+  File "C:\Users\USER\Documents\portfolio\ai-support-agent\var\runtime\Lib\site-packages\streamlit\web\server\starlette\starlette_server.py", line 496, in serve_with_signal
+    await self._server.shutdown(sockets=[self._socket])
+TASK <Task pending name='Task-51' coro=<Event.wait() running at C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\locks.py:212> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_wait.<locals>._on_completion() at C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\tasks.py:534]>
+Stack for <Task pending name='Task-51' coro=<Event.wait() running at C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\locks.py:212> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_wait.<locals>._on_completion() at C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\tasks.py:534]> (most recent call last):
+  File "C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\locks.py", line 212, in wait
+    await fut
+TASK <Task pending name='Task-52' coro=<Event.wait() running at C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\locks.py:212> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_wait.<locals>._on_completion() at C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\tasks.py:534]>
+Stack for <Task pending name='Task-52' coro=<Event.wait() running at C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\locks.py:212> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_wait.<locals>._on_completion() at C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\tasks.py:534]> (most recent call last):
+  File "C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\locks.py", line 212, in wait
+    await fut
+TASK <Task pending name='Task-1' coro=<run.<locals>.main() running at C:\Users\USER\Documents\portfolio\ai-support-agent\var\runtime\Lib\site-packages\streamlit\web\bootstrap.py:523> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_run_until_complete_cb() at C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\base_events.py:181]>
+Stack for <Task pending name='Task-1' coro=<run.<locals>.main() running at C:\Users\USER\Documents\portfolio\ai-support-agent\var\runtime\Lib\site-packages\streamlit\web\bootstrap.py:523> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[_run_until_complete_cb() at C:\Users\USER\AppData\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\asyncio\base_events.py:181]> (most recent call last):
+  File "C:\Users\USER\Documents\portfolio\ai-support-agent\var\runtime\Lib\site-packages\streamlit\web\bootstrap.py", line 523, in main
+    await run_server()

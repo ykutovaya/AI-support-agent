@@ -1,0 +1,30 @@
+{
+  "case": "connected",
+  "project_launcher": false,
+  "injected_reset": true,
+  "port": 50447,
+  "signal": "CTRL_C_EVENT",
+  "physical_keyboard": false,
+  "database": "C:\\Users\\USER\\AppData\\Local\\Temp\\native-streamlit-2026-11-02\\red-tmp\\test_streamlit_stops_after_con0\\shutdown\\normal.sqlite3",
+  "counts_before": {
+    "cases": 1,
+    "operations": 1,
+    "deliveries": 2
+  },
+  "shell_pid": 7864,
+  "health": true,
+  "ui_script_finished": 0,
+  "saved_case_visible": true,
+  "shell_ready": false,
+  "shutdown_seconds": 8.625,
+  "port_closed": true,
+  "database_unchanged": true,
+  "counts_after": {
+    "cases": 1,
+    "operations": 1,
+    "deliveries": 2
+  },
+  "forced_cleanup": true,
+  "cleanup_exit_code": 0,
+  "passed": false
+}

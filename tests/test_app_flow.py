@@ -139,7 +139,7 @@ def test_restart_continues_committed_delivery_without_reapproval_or_execution(
 
     monkeypatch.setattr(reopened.model, "generate", forbidden)
     monkeypatch.setattr(reopened, "record_client_response", forbidden)
-    monkeypatch.setattr(reopened.executor.adapter_factory, "execute", forbidden)
+    monkeypatch.setattr(reopened.executor, "adapter_factory", forbidden)
     ui = Path(__file__).parents[1] / "src/support_agent/ui.py"
     page = AppTest.from_file(str(ui), default_timeout=15)
     page.session_state["_service"] = reopened

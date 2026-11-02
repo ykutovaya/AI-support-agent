@@ -1,0 +1,29 @@
+{
+  "case": "connected",
+  "project_launcher": true,
+  "injected_reset": false,
+  "port": 61668,
+  "signal": "CTRL_C_EVENT",
+  "physical_keyboard": false,
+  "database": "C:\\Users\\USER\\AppData\\Local\\Temp\\support-shutdown-2026-11-02\\final-connected\\normal.sqlite3",
+  "counts_before": {
+    "cases": 1,
+    "operations": 1,
+    "deliveries": 2
+  },
+  "shell_pid": 28152,
+  "health": true,
+  "ui_script_finished": 0,
+  "saved_case_visible": true,
+  "shell_ready": true,
+  "shutdown_seconds": 1.203,
+  "port_closed": true,
+  "database_unchanged": true,
+  "counts_after": {
+    "cases": 1,
+    "operations": 1,
+    "deliveries": 2
+  },
+  "forced_cleanup": false,
+  "passed": true
+}

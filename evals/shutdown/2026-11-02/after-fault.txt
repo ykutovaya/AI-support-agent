@@ -1,0 +1,54 @@
+SERVER_PID 12944
+2026-11-02 23:18:13.859 No ASGI app assignments found in C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\ui.py
+2026-11-02 23:18:14.026 Filtered 97 packages down to 3 candidates for component scanning
+2026-11-02 23:18:14.026 Scanning 3 candidate packages for component manifests using 3 worker threads
+2026-11-02 23:18:14.088 Found 0 component manifests total
+2026-11-02 23:18:14.088 No asset roots to watch
+2026-11-02 23:18:14.089 File watching not started
+2026-11-02 23:18:14.089 Starting new event loop for server
+2026-11-02 23:18:14.089 Starting server...
+2026-11-02 23:18:14.145 Starting uvicorn server on 127.0.0.1:63632
+2026-11-02 23:18:14.185 Runtime state: RuntimeState.INITIAL -> RuntimeState.NO_SESSIONS_CONNECTED
+2026-11-02 23:18:14.191 Uvicorn server started on 127.0.0.1:63632
+
+  You can now view your Streamlit app in your browser.
+
+  URL: http://127.0.0.1:63632
+
+2026-11-02 23:18:14.208 Setting up signal handler
+2026-11-02 23:18:14.860 No singleton. Registering one.
+2026-11-02 23:18:14.860 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\ui.py
+2026-11-02 23:18:14.860 AppSession initialized (id=b6e15ff3-55ab-4603-bc4c-774cbb498326)
+2026-11-02 23:18:14.860 Created new session for client 2185921835088. Session ID: b6e15ff3-55ab-4603-bc4c-774cbb498326
+2026-11-02 23:18:14.860 Runtime state: RuntimeState.NO_SESSIONS_CONNECTED -> RuntimeState.ONE_OR_MORE_SESSIONS_CONNECTED
+2026-11-02 23:18:14.860 Beginning script thread
+2026-11-02 23:18:14.860 Running script
+2026-11-02 23:18:14.860 Disconnecting files for session with ID b6e15ff3-55ab-4603-bc4c-774cbb498326
+2026-11-02 23:18:14.860 Sessions still active: dict_keys([])
+2026-11-02 23:18:14.860 Files: 0; Sessions with files: 0
+[32m2026-11-02 23:18:18.108[0m | [34m[1mDEBUG   [0m | [36mtau2.registry[0m:[36m<module>[0m:[36m297[0m - [34m[1mVoice dependencies not installed, skipping voice user registration[0m
+2026-11-02 23:18:18.286 Removing orphaned files...
+2026-11-02 23:18:18.286 Removing orphaned deferred callables...
+2026-11-02 23:18:19.492 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\__init__.py
+2026-11-02 23:18:19.502 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\bootstrap.py
+2026-11-02 23:18:19.502 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\adapters\__init__.py
+2026-11-02 23:18:19.502 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\models.py
+2026-11-02 23:18:19.502 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\adapters\demo_model.py
+2026-11-02 23:18:19.502 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\proposals.py
+2026-11-02 23:18:19.502 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\adapters\retail.py
+2026-11-02 23:18:19.502 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\storage.py
+2026-11-02 23:18:19.502 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\agent.py
+2026-11-02 23:18:19.502 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\execution.py
+2026-11-02 23:18:19.508 Watcher created for C:\Users\USER\Documents\portfolio\ai-support-agent\src\support_agent\workflow.py
+  Stopping...
+2026-11-02 23:18:19.827 Runtime state: RuntimeState.ONE_OR_MORE_SESSIONS_CONNECTED -> RuntimeState.NO_SESSIONS_CONNECTED
+2026-11-02 23:18:19.925 Runtime stopping...
+2026-11-02 23:18:19.926 Runtime state: RuntimeState.NO_SESSIONS_CONNECTED -> RuntimeState.STOPPING
+2026-11-02 23:18:19.926 Shutting down (id=b6e15ff3-55ab-4603-bc4c-774cbb498326)
+2026-11-02 23:18:19.926 Disconnecting files for session with ID b6e15ff3-55ab-4603-bc4c-774cbb498326
+2026-11-02 23:18:19.926 Sessions still active: dict_keys([])
+2026-11-02 23:18:19.926 Files: 0; Sessions with files: 0
+2026-11-02 23:18:19.926 Removing orphaned files...
+2026-11-02 23:18:19.926 Removing orphaned deferred callables...
+2026-11-02 23:18:19.926 Runtime state: RuntimeState.STOPPING -> RuntimeState.STOPPED
+POWERSHELL_READY_AFTER_CTRL_C

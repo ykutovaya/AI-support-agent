@@ -6,6 +6,7 @@ from uuid import uuid4
 from support_agent.models import Message
 from support_agent.proposals import Proposal
 from support_agent.storage import encode
+from support_agent.tickets import existing_ticket_result, register_ticket
 
 
 def check_employee(case, employee_id):
@@ -101,6 +102,21 @@ class Executor:
                 )
                 delivery_id = delivery["id"]
             else:
+                if record["status"] == "duplicate":
+                    approval = conn.execute(
+                        "SELECT digest FROM approvals WHERE proposal_id=?",
+                        (proposal_id,),
+                    ).fetchone()
+                    if approval is None or approval["digest"] != expected_digest:
+                        raise ValueError("Согласованные условия изменились")
+                    return {
+                        "status": "duplicate",
+                        "proposal_id": proposal_id,
+                        "reason": "Заявка по этому вопросу уже зарегистрирована",
+                        "operation_result": existing_ticket_result(
+                            conn, case, proposal
+                        ),
+                    }
                 recovery = conn.execute(
                     "SELECT body FROM recoveries WHERE source_proposal_id=?",
                     (proposal_id,),
@@ -118,15 +134,26 @@ class Executor:
                         "Нужно подготовить новое предложение и согласовать его"
                     )
                 action = proposal.action or proposal.consent_request
+                is_ticket = bool(
+                    proposal.action and action.name == "create_support_ticket"
+                )
                 adapter = None
                 if action:
                     snapshot, policy = self.store.retail(conn)
                     adapter = self.adapter_factory(snapshot, policy)
                     try:
+                        if is_ticket and action.arguments.get("target") != "local":
+                            raise ValueError(
+                                "Поддерживается только локальная регистрация заявки"
+                            )
                         check = adapter.check(action, case["user_id"])
                         if check.status != "unchanged":
                             return self.mark_changed(conn, case, proposal, check)
-                        if proposal.action and not has_consent(conn, case_id, action):
+                        if (
+                            proposal.action
+                            and not is_ticket
+                            and not has_consent(conn, case_id, action)
+                        ):
                             raise ValueError("Нет согласия клиента на текущие условия")
                     except ValueError as error:
                         conn.execute(
@@ -149,15 +176,37 @@ class Executor:
                         f"Сотрудник подтвердил предложение версии {version}",
                     )
                     if proposal.action:
-                        result = adapter.execute(proposal.action, case["user_id"])
-                        self.store.save_retail(conn, adapter.snapshot())
+                        if is_ticket:
+                            result = register_ticket(conn, case, proposal)
+                        else:
+                            result = adapter.execute(proposal.action, case["user_id"])
+                            self.store.save_retail(conn, adapter.snapshot())
+                        if is_ticket and result["duplicate"]:
+                            result = existing_ticket_result(conn, case, proposal)
+                            conn.execute(
+                                "UPDATE proposals SET status='duplicate',reason=? WHERE id=?",
+                                (
+                                    "Заявка по этому вопросу уже зарегистрирована",
+                                    proposal_id,
+                                ),
+                            )
+                            self.store.event(conn, case_id, "duplicate", encode(result))
+                            conn.execute("RELEASE operation_attempt")
+                            return {
+                                "status": "duplicate",
+                                "proposal_id": proposal_id,
+                                "reason": "Заявка по этому вопросу уже зарегистрирована",
+                                "operation_result": result,
+                            }
                         conn.execute(
                             "INSERT INTO operations VALUES (?,?)",
                             (proposal_id, encode(result)),
                         )
-                        conn.execute(
-                            "UPDATE consents SET revoked=1 WHERE case_id=?", (case_id,)
-                        )
+                        if not is_ticket:
+                            conn.execute(
+                                "UPDATE consents SET revoked=1 WHERE case_id=?",
+                                (case_id,),
+                            )
                         self.store.event(conn, case_id, "operation", encode(result))
                         case["state"].messages.append(
                             Message(

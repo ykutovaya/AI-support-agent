@@ -16,7 +16,9 @@ INSTRUCTION = (
     "Учебный режим использует заданные правила, а не языковую модель: одна позиция "
     "первого найденного доставленного заказа и первый другой доступный вариант. "
     "Пример: «Обменяйте товар на любой другой доступный вариант. Email ваш@email». "
-    "Для возврата напишите «Хочу вернуть товар. Email ваш@email»."
+    "Для возврата напишите «Хочу вернуть товар. Email ваш@email». "
+    "Для локальной учебной заявки: «Проверьте результат обмена. Email ваш@email» "
+    "или «Проверьте результат возврата. Email ваш@email» — для уже зарегистрированной операции."
 )
 
 
@@ -47,13 +49,19 @@ class DemoModel:
                 "Новое действие не предложено. Проверьте фактический результат предыдущих операций в журнале; это сообщение их не отменяет."
             )
         intent = None
+        checking_result = False
+        question = ""
         for _, text in reversed(users):
             lower = text.casefold()
             if re.search(r"возврат|вернуть", lower):
                 intent = "return"
-                break
-            if "обмен" in lower:
+            elif "обмен" in lower:
                 intent = "exchange"
+            if intent:
+                checking_result = bool(re.search(r"провер\w*\s+результат", lower))
+                question = re.split(r"\bemail\b", text, flags=re.IGNORECASE)[0].strip()[
+                    :500
+                ]
                 break
         if intent is None:
             return _reply(INSTRUCTION)
@@ -81,6 +89,12 @@ class DemoModel:
                 ),
                 cost=0,
                 raw_data={"mode": "demo", "synthetic": True},
+            )
+
+        if checking_result and "propose_support_ticket" not in available:
+            return _reply(
+                "Инструмент заявок недоступен. Фактическое завершение обмена или "
+                "возврата не подтверждено; нужна проверка сотрудника."
             )
 
         # После новой реплики сведения перечитываются; истории разных обращений
@@ -122,8 +136,9 @@ class DemoModel:
                 o
                 for o in orders
                 if isinstance(o, dict)
-                and o.get("status") == "delivered"
-                and o.get("items")
+                and o.get("status")
+                == (f"{intent} requested" if checking_result else "delivered")
+                and (checking_result or o.get("items"))
             ),
             None,
         )
@@ -137,9 +152,16 @@ class DemoModel:
             next_id = next((oid for oid in order_ids[:6] if oid not in tried), None)
             if next_id is None:
                 return _reply(
-                    "Учебный пример не нашёл доставленный заказ среди первых шести заказов. Нужна проверка сотрудника."
+                    "Учебный пример не нашёл заказ с зарегистрированной операцией среди первых шести заказов. Нужна проверка сотрудника."
+                    if checking_result
+                    else "Учебный пример не нашёл доставленный заказ среди первых шести заказов. Нужна проверка сотрудника."
                 )
             return call("get_order_details", {"order_id": next_id})
+        if checking_result:
+            return call(
+                "propose_support_ticket",
+                {"order_id": delivered["order_id"], "question": question},
+            )
         item = delivered["items"][0]
         products = values("get_product_details")
         product = next(

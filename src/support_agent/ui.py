@@ -15,6 +15,7 @@ STATUS_LABELS = {
     "stale": "Условия изменились — нужно новое предложение",
     "rejected": "Отклонено сотрудником",
     "failed": "Исполнение отменено",
+    "duplicate": "Заявка по этому вопросу уже существует",
 }
 EVENT_LABELS = {
     "employee": "Комментарий сотрудника",
@@ -160,20 +161,31 @@ def _history(view):
 
 
 def _action_details(action):
+    if action.name == "create_support_ticket":
+        st.info("Локальная учебная заявка")
     st.text(action.description)
     labels = {
         "order_id": "Заказ",
         "item_ids": "Позиции",
         "new_item_ids": "Замена на",
         "payment_method_id": "Способ оплаты",
+        "user_id": "Клиент",
+        "target": "Место регистрации",
+        "title": "Тема",
+        "body": "Текст заявки",
+        "question": "Нерешённый вопрос",
     }
     for name, value in action.arguments.items():
+        if name == "target" and value == "local":
+            value = "Локальная база приложения"
         shown = (
             ", ".join(str(item) for item in value)
             if isinstance(value, list)
             else str(value)
         )
         st.text(f"{labels.get(name, name)}: {shown}")
+    if action.amount is None:
+        return
     label = (
         "Доплата"
         if action.amount > 0
@@ -348,7 +360,18 @@ def _results(view):
         if result.get("reason"):
             st.text(result["reason"])
     operations = [event for event in view["events"] if event["kind"] == "operation"]
-    if operations:
+    operation_result = view.get("operation_result")
+    if not operation_result and operations:
+        try:
+            operation_result = json.loads(operations[-1]["text"])
+        except (ValueError, TypeError):
+            pass
+    if operation_result and operation_result.get("status") == "ticket created":
+        st.subheader("Фактический результат")
+        st.text("Локальная учебная заявка")
+        st.text(f"Номер заявки: {operation_result['ticket_number']}")
+        st.text(f"Статус заявки: {operation_result['ticket_status']}")
+    elif operations:
         st.subheader("Фактический результат")
         try:
             st.json(json.loads(operations[-1]["text"]))

@@ -26,13 +26,30 @@ class Evidence(Contract):
 class Action(Contract):
     name: str
     arguments: dict
-    amount: Decimal
+    amount: Decimal | None
     currency: str = "USD"
     conditions: str
-    result_status: Literal["exchange requested", "return requested"]
+    result_status: Literal["exchange requested", "return requested", "ticket created"]
     description: str
     evidence: list[Evidence]
     condition_values: dict = Field(default_factory=dict)
+
+    @model_validator(mode="after")
+    def valid_action_amount(self):
+        if self.name == "create_support_ticket":
+            if (
+                self.amount is not None
+                or self.currency != ""
+                or self.result_status != "ticket created"
+            ):
+                raise ValueError(
+                    "Обращение не имеет денежной суммы и создаёт только заявку специалисту"
+                )
+        elif self.amount is None or self.result_status == "ticket created":
+            raise ValueError(
+                "Операция магазина требует сумму и соответствующий статус заказа"
+            )
+        return self
 
     @model_serializer(mode="wrap")
     def preserve_legacy_signature(self, handler):

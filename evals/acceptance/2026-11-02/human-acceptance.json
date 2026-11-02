@@ -1,0 +1,182 @@
+{
+  "date": "2026-11-02",
+  "commit": "015507267c91e893203fdf1c81c041401550a250",
+  "model_mode": "demo",
+  "recovery_mode": "manual",
+  "status": "retail_accepted_with_separate_shutdown_issue",
+  "human_evidence": "Подтверждения пользователя в переписке; проходы выполнены с подсказками ассистента.",
+  "assistant_assistance": [
+    "Настройка и перезапуск сервера",
+    "Изменение цены в отдельной учебной SQLite",
+    "Проверка сохранённых результатов без записи в базы"
+  ],
+  "scenarios": [
+    {
+      "scenario": "normal",
+      "database": "var/acceptance-fresh-0d0477157092481391cae10c12b29456.sqlite3",
+      "case_id": "424d66a7def54cef810384fc5e6a2a24",
+      "counts_verified_by": "assistant_read_only_sqlite",
+      "counts": {
+        "cases": 1,
+        "operations": 1,
+        "deliveries": 2,
+        "approvals": 2,
+        "consents": 1
+      },
+      "status": "exchange requested",
+      "difference_usd": 2.35,
+      "human_confirmation": "functional_flow_and_messages_after_reload_and_restart"
+    },
+    {
+      "scenario": "price_change",
+      "database": "var/acceptance-user-price-2026-11-02.sqlite3",
+      "case_id": "ebedec4dd2bb4d5192f456a9d057092c",
+      "counts_verified_by": "assistant_read_only_sqlite",
+      "counts": {
+        "cases": 1,
+        "operations": 1,
+        "deliveries": 3,
+        "approvals": 3,
+        "consents": 2
+      },
+      "status": "exchange requested",
+      "difference_usd": 9.99,
+      "human_confirmation": "functional_flow_and_messages_after_reload_and_restart"
+    }
+  ],
+  "price_restart": {
+    "date": "2026-11-02",
+    "database": "var\\acceptance-user-price-2026-11-02.sqlite3",
+    "case_id": "ebedec4dd2bb4d5192f456a9d057092c",
+    "before_restart": {
+      "counts": {
+        "approvals": 3,
+        "cases": 1,
+        "consents": 2,
+        "deliveries": 3,
+        "events": 38,
+        "operations": 1,
+        "outbox": 3,
+        "proposals": 6,
+        "recoveries": 1,
+        "retail_state": 1
+      },
+      "table_sha256": {
+        "approvals": "59d46954b4071edf2374e635f1d3604618a2fe7bd676f6d5b8aa9602f5b01b2f",
+        "cases": "2db874d2afdd41fdc98b6579038df9645e15317e4e2c710ce8d07c65a81590d4",
+        "consents": "ca7b6f065366330c18e7412d939c6846160d49066ea0170781fc68075cff64aa",
+        "deliveries": "2b02e5352f3cc3d8d1c86693dee0d70d62d1d4d561f46521ac99f637b18dc2ae",
+        "events": "6143f9f4f50dbbad908f564fa6febc6ebbdd57365eda73f6b98ccdcaa87e950b",
+        "operations": "1a32760839d48dfce8f3740e34a594e179f7e6169d73b870e147e867021f0875",
+        "outbox": "07846a1a0445d005d8ffeb6bbca09be3ba16172f1b2583abc99d6b1627538155",
+        "proposals": "c82414d54347e5e257fa771409c6119ca32e627dad56b0103d22c47c53d6d1a3",
+        "recoveries": "f9985596d73ff388ec5b5248984046c852c157e378732c97299e150f4f663d11",
+        "retail_state": "5e83eb213bf36409b184a0caab8cfc5c02b806d078651032af7b920ff2756966"
+      }
+    },
+    "restart_performed_by": "assistant",
+    "stop_method": "forced_process_termination",
+    "human_after_restart": "confirmed_in_conversation_2026-11-02_three_messages_2.35_9.99_and_exchange_requested",
+    "after_restart": {
+      "counts": {
+        "approvals": 3,
+        "cases": 1,
+        "consents": 2,
+        "deliveries": 3,
+        "events": 38,
+        "operations": 1,
+        "outbox": 3,
+        "proposals": 6,
+        "recoveries": 1,
+        "retail_state": 1
+      },
+      "table_sha256": {
+        "approvals": "59d46954b4071edf2374e635f1d3604618a2fe7bd676f6d5b8aa9602f5b01b2f",
+        "cases": "2db874d2afdd41fdc98b6579038df9645e15317e4e2c710ce8d07c65a81590d4",
+        "consents": "ca7b6f065366330c18e7412d939c6846160d49066ea0170781fc68075cff64aa",
+        "deliveries": "2b02e5352f3cc3d8d1c86693dee0d70d62d1d4d561f46521ac99f637b18dc2ae",
+        "events": "6143f9f4f50dbbad908f564fa6febc6ebbdd57365eda73f6b98ccdcaa87e950b",
+        "operations": "1a32760839d48dfce8f3740e34a594e179f7e6169d73b870e147e867021f0875",
+        "outbox": "07846a1a0445d005d8ffeb6bbca09be3ba16172f1b2583abc99d6b1627538155",
+        "proposals": "c82414d54347e5e257fa771409c6119ca32e627dad56b0103d22c47c53d6d1a3",
+        "recoveries": "f9985596d73ff388ec5b5248984046c852c157e378732c97299e150f4f663d11",
+        "retail_state": "5e83eb213bf36409b184a0caab8cfc5c02b806d078651032af7b920ff2756966"
+      }
+    },
+    "tables_unchanged": true,
+    "health_http_status": 200,
+    "graceful_shutdown": "not_verified; prior Stopping hang remains unresolved"
+  },
+  "limitations": [
+    "Штатная остановка Ctrl+C зависала на Stopping...; причина не установлена.",
+    "Перезапуск после принудительного завершения не подтверждает штатную остановку.",
+    "Учебная модель и тестовый канал; качество LLM и автоматический режим этими проходами не оценивались.",
+    "Сверка базы не заменяет человеческое подтверждение; число операций проверено ассистентом отдельно."
+  ],
+  "new_api_calls": 0,
+  "new_test_runs": 0,
+  "section_1": {
+    "status": "complete_except_separate_1a",
+    "exception_authorized_by_user": true,
+    "open_item": "1-а. Исправить зависание при остановке",
+    "git_commit_created": false,
+    "git_tag_created": false
+  },
+  "applicability_recheck": {
+    "reference": "evals/acceptance/2026-11-02/validation.json",
+    "current_raw_hashes_match": true,
+    "file_count": 49,
+    "sha256": {
+      "src/support_agent/__init__.py": "3dab7fa392438c0f8fb323f52e3999144b77cfc71ee6ca91cde18f4e6e73bcdf",
+      "src/support_agent/adapters/__init__.py": "01a9b010035def2b4ba4b6d05eab45f93d3f6aab32dc3406ec61e94e02201aec",
+      "src/support_agent/adapters/demo_model.py": "0b10982e0cb208d3699a702ea9cefa1e4aff9cab710a6841ad4472bf01f2f270",
+      "src/support_agent/adapters/llm.py": "59190880af8d5f88fa86eb3c573a6b2c7f6d2ea2c53126946a4c5e6a0b9d80a7",
+      "src/support_agent/adapters/retail.py": "feece21849bbed4929dd6d8e5a617ccc9f3c0cdb119f3993b99c2c28ab87c52c",
+      "src/support_agent/adapters/tau_bench.py": "bd8208af850ee61a2fa92926b13ac192d32f50a4698e472ece2ac9437229df22",
+      "src/support_agent/agent.py": "1d4247931ddb96c3f73118a0b7839472b7ff52e75d29020beab0f52fd5d6fe54",
+      "src/support_agent/bootstrap.py": "d6cb79bc279696020d353a74ea81b3e0275f35d3bcbe61c914cfd38604991384",
+      "src/support_agent/demo.py": "b7c3991bc27aa09c9032da1f53aba752a9d2f20e46c39df48d021d3eea70aa5d",
+      "src/support_agent/execution.py": "de54e0261b7ae9f306ce1951c282727409d382f6926774aaa0fb6a73edccb37f",
+      "src/support_agent/models.py": "1e9487bae05f7c824ed8bb29f62b9629014987871b5b16bd31d487e69d8060a9",
+      "src/support_agent/proposals.py": "a6d103627c363c86b52ef669960f63b47590306f9f7aa75ba0dbfb58abe84472",
+      "src/support_agent/storage.py": "e85cb3b10393d69d6e55805db374df896f95eb7773e3799a8b68bf21c122fe93",
+      "src/support_agent/ui.py": "f99c033e82052b9c4fbe8eedc83a8745a81ed9a23564bfc622d7ea72d725e7d2",
+      "src/support_agent/workflow.py": "540b73cde0b29af550d53c90b6e295663030edc5a3e1e79296f84163addf21cb",
+      "tests/conftest.py": "c94aeca3826d6b29c40b637217581f2c89eda7f73b3b2f6c8d0cab9c61a3c9ce",
+      "tests/retail_data.py": "b41f93782cdd4ad6b1cfb965249b9cc8cabb4dc4176c32ce7f3aaae5c70b77b3",
+      "tests/test_app_flow.py": "cbae22e2e076f053c3b21026d3debc02b7a898bfda13a9fd13f77826cb1f51b5",
+      "tests/test_app_reapproval.py": "645162078aa73cc99bd129e595b55f3153c440654e6e093d0709bb37982aeca0",
+      "tests/test_bootstrap.py": "62ef41c84c6aab9ffd3fdadcdfc5f6ac024aa6e314328a7e37f5c15646af2b82",
+      "tests/test_conditions.py": "56d9d95f5138fde6be29490c594f2ddbf1cb25825050f9d63ff7809b9d141ae6",
+      "tests/test_control.py": "7864f42ad6d5d3bb0b772975bcb3f58923e776e35ed4cab753fa239cfb64237c",
+      "tests/test_core.py": "3c84c875853723c1c4a187bfc3d26dc1099bcdaaa5fc8a3882c9188e8c56acb4",
+      "tests/test_demo.py": "02275eb24a5c0179ae2aaa0ce6ea05e8deb905716f7c2b8d529e2a848dbbb68b",
+      "tests/test_demo_model.py": "e6afb660d1c6fc9ac0f23728eb74c39cae288f07e9de0fee3c95d30e8c482400",
+      "tests/test_execution.py": "7ac33c73e23ad42977e297cffc6e20486b7b0bdd47298afffab82fee627a3c50",
+      "tests/test_llm.py": "4aca8282ee779b007ecd86e76d2accd5215cb4add94d3b80dd0e373d67d31b35",
+      "tests/test_proposals.py": "74f031ce213c977d4f79e8f392e37c4fa528c6fb8dd30867373202406b027046",
+      "tests/test_reapproval_eval.py": "9e6d59a5ab2e6983534927b9086fcf250a1a9997a95c9f293f07e899ee845ed2",
+      "tests/test_recommendations.py": "19eb4c97bdbd5ea6b1a8aee3c272d42817c62b554a2f5439e119688386f6a776",
+      "tests/test_recovery.py": "2d0141b6d8b67d677ac50d6c2c2f6c1c7060925faa6424b21b950a69dbdd3034",
+      "tests/test_recovery_regressions.py": "f5e027c3a71551352884bd27a51bb80e31800af5a62fd795f40aa21229d5d4ce",
+      "tests/test_retail.py": "0a49a0dc9bf5faa0eeae5815d8d8ee3d88f647d8ded8b447ae2074ada3265fc2",
+      "tests/test_storage.py": "75add519ab9bace0300ffcda3f88f648b21be3693e655bfdcb05e659a2f87235",
+      "tests/test_tau_adapter.py": "fa18ed96a7cdf4f0dc8b27e82b486be81b3854fb3761ebb46775cded0aa1979b",
+      "tests/test_ui.py": "60921a8eaec2109e3fdc567dd6608844508a7955b3d19c0626e8faf123159f61",
+      "tests/test_ui_reapproval.py": "ed57de7cf39666eb4859a968e78690730661826e23ad138b778c903f5206615f",
+      "tests/test_workflow.py": "e72170e6218c3230c7ffd43e382aa043f4a33fd146b982f459f7807f137bc778",
+      "tests/test_workflow_regressions.py": "3a1f1111e4d9d064db04a939b123503c2081e7f98eb5257b9c91b1ccbe62dbae",
+      "pyproject.toml": "8cb4068416e9137589b8db94f0cab6080bb30eca08cb0483e6b9e5182658e777",
+      "uv.lock": "5d48fc5adaadad43ea3db7c439eb93a887b8b592fd60a2977cda004114905643",
+      ".env.example": "fa988e63189e32410ad1f0a59025bf2de1c725516977eaeabe1130b6c6e061c3",
+      ".gitignore": "7ca5b471bc4fed8ed4de86ea75f5c77cd36232c4ada619465403792eddfb6c1d",
+      "evals/reapproval/base_shop.json": "ad8dcc22be2617673cd0b7f27e80b26c308301297abd0b3b019bc89b6bec7b0a",
+      "evals/reapproval/policy.md": "e26e08b74077e25526bf0c28c8aca1700179002c6bf6ee76d5b93a878775b02f",
+      "evals/reapproval/scenarios.json": "ef5cde8327bdd5e46709d739aee5636c4ce9f3bdf24af0f557a36412e95ef09a",
+      "evals/startup/check_lifecycle.py": "3b5b86a6a99e7e257822bd35eccd90cb73019081144d966a846607b7f73bf02e",
+      "evals/startup/check_server.py": "2afad20bea6392dfc3fe7e850fe6312d695db94cb82f6291b1414d00793c21dc",
+      "evals/startup/check_ui.py": "462e4a8758143319715ad0eb7c0885fe458444c98fa2c5cf06f53bffdd1e9486"
+    },
+    "new_test_runs": 0
+  }
+}

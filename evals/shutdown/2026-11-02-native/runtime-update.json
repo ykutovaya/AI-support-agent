@@ -1,0 +1,127 @@
+{
+  "date": "2026-11-02",
+  "before": {
+    "var/acceptance-fresh-0d0477157092481391cae10c12b29456.sqlite3": {
+      "counts": {
+        "approvals": 2,
+        "cases": 1,
+        "consents": 1,
+        "deliveries": 2,
+        "events": 13,
+        "operations": 1,
+        "outbox": 2,
+        "proposals": 2,
+        "recoveries": 0,
+        "retail_state": 1
+      },
+      "table_sha256": {
+        "approvals": "5afcfc7accc99790fde472fb2c6d56fb42dee3e4461095b748f462a2eb7bef8e",
+        "cases": "92e685a585dccc053600a81c026dc88fcbaa9bbef55b61bfad1cb50ee1dc76bb",
+        "consents": "e8b21e401cffb8dfb7fee0b6b7a1942743774918c742432c7294488f8474b5da",
+        "deliveries": "46d14ff30d4905f6a438bbb588088b80ab5902bc6947668e8d3cabcd0aeab5a6",
+        "events": "f73093e5892c98a7cc1721953f8247e2dc6ec6453f8c40182be49622a3cc95de",
+        "operations": "cc39a51d4d5e7b0f1efe69c1b4898b48def585625d28fc7c53f3bc0e1f7b6ea1",
+        "outbox": "f7b91252b65e7c8d8a67bae05ae2e77d47d54f4de3ed466e9cc93d4fcc751d14",
+        "proposals": "9e449c5872b66683772e28bcf196f9ade186bfc4975378f5590fc9750f5cedf7",
+        "recoveries": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "retail_state": "18a9393fbb2bb88a874d607ff0e5fe744ccafa97b777b557ec01273fc1703b0e"
+      }
+    },
+    "var/acceptance-user-price-2026-11-02.sqlite3": {
+      "counts": {
+        "approvals": 3,
+        "cases": 1,
+        "consents": 2,
+        "deliveries": 3,
+        "events": 38,
+        "operations": 1,
+        "outbox": 3,
+        "proposals": 6,
+        "recoveries": 1,
+        "retail_state": 1
+      },
+      "table_sha256": {
+        "approvals": "521b49026b510f3a2cade32eb3094d4fe814fc6526b5929a6a3344b87619b30a",
+        "cases": "388c7bd67b207f9a87522fb50716b7f7e46bc6555e76246f756f721f65c3ba43",
+        "consents": "79dbb49eda4f4f116f6c96ce4e14d654a005db9ca2bf5f1d3f45e73fa43f58e9",
+        "deliveries": "a85923eb08e8a5f36c27f36c1f8aba05a9150d45ef79250b80d332709ac956b2",
+        "events": "6b6b48bbe12d62c32986bbf24829b116ffe7407b437785b8f80075bf69aaa32e",
+        "operations": "00125cd897cb9bff125e73905e432ce80c993b63320fdad171219abcf2017553",
+        "outbox": "45ccf0fd0c20bcca6909fd6350dcd547f92f88ed234ac884ec4bdc62c2c8859a",
+        "proposals": "2c10c0ffa5206f3dde09e7fbe37f35003d11f25e667f73a1f465d526d4d00002",
+        "recoveries": "23d7e313896cb870b33b5270d6e4d74238fa3c669cc786f4a776b906716bf582",
+        "retail_state": "dad9aa840b9cf38d2edd3add6252ddad3243e4e21d6b26078c669acef6899411"
+      }
+    }
+  },
+  "previous_streamlit": "1.66.0",
+  "package_versions_match_tested_environment": true,
+  "streamlit": "1.56.0",
+  "tau2_commit": "da0835f6c67baef58bdda18f2a3b037dfb3a1754",
+  "tau2_install": {
+    "source": "clean local checkout copied to temporary build directory",
+    "python_files_matched": 409,
+    "direct_url": {
+      "url": "file:///C:/Users/USER/AppData/Local/Temp/native-streamlit-2026-11-02/tau2-source",
+      "dir_info": {}
+    }
+  },
+  "price_history_visible": true,
+  "server_restored": true,
+  "after": {
+    "var/acceptance-fresh-0d0477157092481391cae10c12b29456.sqlite3": {
+      "counts": {
+        "approvals": 2,
+        "cases": 1,
+        "consents": 1,
+        "deliveries": 2,
+        "events": 13,
+        "operations": 1,
+        "outbox": 2,
+        "proposals": 2,
+        "recoveries": 0,
+        "retail_state": 1
+      },
+      "table_sha256": {
+        "approvals": "5afcfc7accc99790fde472fb2c6d56fb42dee3e4461095b748f462a2eb7bef8e",
+        "cases": "92e685a585dccc053600a81c026dc88fcbaa9bbef55b61bfad1cb50ee1dc76bb",
+        "consents": "e8b21e401cffb8dfb7fee0b6b7a1942743774918c742432c7294488f8474b5da",
+        "deliveries": "46d14ff30d4905f6a438bbb588088b80ab5902bc6947668e8d3cabcd0aeab5a6",
+        "events": "f73093e5892c98a7cc1721953f8247e2dc6ec6453f8c40182be49622a3cc95de",
+        "operations": "cc39a51d4d5e7b0f1efe69c1b4898b48def585625d28fc7c53f3bc0e1f7b6ea1",
+        "outbox": "f7b91252b65e7c8d8a67bae05ae2e77d47d54f4de3ed466e9cc93d4fcc751d14",
+        "proposals": "9e449c5872b66683772e28bcf196f9ade186bfc4975378f5590fc9750f5cedf7",
+        "recoveries": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "retail_state": "18a9393fbb2bb88a874d607ff0e5fe744ccafa97b777b557ec01273fc1703b0e"
+      }
+    },
+    "var/acceptance-user-price-2026-11-02.sqlite3": {
+      "counts": {
+        "approvals": 3,
+        "cases": 1,
+        "consents": 2,
+        "deliveries": 3,
+        "events": 38,
+        "operations": 1,
+        "outbox": 3,
+        "proposals": 6,
+        "recoveries": 1,
+        "retail_state": 1
+      },
+      "table_sha256": {
+        "approvals": "521b49026b510f3a2cade32eb3094d4fe814fc6526b5929a6a3344b87619b30a",
+        "cases": "388c7bd67b207f9a87522fb50716b7f7e46bc6555e76246f756f721f65c3ba43",
+        "consents": "79dbb49eda4f4f116f6c96ce4e14d654a005db9ca2bf5f1d3f45e73fa43f58e9",
+        "deliveries": "a85923eb08e8a5f36c27f36c1f8aba05a9150d45ef79250b80d332709ac956b2",
+        "events": "6b6b48bbe12d62c32986bbf24829b116ffe7407b437785b8f80075bf69aaa32e",
+        "operations": "00125cd897cb9bff125e73905e432ce80c993b63320fdad171219abcf2017553",
+        "outbox": "45ccf0fd0c20bcca6909fd6350dcd547f92f88ed234ac884ec4bdc62c2c8859a",
+        "proposals": "2c10c0ffa5206f3dde09e7fbe37f35003d11f25e667f73a1f465d526d4d00002",
+        "recoveries": "23d7e313896cb870b33b5270d6e4d74238fa3c669cc786f4a776b906716bf582",
+        "retail_state": "dad9aa840b9cf38d2edd3add6252ddad3243e4e21d6b26078c669acef6899411"
+      }
+    }
+  },
+  "acceptance_databases_unchanged": true,
+  "api_calls": 0
+}

@@ -1,0 +1,18 @@
+{
+  "case": "connected",
+  "selector": false,
+  "project_launcher": false,
+  "injected_reset": true,
+  "port": 64042,
+  "signal": "CTRL_C_EVENT",
+  "physical_keyboard": false,
+  "shell_pid": 24392,
+  "health": true,
+  "ui_script_finished": 0,
+  "shell_ready": false,
+  "shutdown_seconds": 8.578,
+  "port_closed": true,
+  "database_unchanged": true,
+  "forced_cleanup": true,
+  "passed": false
+}

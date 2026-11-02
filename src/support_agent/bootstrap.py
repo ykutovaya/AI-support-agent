@@ -2,6 +2,7 @@
 
 import json
 import os
+from functools import partial
 from pathlib import Path
 
 
@@ -63,6 +64,7 @@ def create_service(root: Path | None = None):
         model = DemoModel()
 
     from support_agent.adapters.retail import RetailAdapter
+    from support_agent.adapters.ticket_retail import TicketRetailAdapter
     from support_agent.storage import Store
     from support_agent.workflow import SupportService
 
@@ -86,7 +88,7 @@ def create_service(root: Path | None = None):
     service = SupportService(
         store,
         model,
-        RetailAdapter,
+        partial(TicketRetailAdapter, target="local"),
         recovery_mode=os.environ.get("SUPPORT_AGENT_RECOVERY_MODE", "manual"),
     )
     service.mode = mode

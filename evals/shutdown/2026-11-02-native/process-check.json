@@ -1,0 +1,7 @@
+﻿{
+    "date":  "2026-11-02",
+    "port":  8504,
+    "old_server_stop_for_package_update":  "forced_after_acceptance_snapshot",
+    "diagnostic_processes_remaining":  0,
+    "restored":  true
+}

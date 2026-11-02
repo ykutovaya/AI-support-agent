@@ -1,0 +1,127 @@
+{
+  "date": "2026-11-02",
+  "status": "passed_and_applied",
+  "base_commit": "015507267c91e893203fdf1c81c041401550a250",
+  "python": "3.12.12",
+  "streamlit": "1.56.0",
+  "command": "python -m streamlit run src/support_agent/ui.py",
+  "mode": "demo/manual",
+  "full_suite": {
+    "unique_tests_passed": 207,
+    "initial_passed": 195,
+    "initial_failed": 1,
+    "initial_errors": 11,
+    "retry_passed": 12,
+    "retry_reason": "Проверочная копия не содержала evals/core-integration/run_control.py и скрипт baseline; добавлены исходные файлы без изменений, повторены только затронутые проверки.",
+    "reports": [
+      "full-suite.xml",
+      "retry-missing-fixture.xml"
+    ]
+  },
+  "baseline": "baseline.json",
+  "checks": {
+    "idle": {
+      "case": "idle",
+      "injected_reset": false,
+      "port": 54964,
+      "signal": "CTRL_C_EVENT",
+      "physical_keyboard": false,
+      "database": "C:\\Users\\USER\\AppData\\Local\\Temp\\native-streamlit-2026-11-02\\native-idle\\normal.sqlite3",
+      "counts_before": {
+        "cases": 1,
+        "operations": 1,
+        "deliveries": 2
+      },
+      "shell_pid": 6420,
+      "health": true,
+      "shell_ready": true,
+      "shutdown_seconds": 0.891,
+      "port_closed": true,
+      "database_unchanged": true,
+      "counts_after": {
+        "cases": 1,
+        "operations": 1,
+        "deliveries": 2
+      },
+      "forced_cleanup": false,
+      "passed": true
+    },
+    "connected": {
+      "case": "connected",
+      "injected_reset": true,
+      "port": 49734,
+      "signal": "CTRL_C_EVENT",
+      "physical_keyboard": false,
+      "database": "C:\\Users\\USER\\AppData\\Local\\Temp\\native-streamlit-2026-11-02\\green-tmp\\test_streamlit_stops_after_con0\\shutdown\\normal.sqlite3",
+      "counts_before": {
+        "cases": 1,
+        "operations": 1,
+        "deliveries": 2
+      },
+      "shell_pid": 30312,
+      "health": true,
+      "ui_script_finished": 0,
+      "saved_case_visible": true,
+      "shell_ready": true,
+      "shutdown_seconds": 1.532,
+      "port_closed": true,
+      "database_unchanged": true,
+      "counts_after": {
+        "cases": 1,
+        "operations": 1,
+        "deliveries": 2
+      },
+      "forced_cleanup": false,
+      "passed": true
+    },
+    "restart": {
+      "case": "connected",
+      "injected_reset": false,
+      "port": 54955,
+      "signal": "CTRL_C_EVENT",
+      "physical_keyboard": false,
+      "database": "C:\\Users\\USER\\AppData\\Local\\Temp\\native-streamlit-2026-11-02\\green-tmp\\test_streamlit_stops_after_con0\\shutdown\\normal.sqlite3",
+      "counts_before": {
+        "cases": 1,
+        "operations": 1,
+        "deliveries": 2
+      },
+      "shell_pid": 9152,
+      "health": true,
+      "ui_script_finished": 0,
+      "saved_case_visible": true,
+      "shell_ready": true,
+      "shutdown_seconds": 1.437,
+      "port_closed": true,
+      "database_unchanged": true,
+      "counts_after": {
+        "cases": 1,
+        "operations": 1,
+        "deliveries": 2
+      },
+      "forced_cleanup": false,
+      "passed": true
+    }
+  },
+  "new_api_calls": 0,
+  "old_launcher_removed": true,
+  "runtime_update": "runtime-update.json",
+  "tau2": {
+    "commit": "da0835f6c67baef58bdda18f2a3b037dfb3a1754",
+    "isolated_install": "Копия чистого локального checkout того же коммита; сетевое получение Git затянулось. Код исходного репозитория не изменён.",
+    "lock_source": "Git commit unchanged",
+    "active_runtime_install": "Local copy of the same clean pinned checkout; installed Python files verified byte-for-byte."
+  },
+  "limitations": [
+    "Native CTRL_C_EVENT, not physical keyboard; no repeated human acceptance.",
+    "Natural TCP RST did not reproduce the hang; regression injects the observed WinError 10054.",
+    "Pinned Streamlit 1.56.0 predates additional hardening in 1.60. Only local 127.0.0.1 demo tested.",
+    "Windows Selector has 512-socket limit and does not support asyncio subprocess/pipes."
+  ],
+  "source_sha256": {
+    "pyproject.toml": "9c53b16d47e68098657c3eb39ed927a39a4c4a8c32d69c3dc48717393d8f29e6",
+    "uv.lock": "93e2066845b69b1f5f710b771527a320fdafb1357d4eb6e7f82857f8395c7030",
+    "tests/test_shutdown.py": "d63e4365b0aa4285a87f4dd92374c04edfb0b5482c7f8dc9a2dcb711c3507ae5",
+    "evals/shutdown/check_shutdown.py": "842e7cc99baa5eecf6356eeaa2e42fa61c75c5ed5ba9fb9f0994b407c46849fb"
+  }
+}

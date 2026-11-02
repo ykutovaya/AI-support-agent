@@ -1,0 +1,1219 @@
+{
+    "audit_date":  "2026-11-02",
+    "timezone":  "Europe/Moscow",
+    "status":  "candidate_waiting_for_human_acceptance",
+    "candidate_commit":  "015507267c91e893203fdf1c81c041401550a250",
+    "purpose":  "Сверка применимости прежних проверок и подготовка базовой retail-версии к ручной приёмке",
+    "evidence":  {
+                     "audit_date":  "2026-11-02",
+                     "timezone":  "Europe/Moscow",
+                     "project_root":  "C:\\Users\\USER\\Documents\\portfolio\\ai-support-agent",
+                     "project_commit":  "015507267c91e893203fdf1c81c041401550a250",
+                     "candidate_status":  "awaiting_human_acceptance",
+                     "scope":  "Read-only applicability audit; no application, test, API or server execution",
+                     "reference_manifest":  "evals/startup/2026-10-31/validation.json",
+                     "reference_manifest_sha256":  "0cfd5d24732c4e21e9f92eaefabc09c5324caaba279a1a93043adfbe959bca76",
+                     "reference_original_project_commit":  "5c68a5e46b67fc78d438572b1173eaf65084a597",
+                     "reference_environment":  "evals/startup/2026-10-31/project-environment.json",
+                     "reference_environment_sha256":  "16460437c0e9bbbb5826c860beea2e428c435586e43b3cfe6d4ad021258ba848",
+                     "normalization":  "SHA256 of current raw bytes; CRLF -\u003e LF only. Reference hashes matched against raw, LF or reconstructed CRLF bytes. All 39 source/test files also compared directly against the retained tested copy after CRLF -\u003e LF; retained raw hashes matched the reference manifest.",
+                     "file_groups":  {
+                                         "source_sha256":  {
+                                                               "file_count":  15,
+                                                               "raw_matches":  0,
+                                                               "newline_only_matches":  15,
+                                                               "files":  {
+                                                                             "src/support_agent/__init__.py":  {
+                                                                                                                   "sha256_raw":  "3dab7fa392438c0f8fb323f52e3999144b77cfc71ee6ca91cde18f4e6e73bcdf",
+                                                                                                                   "sha256_normalized_lf":  "3dab7fa392438c0f8fb323f52e3999144b77cfc71ee6ca91cde18f4e6e73bcdf",
+                                                                                                                   "reference_sha256":  "8d53b46792e4a7b4cb9510971b865f3d6ee61490c6a79a41f8187d78ba826669",
+                                                                                                                   "reference_match":  "crlf",
+                                                                                                                   "retained_snapshot_matches_reference":  true,
+                                                                                                                   "retained_snapshot_matches_normalized_content":  true
+                                                                                                               },
+                                                                             "src/support_agent/adapters/__init__.py":  {
+                                                                                                                            "sha256_raw":  "01a9b010035def2b4ba4b6d05eab45f93d3f6aab32dc3406ec61e94e02201aec",
+                                                                                                                            "sha256_normalized_lf":  "01a9b010035def2b4ba4b6d05eab45f93d3f6aab32dc3406ec61e94e02201aec",
+                                                                                                                            "reference_sha256":  "6728211c5409c4aff90be49603661733f6d576a6be492a501cf35fde39304de9",
+                                                                                                                            "reference_match":  "crlf",
+                                                                                                                            "retained_snapshot_matches_reference":  true,
+                                                                                                                            "retained_snapshot_matches_normalized_content":  true
+                                                                                                                        },
+                                                                             "src/support_agent/adapters/demo_model.py":  {
+                                                                                                                              "sha256_raw":  "0b10982e0cb208d3699a702ea9cefa1e4aff9cab710a6841ad4472bf01f2f270",
+                                                                                                                              "sha256_normalized_lf":  "0b10982e0cb208d3699a702ea9cefa1e4aff9cab710a6841ad4472bf01f2f270",
+                                                                                                                              "reference_sha256":  "866905251949b526aada82ebfd2c5dfef6e1851582082162cde32355fb97bfa6",
+                                                                                                                              "reference_match":  "crlf",
+                                                                                                                              "retained_snapshot_matches_reference":  true,
+                                                                                                                              "retained_snapshot_matches_normalized_content":  true
+                                                                                                                          },
+                                                                             "src/support_agent/adapters/llm.py":  {
+                                                                                                                       "sha256_raw":  "59190880af8d5f88fa86eb3c573a6b2c7f6d2ea2c53126946a4c5e6a0b9d80a7",
+                                                                                                                       "sha256_normalized_lf":  "59190880af8d5f88fa86eb3c573a6b2c7f6d2ea2c53126946a4c5e6a0b9d80a7",
+                                                                                                                       "reference_sha256":  "84fdb43943cb0765a2a33b26034fc35568d4f38accad286987dd5d182d8053fd",
+                                                                                                                       "reference_match":  "crlf",
+                                                                                                                       "retained_snapshot_matches_reference":  true,
+                                                                                                                       "retained_snapshot_matches_normalized_content":  true
+                                                                                                                   },
+                                                                             "src/support_agent/adapters/retail.py":  {
+                                                                                                                          "sha256_raw":  "feece21849bbed4929dd6d8e5a617ccc9f3c0cdb119f3993b99c2c28ab87c52c",
+                                                                                                                          "sha256_normalized_lf":  "feece21849bbed4929dd6d8e5a617ccc9f3c0cdb119f3993b99c2c28ab87c52c",
+                                                                                                                          "reference_sha256":  "aa652945e71cc2190d6b45db13b656315eac7a71e241fd618f14a58ca5d5e55e",
+                                                                                                                          "reference_match":  "crlf",
+                                                                                                                          "retained_snapshot_matches_reference":  true,
+                                                                                                                          "retained_snapshot_matches_normalized_content":  true
+                                                                                                                      },
+                                                                             "src/support_agent/adapters/tau_bench.py":  {
+                                                                                                                             "sha256_raw":  "bd8208af850ee61a2fa92926b13ac192d32f50a4698e472ece2ac9437229df22",
+                                                                                                                             "sha256_normalized_lf":  "bd8208af850ee61a2fa92926b13ac192d32f50a4698e472ece2ac9437229df22",
+                                                                                                                             "reference_sha256":  "4b6c5cc8ddddbd636ce9d4f20828fbf1a25f81ac2087efe147a1fd3a2ea4a4fa",
+                                                                                                                             "reference_match":  "crlf",
+                                                                                                                             "retained_snapshot_matches_reference":  true,
+                                                                                                                             "retained_snapshot_matches_normalized_content":  true
+                                                                                                                         },
+                                                                             "src/support_agent/agent.py":  {
+                                                                                                                "sha256_raw":  "1d4247931ddb96c3f73118a0b7839472b7ff52e75d29020beab0f52fd5d6fe54",
+                                                                                                                "sha256_normalized_lf":  "1d4247931ddb96c3f73118a0b7839472b7ff52e75d29020beab0f52fd5d6fe54",
+                                                                                                                "reference_sha256":  "51024f6793af3f4d6ba998101388ef7fe095589704d5f5fb41c89f3d8ca8142d",
+                                                                                                                "reference_match":  "crlf",
+                                                                                                                "retained_snapshot_matches_reference":  true,
+                                                                                                                "retained_snapshot_matches_normalized_content":  true
+                                                                                                            },
+                                                                             "src/support_agent/bootstrap.py":  {
+                                                                                                                    "sha256_raw":  "d6cb79bc279696020d353a74ea81b3e0275f35d3bcbe61c914cfd38604991384",
+                                                                                                                    "sha256_normalized_lf":  "d6cb79bc279696020d353a74ea81b3e0275f35d3bcbe61c914cfd38604991384",
+                                                                                                                    "reference_sha256":  "ca0a1f39c0b562fe033610f06d6159616e0092d6a39a9b83c5dbe4b4a7134f0d",
+                                                                                                                    "reference_match":  "crlf",
+                                                                                                                    "retained_snapshot_matches_reference":  true,
+                                                                                                                    "retained_snapshot_matches_normalized_content":  true
+                                                                                                                },
+                                                                             "src/support_agent/demo.py":  {
+                                                                                                               "sha256_raw":  "b7c3991bc27aa09c9032da1f53aba752a9d2f20e46c39df48d021d3eea70aa5d",
+                                                                                                               "sha256_normalized_lf":  "b7c3991bc27aa09c9032da1f53aba752a9d2f20e46c39df48d021d3eea70aa5d",
+                                                                                                               "reference_sha256":  "6bb0f937e7f4115c5cd44c81b9e2b2cde03a77a8ab2053460919b3d0a1c00da6",
+                                                                                                               "reference_match":  "crlf",
+                                                                                                               "retained_snapshot_matches_reference":  true,
+                                                                                                               "retained_snapshot_matches_normalized_content":  true
+                                                                                                           },
+                                                                             "src/support_agent/execution.py":  {
+                                                                                                                    "sha256_raw":  "de54e0261b7ae9f306ce1951c282727409d382f6926774aaa0fb6a73edccb37f",
+                                                                                                                    "sha256_normalized_lf":  "de54e0261b7ae9f306ce1951c282727409d382f6926774aaa0fb6a73edccb37f",
+                                                                                                                    "reference_sha256":  "9f77b255aebb38ef0b7b5e55755c9cd099fcde4d88f230653049a06649f1391d",
+                                                                                                                    "reference_match":  "crlf",
+                                                                                                                    "retained_snapshot_matches_reference":  true,
+                                                                                                                    "retained_snapshot_matches_normalized_content":  true
+                                                                                                                },
+                                                                             "src/support_agent/models.py":  {
+                                                                                                                 "sha256_raw":  "1e9487bae05f7c824ed8bb29f62b9629014987871b5b16bd31d487e69d8060a9",
+                                                                                                                 "sha256_normalized_lf":  "1e9487bae05f7c824ed8bb29f62b9629014987871b5b16bd31d487e69d8060a9",
+                                                                                                                 "reference_sha256":  "f90b98b2eb88fb59495a6b1fa5c2384bd52533e618ac07791c26c7366abbb466",
+                                                                                                                 "reference_match":  "crlf",
+                                                                                                                 "retained_snapshot_matches_reference":  true,
+                                                                                                                 "retained_snapshot_matches_normalized_content":  true
+                                                                                                             },
+                                                                             "src/support_agent/proposals.py":  {
+                                                                                                                    "sha256_raw":  "a6d103627c363c86b52ef669960f63b47590306f9f7aa75ba0dbfb58abe84472",
+                                                                                                                    "sha256_normalized_lf":  "a6d103627c363c86b52ef669960f63b47590306f9f7aa75ba0dbfb58abe84472",
+                                                                                                                    "reference_sha256":  "b89413176277d260f405abe6870039586280ce330694d3ebc6dd6db5caa79462",
+                                                                                                                    "reference_match":  "crlf",
+                                                                                                                    "retained_snapshot_matches_reference":  true,
+                                                                                                                    "retained_snapshot_matches_normalized_content":  true
+                                                                                                                },
+                                                                             "src/support_agent/storage.py":  {
+                                                                                                                  "sha256_raw":  "e85cb3b10393d69d6e55805db374df896f95eb7773e3799a8b68bf21c122fe93",
+                                                                                                                  "sha256_normalized_lf":  "e85cb3b10393d69d6e55805db374df896f95eb7773e3799a8b68bf21c122fe93",
+                                                                                                                  "reference_sha256":  "3a5037d6e604ffb7459a2d8f8de0cf4fcb8b7121f3118e91693827ef74c1cf29",
+                                                                                                                  "reference_match":  "crlf",
+                                                                                                                  "retained_snapshot_matches_reference":  true,
+                                                                                                                  "retained_snapshot_matches_normalized_content":  true
+                                                                                                              },
+                                                                             "src/support_agent/ui.py":  {
+                                                                                                             "sha256_raw":  "f99c033e82052b9c4fbe8eedc83a8745a81ed9a23564bfc622d7ea72d725e7d2",
+                                                                                                             "sha256_normalized_lf":  "f99c033e82052b9c4fbe8eedc83a8745a81ed9a23564bfc622d7ea72d725e7d2",
+                                                                                                             "reference_sha256":  "b9fb9b92994d24cc90af9b2d1d11de5c41eb9274096fea66c78586e43d05e2ef",
+                                                                                                             "reference_match":  "crlf",
+                                                                                                             "retained_snapshot_matches_reference":  true,
+                                                                                                             "retained_snapshot_matches_normalized_content":  true
+                                                                                                         },
+                                                                             "src/support_agent/workflow.py":  {
+                                                                                                                   "sha256_raw":  "540b73cde0b29af550d53c90b6e295663030edc5a3e1e79296f84163addf21cb",
+                                                                                                                   "sha256_normalized_lf":  "540b73cde0b29af550d53c90b6e295663030edc5a3e1e79296f84163addf21cb",
+                                                                                                                   "reference_sha256":  "b592a2603d41b213917ee300c3991666cb24d93fbdf878c8d18319808de5fab5",
+                                                                                                                   "reference_match":  "crlf",
+                                                                                                                   "retained_snapshot_matches_reference":  true,
+                                                                                                                   "retained_snapshot_matches_normalized_content":  true
+                                                                                                               }
+                                                                         }
+                                                           },
+                                         "tests_sha256":  {
+                                                              "file_count":  24,
+                                                              "raw_matches":  0,
+                                                              "newline_only_matches":  24,
+                                                              "files":  {
+                                                                            "tests/conftest.py":  {
+                                                                                                      "sha256_raw":  "c94aeca3826d6b29c40b637217581f2c89eda7f73b3b2f6c8d0cab9c61a3c9ce",
+                                                                                                      "sha256_normalized_lf":  "c94aeca3826d6b29c40b637217581f2c89eda7f73b3b2f6c8d0cab9c61a3c9ce",
+                                                                                                      "reference_sha256":  "2f2f8a98db73b87d66d0cb73868505fcbca01c8eb8eef0208d1ac605048c3e20",
+                                                                                                      "reference_match":  "crlf",
+                                                                                                      "retained_snapshot_matches_reference":  true,
+                                                                                                      "retained_snapshot_matches_normalized_content":  true
+                                                                                                  },
+                                                                            "tests/retail_data.py":  {
+                                                                                                         "sha256_raw":  "b41f93782cdd4ad6b1cfb965249b9cc8cabb4dc4176c32ce7f3aaae5c70b77b3",
+                                                                                                         "sha256_normalized_lf":  "b41f93782cdd4ad6b1cfb965249b9cc8cabb4dc4176c32ce7f3aaae5c70b77b3",
+                                                                                                         "reference_sha256":  "99a7a84f9ce2c4538405aaa19614b30224d8d4feed1b443ff4bf0c39cbf110a2",
+                                                                                                         "reference_match":  "crlf",
+                                                                                                         "retained_snapshot_matches_reference":  true,
+                                                                                                         "retained_snapshot_matches_normalized_content":  true
+                                                                                                     },
+                                                                            "tests/test_app_flow.py":  {
+                                                                                                           "sha256_raw":  "cbae22e2e076f053c3b21026d3debc02b7a898bfda13a9fd13f77826cb1f51b5",
+                                                                                                           "sha256_normalized_lf":  "cbae22e2e076f053c3b21026d3debc02b7a898bfda13a9fd13f77826cb1f51b5",
+                                                                                                           "reference_sha256":  "4e0d7ddee02681a3b45af195d0199f12960d6a99feda9a23df9348372d3c1d77",
+                                                                                                           "reference_match":  "crlf",
+                                                                                                           "retained_snapshot_matches_reference":  true,
+                                                                                                           "retained_snapshot_matches_normalized_content":  true
+                                                                                                       },
+                                                                            "tests/test_app_reapproval.py":  {
+                                                                                                                 "sha256_raw":  "645162078aa73cc99bd129e595b55f3153c440654e6e093d0709bb37982aeca0",
+                                                                                                                 "sha256_normalized_lf":  "645162078aa73cc99bd129e595b55f3153c440654e6e093d0709bb37982aeca0",
+                                                                                                                 "reference_sha256":  "623ae5c49d4a385947fe01a924d881096adb6e6eaff2be7ac16062c817fafc0c",
+                                                                                                                 "reference_match":  "crlf",
+                                                                                                                 "retained_snapshot_matches_reference":  true,
+                                                                                                                 "retained_snapshot_matches_normalized_content":  true
+                                                                                                             },
+                                                                            "tests/test_bootstrap.py":  {
+                                                                                                            "sha256_raw":  "62ef41c84c6aab9ffd3fdadcdfc5f6ac024aa6e314328a7e37f5c15646af2b82",
+                                                                                                            "sha256_normalized_lf":  "62ef41c84c6aab9ffd3fdadcdfc5f6ac024aa6e314328a7e37f5c15646af2b82",
+                                                                                                            "reference_sha256":  "4fd9e7cd0402083b1395a8d16d77778a3ef67806547f9340aa26792bf333fff8",
+                                                                                                            "reference_match":  "crlf",
+                                                                                                            "retained_snapshot_matches_reference":  true,
+                                                                                                            "retained_snapshot_matches_normalized_content":  true
+                                                                                                        },
+                                                                            "tests/test_conditions.py":  {
+                                                                                                             "sha256_raw":  "56d9d95f5138fde6be29490c594f2ddbf1cb25825050f9d63ff7809b9d141ae6",
+                                                                                                             "sha256_normalized_lf":  "56d9d95f5138fde6be29490c594f2ddbf1cb25825050f9d63ff7809b9d141ae6",
+                                                                                                             "reference_sha256":  "0b5a06ba79f1d71b5486eaeaad78f00645bcbeb0d92f54ac38f35a0f7ce5e0fa",
+                                                                                                             "reference_match":  "crlf",
+                                                                                                             "retained_snapshot_matches_reference":  true,
+                                                                                                             "retained_snapshot_matches_normalized_content":  true
+                                                                                                         },
+                                                                            "tests/test_control.py":  {
+                                                                                                          "sha256_raw":  "7864f42ad6d5d3bb0b772975bcb3f58923e776e35ed4cab753fa239cfb64237c",
+                                                                                                          "sha256_normalized_lf":  "7864f42ad6d5d3bb0b772975bcb3f58923e776e35ed4cab753fa239cfb64237c",
+                                                                                                          "reference_sha256":  "7a73f47382a583f1eda31d0b3211362582402dbefae6fabd59232860542d81e1",
+                                                                                                          "reference_match":  "crlf",
+                                                                                                          "retained_snapshot_matches_reference":  true,
+                                                                                                          "retained_snapshot_matches_normalized_content":  true
+                                                                                                      },
+                                                                            "tests/test_core.py":  {
+                                                                                                       "sha256_raw":  "3c84c875853723c1c4a187bfc3d26dc1099bcdaaa5fc8a3882c9188e8c56acb4",
+                                                                                                       "sha256_normalized_lf":  "3c84c875853723c1c4a187bfc3d26dc1099bcdaaa5fc8a3882c9188e8c56acb4",
+                                                                                                       "reference_sha256":  "2b996b4e5f9189d5394a672c935a45a45db63c24a1339a1bf144d10dc7652ff0",
+                                                                                                       "reference_match":  "crlf",
+                                                                                                       "retained_snapshot_matches_reference":  true,
+                                                                                                       "retained_snapshot_matches_normalized_content":  true
+                                                                                                   },
+                                                                            "tests/test_demo.py":  {
+                                                                                                       "sha256_raw":  "02275eb24a5c0179ae2aaa0ce6ea05e8deb905716f7c2b8d529e2a848dbbb68b",
+                                                                                                       "sha256_normalized_lf":  "02275eb24a5c0179ae2aaa0ce6ea05e8deb905716f7c2b8d529e2a848dbbb68b",
+                                                                                                       "reference_sha256":  "7ba90d20edd3999d0d6949e09446c08587fc1116c9bfc26efdf3577851ab6a23",
+                                                                                                       "reference_match":  "crlf",
+                                                                                                       "retained_snapshot_matches_reference":  true,
+                                                                                                       "retained_snapshot_matches_normalized_content":  true
+                                                                                                   },
+                                                                            "tests/test_demo_model.py":  {
+                                                                                                             "sha256_raw":  "e6afb660d1c6fc9ac0f23728eb74c39cae288f07e9de0fee3c95d30e8c482400",
+                                                                                                             "sha256_normalized_lf":  "e6afb660d1c6fc9ac0f23728eb74c39cae288f07e9de0fee3c95d30e8c482400",
+                                                                                                             "reference_sha256":  "4bda5ec4c6490661675c3e64e697b857ebc63e8e419f36e3cb2a9ee404ae0abc",
+                                                                                                             "reference_match":  "crlf",
+                                                                                                             "retained_snapshot_matches_reference":  true,
+                                                                                                             "retained_snapshot_matches_normalized_content":  true
+                                                                                                         },
+                                                                            "tests/test_execution.py":  {
+                                                                                                            "sha256_raw":  "7ac33c73e23ad42977e297cffc6e20486b7b0bdd47298afffab82fee627a3c50",
+                                                                                                            "sha256_normalized_lf":  "7ac33c73e23ad42977e297cffc6e20486b7b0bdd47298afffab82fee627a3c50",
+                                                                                                            "reference_sha256":  "b4669b2b108ca6720489a9674a3ccae9824e790b6e971462aa82479412cbceff",
+                                                                                                            "reference_match":  "crlf",
+                                                                                                            "retained_snapshot_matches_reference":  true,
+                                                                                                            "retained_snapshot_matches_normalized_content":  true
+                                                                                                        },
+                                                                            "tests/test_llm.py":  {
+                                                                                                      "sha256_raw":  "4aca8282ee779b007ecd86e76d2accd5215cb4add94d3b80dd0e373d67d31b35",
+                                                                                                      "sha256_normalized_lf":  "4aca8282ee779b007ecd86e76d2accd5215cb4add94d3b80dd0e373d67d31b35",
+                                                                                                      "reference_sha256":  "564db5b1377ae7eba540081edc7005b7f727b85223cd15a50822770ffba0f210",
+                                                                                                      "reference_match":  "crlf",
+                                                                                                      "retained_snapshot_matches_reference":  true,
+                                                                                                      "retained_snapshot_matches_normalized_content":  true
+                                                                                                  },
+                                                                            "tests/test_proposals.py":  {
+                                                                                                            "sha256_raw":  "74f031ce213c977d4f79e8f392e37c4fa528c6fb8dd30867373202406b027046",
+                                                                                                            "sha256_normalized_lf":  "74f031ce213c977d4f79e8f392e37c4fa528c6fb8dd30867373202406b027046",
+                                                                                                            "reference_sha256":  "57333201b9c27e833b85d3892ce1a3ceca8d2ccbc87c1d7b1d67a1798ca2ff95",
+                                                                                                            "reference_match":  "crlf",
+                                                                                                            "retained_snapshot_matches_reference":  true,
+                                                                                                            "retained_snapshot_matches_normalized_content":  true
+                                                                                                        },
+                                                                            "tests/test_reapproval_eval.py":  {
+                                                                                                                  "sha256_raw":  "9e6d59a5ab2e6983534927b9086fcf250a1a9997a95c9f293f07e899ee845ed2",
+                                                                                                                  "sha256_normalized_lf":  "9e6d59a5ab2e6983534927b9086fcf250a1a9997a95c9f293f07e899ee845ed2",
+                                                                                                                  "reference_sha256":  "bdaa8d0d6136e1d88a7bd020ba7ce64566492820e459a5b73c6643fa8a279833",
+                                                                                                                  "reference_match":  "crlf",
+                                                                                                                  "retained_snapshot_matches_reference":  true,
+                                                                                                                  "retained_snapshot_matches_normalized_content":  true
+                                                                                                              },
+                                                                            "tests/test_recommendations.py":  {
+                                                                                                                  "sha256_raw":  "19eb4c97bdbd5ea6b1a8aee3c272d42817c62b554a2f5439e119688386f6a776",
+                                                                                                                  "sha256_normalized_lf":  "19eb4c97bdbd5ea6b1a8aee3c272d42817c62b554a2f5439e119688386f6a776",
+                                                                                                                  "reference_sha256":  "68bb6dc94e8c4fb438e4de9b274e81fb81558cb9a5e2d2c5e4bf74e0c76430d0",
+                                                                                                                  "reference_match":  "crlf",
+                                                                                                                  "retained_snapshot_matches_reference":  true,
+                                                                                                                  "retained_snapshot_matches_normalized_content":  true
+                                                                                                              },
+                                                                            "tests/test_recovery.py":  {
+                                                                                                           "sha256_raw":  "2d0141b6d8b67d677ac50d6c2c2f6c1c7060925faa6424b21b950a69dbdd3034",
+                                                                                                           "sha256_normalized_lf":  "2d0141b6d8b67d677ac50d6c2c2f6c1c7060925faa6424b21b950a69dbdd3034",
+                                                                                                           "reference_sha256":  "6f75f96695080cd7ad74d9d0758b1e9e4cb2394ab976f414079d82c5f666b48c",
+                                                                                                           "reference_match":  "crlf",
+                                                                                                           "retained_snapshot_matches_reference":  true,
+                                                                                                           "retained_snapshot_matches_normalized_content":  true
+                                                                                                       },
+                                                                            "tests/test_recovery_regressions.py":  {
+                                                                                                                       "sha256_raw":  "f5e027c3a71551352884bd27a51bb80e31800af5a62fd795f40aa21229d5d4ce",
+                                                                                                                       "sha256_normalized_lf":  "f5e027c3a71551352884bd27a51bb80e31800af5a62fd795f40aa21229d5d4ce",
+                                                                                                                       "reference_sha256":  "73186258ccb35b21a604b1894c53c7d4d91467f13234cb85a0a8cfeaa64359a6",
+                                                                                                                       "reference_match":  "crlf",
+                                                                                                                       "retained_snapshot_matches_reference":  true,
+                                                                                                                       "retained_snapshot_matches_normalized_content":  true
+                                                                                                                   },
+                                                                            "tests/test_retail.py":  {
+                                                                                                         "sha256_raw":  "0a49a0dc9bf5faa0eeae5815d8d8ee3d88f647d8ded8b447ae2074ada3265fc2",
+                                                                                                         "sha256_normalized_lf":  "0a49a0dc9bf5faa0eeae5815d8d8ee3d88f647d8ded8b447ae2074ada3265fc2",
+                                                                                                         "reference_sha256":  "9f5350c116eec5ee7a118a66adf1e55bb328d94d266c9534cb9f376ca9111d29",
+                                                                                                         "reference_match":  "crlf",
+                                                                                                         "retained_snapshot_matches_reference":  true,
+                                                                                                         "retained_snapshot_matches_normalized_content":  true
+                                                                                                     },
+                                                                            "tests/test_storage.py":  {
+                                                                                                          "sha256_raw":  "75add519ab9bace0300ffcda3f88f648b21be3693e655bfdcb05e659a2f87235",
+                                                                                                          "sha256_normalized_lf":  "75add519ab9bace0300ffcda3f88f648b21be3693e655bfdcb05e659a2f87235",
+                                                                                                          "reference_sha256":  "69f2608ba01f71db4f0257bcddde5d5f2cfc7a84f0e97dfb6d5492437fad3f19",
+                                                                                                          "reference_match":  "crlf",
+                                                                                                          "retained_snapshot_matches_reference":  true,
+                                                                                                          "retained_snapshot_matches_normalized_content":  true
+                                                                                                      },
+                                                                            "tests/test_tau_adapter.py":  {
+                                                                                                              "sha256_raw":  "fa18ed96a7cdf4f0dc8b27e82b486be81b3854fb3761ebb46775cded0aa1979b",
+                                                                                                              "sha256_normalized_lf":  "fa18ed96a7cdf4f0dc8b27e82b486be81b3854fb3761ebb46775cded0aa1979b",
+                                                                                                              "reference_sha256":  "1336ca83ae5df915f566798766caab3b946e96133d4262f1f17c5a88e1bcd871",
+                                                                                                              "reference_match":  "crlf",
+                                                                                                              "retained_snapshot_matches_reference":  true,
+                                                                                                              "retained_snapshot_matches_normalized_content":  true
+                                                                                                          },
+                                                                            "tests/test_ui.py":  {
+                                                                                                     "sha256_raw":  "60921a8eaec2109e3fdc567dd6608844508a7955b3d19c0626e8faf123159f61",
+                                                                                                     "sha256_normalized_lf":  "60921a8eaec2109e3fdc567dd6608844508a7955b3d19c0626e8faf123159f61",
+                                                                                                     "reference_sha256":  "c02f52c40031ae1b73508b8af8d1ce9d978532cf525a6a92b257d7e53c289dd0",
+                                                                                                     "reference_match":  "crlf",
+                                                                                                     "retained_snapshot_matches_reference":  true,
+                                                                                                     "retained_snapshot_matches_normalized_content":  true
+                                                                                                 },
+                                                                            "tests/test_ui_reapproval.py":  {
+                                                                                                                "sha256_raw":  "ed57de7cf39666eb4859a968e78690730661826e23ad138b778c903f5206615f",
+                                                                                                                "sha256_normalized_lf":  "ed57de7cf39666eb4859a968e78690730661826e23ad138b778c903f5206615f",
+                                                                                                                "reference_sha256":  "22feecf9d15fb4d0fb3290b8413c301a690ea29c70b86dcd5c0315a4e5d6851c",
+                                                                                                                "reference_match":  "crlf",
+                                                                                                                "retained_snapshot_matches_reference":  true,
+                                                                                                                "retained_snapshot_matches_normalized_content":  true
+                                                                                                            },
+                                                                            "tests/test_workflow.py":  {
+                                                                                                           "sha256_raw":  "e72170e6218c3230c7ffd43e382aa043f4a33fd146b982f459f7807f137bc778",
+                                                                                                           "sha256_normalized_lf":  "e72170e6218c3230c7ffd43e382aa043f4a33fd146b982f459f7807f137bc778",
+                                                                                                           "reference_sha256":  "df94b8cef50496e347e88471a91b7519d084009d6bfb4f8118ed4d8c86218c49",
+                                                                                                           "reference_match":  "crlf",
+                                                                                                           "retained_snapshot_matches_reference":  true,
+                                                                                                           "retained_snapshot_matches_normalized_content":  true
+                                                                                                       },
+                                                                            "tests/test_workflow_regressions.py":  {
+                                                                                                                       "sha256_raw":  "3a1f1111e4d9d064db04a939b123503c2081e7f98eb5257b9c91b1ccbe62dbae",
+                                                                                                                       "sha256_normalized_lf":  "3a1f1111e4d9d064db04a939b123503c2081e7f98eb5257b9c91b1ccbe62dbae",
+                                                                                                                       "reference_sha256":  "64b7861123a9e47ef82dc0b163d8ef471fd1f2ba0912f659c8343cb85879fa2f",
+                                                                                                                       "reference_match":  "crlf",
+                                                                                                                       "retained_snapshot_matches_reference":  true,
+                                                                                                                       "retained_snapshot_matches_normalized_content":  true
+                                                                                                                   }
+                                                                        }
+                                                          },
+                                         "configuration_sha256":  {
+                                                                      "file_count":  4,
+                                                                      "raw_matches":  2,
+                                                                      "newline_only_matches":  2,
+                                                                      "files":  {
+                                                                                    "pyproject.toml":  {
+                                                                                                           "sha256_raw":  "8cb4068416e9137589b8db94f0cab6080bb30eca08cb0483e6b9e5182658e777",
+                                                                                                           "sha256_normalized_lf":  "7ca958ba283083faecc11704f45f941b2132569ff79525a65ef1483b6997acac",
+                                                                                                           "reference_sha256":  "8cb4068416e9137589b8db94f0cab6080bb30eca08cb0483e6b9e5182658e777",
+                                                                                                           "reference_match":  "raw"
+                                                                                                       },
+                                                                                    "uv.lock":  {
+                                                                                                    "sha256_raw":  "5d48fc5adaadad43ea3db7c439eb93a887b8b592fd60a2977cda004114905643",
+                                                                                                    "sha256_normalized_lf":  "5d48fc5adaadad43ea3db7c439eb93a887b8b592fd60a2977cda004114905643",
+                                                                                                    "reference_sha256":  "5d48fc5adaadad43ea3db7c439eb93a887b8b592fd60a2977cda004114905643",
+                                                                                                    "reference_match":  "raw"
+                                                                                                },
+                                                                                    ".env.example":  {
+                                                                                                         "sha256_raw":  "fa988e63189e32410ad1f0a59025bf2de1c725516977eaeabe1130b6c6e061c3",
+                                                                                                         "sha256_normalized_lf":  "fa988e63189e32410ad1f0a59025bf2de1c725516977eaeabe1130b6c6e061c3",
+                                                                                                         "reference_sha256":  "a05798b212d4006f70057f8a7869806fd9021abc1d179a9778aae269a4996b85",
+                                                                                                         "reference_match":  "crlf"
+                                                                                                     },
+                                                                                    ".gitignore":  {
+                                                                                                       "sha256_raw":  "7ca5b471bc4fed8ed4de86ea75f5c77cd36232c4ada619465403792eddfb6c1d",
+                                                                                                       "sha256_normalized_lf":  "7ca5b471bc4fed8ed4de86ea75f5c77cd36232c4ada619465403792eddfb6c1d",
+                                                                                                       "reference_sha256":  "f62a3648203f3108bc95a3c3109a1556ecfc9c222316ea46cda15f50c52a2683",
+                                                                                                       "reference_match":  "crlf"
+                                                                                                   }
+                                                                                }
+                                                                  },
+                                         "synthetic_data_sha256":  {
+                                                                       "file_count":  3,
+                                                                       "raw_matches":  1,
+                                                                       "newline_only_matches":  2,
+                                                                       "files":  {
+                                                                                     "evals/reapproval/base_shop.json":  {
+                                                                                                                             "sha256_raw":  "ad8dcc22be2617673cd0b7f27e80b26c308301297abd0b3b019bc89b6bec7b0a",
+                                                                                                                             "sha256_normalized_lf":  "1790d823ea3fc8e8753495f4cb0a471c4bc02df6fb7021d92f0a3566080a6887",
+                                                                                                                             "reference_sha256":  "ad8dcc22be2617673cd0b7f27e80b26c308301297abd0b3b019bc89b6bec7b0a",
+                                                                                                                             "reference_match":  "raw"
+                                                                                                                         },
+                                                                                     "evals/reapproval/policy.md":  {
+                                                                                                                        "sha256_raw":  "e26e08b74077e25526bf0c28c8aca1700179002c6bf6ee76d5b93a878775b02f",
+                                                                                                                        "sha256_normalized_lf":  "e26e08b74077e25526bf0c28c8aca1700179002c6bf6ee76d5b93a878775b02f",
+                                                                                                                        "reference_sha256":  "12b4c1ff398015524dbd8129d3855dcfd400dafd02dc81f191a27e5a87ec05b4",
+                                                                                                                        "reference_match":  "crlf"
+                                                                                                                    },
+                                                                                     "evals/reapproval/scenarios.json":  {
+                                                                                                                             "sha256_raw":  "ef5cde8327bdd5e46709d739aee5636c4ce9f3bdf24af0f557a36412e95ef09a",
+                                                                                                                             "sha256_normalized_lf":  "ef5cde8327bdd5e46709d739aee5636c4ce9f3bdf24af0f557a36412e95ef09a",
+                                                                                                                             "reference_sha256":  "20fb7f59a3b1c4283cd32933e02e33eb3c1061ebb0c043bfa0d95dc5b46d996c",
+                                                                                                                             "reference_match":  "crlf"
+                                                                                                                         }
+                                                                                 }
+                                                                   },
+                                         "validation_scripts_sha256":  {
+                                                                           "file_count":  3,
+                                                                           "raw_matches":  3,
+                                                                           "newline_only_matches":  0,
+                                                                           "files":  {
+                                                                                         "evals/startup/check_lifecycle.py":  {
+                                                                                                                                  "sha256_raw":  "3b5b86a6a99e7e257822bd35eccd90cb73019081144d966a846607b7f73bf02e",
+                                                                                                                                  "sha256_normalized_lf":  "3b5b86a6a99e7e257822bd35eccd90cb73019081144d966a846607b7f73bf02e",
+                                                                                                                                  "reference_sha256":  "3b5b86a6a99e7e257822bd35eccd90cb73019081144d966a846607b7f73bf02e",
+                                                                                                                                  "reference_match":  "raw"
+                                                                                                                              },
+                                                                                         "evals/startup/check_server.py":  {
+                                                                                                                               "sha256_raw":  "2afad20bea6392dfc3fe7e850fe6312d695db94cb82f6291b1414d00793c21dc",
+                                                                                                                               "sha256_normalized_lf":  "2afad20bea6392dfc3fe7e850fe6312d695db94cb82f6291b1414d00793c21dc",
+                                                                                                                               "reference_sha256":  "2afad20bea6392dfc3fe7e850fe6312d695db94cb82f6291b1414d00793c21dc",
+                                                                                                                               "reference_match":  "raw"
+                                                                                                                           },
+                                                                                         "evals/startup/check_ui.py":  {
+                                                                                                                           "sha256_raw":  "462e4a8758143319715ad0eb7c0885fe458444c98fa2c5cf06f53bffdd1e9486",
+                                                                                                                           "sha256_normalized_lf":  "462e4a8758143319715ad0eb7c0885fe458444c98fa2c5cf06f53bffdd1e9486",
+                                                                                                                           "reference_sha256":  "462e4a8758143319715ad0eb7c0885fe458444c98fa2c5cf06f53bffdd1e9486",
+                                                                                                                           "reference_match":  "raw"
+                                                                                                                       }
+                                                                                     }
+                                                                       }
+                                     },
+                     "all_file_groups_match":  true,
+                     "git_source_test_changes_since_reference_commit":  [
+
+                                                                        ],
+                     "git_status_at_audit":  [
+
+                                             ],
+                     "runtime_python":  "3.12.12 (main, Feb 12 2026, 00:40:26) [MSC v.1944 64 bit (AMD64)]",
+                     "runtime_executable":  "C:\\Users\\USER\\Documents\\portfolio\\ai-support-agent\\var\\runtime\\Scripts\\python.exe",
+                     "runtime_python_matches":  true,
+                     "runtime_package_count":  96,
+                     "reference_package_count":  96,
+                     "runtime_package_versions":  {
+                                                      "addict":  "2.4.0",
+                                                      "aiohappyeyeballs":  "2.7.1",
+                                                      "aiohttp":  "3.14.5",
+                                                      "aiosignal":  "1.4.0",
+                                                      "altair":  "6.3.0",
+                                                      "annotated-doc":  "0.0.5",
+                                                      "annotated-types":  "0.8.0",
+                                                      "anyio":  "4.15.1",
+                                                      "attrs":  "26.1.0",
+                                                      "cachebox":  "5.2.3",
+                                                      "certifi":  "2026.10.23",
+                                                      "charset-normalizer":  "3.5.2",
+                                                      "click":  "8.5.0",
+                                                      "colorama":  "0.4.6",
+                                                      "deepdiff":  "9.1.0",
+                                                      "distro":  "1.9.0",
+                                                      "docstring-parser":  "0.18.0",
+                                                      "fastapi":  "0.162.0",
+                                                      "fastuuid":  "0.14.0",
+                                                      "filelock":  "4.2.4",
+                                                      "frozenlist":  "1.8.0",
+                                                      "fsspec":  "2026.9.0",
+                                                      "h11":  "0.16.0",
+                                                      "hf-xet":  "1.8.0",
+                                                      "httpcore":  "1.0.9",
+                                                      "httpcore2":  "2.16.0",
+                                                      "httpx":  "0.28.1",
+                                                      "httpx2":  "2.16.0",
+                                                      "huggingface-hub":  "2.4.0",
+                                                      "idna":  "3.20",
+                                                      "importlib-metadata":  "10.1.0",
+                                                      "iniconfig":  "2.3.1",
+                                                      "itsdangerous":  "2.2.0",
+                                                      "jinja2":  "3.1.6",
+                                                      "jiter":  "0.18.0",
+                                                      "jsonschema":  "4.25.1",
+                                                      "jsonschema-specifications":  "2025.9.1",
+                                                      "litellm":  "1.81.11",
+                                                      "loguru":  "0.7.3",
+                                                      "markdown-it-py":  "4.2.0",
+                                                      "markupsafe":  "3.0.4",
+                                                      "mdurl":  "0.1.2",
+                                                      "multidict":  "7.2.1",
+                                                      "narwhals":  "2.28.0",
+                                                      "numpy":  "2.5.4",
+                                                      "openai":  "2.20.0",
+                                                      "opentelemetry-api":  "1.45.2",
+                                                      "orderly-set":  "5.5.0",
+                                                      "packaging":  "26.3",
+                                                      "pandas":  "3.1.0",
+                                                      "pillow":  "12.3.0",
+                                                      "pluggy":  "1.7.0",
+                                                      "propcache":  "0.5.4",
+                                                      "protobuf":  "7.36.2",
+                                                      "psutil":  "7.2.2",
+                                                      "pyarrow":  "26.0.0",
+                                                      "pydantic":  "2.13.5",
+                                                      "pydantic-core":  "2.46.5",
+                                                      "pydeck":  "0.9.3",
+                                                      "pygments":  "2.21.0",
+                                                      "pytest":  "8.3.5",
+                                                      "python-dateutil":  "3.0.0",
+                                                      "python-dotenv":  "1.2.4",
+                                                      "python-multipart":  "0.0.32",
+                                                      "pyyaml":  "6.0.3",
+                                                      "referencing":  "0.37.0",
+                                                      "regex":  "2026.9.29",
+                                                      "requests":  "2.34.2",
+                                                      "rich":  "15.0.0",
+                                                      "rpds-py":  "2026.9.1",
+                                                      "ruff":  "0.11.7",
+                                                      "shellingham":  "1.5.4",
+                                                      "six":  "1.17.0",
+                                                      "sniffio":  "1.3.1",
+                                                      "starlette":  "1.10.0",
+                                                      "streamlit":  "1.66.0",
+                                                      "support-agent":  "0.1.0",
+                                                      "tabulate":  "0.10.0",
+                                                      "tau2":  "2.0.0",
+                                                      "tenacity":  "9.2.1",
+                                                      "tiktoken":  "0.14.0",
+                                                      "tokenizers":  "0.23.3",
+                                                      "toml":  "0.10.2",
+                                                      "tqdm":  "4.70.1",
+                                                      "truststore":  "0.10.5",
+                                                      "typer":  "0.27.3",
+                                                      "typing-extensions":  "4.16.0",
+                                                      "typing-inspection":  "0.4.4",
+                                                      "tzdata":  "2026.6",
+                                                      "urllib3":  "2.8.0",
+                                                      "uvicorn":  "0.54.0",
+                                                      "watchdog":  "6.0.0",
+                                                      "websockets":  "17.4",
+                                                      "win32-setctime":  "1.2.1",
+                                                      "yarl":  "1.25.1",
+                                                      "zipp":  "4.1.2"
+                                                  },
+                     "runtime_package_changes":  {
+
+                                                 },
+                     "runtime_extra_packages":  {
+
+                                                },
+                     "tau2_direct_url":  {
+                                             "url":  "https://github.com/sierra-research/tau2-bench.git",
+                                             "vcs_info":  {
+                                                              "vcs":  "git",
+                                                              "commit_id":  "da0835f6c67baef58bdda18f2a3b037dfb3a1754",
+                                                              "requested_revision":  "da0835f6c67baef58bdda18f2a3b037dfb3a1754"
+                                                          }
+                                         },
+                     "tau2_direct_url_matches":  true,
+                     "retained_pytest_result":  {
+                                                    "path":  "evals/startup/2026-10-31/pytest.xml",
+                                                    "sha256":  "0ee6def33099ae1a310ab8cbca85438b4f20f4e3a9323ad79a861c6b7972714f",
+                                                    "tests":  "206",
+                                                    "errors":  "0",
+                                                    "failures":  "0",
+                                                    "skipped":  "0",
+                                                    "time":  "31.797",
+                                                    "successful":  true
+                                                },
+                     "tests_rerun":  false,
+                     "api_calls":  0,
+                     "application_changes_by_audit":  false,
+                     "non_rerun_reason":  "Application, tests, configuration, synthetic data and retained validation scripts match the startup snapshot (some differ only in line endings); Python, all 96 distributions and tau2 VCS origin also match. The retained startup run has 206 successful checks. No behavior or environment change requiring a repeated suite was identified.",
+                     "human_acceptance":  {
+                                              "status":  "pending",
+                                              "normal_exchange":  "not_confirmed",
+                                              "price_change":  "not_confirmed"
+                                          },
+                     "open_items":  [
+                                        "Update manual acceptance commands from the sibling tau2 environment to var/runtime",
+                                        "Document a server restart with the same SQLite for both human scenarios",
+                                        "Obtain human results; automated checks cannot close this requirement",
+                                        "Keep main-status-2-manual evaluator limitation and historical results unchanged"
+                                    ],
+                     "status":  "applicable"
+                 },
+    "delivery_audit_before_documentation_update":  {
+                                                       "audit_date":  "2026-11-02",
+                                                       "performed_by":  "assistant",
+                                                       "repository":  "ai-support-agent",
+                                                       "commit":  "015507267c91e893203fdf1c81c041401550a250",
+                                                       "scope":  "Состав текущего Git index, документация, исключения локальных файлов. Без запусков приложения, тестов и API.",
+                                                       "counts":  {
+                                                                      "tracked_files":  254,
+                                                                      "scanned_text_files":  253,
+                                                                      "local_or_private_filename_candidates":  0,
+                                                                      "secret_pattern_findings":  0,
+                                                                      "required_paths":  16,
+                                                                      "missing_required_paths":  0,
+                                                                      "local_documentation_links":  14,
+                                                                      "missing_or_untracked_links":  0
+                                                                  },
+                                                       "checked_required_paths":  [
+                                                                                      "README.md",
+                                                                                      ".env.example",
+                                                                                      "pyproject.toml",
+                                                                                      "uv.lock",
+                                                                                      "THIRD_PARTY_NOTICES.md",
+                                                                                      "documents/architecture.md",
+                                                                                      "documents/architecture.png",
+                                                                                      "documents/evaluation/acceptance.md",
+                                                                                      "documents/evaluation/startup.md",
+                                                                                      "evals/reapproval/base_shop.json",
+                                                                                      "evals/reapproval/policy.md",
+                                                                                      "evals/reapproval/scenarios.json",
+                                                                                      "evals/acceptance/2026-10-31/check_demo_flow.py",
+                                                                                      "evals/startup/check_ui.py",
+                                                                                      "evals/startup/check_lifecycle.py",
+                                                                                      "evals/startup/check_server.py"
+                                                                                  ],
+                                                       "required_paths_result":  "Все необходимые пути существуют и отслеживаются Git.",
+                                                       "link_results":  {
+                                                                            "documents":  [
+                                                                                              "README.md",
+                                                                                              "THIRD_PARTY_NOTICES.md"
+                                                                                          ],
+                                                                            "local_links_checked":  14,
+                                                                            "missing_or_untracked":  [
+
+                                                                                                     ],
+                                                                            "external_links":  "Не проверялись сетью."
+                                                                        },
+                                                       "ignore_probes":  [
+                                                                             {
+                                                                                 "path":  ".env",
+                                                                                 "rule":  ".env",
+                                                                                 "ignored":  true
+                                                                             },
+                                                                             {
+                                                                                 "path":  ".env.local",
+                                                                                 "rule":  ".env.*",
+                                                                                 "ignored":  true
+                                                                             },
+                                                                             {
+                                                                                 "path":  "var/delivery-probe.sqlite3",
+                                                                                 "rule":  "var/",
+                                                                                 "ignored":  true
+                                                                             },
+                                                                             {
+                                                                                 "path":  "evals/probe.sqlite3",
+                                                                                 "rule":  "evals/**/*.sqlite3",
+                                                                                 "ignored":  true
+                                                                             },
+                                                                             {
+                                                                                 "path":  "evals/probe.sqlite3-wal",
+                                                                                 "rule":  "evals/**/*.sqlite3-*",
+                                                                                 "ignored":  true
+                                                                             },
+                                                                             {
+                                                                                 "path":  ".venv/pyvenv.cfg",
+                                                                                 "rule":  ".venv/",
+                                                                                 "ignored":  true
+                                                                             },
+                                                                             {
+                                                                                 "path":  "documents/tmp/07_plan_2.md",
+                                                                                 "rule":  "documents/tmp",
+                                                                                 "ignored":  true
+                                                                             }
+                                                                         ],
+                                                       "secret_scan":  {
+                                                                           "scanned":  "Текст текущих отслеживаемых файлов. Значения найденных совпадений не выводились; .env не читался.",
+                                                                           "patterns":  [
+                                                                                            "Заголовки приватных ключей PEM/OpenSSH",
+                                                                                            "Длинные API-ключи с префиксом sk-, включая proj- и svcacct-",
+                                                                                            "Токены GitHub с префиксом ghp_",
+                                                                                            "Идентификаторы AWS access key с префиксом AKIA"
+                                                                                        ],
+                                                                           "findings":  [
+
+                                                                                        ],
+                                                                           "limitation":  "Эвристическая проверка ограниченных шаблонов и имён файлов; не гарантирует отсутствие всех секретов или реальных персональных данных. История Git и неотслеживаемые файлы не сканировались."
+                                                                       },
+                                                       "dependencies":  {
+                                                                            "runtime_versions":  "Прямые зависимости закреплены точными версиями в pyproject.toml; uv.lock присутствует в Git.",
+                                                                            "tau2_version":  "2.0.0",
+                                                                            "tau2_commit":  "da0835f6c67baef58bdda18f2a3b037dfb3a1754",
+                                                                            "tau2_pin_verified_in":  [
+                                                                                                         "pyproject.toml",
+                                                                                                         "uv.lock"
+                                                                                                     ],
+                                                                            "build_backend":  "setuptools\u003e=68, отдельная точная версия не задана в pyproject.toml",
+                                                                            "runtime_reinstallation":  "Не выполнялась."
+                                                                        },
+                                                       "provenance":  {
+                                                                          "notice":  "THIRD_PARTY_NOTICES.md",
+                                                                          "tau2_license":  "MIT, текст сохранён в уведомлениях",
+                                                                          "synthetic_sources":  [
+                                                                                                    "tests/retail_data.py",
+                                                                                                    "evals/reapproval/base_shop.json",
+                                                                                                    "evals/reapproval/policy.md",
+                                                                                                    "evals/reapproval/scenarios.json"
+                                                                                                ],
+                                                                          "verification":  "Происхождение, закреплённая версия и источники указаны локально. Сетевое или юридическое подтверждение лицензий не выполнялось."
+                                                                      },
+                                                       "documentation_recommendations":  [
+                                                                                             "Обозначить самостоятельный портфельный статус и открытую человеческую приёмку.",
+                                                                                             "В первом абзаце отличить собственный синтетический магазин от исходных задач tau2.",
+                                                                                             "Дать явную ссылку на сценарий изменения цены в acceptance.md."
+                                                                                         ],
+                                                       "blocking_packaging_defects":  [
+
+                                                                                      ]
+                                                   },
+    "human_acceptance":  {
+                             "changed_price":  "pending",
+                             "normal_exchange":  "pending",
+                             "accepted_release":  "not_yet_confirmed"
+                         },
+    "changes":  [
+                    "README.md",
+                    "documents/evaluation/acceptance.md",
+                    "evals/README.md",
+                    "documents/tmp/07_plan_2.md"
+                ],
+    "limitations":  [
+                        "Это сверка сохранённых результатов, а не новый прогон приложения или оценка модели.",
+                        "Состав Git проверен до сохранения обновлённой документации.",
+                        "Манифест не заменяет результаты человека; принятой версия станет после их подтверждения.",
+                        "Прежние оценки и ошибки оценщика не изменялись."
+                    ],
+    "documentation_validation":  {
+                                     "reason":  "Исполняемый код и окружение совпадают с уже проверенными; проверены только обновлённые инструкции.",
+                                     "local_links":  [
+                                                         {
+                                                             "document":  "README.md",
+                                                             "target":  "documents/evaluation/reapproval.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "README.md",
+                                                             "target":  "documents/evaluation/startup.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "README.md",
+                                                             "target":  "documents/evaluation/acceptance.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "README.md",
+                                                             "target":  "documents/evaluation/startup.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "README.md",
+                                                             "target":  "documents/evaluation/acceptance.md#два-сценария-ручной-приёмки",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "README.md",
+                                                             "target":  ".env.example",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "README.md",
+                                                             "target":  "documents/evaluation/reapproval.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "README.md",
+                                                             "target":  "evals/reapproval/README.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "README.md",
+                                                             "target":  "THIRD_PARTY_NOTICES.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "README.md",
+                                                             "target":  "documents/architecture.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "README.md",
+                                                             "target":  "documents/evaluation/retail-baseline.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "README.md",
+                                                             "target":  "documents/evaluation/core-integration.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "README.md",
+                                                             "target":  "documents/evaluation/staff-workspace.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "README.md",
+                                                             "target":  "documents/evaluation/acceptance.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "README.md",
+                                                             "target":  "documents/evaluation/startup.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "README.md",
+                                                             "target":  "evals/README.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../evals/acceptance/2026-11-02/validation.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "startup.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../evals/acceptance/2026-10-31/validation.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../evals/reapproval/2026-10-31/pytest-after-fix.xml",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "staff-workspace.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "reapproval.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../tests/test_workflow.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../tests/test_app_flow.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../tests/test_proposals.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../tests/test_execution.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../tests/test_workflow.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../tests/test_recovery.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../tests/test_workflow_regressions.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../tests/test_recovery_regressions.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../tests/test_retail.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../tests/test_recommendations.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../tests/test_conditions.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../tests/test_recovery.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../tests/test_app_reapproval.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../tests/test_execution.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../tests/test_app_flow.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../tests/test_workflow_regressions.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../tests/test_execution.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../tests/test_retail.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "retail-baseline.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "core-integration.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../evals/acceptance/2026-10-31/check_demo_flow.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../evals/acceptance/2026-10-31/service-flows/results.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "reapproval.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/evaluation/acceptance.md",
+                                                             "target":  "../../README.md#запуск-рабочего-места",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "../documents/evaluation/retail-baseline.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "../documents/evaluation/retail-baseline.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "retail-baseline/2026-10-30/summary.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "retail-baseline/2026-10-30/preflight.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "retail-baseline/2026-10-30/summary.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "retail-baseline/2026-10-30/runs/task75/results.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "retail-baseline/2026-10-30/runs/remaining/results.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "retail-baseline/2026-10-30/runs/recovery/results.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "retail-baseline/2026-10-30/diagnostics/blocked-network/results.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "retail-baseline/2026-10-30/diagnostics/blocked-quota/results.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "retail-baseline/2026-10-30/diag/tls/results.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "retail-baseline/2026-10-30/diag/transport/results.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "../documents/evaluation/retail-baseline.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "retail-baseline/run_baseline.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "../documents/evaluation/retail-baseline.md#просмотр-и-повторный-запуск",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "core-integration/2026-10-30/",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "../README.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "../documents/evaluation/core-integration.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "../documents/evaluation/staff-workspace.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "reapproval/2026-10-31-revised/pilot/manifest.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "reapproval/2026-10-31-revised/main/manifest.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "reapproval/2026-10-31-revised/budget.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "reapproval/2026-10-31-revised/authorization.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "reapproval/2026-10-31-revised/main/review.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "../documents/evaluation/reapproval.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "reapproval/README.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "reapproval/2026-10-31/pilot/manifest.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "reapproval/2026-10-31/pilot/review.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "reapproval/2026-10-31/pilot/source/run_reapproval.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "reapproval/2026-10-31/validation-after-fix.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "reapproval/2026-10-31-revised/pilot/manifest.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "reapproval/2026-10-31-revised/main/manifest.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "reapproval/2026-10-31-revised/main/review.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "reapproval/2026-10-31-revised/budget.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "reapproval/2026-10-31/offline/manifest.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "../documents/evaluation/acceptance.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "acceptance/2026-10-31/validation.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "acceptance/2026-10-31/service-flows/results.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "acceptance/2026-10-31/check_demo_flow.py",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "../documents/evaluation/startup.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "acceptance/2026-11-02/validation.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "evals/README.md",
+                                                             "target":  "../documents/evaluation/acceptance.md#два-сценария-ручной-приёмки",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/tmp/07_plan_2.md",
+                                                             "target":  "07_plan.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/tmp/07_plan_2.md",
+                                                             "target":  "../evaluation/startup.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/tmp/07_plan_2.md",
+                                                             "target":  "../evaluation/acceptance.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/tmp/07_plan_2.md",
+                                                             "target":  "../../evals/acceptance/2026-11-02/validation.json",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/tmp/07_plan_2.md",
+                                                             "target":  "../evaluation/acceptance.md#два-сценария-ручной-приёмки",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/tmp/07_plan_2.md",
+                                                             "target":  "../../evals/README.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/tmp/07_plan_2.md",
+                                                             "target":  "06_requiements.md",
+                                                             "exists":  true
+                                                         },
+                                                         {
+                                                             "document":  "documents/tmp/07_plan_2.md",
+                                                             "target":  "../evaluation/reapproval.md",
+                                                             "exists":  true
+                                                         }
+                                                     ],
+                                     "commands_executed":  false,
+                                     "powershell_blocks_parsed":  4,
+                                     "python_price_snippet":  "Синтаксис проверен через ast.parse в Python 3.12.12; фрагмент не исполнялся."
+                                 },
+    "documentation_sha256":  {
+                                 "documents/tmp/07_plan_2.md":  "DF061C840C30C2F00C01F930E33E7EE909F30827D8C8A6E555A816DF5B451EEB",
+                                 "README.md":  "A1DC5381E6F2ABFAAF0CF0C3B14908DD288E4951FA1EDB4566228CBC337A52D0",
+                                 "documents/evaluation/acceptance.md":  "1F2C67974A8AE89AF716086E41925FEFD4AC94DD49455D5AE805716A25017F7B",
+                                 "evals/README.md":  "FCDAE49D80701AFBAE41FE51A62BDA3F0A4E98BD30F1A7B2CD0EE551749AB7B5"
+                             }
+}

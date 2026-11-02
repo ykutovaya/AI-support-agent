@@ -12,7 +12,7 @@
 
 ## Прямые зависимости приложения
 
-Версии закреплены в `pyproject.toml`. Ссылки на источники и обозначения лицензий сверены с метаданными установленных пакетов 31 октября 2026 года. Полные тексты лицензий поставляются с соответствующими дистрибутивами; таблица их не заменяет.
+Версии закреплены в `pyproject.toml`. Ссылки на источники и обозначения лицензий сверены с метаданными установленных пакетов 31 октября 2026 года; Streamlit и тестовая зависимость websockets сверены повторно 2 ноября 2026 года. Полные тексты лицензий поставляются с соответствующими дистрибутивами; таблица их не заменяет.
 
 | Пакет | Версия | Источник | Лицензия |
 |---|---|---|---|
@@ -21,13 +21,14 @@
 | litellm | 1.81.11 | [BerriAI/litellm](https://github.com/BerriAI/litellm) | MIT |
 | python-dotenv | 1.2.4 | [theskumar/python-dotenv](https://github.com/theskumar/python-dotenv) | BSD-3-Clause |
 | openai | 2.20.0 | [openai/openai-python](https://github.com/openai/openai-python) | Apache-2.0 |
-| streamlit | 1.66.0 | [streamlit/streamlit](https://github.com/streamlit/streamlit) | Apache-2.0 |
+| streamlit | 1.56.0 | [streamlit/streamlit](https://github.com/streamlit/streamlit) | Apache-2.0 |
 | pytest, проверки | 8.3.5 | [pytest-dev/pytest](https://github.com/pytest-dev/pytest) | MIT |
+| websockets, проверка остановки | 17.4 | [python-websockets/websockets](https://github.com/python-websockets/websockets) | BSD-3-Clause |
 | ruff, проверки | 0.11.7 | [astral-sh/ruff](https://github.com/astral-sh/ruff) | MIT |
 
 ## Собственные учебные материалы
 
-`tests/retail_data.py`, `evals/reapproval/base_shop.json`, `evals/reapproval/policy.md` и `evals/reapproval/scenarios.json` — собственные синтетические примеры в формате retail. Они не являются исходными заданиями τ-bench или действующими правилами Softline. Результаты в `evals/reapproval/` и `evals/acceptance/` описывают эти отдельные испытания; происхождение данных также указано в [описании стенда](evals/reapproval/README.md).
+`tests/retail_data.py`, `evals/ticket-integration/base_shop.json`, `evals/ticket-integration/policy.md`, `evals/reapproval/base_shop.json`, `evals/reapproval/policy.md` и `evals/reapproval/scenarios.json` — собственные синтетические примеры в формате retail. Они не являются исходными заданиями τ-bench или действующими правилами Softline. Результаты в `evals/reapproval/` и `evals/acceptance/` описывают эти отдельные испытания; происхождение данных также указано в [описании стенда](evals/reapproval/README.md).
 
 ## MIT License — Sierra Research
 

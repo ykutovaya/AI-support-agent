@@ -13,11 +13,11 @@ dependencies = [
     "litellm==1.81.11",
     "python-dotenv==1.2.4",
     "openai==2.20.0",
-    "streamlit==1.66.0",
+    "streamlit==1.56.0",
 ]
 
 [project.optional-dependencies]
-dev = ["pytest==8.3.5", "ruff==0.11.7"]
+dev = ["pytest==8.3.5", "ruff==0.11.7", "websockets==17.4"]
 retail = ["tau2==2.0.0"]
 
 [tool.uv.sources]

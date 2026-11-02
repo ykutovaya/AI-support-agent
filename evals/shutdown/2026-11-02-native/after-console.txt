@@ -1,0 +1,60 @@
+SERVER_PID 19336
+2026-11-02 23:42:55.517 No ASGI app assignments found in C:\Users\USER\AppData\Local\Temp\native-streamlit-2026-11-02\project\src\support_agent\ui.py
+2026-11-02 23:42:55.771 Filtered 101 packages down to 3 candidates for component scanning
+2026-11-02 23:42:55.771 Scanning 3 candidate packages for component manifests using 3 worker threads
+2026-11-02 23:42:55.814 Found 0 component manifests total
+2026-11-02 23:42:55.814 No asset roots to watch
+2026-11-02 23:42:55.814 File watching not started
+2026-11-02 23:42:55.814 Starting new event loop for server
+2026-11-02 23:42:55.814 Starting server...
+2026-11-02 23:42:55.819 Serving static content from C:\Users\USER\AppData\Local\Temp\native-streamlit-2026-11-02\project\.venv\Lib\site-packages\streamlit\static
+2026-11-02 23:42:55.831 Server started on port 49734
+2026-11-02 23:42:55.831 Runtime state: RuntimeState.INITIAL -> RuntimeState.NO_SESSIONS_CONNECTED
+
+  You can now view your Streamlit app in your browser.
+
+  URL: http://127.0.0.1:49734
+
+2026-11-02 23:42:55.854 Setting up signal handler
+2026-11-02 23:42:57.012 No singleton. Registering one.
+2026-11-02 23:42:57.012 Watcher created for C:\Users\USER\AppData\Local\Temp\native-streamlit-2026-11-02\project\src\support_agent\ui.py
+2026-11-02 23:42:57.012 AppSession initialized (id=d52b3d06-5318-4ddf-a029-9dc71218000e)
+2026-11-02 23:42:57.012 Created new session for client 2091953293264. Session ID: d52b3d06-5318-4ddf-a029-9dc71218000e
+2026-11-02 23:42:57.012 Runtime state: RuntimeState.NO_SESSIONS_CONNECTED -> RuntimeState.ONE_OR_MORE_SESSIONS_CONNECTED
+2026-11-02 23:42:57.012 Received the following back message:
+rerun_script {
+}
+
+2026-11-02 23:42:57.012 Beginning script thread
+2026-11-02 23:42:57.012 Running script
+2026-11-02 23:42:57.012 Disconnecting files for session with ID d52b3d06-5318-4ddf-a029-9dc71218000e
+2026-11-02 23:42:57.012 Sessions still active: dict_keys([])
+2026-11-02 23:42:57.012 Files: 0; Sessions with files: 0
+[32m2026-11-02 23:42:59.705[0m | [33m[1mWARNING [0m | [36mtau2.utils.utils[0m:[36m<module>[0m:[36m29[0m - [33m[1mData directory does not exist: C:\Users\USER\AppData\Local\Temp\native-streamlit-2026-11-02\tau2-bench\data[0m
+[32m2026-11-02 23:42:59.705[0m | [33m[1mWARNING [0m | [36mtau2.utils.utils[0m:[36m<module>[0m:[36m30[0m - [33m[1mSet TAU2_DATA_DIR environment variable to point to your data directory[0m
+[32m2026-11-02 23:42:59.705[0m | [33m[1mWARNING [0m | [36mtau2.utils.utils[0m:[36m<module>[0m:[36m33[0m - [33m[1mOr ensure the data directory exists in the expected location[0m
+[32m2026-11-02 23:43:04.256[0m | [34m[1mDEBUG   [0m | [36mtau2.registry[0m:[36m<module>[0m:[36m297[0m - [34m[1mVoice dependencies not installed, skipping voice user registration[0m
+2026-11-02 23:43:04.720 Removing orphaned files...
+2026-11-02 23:43:04.720 Removing orphaned deferred callables...
+2026-11-02 23:43:05.822 Watcher created for C:\Users\USER\AppData\Local\Temp\native-streamlit-2026-11-02\project\src\support_agent\__init__.py
+2026-11-02 23:43:05.834 Watcher created for C:\Users\USER\AppData\Local\Temp\native-streamlit-2026-11-02\project\src\support_agent\bootstrap.py
+2026-11-02 23:43:05.834 Watcher created for C:\Users\USER\AppData\Local\Temp\native-streamlit-2026-11-02\project\src\support_agent\adapters\__init__.py
+2026-11-02 23:43:05.834 Watcher created for C:\Users\USER\AppData\Local\Temp\native-streamlit-2026-11-02\project\src\support_agent\models.py
+2026-11-02 23:43:05.838 Watcher created for C:\Users\USER\AppData\Local\Temp\native-streamlit-2026-11-02\project\src\support_agent\adapters\demo_model.py
+2026-11-02 23:43:05.839 Watcher created for C:\Users\USER\AppData\Local\Temp\native-streamlit-2026-11-02\project\src\support_agent\proposals.py
+2026-11-02 23:43:05.839 Watcher created for C:\Users\USER\AppData\Local\Temp\native-streamlit-2026-11-02\project\src\support_agent\adapters\retail.py
+2026-11-02 23:43:05.841 Watcher created for C:\Users\USER\AppData\Local\Temp\native-streamlit-2026-11-02\project\src\support_agent\storage.py
+2026-11-02 23:43:05.841 Watcher created for C:\Users\USER\AppData\Local\Temp\native-streamlit-2026-11-02\project\src\support_agent\agent.py
+2026-11-02 23:43:05.842 Watcher created for C:\Users\USER\AppData\Local\Temp\native-streamlit-2026-11-02\project\src\support_agent\execution.py
+2026-11-02 23:43:05.842 Watcher created for C:\Users\USER\AppData\Local\Temp\native-streamlit-2026-11-02\project\src\support_agent\workflow.py
+  Stopping...
+2026-11-02 23:43:06.373 Runtime stopping...
+2026-11-02 23:43:06.373 Runtime state: RuntimeState.ONE_OR_MORE_SESSIONS_CONNECTED -> RuntimeState.STOPPING
+2026-11-02 23:43:06.373 Shutting down (id=d52b3d06-5318-4ddf-a029-9dc71218000e)
+2026-11-02 23:43:06.373 Disconnecting files for session with ID d52b3d06-5318-4ddf-a029-9dc71218000e
+2026-11-02 23:43:06.373 Sessions still active: dict_keys([])
+2026-11-02 23:43:06.373 Files: 0; Sessions with files: 0
+2026-11-02 23:43:06.373 Removing orphaned files...
+2026-11-02 23:43:06.373 Removing orphaned deferred callables...
+2026-11-02 23:43:06.379 Runtime state: RuntimeState.STOPPING -> RuntimeState.STOPPED
+POWERSHELL_READY_AFTER_CTRL_C
