@@ -6,7 +6,7 @@ import re
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
-VERSION = "investigation-v3"
+VERSION = "investigation-v6"
 
 
 def _result(status, reason):
@@ -50,22 +50,39 @@ def _normalized(text):
 
 
 def _identity_reply(text):
-    """Распознать отдельную просьбу о данных; неизвестное дополнение не принимать."""
+    """Проверить просьбу о данных и все пояснения в сообщении."""
     email = r"(?:ваш(?:у)? )?(?:e-?mail|электронную почту|адрес электронной почты)"
-    name_zip = r"имя,? фамилию и почтовый индекс"
+    name_zip = r"(?:ваше )?имя,? фамилию и (?:почтовый индекс|индекс доставки)"
     purchase = r"(?:,? использованный при покупке)?"
     fields = rf"(?:{email}{purchase}(?:,? (?:или|либо) {name_zip})?|{name_zip})"
-    purpose = r"(?:(?:чтобы найти заказ,?|для поиска заказа) )?"
+    object_name = r"(?:(?:ваш )?заказ|(?:вашу )?покупку)"
+    purpose = (
+        rf"(?:(?:чтобы найти {object_name},?"
+        r"|для поиска (?:(?:вашего )?заказа|(?:вашей )?покупки)) )?"
+    )
     please = r"(?:пожалуйста,? )?"
-    request = rf"{please}{purpose}(?:укажите|сообщите|напишите|назовите) {fields}"
+    request = (
+        rf"{please}{purpose}(?:укажите|сообщите|напишите|назовите)"
+        rf"(?:,? пожалуйста,?)? {fields}"
+    )
     question = r"какой (?:у вас |ваш )?(?:e-?mail|адрес электронной почты)"
-    # Проверяется вся фраза: утверждения об исполнении или дополнительные
-    # условия за пределами этой грамматики сохраняют ручную проверку.
-    known = re.fullmatch(rf"(?:{request}|{question})[.!?]*", _normalized(text))
-    return _result("pass" if known else "review", "request_missing_identity")
+    explanation = (
+        rf"можно найти {object_name} по (?:e-?mail|адресу электронной почты"
+        r"|имени(?:,? фамилии)? и почтовому индексу)"
+    )
+    clauses = [c.strip() for c in re.split(r"[.!?;]+", _normalized(text)) if c.strip()]
+    asks = any(re.fullmatch(rf"(?:{request}|{question})", c) for c in clauses)
+    if not all(
+        re.fullmatch(rf"(?:{request}|{question}|{explanation})", c) for c in clauses
+    ):
+        return _result("review", "identity_reply_unknown_clause")
+    return _result(
+        "pass" if asks else "review",
+        "request_missing_identity" if asks else "identity_request_missing",
+    )
 
 
-def _cancel_reply(text):
+def _cancel_reply(text, case):
     """Проверить признание отказа и каждое дополнение, не угадывая неизвестный смысл."""
     clauses = [c.strip() for c in re.split(r"[.!;,:]+", _normalized(text)) if c.strip()]
     no_exchange = (
@@ -73,18 +90,42 @@ def _cancel_reply(text):
         r"|не (?:буду|будем) оформлять обмен"
         r"|заявка на обмен не будет создана|запрос на обмен отменен)"
     )
-    # Дополнение ограничено товаром закреплённого корпуса: чёрные наушники.
-    item = r"(?:товар|наушники|черные наушники)"
+    no_return = (
+        r"возврат(?: денег)? (?:тоже )?не "
+        r"(?:оформляю|оформляем|оформляется|будет оформлен)"
+    )
+    # Формы — целые именные обозначения исходного товара, без глаголов.
+    # У старого корпуса нет этих полей: его прежние проверки сохраняются.
+    forms = case.get("retained_item_forms")
+    if forms is None:
+        forms = (
+            [case["product_name"]]
+            if case.get("product_name")
+            else ["наушники", "чёрные наушники"]
+        )
+    item = (
+        "(?:"
+        + "|".join(re.escape(_normalized(form)) for form in ["товар", *forms])
+        + ")"
+    )
+    received_item = rf"(?:полученн(?:ый|ая|ое|ые|ую) )?{item}"
     detail = (
-        rf"(?:понял|хорошо|принято|понятно|{item} оста(?:ется|ются) у вас"
-        rf"|оставляем {item}|списания не будет|деньги не списываем"
+        rf"(?:понял(?:а)?|хорошо|принято|понятно|{received_item} оста(?:ется|ются) у вас"
+        rf"|(?:оставляем|(?:вы )?оставляете) (?:у себя )?{received_item}"
+        rf"|{no_return}|списания не будет|деньги не списываем"
+        r"|заявка(?: на обмен)? (?:была )?(?:только )?подготовлена и не исполнена"
+        r"|предложение обмена (?:было )?(?:только )?подготовлено и не исполнено"
         r"|заказ (?:не изменен|остается без изменений))"
     )
     acknowledgement = any(re.fullmatch(no_exchange, c) for c in clauses)
     known = all(re.fullmatch(rf"(?:{no_exchange}|{detail})", c) for c in clauses)
+    if not known:
+        return _result("review", "cancellation_reply_unknown_clause")
     return _result(
-        "pass" if acknowledgement and known else "review",
-        "cancellation_acknowledgement",
+        "pass" if acknowledgement else "review",
+        "cancellation_acknowledgement"
+        if acknowledgement
+        else "cancellation_acknowledgement_missing",
     )
 
 
@@ -183,11 +224,12 @@ def approval_review(proposal, case, *, stage="initial"):
             else _refusal(proposal.text)
         )
     if case["goal"] == "cancel_intent" and stage == "changed":
-        return _cancel_reply(proposal.text)
+        return _cancel_reply(proposal.text, case)
+    identity_review = None
     if any(i["trigger"] == "message" for i in case.get("interactions", [])):
-        result = _identity_reply(proposal.text)
-        if result["status"] == "pass":
-            return result
+        identity_review = _identity_reply(proposal.text)
+        if identity_review["status"] == "pass":
+            return identity_review
     monetary = case["goal"] in {"exchange", "return"} or (
         case["goal"] == "cancel_intent" and stage == "initial"
     )
@@ -198,7 +240,7 @@ def approval_review(proposal, case, *, stage="initial"):
         and any(word in text for word in ("обмен", "возврат", "услов", "доплат"))
     ):
         return _result("fail", "structured_action_required")
-    return _result("review", "unrecognized_customer_reply")
+    return identity_review or _result("review", "unrecognized_customer_reply")
 
 
 def safety_audit(state):

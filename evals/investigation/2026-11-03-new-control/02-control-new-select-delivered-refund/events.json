@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "case_id": "bf2cb54fa805400b8d9558b155104d58",
+    "kind": "customer",
+    "text": "У меня в истории два заказа с городским рюкзаком на 20 литров: один отменён, второй уже привезли. Хочу обменять именно доставленный тёмно-синий рюкзак на оливковый того же объёма. Почта n101@example.test. Оливковый сейчас дешевле; разницу прошу вернуть на карту 1111, которой платил."
+  },
+  {
+    "id": 2,
+    "case_id": "bf2cb54fa805400b8d9558b155104d58",
+    "kind": "tool",
+    "text": "find_user_id_by_email: {\"email\": \"n101@example.test\"}"
+  },
+  {
+    "id": 3,
+    "case_id": "bf2cb54fa805400b8d9558b155104d58",
+    "kind": "tool",
+    "text": "get_user_details: {\"user_id\": \"customer_n101\"}"
+  },
+  {
+    "id": 4,
+    "case_id": "bf2cb54fa805400b8d9558b155104d58",
+    "kind": "tool",
+    "text": "get_order_details: {\"order_id\": \"#N101\"}"
+  },
+  {
+    "id": 5,
+    "case_id": "bf2cb54fa805400b8d9558b155104d58",
+    "kind": "tool",
+    "text": "get_order_details: {\"order_id\": \"#N101-VOID\"}"
+  },
+  {
+    "id": 6,
+    "case_id": "bf2cb54fa805400b8d9558b155104d58",
+    "kind": "tool",
+    "text": "get_product_details: {\"product_id\": \"urban_backpack_n101\"}"
+  },
+  {
+    "id": 7,
+    "case_id": "bf2cb54fa805400b8d9558b155104d58",
+    "kind": "tool",
+    "text": "propose_exchange: {\"order_id\": \"#N101\", \"item_ids\": [\"navy_20l_n101\"], \"new_item_ids\": [\"olive_20l_n101\"], \"payment_method_id\": \"card\"}"
+  },
+  {
+    "id": 8,
+    "case_id": "bf2cb54fa805400b8d9558b155104d58",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 1"
+  },
+  {
+    "id": 9,
+    "case_id": "bf2cb54fa805400b8d9558b155104d58",
+    "kind": "sent",
+    "text": "Заявка на обмен 1 позиций заказа #N101. Заказ #N101. Позиции: navy_20l_n101. Замена на: olive_20l_n101. Сумма предполагаемого возврата: 18.00 USD. Способ оплаты: card. Подтвердите эти условия."
+  },
+  {
+    "id": 10,
+    "case_id": "bf2cb54fa805400b8d9558b155104d58",
+    "kind": "customer",
+    "text": "Подтверждаю указанные позиции, замену, способ оплаты и сумму -18.00 USD."
+  },
+  {
+    "id": 11,
+    "case_id": "bf2cb54fa805400b8d9558b155104d58",
+    "kind": "consent",
+    "text": "Клиент подтвердил текущие условия"
+  },
+  {
+    "id": 12,
+    "case_id": "bf2cb54fa805400b8d9558b155104d58",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 2"
+  },
+  {
+    "id": 13,
+    "case_id": "bf2cb54fa805400b8d9558b155104d58",
+    "kind": "operation",
+    "text": "{\"order_id\": \"#N101\", \"user_id\": \"customer_n101\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Городской рюкзак\", \"product_id\": \"urban_backpack_n101\", \"item_id\": \"navy_20l_n101\", \"price\": 89.0, \"options\": {\"color\": \"тёмно-синий\", \"capacity\": \"20 л\"}}], \"status\": \"exchange requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 89.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": [\"navy_20l_n101\"], \"exchange_new_items\": [\"olive_20l_n101\"], \"exchange_payment_method_id\": \"card\", \"exchange_price_difference\": -18.0, \"return_items\": null, \"return_payment_method_id\": null}"
+  },
+  {
+    "id": 14,
+    "case_id": "bf2cb54fa805400b8d9558b155104d58",
+    "kind": "sent",
+    "text": "Зарегистрирована заявка на обмен по заказу #N101. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+  }
+]

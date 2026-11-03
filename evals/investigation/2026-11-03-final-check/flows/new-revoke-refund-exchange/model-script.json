@@ -1,0 +1,81 @@
+[
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "find_user_id_by_email",
+        "name": "find_user_id_by_email",
+        "arguments": {
+          "email": "n103@example.test"
+        }
+      }
+    ],
+    "tool_call_id": null,
+    "error": false,
+    "execution_status": "executed"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "get_order_details",
+        "name": "get_order_details",
+        "arguments": {
+          "order_id": "#N103"
+        }
+      }
+    ],
+    "tool_call_id": null,
+    "error": false,
+    "execution_status": "executed"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "get_product_details",
+        "name": "get_product_details",
+        "arguments": {
+          "product_id": "rain_jacket_n103"
+        }
+      }
+    ],
+    "tool_call_id": null,
+    "error": false,
+    "execution_status": "executed"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "propose_exchange",
+        "name": "propose_exchange",
+        "arguments": {
+          "order_id": "#N103",
+          "item_ids": [
+            "burgundy_l_n103"
+          ],
+          "new_item_ids": [
+            "burgundy_m_n103"
+          ],
+          "payment_method_id": "card"
+        }
+      }
+    ],
+    "tool_call_id": null,
+    "error": false,
+    "execution_status": "executed"
+  },
+  {
+    "role": "assistant",
+    "content": "Поняла. Обмен не оформляю; возврат денег тоже не оформляю. Предложение обмена было только подготовлено и не исполнено. Вы оставляете у себя полученную бордовую куртку размера L.",
+    "tool_calls": null,
+    "tool_call_id": null,
+    "error": false,
+    "execution_status": "executed"
+  }
+]

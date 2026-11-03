@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="0.201" timestamp="2026-11-03T16:39:35.256643+03:00" hostname="DESKTOP-PNPT252"><testcase classname="tests.test_intervention_metrics" name="test_saved_annotations_follow_sliced_checkpoint_events_but_explicit_links_are_validated" time="0.001"><failure message="ValueError: Аннотация должна ссылаться на событие customer">def test_saved_annotations_follow_sliced_checkpoint_events_but_explicit_links_are_validated():
+        baseline = state([], consents=[consent("a", revoked=0)])
+        saved = state([], consents=[consent("a")])
+        saved["customer_annotations"] = [
+            annotation(1, "request_change"),
+            annotation(5, "refusal", ["a"]),
+        ]
+        sliced_events = [event(5, "customer", "Оставлю прежний товар")]
+&gt;       result = module().evaluate_interventions(
+            saved, sliced_events, baseline_state=baseline
+        )
+
+tests\test_intervention_metrics.py:436: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+evals\reapproval\metrics.py:203: in evaluate_interventions
+    responses, revocations, response_sources = _client_responses(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+state = {'case': {'employee_id': 'employee', 'id': 'case'}, 'customer_annotations': [{'case_id': 'case', 'event_id': 1, 'reaso...tables': {'approvals': [], 'consents': [{'accepted': 1, 'case_id': 'case', 'id': 'a', 'revoked': 1}], 'proposals': []}}
+events = [{'case_id': 'case', 'id': 5, 'kind': 'customer', 'text': 'Оставлю прежний товар'}]
+annotations = [{'case_id': 'case', 'event_id': 1, 'reason': 'request_change', 'revoked_consent_ids': []}, {'case_id': 'case', 'event_id': 5, 'reason': 'refusal', 'revoked_consent_ids': ['a']}]
+baseline_state = {'case': {'employee_id': 'employee', 'id': 'case'}, 'tables': {'approvals': [], 'consents': [{'accepted': 1, 'case_id': 'case', 'id': 'a', 'revoked': 0}], 'proposals': []}}
+partial_scope = False
+
+    def _client_responses(state, events, annotations, baseline_state, partial_scope):
+        """Причины задаёт разметка оценщика; текст сообщения не классифицируется."""
+        case_id = state["case"]["id"]
+        events_by_id = {e["id"]: e for e in events}
+        tables = state.get("tables", {})
+        consents = {
+            row["id"]: row
+            for row in tables.get("consents", [])
+            if row.get("case_id") == case_id
+        }
+        revoked_ids = {
+            identifier
+            for identifier, row in consents.items()
+            if row.get("accepted") == 1 and row.get("revoked") == 1
+        }
+        available = "consents" in tables and all(
+            "accepted" in row and "revoked" in row for row in consents.values()
+        )
+        coverage = "complete_snapshot" if available else "unavailable"
+        if baseline_state is not None:
+            before = baseline_state.get("tables", {})
+            old = [r for r in before.get("consents", []) if r.get("case_id") == case_id]
+            available = (
+                available
+                and "consents" in before
+                and all("accepted" in r and "revoked" in r for r in old)
+            )
+            revoked_ids -= {
+                r["id"] for r in old if r.get("accepted") == 1 and r.get("revoked") == 1
+            }
+            coverage = "baseline_delta" if available else "unavailable"
+        elif partial_scope and available:
+            available = False
+            coverage = "event_annotations_only"
+    
+        # record_client_response пишет customer и затем подтверждённый выбор.
+        choices = {
+            previous["id"]: current["kind"]
+            for previous, current in zip(events, events[1:])
+            if previous["kind"] == "customer"
+            and current["kind"] in {"consent", "consent_refused", "consent_outdated"}
+        }
+        by_event, reasons = {}, {}
+        for annotation in annotations:
+            identifier = annotation["event_id"]
+            event = events_by_id.get(identifier)
+            if event is None or event["kind"] != "customer":
+&gt;               raise ValueError("Аннотация должна ссылаться на событие customer")
+E               ValueError: Аннотация должна ссылаться на событие customer
+
+evals\reapproval\metrics.py:76: ValueError</failure></testcase><testcase classname="tests.test_intervention_metrics" name="test_summary_rejects_mixed_versions_and_keeps_historical_version" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">def test_summary_rejects_mixed_versions_and_keeps_historical_version():
+        metrics = module()
+        current = metrics.evaluate_interventions(state([], consents=[]), [])
+        historical = deepcopy(current)
+        historical["version"] = "interventions-v1"
+        historical["counts"] = {"client_refusals": 0}
+&gt;       with pytest.raises(ValueError, match="верс"):
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_intervention_metrics.py:460: Failed</failure></testcase></testsuite></testsuites>

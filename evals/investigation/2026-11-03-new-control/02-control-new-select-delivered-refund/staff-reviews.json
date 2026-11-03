@@ -1,0 +1,14 @@
+[
+  {
+    "proposal_id": "f907e7007f3b42ce83879f1acabba20f",
+    "version": 1,
+    "status": "pass",
+    "reason": "consent_question_about_expected_order"
+  },
+  {
+    "proposal_id": "2b6c5d9e46fc4d0d84d1e1459d848368",
+    "version": 2,
+    "status": "pass",
+    "reason": "approved_registration_text"
+  }
+]

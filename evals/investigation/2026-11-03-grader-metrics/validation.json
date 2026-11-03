@@ -1,0 +1,150 @@
+{
+  "scope": "plan-4-sections-4-and-5",
+  "grader_version": "investigation-v6",
+  "metrics_version": "interventions-v2",
+  "python": "3.12.12",
+  "base_commit": "530cb26ff3ae8e37e47bd72087c1a27cd7684463",
+  "source_sha256": {
+    "evals/investigation/assessment.py": "9bd307fd984854ceae8bb412ecf113447d82b57fb4cfde3e1e703e7b48680020",
+    "evals/investigation/cases.py": "f343de7dca4dcb5b94d128955f2620de407ce787f7a018b1392a47d2e46768a4",
+    "evals/investigation/runner.py": "e86870fc586481013f5089fbb8221d73ca4096c83fd541aad885bbba2c2199d9",
+    "evals/reapproval/metrics.py": "1372fc7fb4e904b1ae8e1c5155d3952bcd03b94d627d2c03212ff6dd71fe4290",
+    "evals/investigation/control-new-2026-11-03-v2.json": "31459a65027144014859ee7b76e41b003786d2b81e656b5f8ceb04c8c4fe3ed8",
+    "tests/test_investigation_assessment.py": "34291202052e3797146eb2ce2763bcdc038ab3c4247676a04cf33cc92c06bac1",
+    "tests/test_investigation_cases.py": "6b7f9860f843d4e24232e545d8ae924b7fdf85870931d70f04095437d5488a8e",
+    "tests/test_investigation_runner.py": "15d9e3531d4e099ae991d0834fe672d1cfe6c6e07bd72a3553cfb1f4911e6cf2",
+    "tests/test_intervention_metrics.py": "3733f4ab780da9d41fbd0d6cebf118d8be1c69b47c452f764d4b673957aaaaf8",
+    "pyproject.toml": "aab77e678e1366b06647d835ec1356bc20c2cc27bae7e2ff35e0b81f36f5a45a",
+    "uv.lock": "93e2066845b69b1f5f710b771527a320fdafb1357d4eb6e7f82857f8395c7030"
+  },
+  "api_calls": 0,
+  "api_cost_usd": 0,
+  "model": "scripted replies in tests",
+  "employee": "simulated",
+  "unit_checks": [
+    {
+      "file": "cases-green.xml",
+      "phase": "after",
+      "tests": 69,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "cases-red.xml",
+      "phase": "before",
+      "tests": 69,
+      "failures": 61,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "integration-regressions.xml",
+      "phase": "after",
+      "tests": 90,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "refusal-metrics-edges-green.xml",
+      "phase": "after",
+      "tests": 32,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "refusal-metrics-edges-red.xml",
+      "phase": "before",
+      "tests": 2,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "refusal-metrics-green.xml",
+      "phase": "after",
+      "tests": 27,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "refusal-metrics-red.xml",
+      "phase": "before",
+      "tests": 26,
+      "failures": 17,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "refusal-metrics-saved-red.xml",
+      "phase": "before",
+      "tests": 27,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "runner-before.xml",
+      "phase": "before",
+      "tests": 3,
+      "failures": 3,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "runner-green.xml",
+      "phase": "after",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "runner-regressions.xml",
+      "phase": "after",
+      "tests": 12,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "text-grader-after.xml",
+      "phase": "after",
+      "tests": 87,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "text-grader-before.xml",
+      "phase": "before",
+      "tests": 2,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "text-grader-expanded-before.xml",
+      "phase": "before",
+      "tests": 87,
+      "failures": 9,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "unique_passed_tests": 290,
+  "ruff_check": "passed: src tests evals scripts",
+  "ruff_format_check": "passed: eight changed Python files",
+  "historical_files_unchanged": 500,
+  "app_source_files_unchanged": 19,
+  "historical_scores_changed": false,
+  "limitations": [
+    "Ограниченная грамматика: незнакомые корректные ответы могут остаться review.",
+    "Текстовый отказ считается по явной разметке, а не по распознаванию текста.",
+    "Проверка оценки текста не подтверждает его доставку в исходной серии.",
+    "Полные новые процессы и итоговая проверка GitHub Actions остаются пунктом 6."
+  ]
+}

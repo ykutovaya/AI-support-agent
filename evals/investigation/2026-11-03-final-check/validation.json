@@ -1,0 +1,31 @@
+{
+  "scope": "plan-4-section-6",
+  "code_fingerprint_sha256": "dc1aa552e08d1c6e42d5923c0cf8df262f336126078483860a5e768d42e41897",
+  "flows": {
+    "complete": 2,
+    "attempts": 2,
+    "source": "flows/summary.json",
+    "model": "scripted",
+    "client_and_employee": "simulated",
+    "mode": "manual/local",
+    "api_calls": 0
+  },
+  "pytest": {
+    "tests": 720,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "ruff_check": "passed",
+  "ruff_format_changed_python": "passed",
+  "uv_lock_check_offline": "passed",
+  "clean_install_repeated": false,
+  "application_source_unchanged": 19,
+  "historical_files_unchanged": 518,
+  "metrics_version": "interventions-v3",
+  "grader_version": "investigation-v6",
+  "correction": "Разделены подтверждённые отзывы клиента и все флаги revoked; сохранённые процессы пересчитаны отдельно, не запускались повторно.",
+  "github_actions_current_worktree": "pending_publication",
+  "next_condition": "Успешный запуск GitHub Actions после публикации итогового коммита",
+  "historical_scores_changed": false
+}

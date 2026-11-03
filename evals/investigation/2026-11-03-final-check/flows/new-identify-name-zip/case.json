@@ -1,0 +1,48 @@
+{
+  "id": "new-identify-name-zip",
+  "split": "control",
+  "user_id": "customer_n102",
+  "user_name": {
+    "first_name": "Марина",
+    "last_name": "Тихонова"
+  },
+  "user_zip": "115280",
+  "email": "n102@example.test",
+  "product_id": "electric_kettle_n102",
+  "old_item_id": "cream_17l_n102",
+  "new_item_id": "graphite_17l_n102",
+  "product_name": "Электрический чайник",
+  "old_options": {
+    "color": "кремовый",
+    "capacity": "1,7 л"
+  },
+  "new_options": {
+    "color": "графитовый",
+    "capacity": "1,7 л"
+  },
+  "initial_status": "delivered",
+  "purchase_price": "54.00",
+  "variant_price": "63.50",
+  "initial_amount": "9.50",
+  "goal": "exchange",
+  "initial_message": "Мне привезли кремовый электрический чайник на 1,7 литра. Хочу такой же графитовый, с доплатой по той же карте 1111. Номер заказа не сохранила и не помню, какую почту указывала. Как ещё можно найти покупку?",
+  "expected": {
+    "order_id": "#N102",
+    "item_ids": [
+      "cream_17l_n102"
+    ],
+    "payment_method_id": "card",
+    "amount": "9.50",
+    "result_status": "exchange requested",
+    "new_item_ids": [
+      "graphite_17l_n102"
+    ]
+  },
+  "interactions": [
+    {
+      "trigger": "message",
+      "kind": "customer",
+      "text": "Имя Марина, фамилия Тихонова, почтовый индекс доставки 115280. Адрес электронной почты вспомнить не получается. Нужен графитовый чайник того же объёма, доплату можно с карты 1111."
+    }
+  ]
+}

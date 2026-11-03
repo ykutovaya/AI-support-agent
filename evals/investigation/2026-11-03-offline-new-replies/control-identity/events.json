@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "case_id": "090ece7f6c354f5d80cd20c2f223a3d0",
+    "kind": "customer",
+    "text": "Наушники хочу белые вместо чёрных, разницу той же картой 1111. Что нужно, чтобы найти мой заказ?"
+  },
+  {
+    "id": 2,
+    "case_id": "090ece7f6c354f5d80cd20c2f223a3d0",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 1"
+  },
+  {
+    "id": 3,
+    "case_id": "090ece7f6c354f5d80cd20c2f223a3d0",
+    "kind": "sent",
+    "text": "Чтобы найти ваш заказ, укажите email, использованный при покупке, либо имя, фамилию и почтовый индекс."
+  },
+  {
+    "id": 4,
+    "case_id": "090ece7f6c354f5d80cd20c2f223a3d0",
+    "kind": "customer",
+    "text": "Мой email c005@example.test. Нужны белые вместо чёрных; разницу оплачиваю исходной картой 1111."
+  },
+  {
+    "id": 5,
+    "case_id": "090ece7f6c354f5d80cd20c2f223a3d0",
+    "kind": "tool",
+    "text": "find_user_id_by_email: {\"email\": \"c005@example.test\"}"
+  },
+  {
+    "id": 6,
+    "case_id": "090ece7f6c354f5d80cd20c2f223a3d0",
+    "kind": "tool",
+    "text": "get_order_details: {\"order_id\": \"#C005\"}"
+  },
+  {
+    "id": 7,
+    "case_id": "090ece7f6c354f5d80cd20c2f223a3d0",
+    "kind": "tool",
+    "text": "get_product_details: {\"product_id\": \"headphones_c005\"}"
+  },
+  {
+    "id": 8,
+    "case_id": "090ece7f6c354f5d80cd20c2f223a3d0",
+    "kind": "tool",
+    "text": "propose_exchange: {\"order_id\": \"#C005\", \"item_ids\": [\"black_c005\"], \"new_item_ids\": [\"white_c005\"], \"payment_method_id\": \"card\"}"
+  },
+  {
+    "id": 9,
+    "case_id": "090ece7f6c354f5d80cd20c2f223a3d0",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 2"
+  },
+  {
+    "id": 10,
+    "case_id": "090ece7f6c354f5d80cd20c2f223a3d0",
+    "kind": "sent",
+    "text": "Заявка на обмен 1 позиций заказа #C005. Заказ #C005. Позиции: black_c005. Замена на: white_c005. Доплата: 3.15 USD. Способ оплаты: card. Подтвердите эти условия."
+  },
+  {
+    "id": 11,
+    "case_id": "090ece7f6c354f5d80cd20c2f223a3d0",
+    "kind": "customer",
+    "text": "Подтверждаю указанные позиции, замену, способ оплаты и сумму 3.15 USD."
+  },
+  {
+    "id": 12,
+    "case_id": "090ece7f6c354f5d80cd20c2f223a3d0",
+    "kind": "consent",
+    "text": "Клиент подтвердил текущие условия"
+  },
+  {
+    "id": 13,
+    "case_id": "090ece7f6c354f5d80cd20c2f223a3d0",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 3"
+  },
+  {
+    "id": 14,
+    "case_id": "090ece7f6c354f5d80cd20c2f223a3d0",
+    "kind": "operation",
+    "text": "{\"order_id\": \"#C005\", \"user_id\": \"customer_c005\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"headphones_c005\", \"item_id\": \"black_c005\", \"price\": 31.1, \"options\": {\"color\": \"black\"}}], \"status\": \"exchange requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 31.1, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": [\"black_c005\"], \"exchange_new_items\": [\"white_c005\"], \"exchange_payment_method_id\": \"card\", \"exchange_price_difference\": 3.15, \"return_items\": null, \"return_payment_method_id\": null}"
+  },
+  {
+    "id": 15,
+    "case_id": "090ece7f6c354f5d80cd20c2f223a3d0",
+    "kind": "sent",
+    "text": "Зарегистрирована заявка на обмен по заказу #C005. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+  }
+]

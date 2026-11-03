@@ -1,0 +1,43 @@
+{
+  "authorization": {
+    "scope": "known_case_regression",
+    "max_usd": 5.0,
+    "max_attempts": 4,
+    "phase_caps": {
+      "connection": 1,
+      "regression": 3,
+      "repeat": 0
+    },
+    "case_ids": [
+      "control-identity",
+      "control-intent",
+      "control-price"
+    ]
+  },
+  "attempts": [
+    {
+      "number": 1,
+      "phase": "connection",
+      "case_id": "connection",
+      "status": "complete"
+    },
+    {
+      "number": 2,
+      "phase": "regression",
+      "case_id": "control-identity",
+      "status": "review"
+    },
+    {
+      "number": 3,
+      "phase": "regression",
+      "case_id": "control-intent",
+      "status": "review"
+    },
+    {
+      "number": 4,
+      "phase": "regression",
+      "case_id": "control-price",
+      "status": "complete"
+    }
+  ]
+}

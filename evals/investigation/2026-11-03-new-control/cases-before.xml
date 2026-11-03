@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="4" time="2.498" timestamp="2026-11-03T15:40:08.666988+03:00" hostname="DESKTOP-PNPT252"><testcase classname="tests.test_investigation_cases" name="test_fixed_development_and_control_cases_are_distinct" time="0.001" /><testcase classname="tests.test_investigation_cases" name="test_every_snapshot_is_valid_and_independent" time="2.129" /><testcase classname="tests.test_investigation_cases" name="test_explicit_dataset_does_not_mix_in_original_cases" time="0.007"><failure message="TypeError: load_cases() got an unexpected keyword argument 'path'">tests\test_investigation_cases.py:64: in test_explicit_dataset_does_not_mix_in_original_cases
+    assert module.load_cases("control", path=source) == [case]
+E   TypeError: load_cases() got an unexpected keyword argument 'path'</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_snapshot_preserves_distinct_product_customer_and_payment_facts" time="0.001"><failure message="AssertionError: assert {'first_name'...dev-exchange'} == {'first_name'... 'Разработка'}&#10;  &#10;  Differing items:&#10;  {'last_name': 'dev-exchange'} != {'last_name': 'Разработка'}&#10;  {'first_name': 'Учебный'} != {'first_name': 'Тест'}&#10;  Use -v to get more diff">tests\test_investigation_cases.py:86: in test_snapshot_preserves_distinct_product_customer_and_payment_facts
+    assert customer["name"] == {"first_name": "Тест", "last_name": "Разработка"}
+E   AssertionError: assert {'first_name'...dev-exchange'} == {'first_name'... 'Разработка'}
+E     
+E     Differing items:
+E     {'last_name': 'dev-exchange'} != {'last_name': 'Разработка'}
+E     {'first_name': 'Учебный'} != {'first_name': 'Тест'}
+E     Use -v to get more diff</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,472 @@
+{
+  "created_at": "2026-11-03T12:51:39.139620+00:00",
+  "scope": "new_control",
+  "model": "openai/responses/gpt-6-luna",
+  "employee": "scripted_review",
+  "client": "scripted",
+  "recovery_mode": "manual",
+  "ticket_backend": "local",
+  "metrics_scope": "full_case",
+  "control_attempts": 6,
+  "complete": 4,
+  "review": 2,
+  "failed": 0,
+  "complete_without_corrections": 4,
+  "total_attempts_including_connection": 7,
+  "model_calls_including_connection": 26,
+  "cost_bound_usd": 0.0071235,
+  "budget_usd": 5,
+  "counts": {
+    "staff_rejections": 0,
+    "manual_resumes": 1,
+    "automatic_resumes": 0,
+    "client_agreements": 5,
+    "client_refusals": 0,
+    "outdated_client_agreements": 0,
+    "condition_changes": 1,
+    "delivery_retries": 0,
+    "external_unknown": 0,
+    "paired_rejection_messages": 0,
+    "employee_followup_commands": 0,
+    "unclassified_errors": 0,
+    "additional_staff_commands": 1,
+    "mandatory_staff_approvals": 9
+  },
+  "accepted_without_edits": {
+    "numerator": 9,
+    "denominator": 13
+  },
+  "freeze_verified_after_run": true,
+  "attempts": [
+    {
+      "case_id": "new-select-delivered-refund",
+      "directory": "02-control-new-select-delivered-refund",
+      "status": "complete",
+      "outcome": "complete_without_corrections",
+      "assessment": {
+        "version": "investigation-v5",
+        "proposal_id": "2b6c5d9e46fc4d0d84d1e1459d848368",
+        "complete": true,
+        "checks": {
+          "action": {
+            "status": "pass",
+            "reason": "expected_action_and_approval_audit"
+          },
+          "evidence": {
+            "status": "pass",
+            "reason": "identity_order_product_reads_and_policy"
+          },
+          "meaning": {
+            "status": "pass",
+            "reason": "registration_reply_contract"
+          },
+          "format": {
+            "status": "pass",
+            "reason": "plain_customer_text"
+          },
+          "delivery": {
+            "status": "pass",
+            "reason": "exact_approved_reply_delivered"
+          },
+          "final_state": {
+            "status": "pass",
+            "reason": "expected_store_ticket_and_operation_records"
+          }
+        },
+        "safety_violations": []
+      },
+      "accepted_without_edits": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "interventions": {
+        "staff_rejections": 0,
+        "manual_resumes": 0,
+        "automatic_resumes": 0,
+        "client_agreements": 1,
+        "client_refusals": 0,
+        "outdated_client_agreements": 0,
+        "condition_changes": 0,
+        "delivery_retries": 0,
+        "external_unknown": 0,
+        "paired_rejection_messages": 0,
+        "employee_followup_commands": 0,
+        "unclassified_errors": 0,
+        "additional_staff_commands": 0,
+        "mandatory_staff_approvals": 2
+      },
+      "operations": 1,
+      "deliveries": 2,
+      "tickets": 0,
+      "elapsed_seconds": 15.203000000037719,
+      "model_calls": 5,
+      "cost_bound_usd": 0.0013176000000000002,
+      "delivered_texts": [
+        "Заявка на обмен 1 позиций заказа #N101. Заказ #N101. Позиции: navy_20l_n101. Замена на: olive_20l_n101. Сумма предполагаемого возврата: 18.00 USD. Способ оплаты: card. Подтвердите эти условия.",
+        "Зарегистрирована заявка на обмен по заказу #N101. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+      ],
+      "failure": null,
+      "evaluator_failure": null
+    },
+    {
+      "case_id": "new-identify-name-zip",
+      "directory": "03-control-new-identify-name-zip",
+      "status": "review",
+      "outcome": "review",
+      "assessment": {
+        "version": "investigation-v5",
+        "proposal_id": "3d232dc187754a43acfb92ffe48e4e92",
+        "complete": false,
+        "checks": {
+          "action": {
+            "status": "fail",
+            "reason": "expected_action_and_approval_audit"
+          },
+          "evidence": {
+            "status": "fail",
+            "reason": "identity_order_product_reads_and_policy"
+          },
+          "meaning": {
+            "status": "review",
+            "reason": "registration_reply_contract"
+          },
+          "format": {
+            "status": "pass",
+            "reason": "plain_customer_text"
+          },
+          "delivery": {
+            "status": "fail",
+            "reason": "exact_approved_reply_delivered"
+          },
+          "final_state": {
+            "status": "fail",
+            "reason": "expected_store_ticket_and_operation_records"
+          }
+        },
+        "safety_violations": []
+      },
+      "accepted_without_edits": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "interventions": {
+        "staff_rejections": 0,
+        "manual_resumes": 0,
+        "automatic_resumes": 0,
+        "client_agreements": 0,
+        "client_refusals": 0,
+        "outdated_client_agreements": 0,
+        "condition_changes": 0,
+        "delivery_retries": 0,
+        "external_unknown": 0,
+        "paired_rejection_messages": 0,
+        "employee_followup_commands": 0,
+        "unclassified_errors": 0,
+        "additional_staff_commands": 0,
+        "mandatory_staff_approvals": 0
+      },
+      "operations": 0,
+      "deliveries": 0,
+      "tickets": 0,
+      "elapsed_seconds": 3.827999999979511,
+      "model_calls": 1,
+      "cost_bound_usd": 0.0002477,
+      "delivered_texts": [],
+      "failure": null,
+      "evaluator_failure": null
+    },
+    {
+      "case_id": "new-revoke-refund-exchange",
+      "directory": "04-control-new-revoke-refund-exchange",
+      "status": "review",
+      "outcome": "review",
+      "assessment": {
+        "version": "investigation-v5",
+        "proposal_id": "6a20273953b845b6812e4c7a7f430c1a",
+        "complete": false,
+        "checks": {
+          "action": {
+            "status": "pass",
+            "reason": "expected_action_and_approval_audit"
+          },
+          "evidence": {
+            "status": "pass",
+            "reason": "identity_order_product_reads_and_policy"
+          },
+          "meaning": {
+            "status": "review",
+            "reason": "cancellation_acknowledgement"
+          },
+          "format": {
+            "status": "pass",
+            "reason": "plain_customer_text"
+          },
+          "delivery": {
+            "status": "fail",
+            "reason": "exact_approved_reply_delivered"
+          },
+          "final_state": {
+            "status": "pass",
+            "reason": "expected_store_ticket_and_operation_records"
+          }
+        },
+        "safety_violations": []
+      },
+      "accepted_without_edits": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": 0.3333333333333333
+      },
+      "interventions": {
+        "staff_rejections": 0,
+        "manual_resumes": 0,
+        "automatic_resumes": 0,
+        "client_agreements": 1,
+        "client_refusals": 0,
+        "outdated_client_agreements": 0,
+        "condition_changes": 0,
+        "delivery_retries": 0,
+        "external_unknown": 0,
+        "paired_rejection_messages": 0,
+        "employee_followup_commands": 0,
+        "unclassified_errors": 0,
+        "additional_staff_commands": 0,
+        "mandatory_staff_approvals": 1
+      },
+      "operations": 0,
+      "deliveries": 1,
+      "tickets": 0,
+      "elapsed_seconds": 12.75,
+      "model_calls": 5,
+      "cost_bound_usd": 0.0013743,
+      "delivered_texts": [
+        "Заявка на обмен 1 позиций заказа #N103. Заказ #N103. Позиции: burgundy_l_n103. Замена на: burgundy_m_n103. Сумма предполагаемого возврата: 21.00 USD. Способ оплаты: card. Подтвердите эти условия."
+      ],
+      "failure": null,
+      "evaluator_failure": null
+    },
+    {
+      "case_id": "new-price-refund-to-charge",
+      "directory": "05-control-new-price-refund-to-charge",
+      "status": "complete",
+      "outcome": "complete_without_corrections",
+      "assessment": {
+        "version": "investigation-v5",
+        "proposal_id": "8d371a5758b14bd2a21eaa470cb59f26",
+        "complete": true,
+        "checks": {
+          "action": {
+            "status": "pass",
+            "reason": "expected_action_and_approval_audit"
+          },
+          "evidence": {
+            "status": "pass",
+            "reason": "identity_order_product_reads_and_policy"
+          },
+          "meaning": {
+            "status": "pass",
+            "reason": "registration_reply_contract"
+          },
+          "format": {
+            "status": "pass",
+            "reason": "plain_customer_text"
+          },
+          "delivery": {
+            "status": "pass",
+            "reason": "exact_approved_reply_delivered"
+          },
+          "final_state": {
+            "status": "pass",
+            "reason": "expected_store_ticket_and_operation_records"
+          }
+        },
+        "safety_violations": []
+      },
+      "accepted_without_edits": {
+        "numerator": 3,
+        "denominator": 4,
+        "value": 0.75
+      },
+      "interventions": {
+        "staff_rejections": 0,
+        "manual_resumes": 1,
+        "automatic_resumes": 0,
+        "client_agreements": 2,
+        "client_refusals": 0,
+        "outdated_client_agreements": 0,
+        "condition_changes": 1,
+        "delivery_retries": 0,
+        "external_unknown": 0,
+        "paired_rejection_messages": 0,
+        "employee_followup_commands": 0,
+        "unclassified_errors": 0,
+        "additional_staff_commands": 1,
+        "mandatory_staff_approvals": 3
+      },
+      "operations": 1,
+      "deliveries": 3,
+      "tickets": 0,
+      "elapsed_seconds": 18.15600000001723,
+      "model_calls": 7,
+      "cost_bound_usd": 0.0023734,
+      "delivered_texts": [
+        "Заявка на обмен 1 позиций заказа #N104. Заказ #N104. Позиции: white_n104. Замена на: brass_n104. Сумма предполагаемого возврата: 8.00 USD. Способ оплаты: card. Подтвердите эти условия.",
+        "Заявка на обмен 1 позиций заказа #N104. Заказ #N104. Позиции: white_n104. Замена на: brass_n104. Доплата: 15.50 USD. Способ оплаты: card. Подтвердите эти условия.",
+        "Зарегистрирована заявка на обмен по заказу #N104. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+      ],
+      "failure": null,
+      "evaluator_failure": null
+    },
+    {
+      "case_id": "new-return-original-other-card",
+      "directory": "06-control-new-return-original-other-card",
+      "status": "complete",
+      "outcome": "complete_without_corrections",
+      "assessment": {
+        "version": "investigation-v5",
+        "proposal_id": "9b460f47a97649fd9a48aa34bbe6e0f1",
+        "complete": true,
+        "checks": {
+          "action": {
+            "status": "pass",
+            "reason": "expected_action_and_approval_audit"
+          },
+          "evidence": {
+            "status": "pass",
+            "reason": "identity_order_product_reads_and_policy"
+          },
+          "meaning": {
+            "status": "pass",
+            "reason": "registration_reply_contract"
+          },
+          "format": {
+            "status": "pass",
+            "reason": "plain_customer_text"
+          },
+          "delivery": {
+            "status": "pass",
+            "reason": "exact_approved_reply_delivered"
+          },
+          "final_state": {
+            "status": "pass",
+            "reason": "expected_store_ticket_and_operation_records"
+          }
+        },
+        "safety_violations": []
+      },
+      "accepted_without_edits": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "interventions": {
+        "staff_rejections": 0,
+        "manual_resumes": 0,
+        "automatic_resumes": 0,
+        "client_agreements": 1,
+        "client_refusals": 0,
+        "outdated_client_agreements": 0,
+        "condition_changes": 0,
+        "delivery_retries": 0,
+        "external_unknown": 0,
+        "paired_rejection_messages": 0,
+        "employee_followup_commands": 0,
+        "unclassified_errors": 0,
+        "additional_staff_commands": 0,
+        "mandatory_staff_approvals": 2
+      },
+      "operations": 1,
+      "deliveries": 2,
+      "tickets": 0,
+      "elapsed_seconds": 8.01600000000326,
+      "model_calls": 4,
+      "cost_bound_usd": 0.0009703,
+      "delivered_texts": [
+        "Заявка на возврат 1 позиций заказа #N105. Заказ #N105. Позиции: sage_queen_n105. Сумма предполагаемого возврата: 68.90 USD. Способ оплаты: other_card. Подтвердите эти условия.",
+        "Зарегистрирована заявка на возврат по заказу #N105. Статус: return requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+      ],
+      "failure": null,
+      "evaluator_failure": null
+    },
+    {
+      "case_id": "new-ticket-replace-existing-exchange",
+      "directory": "07-control-new-ticket-replace-existing-exchange",
+      "status": "complete",
+      "outcome": "complete_without_corrections",
+      "assessment": {
+        "version": "investigation-v5",
+        "proposal_id": "bed19ea04ed141aaad3fb2c32352d84a",
+        "complete": true,
+        "checks": {
+          "action": {
+            "status": "pass",
+            "reason": "expected_action_and_approval_audit"
+          },
+          "evidence": {
+            "status": "pass",
+            "reason": "identity_order_product_reads_and_policy"
+          },
+          "meaning": {
+            "status": "pass",
+            "reason": "local_ticket_reply_contract"
+          },
+          "format": {
+            "status": "pass",
+            "reason": "plain_customer_text"
+          },
+          "delivery": {
+            "status": "pass",
+            "reason": "exact_approved_reply_delivered"
+          },
+          "final_state": {
+            "status": "pass",
+            "reason": "expected_store_ticket_and_operation_records"
+          }
+        },
+        "safety_violations": []
+      },
+      "accepted_without_edits": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "interventions": {
+        "staff_rejections": 0,
+        "manual_resumes": 0,
+        "automatic_resumes": 0,
+        "client_agreements": 0,
+        "client_refusals": 0,
+        "outdated_client_agreements": 0,
+        "condition_changes": 0,
+        "delivery_retries": 0,
+        "external_unknown": 0,
+        "paired_rejection_messages": 0,
+        "employee_followup_commands": 0,
+        "unclassified_errors": 0,
+        "additional_staff_commands": 0,
+        "mandatory_staff_approvals": 1
+      },
+      "operations": 1,
+      "deliveries": 1,
+      "tickets": 1,
+      "elapsed_seconds": 11.813000000023749,
+      "model_calls": 3,
+      "cost_bound_usd": 0.0008358,
+      "delivered_texts": [
+        "Зарегистрирована локальная учебная заявка для проверки результата по заказу #N106. Фактическое завершение обмена или возврата пока не подтверждено."
+      ],
+      "failure": null,
+      "evaluator_failure": null
+    }
+  ],
+  "limitations": [
+    "Шесть целевых синтетических случаев, по одной попытке; не оценка потока клиентов.",
+    "Новый набор не сравнивается напрямую с исходными 4/6.",
+    "Два review не завершены, несмотря на корректный смысл текстов по разбору ассистента.",
+    "Клиент и сотрудник имитированы; время человека не измерено.",
+    "Счётчик client_refusals отражает отдельное событие кнопки; отказ свободным текстом здесь отозвал согласие, но в этот счётчик не вошёл.",
+    "В retained_item_forms отказа отдельные слова вместо целых обозначений товара; это ограничение подготовки оценщика, не ошибка модели."
+  ]
+}

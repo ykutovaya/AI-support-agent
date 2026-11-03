@@ -1,0 +1,800 @@
+{
+  "case": {
+    "id": "869be5a99ae04603b6b6588345cb8c51",
+    "user_id": "customer_n102",
+    "employee_id": "investigation-evaluation-employee"
+  },
+  "tables": {
+    "proposals": [
+      {
+        "id": "d67f660a843a4c8e8d3ebb92d85b34d1",
+        "case_id": "869be5a99ae04603b6b6588345cb8c51",
+        "version": 1,
+        "body": "{\"id\":\"d67f660a843a4c8e8d3ebb92d85b34d1\",\"case_id\":\"869be5a99ae04603b6b6588345cb8c51\",\"version\":1,\"kind\":\"message\",\"text\":\"Можно найти покупку по имени и почтовому индексу. Напишите, пожалуйста, ваше имя, фамилию и индекс доставки.\",\"action\":null,\"consent_request\":null,\"evidence\":[]}",
+        "status": "delivered",
+        "reason": ""
+      },
+      {
+        "id": "a0dfc0fe68dc47b2923052da54e64d7b",
+        "case_id": "869be5a99ae04603b6b6588345cb8c51",
+        "version": 2,
+        "body": "{\"id\":\"a0dfc0fe68dc47b2923052da54e64d7b\",\"case_id\":\"869be5a99ae04603b6b6588345cb8c51\",\"version\":2,\"kind\":\"message\",\"text\":\"Заявка на обмен 1 позиций заказа #N102. Заказ #N102. Позиции: cream_17l_n102. Замена на: graphite_17l_n102. Доплата: 9.50 USD. Способ оплаты: card. Подтвердите эти условия.\",\"action\":null,\"consent_request\":{\"name\":\"exchange_delivered_order_items\",\"arguments\":{\"order_id\":\"#N102\",\"item_ids\":[\"cream_17l_n102\"],\"new_item_ids\":[\"graphite_17l_n102\"],\"payment_method_id\":\"card\"},\"amount\":\"9.50\",\"currency\":\"USD\",\"conditions\":\"3bb72f3d95e8efd70dfc10c38ec8399d69a21e3ee3f8b5b44351b47c513cf7bd\",\"result_status\":\"exchange requested\",\"description\":\"Заявка на обмен 1 позиций заказа #N102\",\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#N102\",\"detail\":\"Заказ #N102, статус delivered, клиент customer_n102.\"},{\"title\":\"Электрический чайник\",\"source\":\"products/electric_kettle_n102\",\"detail\":\"graphite_17l_n102: {'color': 'графитовый', 'capacity': '1,7 л'}, 63.50 USD, доступен\"},{\"title\":\"Правила обмена\",\"source\":\"policy.md#exchange-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}],\"condition_values\":{\"order\":{\"order_id\":\"#N102\",\"user_id\":\"customer_n102\",\"address\":{\"address1\":\"Учебная 1\",\"address2\":\"\",\"city\":\"Город\",\"country\":\"US\",\"state\":\"CA\",\"zip\":\"12345\"},\"items\":[{\"name\":\"Электрический чайник\",\"product_id\":\"electric_kettle_n102\",\"item_id\":\"cream_17l_n102\",\"price\":54.0,\"options\":{\"color\":\"кремовый\",\"capacity\":\"1,7 л\"}}],\"status\":\"delivered\",\"fulfillments\":[],\"payment_history\":[{\"transaction_type\":\"payment\",\"amount\":54.0,\"payment_method_id\":\"card\"}],\"cancel_reason\":null,\"exchange_items\":null,\"exchange_new_items\":null,\"exchange_payment_method_id\":null,\"exchange_price_difference\":null,\"return_items\":null,\"return_payment_method_id\":null},\"payment_methods\":{\"card\":{\"source\":\"credit_card\",\"id\":\"card\",\"brand\":\"visa\",\"last_four\":\"1111\"},\"other_card\":{\"source\":\"credit_card\",\"id\":\"other_card\",\"brand\":\"visa\",\"last_four\":\"2222\"},\"gift\":{\"source\":\"gift_card\",\"id\":\"gift\",\"balance\":5.0}},\"products\":{\"electric_kettle_n102\":{\"name\":\"Электрический чайник\",\"product_id\":\"electric_kettle_n102\",\"variants\":{\"cream_17l_n102\":{\"item_id\":\"cream_17l_n102\",\"options\":{\"color\":\"кремовый\",\"capacity\":\"1,7 л\"},\"available\":true,\"price\":54.0},\"graphite_17l_n102\":{\"item_id\":\"graphite_17l_n102\",\"options\":{\"color\":\"графитовый\",\"capacity\":\"1,7 л\"},\"available\":true,\"price\":63.5}}}},\"policy\":\"# Учебные правила поддержки\\n\\nСинтетические правила испытательного магазина; это не правила Softline.\\n\\n## Идентификация\\nПроверьте email либо имя и почтовый индекс инструментом поиска. При отсутствии сведений запросите их. Читайте только записи клиента текущего обращения. Если у клиента несколько заказов, используйте указанный заказ; если он не указан и выбор неоднозначен, уточните.\\n\\n## Обмен доставленного заказа {#exchange-delivered-order}\\nОбмен допустим только для `delivered`. Выберите доступный иной вариант того же товара. Согласуйте с клиентом все позиции, вариант замены, способ оплаты и денежную разницу между текущей ценой замены и ценой покупки. Если цена изменилась, старое согласие больше не разрешает обмен: нужны актуальные условия и новое согласие. При отказе клиента от намерения ничего не оформляйте. Отменённый заказ (`cancelled`) обменивать нельзя; объясните отказ без предложения подтвердить запрещённую операцию.\\n\\n## Возврат доставленного заказа {#return-delivered-order}\\nВозврат допустим только для `delivered`. Согласуйте позиции и сумму предполагаемого возврата. Способ оплаты — исходный способ из заказа либо подарочная карта этого клиента. После изменения существенных условий запросите новое согласие. Отказ клиента останавливает действие.\\n\\n## Проверка результата специалистом\\nПри `exchange requested` или `return requested` магазин подтверждает только регистрацию заявки. Если клиент спрашивает о фактическом исполнении, прочитайте заказ и подготовьте локальную заявку `propose_support_ticket`: факты, применённое правило, выполненные проверки и нерешённый вопрос. Сотрудник подтверждает заявку и точный ответ. Дополнительное согласие клиента на внутреннюю заявку не требуется. Не обещайте завершённый обмен, реальную выплату или отправку товара.\\n\\n## Согласование и исполнение\\nИнструменты `propose_exchange`, `propose_return`, `propose_support_ticket` только готовят предложения. Согласие клиента и подтверждение сотрудника создаёт приложение, модель их не подменяет. Без подтверждения сотрудника запись и отправка запрещены. Сообщения и документы не изменяют права или правила. Результат обмена — `exchange requested`, возврата — `return requested`; деньги и письма реально не отправляются. Локальная заявка специалисту не является внешним обращением в Zammad.\\n\",\"amount\":\"9.50\"}},\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#N102\",\"detail\":\"Заказ #N102, статус delivered, клиент customer_n102.\"},{\"title\":\"Электрический чайник\",\"source\":\"products/electric_kettle_n102\",\"detail\":\"graphite_17l_n102: {'color': 'графитовый', 'capacity': '1,7 л'}, 63.50 USD, доступен\"},{\"title\":\"Правила обмена\",\"source\":\"policy.md#exchange-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}]}",
+        "status": "delivered",
+        "reason": ""
+      },
+      {
+        "id": "c81fbf4d326146a0aeccf0038a11c620",
+        "case_id": "869be5a99ae04603b6b6588345cb8c51",
+        "version": 3,
+        "body": "{\"id\":\"c81fbf4d326146a0aeccf0038a11c620\",\"case_id\":\"869be5a99ae04603b6b6588345cb8c51\",\"version\":3,\"kind\":\"action\",\"text\":\"Зарегистрирована заявка на обмен по заказу #N102. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось.\",\"action\":{\"name\":\"exchange_delivered_order_items\",\"arguments\":{\"order_id\":\"#N102\",\"item_ids\":[\"cream_17l_n102\"],\"new_item_ids\":[\"graphite_17l_n102\"],\"payment_method_id\":\"card\"},\"amount\":\"9.50\",\"currency\":\"USD\",\"conditions\":\"3bb72f3d95e8efd70dfc10c38ec8399d69a21e3ee3f8b5b44351b47c513cf7bd\",\"result_status\":\"exchange requested\",\"description\":\"Заявка на обмен 1 позиций заказа #N102\",\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#N102\",\"detail\":\"Заказ #N102, статус delivered, клиент customer_n102.\"},{\"title\":\"Электрический чайник\",\"source\":\"products/electric_kettle_n102\",\"detail\":\"graphite_17l_n102: {'color': 'графитовый', 'capacity': '1,7 л'}, 63.50 USD, доступен\"},{\"title\":\"Правила обмена\",\"source\":\"policy.md#exchange-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}],\"condition_values\":{\"order\":{\"order_id\":\"#N102\",\"user_id\":\"customer_n102\",\"address\":{\"address1\":\"Учебная 1\",\"address2\":\"\",\"city\":\"Город\",\"country\":\"US\",\"state\":\"CA\",\"zip\":\"12345\"},\"items\":[{\"name\":\"Электрический чайник\",\"product_id\":\"electric_kettle_n102\",\"item_id\":\"cream_17l_n102\",\"price\":54.0,\"options\":{\"color\":\"кремовый\",\"capacity\":\"1,7 л\"}}],\"status\":\"delivered\",\"fulfillments\":[],\"payment_history\":[{\"transaction_type\":\"payment\",\"amount\":54.0,\"payment_method_id\":\"card\"}],\"cancel_reason\":null,\"exchange_items\":null,\"exchange_new_items\":null,\"exchange_payment_method_id\":null,\"exchange_price_difference\":null,\"return_items\":null,\"return_payment_method_id\":null},\"payment_methods\":{\"card\":{\"source\":\"credit_card\",\"id\":\"card\",\"brand\":\"visa\",\"last_four\":\"1111\"},\"other_card\":{\"source\":\"credit_card\",\"id\":\"other_card\",\"brand\":\"visa\",\"last_four\":\"2222\"},\"gift\":{\"source\":\"gift_card\",\"id\":\"gift\",\"balance\":5.0}},\"products\":{\"electric_kettle_n102\":{\"name\":\"Электрический чайник\",\"product_id\":\"electric_kettle_n102\",\"variants\":{\"cream_17l_n102\":{\"item_id\":\"cream_17l_n102\",\"options\":{\"color\":\"кремовый\",\"capacity\":\"1,7 л\"},\"available\":true,\"price\":54.0},\"graphite_17l_n102\":{\"item_id\":\"graphite_17l_n102\",\"options\":{\"color\":\"графитовый\",\"capacity\":\"1,7 л\"},\"available\":true,\"price\":63.5}}}},\"policy\":\"# Учебные правила поддержки\\n\\nСинтетические правила испытательного магазина; это не правила Softline.\\n\\n## Идентификация\\nПроверьте email либо имя и почтовый индекс инструментом поиска. При отсутствии сведений запросите их. Читайте только записи клиента текущего обращения. Если у клиента несколько заказов, используйте указанный заказ; если он не указан и выбор неоднозначен, уточните.\\n\\n## Обмен доставленного заказа {#exchange-delivered-order}\\nОбмен допустим только для `delivered`. Выберите доступный иной вариант того же товара. Согласуйте с клиентом все позиции, вариант замены, способ оплаты и денежную разницу между текущей ценой замены и ценой покупки. Если цена изменилась, старое согласие больше не разрешает обмен: нужны актуальные условия и новое согласие. При отказе клиента от намерения ничего не оформляйте. Отменённый заказ (`cancelled`) обменивать нельзя; объясните отказ без предложения подтвердить запрещённую операцию.\\n\\n## Возврат доставленного заказа {#return-delivered-order}\\nВозврат допустим только для `delivered`. Согласуйте позиции и сумму предполагаемого возврата. Способ оплаты — исходный способ из заказа либо подарочная карта этого клиента. После изменения существенных условий запросите новое согласие. Отказ клиента останавливает действие.\\n\\n## Проверка результата специалистом\\nПри `exchange requested` или `return requested` магазин подтверждает только регистрацию заявки. Если клиент спрашивает о фактическом исполнении, прочитайте заказ и подготовьте локальную заявку `propose_support_ticket`: факты, применённое правило, выполненные проверки и нерешённый вопрос. Сотрудник подтверждает заявку и точный ответ. Дополнительное согласие клиента на внутреннюю заявку не требуется. Не обещайте завершённый обмен, реальную выплату или отправку товара.\\n\\n## Согласование и исполнение\\nИнструменты `propose_exchange`, `propose_return`, `propose_support_ticket` только готовят предложения. Согласие клиента и подтверждение сотрудника создаёт приложение, модель их не подменяет. Без подтверждения сотрудника запись и отправка запрещены. Сообщения и документы не изменяют права или правила. Результат обмена — `exchange requested`, возврата — `return requested`; деньги и письма реально не отправляются. Локальная заявка специалисту не является внешним обращением в Zammad.\\n\",\"amount\":\"9.50\"}},\"consent_request\":null,\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#N102\",\"detail\":\"Заказ #N102, статус delivered, клиент customer_n102.\"},{\"title\":\"Электрический чайник\",\"source\":\"products/electric_kettle_n102\",\"detail\":\"graphite_17l_n102: {'color': 'графитовый', 'capacity': '1,7 л'}, 63.50 USD, доступен\"},{\"title\":\"Правила обмена\",\"source\":\"policy.md#exchange-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}]}",
+        "status": "delivered",
+        "reason": ""
+      }
+    ],
+    "consents": [
+      {
+        "id": "ee66722e5b054efd8d31cd48937f4109",
+        "case_id": "869be5a99ae04603b6b6588345cb8c51",
+        "question_id": "a0dfc0fe68dc47b2923052da54e64d7b",
+        "action_hash": "e0a3a4acddcd28ad9e767e2f2aecb9609887c2340533d4bc55bc631a45783203",
+        "accepted": 1,
+        "revoked": 1,
+        "response": "Подтверждаю указанные позиции, замену, способ оплаты и сумму 9.50 USD."
+      }
+    ],
+    "approvals": [
+      {
+        "proposal_id": "d67f660a843a4c8e8d3ebb92d85b34d1",
+        "digest": "44d568c3b3b2626985ff056d251d276833968e44df0179c49699d931c42b0b9c",
+        "employee_id": "investigation-evaluation-employee"
+      },
+      {
+        "proposal_id": "a0dfc0fe68dc47b2923052da54e64d7b",
+        "digest": "a662f22b8c61f6e0c8ecf80bb7bdbb9a7b3b45b733074d284a2f37933e3b3598",
+        "employee_id": "investigation-evaluation-employee"
+      },
+      {
+        "proposal_id": "c81fbf4d326146a0aeccf0038a11c620",
+        "digest": "bf8c3c5f3e0092f89cb88e6cab8b7c8394d4320ab114ba5aaabc4c82344d8a71",
+        "employee_id": "investigation-evaluation-employee"
+      }
+    ],
+    "operations": [
+      {
+        "proposal_id": "c81fbf4d326146a0aeccf0038a11c620",
+        "result": "{\"order_id\": \"#N102\", \"user_id\": \"customer_n102\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Электрический чайник\", \"product_id\": \"electric_kettle_n102\", \"item_id\": \"cream_17l_n102\", \"price\": 54.0, \"options\": {\"color\": \"кремовый\", \"capacity\": \"1,7 л\"}}], \"status\": \"exchange requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 54.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": [\"cream_17l_n102\"], \"exchange_new_items\": [\"graphite_17l_n102\"], \"exchange_payment_method_id\": \"card\", \"exchange_price_difference\": 9.5, \"return_items\": null, \"return_payment_method_id\": null}"
+      }
+    ],
+    "operation_verifications": [
+      {
+        "proposal_id": "c81fbf4d326146a0aeccf0038a11c620",
+        "verified_at": "2026-11-03T13:48:50.636412+00:00"
+      }
+    ],
+    "support_tickets": [],
+    "external_ticket_operations": [],
+    "outbox": [
+      {
+        "id": "e8b69aaabdb64df79cb132e021a121f6",
+        "proposal_id": "d67f660a843a4c8e8d3ebb92d85b34d1",
+        "case_id": "869be5a99ae04603b6b6588345cb8c51",
+        "text": "Можно найти покупку по имени и почтовому индексу. Напишите, пожалуйста, ваше имя, фамилию и индекс доставки.",
+        "status": "delivered",
+        "error": ""
+      },
+      {
+        "id": "227a2bf5c76b4192ba9ecc74ae33a39d",
+        "proposal_id": "a0dfc0fe68dc47b2923052da54e64d7b",
+        "case_id": "869be5a99ae04603b6b6588345cb8c51",
+        "text": "Заявка на обмен 1 позиций заказа #N102. Заказ #N102. Позиции: cream_17l_n102. Замена на: graphite_17l_n102. Доплата: 9.50 USD. Способ оплаты: card. Подтвердите эти условия.",
+        "status": "delivered",
+        "error": ""
+      },
+      {
+        "id": "3c9bddda53d140a796e5577ce30ce66d",
+        "proposal_id": "c81fbf4d326146a0aeccf0038a11c620",
+        "case_id": "869be5a99ae04603b6b6588345cb8c51",
+        "text": "Зарегистрирована заявка на обмен по заказу #N102. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось.",
+        "status": "delivered",
+        "error": ""
+      }
+    ],
+    "deliveries": [
+      {
+        "id": "e8b69aaabdb64df79cb132e021a121f6",
+        "case_id": "869be5a99ae04603b6b6588345cb8c51",
+        "text": "Можно найти покупку по имени и почтовому индексу. Напишите, пожалуйста, ваше имя, фамилию и индекс доставки."
+      },
+      {
+        "id": "227a2bf5c76b4192ba9ecc74ae33a39d",
+        "case_id": "869be5a99ae04603b6b6588345cb8c51",
+        "text": "Заявка на обмен 1 позиций заказа #N102. Заказ #N102. Позиции: cream_17l_n102. Замена на: graphite_17l_n102. Доплата: 9.50 USD. Способ оплаты: card. Подтвердите эти условия."
+      },
+      {
+        "id": "3c9bddda53d140a796e5577ce30ce66d",
+        "case_id": "869be5a99ae04603b6b6588345cb8c51",
+        "text": "Зарегистрирована заявка на обмен по заказу #N102. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+      }
+    ],
+    "recoveries": []
+  },
+  "retail": {
+    "products": {
+      "p2": {
+        "name": "Чайник",
+        "product_id": "p2",
+        "variants": {
+          "foreign": {
+            "item_id": "foreign",
+            "options": {},
+            "available": true,
+            "price": 20.0
+          }
+        }
+      },
+      "electric_kettle_n102": {
+        "name": "Электрический чайник",
+        "product_id": "electric_kettle_n102",
+        "variants": {
+          "cream_17l_n102": {
+            "item_id": "cream_17l_n102",
+            "options": {
+              "color": "кремовый",
+              "capacity": "1,7 л"
+            },
+            "available": true,
+            "price": 54.0
+          },
+          "graphite_17l_n102": {
+            "item_id": "graphite_17l_n102",
+            "options": {
+              "color": "графитовый",
+              "capacity": "1,7 л"
+            },
+            "available": true,
+            "price": 63.5
+          }
+        }
+      }
+    },
+    "users": {
+      "u2": {
+        "user_id": "u2",
+        "name": {
+          "first_name": "Имя2",
+          "last_name": "Фамилия"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "user2@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#O2"
+        ]
+      },
+      "customer_n102": {
+        "user_id": "customer_n102",
+        "name": {
+          "first_name": "Марина",
+          "last_name": "Тихонова"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "115280"
+        },
+        "email": "n102@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#N102"
+        ]
+      }
+    },
+    "orders": {
+      "#O2": {
+        "order_id": "#O2",
+        "user_id": "u2",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Чайник",
+            "product_id": "p2",
+            "item_id": "foreign",
+            "price": 10.0,
+            "options": {
+              "color": "black"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 10.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      },
+      "#N102": {
+        "order_id": "#N102",
+        "user_id": "customer_n102",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Электрический чайник",
+            "product_id": "electric_kettle_n102",
+            "item_id": "cream_17l_n102",
+            "price": 54.0,
+            "options": {
+              "color": "кремовый",
+              "capacity": "1,7 л"
+            }
+          }
+        ],
+        "status": "exchange requested",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 54.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": [
+          "cream_17l_n102"
+        ],
+        "exchange_new_items": [
+          "graphite_17l_n102"
+        ],
+        "exchange_payment_method_id": "card",
+        "exchange_price_difference": 9.5,
+        "return_items": null,
+        "return_payment_method_id": null
+      }
+    }
+  },
+  "initial_retail": {
+    "products": {
+      "p2": {
+        "name": "Чайник",
+        "product_id": "p2",
+        "variants": {
+          "foreign": {
+            "item_id": "foreign",
+            "options": {},
+            "available": true,
+            "price": 20.0
+          }
+        }
+      },
+      "electric_kettle_n102": {
+        "name": "Электрический чайник",
+        "product_id": "electric_kettle_n102",
+        "variants": {
+          "cream_17l_n102": {
+            "item_id": "cream_17l_n102",
+            "options": {
+              "color": "кремовый",
+              "capacity": "1,7 л"
+            },
+            "available": true,
+            "price": 54.0
+          },
+          "graphite_17l_n102": {
+            "item_id": "graphite_17l_n102",
+            "options": {
+              "color": "графитовый",
+              "capacity": "1,7 л"
+            },
+            "available": true,
+            "price": 63.5
+          }
+        }
+      }
+    },
+    "users": {
+      "u2": {
+        "user_id": "u2",
+        "name": {
+          "first_name": "Имя2",
+          "last_name": "Фамилия"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "user2@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#O2"
+        ]
+      },
+      "customer_n102": {
+        "user_id": "customer_n102",
+        "name": {
+          "first_name": "Марина",
+          "last_name": "Тихонова"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "115280"
+        },
+        "email": "n102@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#N102"
+        ]
+      }
+    },
+    "orders": {
+      "#O2": {
+        "order_id": "#O2",
+        "user_id": "u2",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Чайник",
+            "product_id": "p2",
+            "item_id": "foreign",
+            "price": 10.0,
+            "options": {
+              "color": "black"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 10.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      },
+      "#N102": {
+        "order_id": "#N102",
+        "user_id": "customer_n102",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Электрический чайник",
+            "product_id": "electric_kettle_n102",
+            "item_id": "cream_17l_n102",
+            "price": 54.0,
+            "options": {
+              "color": "кремовый",
+              "capacity": "1,7 л"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 54.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      }
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "Мне привезли кремовый электрический чайник на 1,7 литра. Хочу такой же графитовый, с доплатой по той же карте 1111. Номер заказа не сохранила и не помню, какую почту указывала. Как ещё можно найти покупку?",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "Можно найти покупку по имени и почтовому индексу. Напишите, пожалуйста, ваше имя, фамилию и индекс доставки.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "Можно найти покупку по имени и почтовому индексу. Напишите, пожалуйста, ваше имя, фамилию и индекс доставки.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "user",
+      "content": "Имя Марина, фамилия Тихонова, почтовый индекс доставки 115280. Адрес электронной почты вспомнить не получается. Нужен графитовый чайник того же объёма, доплату можно с карты 1111.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "find_user_id_by_name_zip",
+          "name": "find_user_id_by_name_zip",
+          "arguments": {
+            "first_name": "Марина",
+            "last_name": "Тихонова",
+            "zip": "115280"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "\"customer_n102\"",
+      "tool_calls": null,
+      "tool_call_id": "find_user_id_by_name_zip",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "get_order_details",
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "#N102"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"order_id\": \"#N102\", \"user_id\": \"customer_n102\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Электрический чайник\", \"product_id\": \"electric_kettle_n102\", \"item_id\": \"cream_17l_n102\", \"price\": 54.0, \"options\": {\"color\": \"кремовый\", \"capacity\": \"1,7 л\"}}], \"status\": \"delivered\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 54.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": null, \"return_payment_method_id\": null}",
+      "tool_calls": null,
+      "tool_call_id": "get_order_details",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "get_product_details",
+          "name": "get_product_details",
+          "arguments": {
+            "product_id": "electric_kettle_n102"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"name\": \"Электрический чайник\", \"product_id\": \"electric_kettle_n102\", \"variants\": {\"cream_17l_n102\": {\"item_id\": \"cream_17l_n102\", \"options\": {\"color\": \"кремовый\", \"capacity\": \"1,7 л\"}, \"available\": true, \"price\": 54.0}, \"graphite_17l_n102\": {\"item_id\": \"graphite_17l_n102\", \"options\": {\"color\": \"графитовый\", \"capacity\": \"1,7 л\"}, \"available\": true, \"price\": 63.5}}}",
+      "tool_calls": null,
+      "tool_call_id": "get_product_details",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "propose_exchange",
+          "name": "propose_exchange",
+          "arguments": {
+            "order_id": "#N102",
+            "item_ids": [
+              "cream_17l_n102"
+            ],
+            "new_item_ids": [
+              "graphite_17l_n102"
+            ],
+            "payment_method_id": "card"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"status\": \"proposal_prepared\", \"executed\": false}",
+      "tool_calls": null,
+      "tool_call_id": "propose_exchange",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "Заявка на обмен 1 позиций заказа #N102. Заказ #N102. Позиции: cream_17l_n102. Замена на: graphite_17l_n102. Доплата: 9.50 USD. Способ оплаты: card. Подтвердите эти условия.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "user",
+      "content": "Подтверждаю указанные позиции, замену, способ оплаты и сумму 9.50 USD.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "Служебный результат исполнителя (не сообщение клиенту): {\"order_id\": \"#N102\", \"user_id\": \"customer_n102\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Электрический чайник\", \"product_id\": \"electric_kettle_n102\", \"item_id\": \"cream_17l_n102\", \"price\": 54.0, \"options\": {\"color\": \"кремовый\", \"capacity\": \"1,7 л\"}}], \"status\": \"exchange requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 54.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": [\"cream_17l_n102\"], \"exchange_new_items\": [\"graphite_17l_n102\"], \"exchange_payment_method_id\": \"card\", \"exchange_price_difference\": 9.5, \"return_items\": null, \"return_payment_method_id\": null}",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "Зарегистрирована заявка на обмен по заказу #N102. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "case_id": "869be5a99ae04603b6b6588345cb8c51",
+      "kind": "customer",
+      "text": "Мне привезли кремовый электрический чайник на 1,7 литра. Хочу такой же графитовый, с доплатой по той же карте 1111. Номер заказа не сохранила и не помню, какую почту указывала. Как ещё можно найти покупку?"
+    },
+    {
+      "id": 2,
+      "case_id": "869be5a99ae04603b6b6588345cb8c51",
+      "kind": "approval",
+      "text": "Сотрудник подтвердил предложение версии 1"
+    },
+    {
+      "id": 3,
+      "case_id": "869be5a99ae04603b6b6588345cb8c51",
+      "kind": "sent",
+      "text": "Можно найти покупку по имени и почтовому индексу. Напишите, пожалуйста, ваше имя, фамилию и индекс доставки."
+    },
+    {
+      "id": 4,
+      "case_id": "869be5a99ae04603b6b6588345cb8c51",
+      "kind": "customer",
+      "text": "Имя Марина, фамилия Тихонова, почтовый индекс доставки 115280. Адрес электронной почты вспомнить не получается. Нужен графитовый чайник того же объёма, доплату можно с карты 1111."
+    },
+    {
+      "id": 5,
+      "case_id": "869be5a99ae04603b6b6588345cb8c51",
+      "kind": "tool",
+      "text": "find_user_id_by_name_zip: {\"first_name\": \"Марина\", \"last_name\": \"Тихонова\", \"zip\": \"115280\"}"
+    },
+    {
+      "id": 6,
+      "case_id": "869be5a99ae04603b6b6588345cb8c51",
+      "kind": "tool",
+      "text": "get_order_details: {\"order_id\": \"#N102\"}"
+    },
+    {
+      "id": 7,
+      "case_id": "869be5a99ae04603b6b6588345cb8c51",
+      "kind": "tool",
+      "text": "get_product_details: {\"product_id\": \"electric_kettle_n102\"}"
+    },
+    {
+      "id": 8,
+      "case_id": "869be5a99ae04603b6b6588345cb8c51",
+      "kind": "tool",
+      "text": "propose_exchange: {\"order_id\": \"#N102\", \"item_ids\": [\"cream_17l_n102\"], \"new_item_ids\": [\"graphite_17l_n102\"], \"payment_method_id\": \"card\"}"
+    },
+    {
+      "id": 9,
+      "case_id": "869be5a99ae04603b6b6588345cb8c51",
+      "kind": "approval",
+      "text": "Сотрудник подтвердил предложение версии 2"
+    },
+    {
+      "id": 10,
+      "case_id": "869be5a99ae04603b6b6588345cb8c51",
+      "kind": "sent",
+      "text": "Заявка на обмен 1 позиций заказа #N102. Заказ #N102. Позиции: cream_17l_n102. Замена на: graphite_17l_n102. Доплата: 9.50 USD. Способ оплаты: card. Подтвердите эти условия."
+    },
+    {
+      "id": 11,
+      "case_id": "869be5a99ae04603b6b6588345cb8c51",
+      "kind": "customer",
+      "text": "Подтверждаю указанные позиции, замену, способ оплаты и сумму 9.50 USD."
+    },
+    {
+      "id": 12,
+      "case_id": "869be5a99ae04603b6b6588345cb8c51",
+      "kind": "consent",
+      "text": "Клиент подтвердил текущие условия"
+    },
+    {
+      "id": 13,
+      "case_id": "869be5a99ae04603b6b6588345cb8c51",
+      "kind": "approval",
+      "text": "Сотрудник подтвердил предложение версии 3"
+    },
+    {
+      "id": 14,
+      "case_id": "869be5a99ae04603b6b6588345cb8c51",
+      "kind": "operation",
+      "text": "{\"order_id\": \"#N102\", \"user_id\": \"customer_n102\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Электрический чайник\", \"product_id\": \"electric_kettle_n102\", \"item_id\": \"cream_17l_n102\", \"price\": 54.0, \"options\": {\"color\": \"кремовый\", \"capacity\": \"1,7 л\"}}], \"status\": \"exchange requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 54.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": [\"cream_17l_n102\"], \"exchange_new_items\": [\"graphite_17l_n102\"], \"exchange_payment_method_id\": \"card\", \"exchange_price_difference\": 9.5, \"return_items\": null, \"return_payment_method_id\": null}"
+    },
+    {
+      "id": 15,
+      "case_id": "869be5a99ae04603b6b6588345cb8c51",
+      "kind": "sent",
+      "text": "Зарегистрирована заявка на обмен по заказу #N102. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+    }
+  ],
+  "customer_annotations": [
+    {
+      "case_id": "869be5a99ae04603b6b6588345cb8c51",
+      "event_id": 1,
+      "reason": "unknown",
+      "revoked_consent_ids": []
+    },
+    {
+      "case_id": "869be5a99ae04603b6b6588345cb8c51",
+      "event_id": 4,
+      "reason": "unknown",
+      "revoked_consent_ids": []
+    }
+  ]
+}

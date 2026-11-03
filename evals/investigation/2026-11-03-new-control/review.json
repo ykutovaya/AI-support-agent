@@ -1,0 +1,46 @@
+{
+  "reviewer": "assistant",
+  "changes_original_results": false,
+  "application_failures_observed": 0,
+  "api_failures": 0,
+  "evaluator_exceptions": 0,
+  "text_recognition_stops": 2,
+  "model_errors_identified_in_reviewed_outputs": 0,
+  "cases": [
+    {
+      "case_id": "new-identify-name-zip",
+      "classification": "evaluator_text_recognition",
+      "latest_text": "Можно найти покупку по имени и почтовому индексу. Напишите, пожалуйста, ваше имя, фамилию и индекс доставки.",
+      "semantic_review": "Корректный запрос альтернативных сведений для поиска покупки.",
+      "latest_text_delivered": false,
+      "operations": 0,
+      "deliveries": 0,
+      "store_unchanged": true,
+      "evidence": [
+        "03-control-new-identify-name-zip/calls.json",
+        "03-control-new-identify-name-zip/staff-reviews.json",
+        "03-control-new-identify-name-zip/state.json",
+        "03-control-new-identify-name-zip/result.json"
+      ],
+      "remaining_task": "Проверить распознавание всего сообщения на отдельных правильных и ошибочных примерах. Серию не переоценивать как завершённую."
+    },
+    {
+      "case_id": "new-revoke-refund-exchange",
+      "classification": "evaluator_text_recognition",
+      "latest_text": "Поняла. Обмен не оформляю; возврат денег тоже не оформляю. Предложение обмена было только подготовлено и не исполнено. Вы оставляете у себя полученную бордовую куртку размера L.",
+      "semantic_review": "Корректно учтён отказ от обмена и возврата; старое согласие отозвано, действия нет.",
+      "latest_text_delivered": false,
+      "operations": 0,
+      "deliveries": 1,
+      "store_unchanged": true,
+      "evidence": [
+        "04-control-new-revoke-refund-exchange/calls.json",
+        "04-control-new-revoke-refund-exchange/staff-reviews.json",
+        "04-control-new-revoke-refund-exchange/state.json",
+        "04-control-new-revoke-refund-exchange/result.json"
+      ],
+      "remaining_task": "Проверить распознавание всего сообщения на отдельных правильных и ошибочных примерах. Серию не переоценивать как завершённую."
+    }
+  ],
+  "dataset_limitation": "retained_item_forms в случае отказа содержит отдельные слова. Оценщик v5 ожидает целые допустимые обозначения товара. Кроме этого, фактический ответ содержит другие нераспознанные части."
+}

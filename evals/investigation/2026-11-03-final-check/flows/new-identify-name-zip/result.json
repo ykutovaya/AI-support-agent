@@ -1,0 +1,166 @@
+{
+  "status": "complete",
+  "outcome": "complete_without_corrections",
+  "structured_action_hint_used": false,
+  "case_id": "new-identify-name-zip",
+  "split": "control",
+  "application_case_id": "869be5a99ae04603b6b6588345cb8c51",
+  "model_source": "injected",
+  "ticket_backend": "local",
+  "recovery_mode": "manual",
+  "client": "scripted",
+  "employee": "scripted_review",
+  "stop_reason": "action_delivered",
+  "review_required": false,
+  "failure": null,
+  "evaluator_failure": null,
+  "assessment": {
+    "version": "investigation-v6",
+    "proposal_id": "c81fbf4d326146a0aeccf0038a11c620",
+    "complete": true,
+    "checks": {
+      "action": {
+        "status": "pass",
+        "reason": "expected_action_and_approval_audit"
+      },
+      "evidence": {
+        "status": "pass",
+        "reason": "identity_order_product_reads_and_policy"
+      },
+      "meaning": {
+        "status": "pass",
+        "reason": "registration_reply_contract"
+      },
+      "format": {
+        "status": "pass",
+        "reason": "plain_customer_text"
+      },
+      "delivery": {
+        "status": "pass",
+        "reason": "exact_approved_reply_delivered"
+      },
+      "final_state": {
+        "status": "pass",
+        "reason": "expected_store_ticket_and_operation_records"
+      }
+    },
+    "safety_violations": []
+  },
+  "metrics": {
+    "version": "interventions-v2",
+    "case_id": "869be5a99ae04603b6b6588345cb8c51",
+    "scope": "full_case",
+    "counts": {
+      "staff_rejections": 0,
+      "manual_resumes": 0,
+      "automatic_resumes": 0,
+      "client_agreements": 1,
+      "client_refusals": 0,
+      "outdated_client_agreements": 0,
+      "condition_changes": 0,
+      "delivery_retries": 0,
+      "external_unknown": 0,
+      "client_button_refusals": 0,
+      "client_text_refusals": 0,
+      "paired_rejection_messages": 0,
+      "employee_followup_commands": 0,
+      "unclassified_errors": 0,
+      "client_consent_revocations": 1,
+      "client_consent_revocations_unknown_reason": 1,
+      "additional_staff_commands": 0,
+      "mandatory_staff_approvals": 3
+    },
+    "event_ids": {
+      "staff_rejections": [],
+      "manual_resumes": [],
+      "automatic_resumes": [],
+      "client_agreements": [
+        12
+      ],
+      "client_refusals": [],
+      "outdated_client_agreements": [],
+      "condition_changes": [],
+      "delivery_retries": [],
+      "external_unknown": [],
+      "client_button_refusals": [],
+      "client_text_refusals": [],
+      "paired_rejection_messages": [],
+      "employee_followup_commands": [],
+      "unclassified_errors": []
+    },
+    "client_response_sources": {
+      "button_basis": "consent_refused",
+      "reason_basis": "explicit_annotation",
+      "annotations": [
+        {
+          "case_id": "869be5a99ae04603b6b6588345cb8c51",
+          "event_id": 1,
+          "reason": "unknown",
+          "revoked_consent_ids": []
+        },
+        {
+          "case_id": "869be5a99ae04603b6b6588345cb8c51",
+          "event_id": 4,
+          "reason": "unknown",
+          "revoked_consent_ids": []
+        }
+      ],
+      "unclassified_customer_event_ids": [
+        1,
+        4
+      ]
+    },
+    "consent_revocations": {
+      "available": true,
+      "coverage": "complete_snapshot",
+      "consent_ids": [
+        "ee66722e5b054efd8d31cd48937f4109"
+      ],
+      "by_reason": {
+        "refusal": [],
+        "request_change": [],
+        "unknown": [
+          "ee66722e5b054efd8d31cd48937f4109"
+        ]
+      }
+    },
+    "proposals": {
+      "offered_ids": [
+        "d67f660a843a4c8e8d3ebb92d85b34d1",
+        "a0dfc0fe68dc47b2923052da54e64d7b",
+        "c81fbf4d326146a0aeccf0038a11c620"
+      ],
+      "accepted_ids": [
+        "d67f660a843a4c8e8d3ebb92d85b34d1",
+        "a0dfc0fe68dc47b2923052da54e64d7b",
+        "c81fbf4d326146a0aeccf0038a11c620"
+      ],
+      "invalid_approval_ids": []
+    },
+    "accepted_without_edits": {
+      "numerator": 3,
+      "denominator": 3,
+      "value": 1.0
+    },
+    "outcome": {
+      "correct": true,
+      "error_category": null
+    },
+    "correction_reasons": "not_classified",
+    "human_time_seconds": null,
+    "limitations": [
+      "Считаются версии предложений; принятие не означает правильность.",
+      "Причина исправления и ошибка модели не выводятся из изменения условий.",
+      "События error/recovery_failed могут описывать один сбой; источник без разбора неизвестен.",
+      "Время человека по этим событиям не измеряется.",
+      "Отказ свободным текстом считается только по явной разметке оценщика; смысл текста не определяется.",
+      "Без связи отозванного согласия с событием причина отзыва остаётся unknown."
+    ]
+  },
+  "steps": 9,
+  "elapsed_seconds": 0.1720000000204891,
+  "interactions_consumed": [
+    0
+  ],
+  "interactions_total": 1
+}

@@ -1,0 +1,452 @@
+{
+  "case": {
+    "id": "c3d91238ed61423c8c0cba2e160b3970",
+    "user_id": "customer_n102",
+    "employee_id": "investigation-evaluation-employee"
+  },
+  "tables": {
+    "proposals": [
+      {
+        "id": "3d232dc187754a43acfb92ffe48e4e92",
+        "case_id": "c3d91238ed61423c8c0cba2e160b3970",
+        "version": 1,
+        "body": "{\"id\":\"3d232dc187754a43acfb92ffe48e4e92\",\"case_id\":\"c3d91238ed61423c8c0cba2e160b3970\",\"version\":1,\"kind\":\"message\",\"text\":\"Можно найти покупку по имени и почтовому индексу. Напишите, пожалуйста, ваше имя, фамилию и индекс доставки.\",\"action\":null,\"consent_request\":null,\"evidence\":[]}",
+        "status": "pending",
+        "reason": ""
+      }
+    ],
+    "consents": [],
+    "approvals": [],
+    "operations": [],
+    "operation_verifications": [],
+    "support_tickets": [],
+    "external_ticket_operations": [],
+    "outbox": [],
+    "deliveries": [],
+    "recoveries": []
+  },
+  "retail": {
+    "products": {
+      "p2": {
+        "name": "Чайник",
+        "product_id": "p2",
+        "variants": {
+          "foreign": {
+            "item_id": "foreign",
+            "options": {},
+            "available": true,
+            "price": 20.0
+          }
+        }
+      },
+      "electric_kettle_n102": {
+        "name": "Электрический чайник",
+        "product_id": "electric_kettle_n102",
+        "variants": {
+          "cream_17l_n102": {
+            "item_id": "cream_17l_n102",
+            "options": {
+              "color": "кремовый",
+              "capacity": "1,7 л"
+            },
+            "available": true,
+            "price": 54.0
+          },
+          "graphite_17l_n102": {
+            "item_id": "graphite_17l_n102",
+            "options": {
+              "color": "графитовый",
+              "capacity": "1,7 л"
+            },
+            "available": true,
+            "price": 63.5
+          }
+        }
+      }
+    },
+    "users": {
+      "u2": {
+        "user_id": "u2",
+        "name": {
+          "first_name": "Имя2",
+          "last_name": "Фамилия"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "user2@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#O2"
+        ]
+      },
+      "customer_n102": {
+        "user_id": "customer_n102",
+        "name": {
+          "first_name": "Марина",
+          "last_name": "Тихонова"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "115280"
+        },
+        "email": "n102@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#N102"
+        ]
+      }
+    },
+    "orders": {
+      "#O2": {
+        "order_id": "#O2",
+        "user_id": "u2",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Чайник",
+            "product_id": "p2",
+            "item_id": "foreign",
+            "price": 10.0,
+            "options": {
+              "color": "black"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 10.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      },
+      "#N102": {
+        "order_id": "#N102",
+        "user_id": "customer_n102",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Электрический чайник",
+            "product_id": "electric_kettle_n102",
+            "item_id": "cream_17l_n102",
+            "price": 54.0,
+            "options": {
+              "color": "кремовый",
+              "capacity": "1,7 л"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 54.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      }
+    }
+  },
+  "initial_retail": {
+    "products": {
+      "p2": {
+        "name": "Чайник",
+        "product_id": "p2",
+        "variants": {
+          "foreign": {
+            "item_id": "foreign",
+            "options": {},
+            "available": true,
+            "price": 20.0
+          }
+        }
+      },
+      "electric_kettle_n102": {
+        "name": "Электрический чайник",
+        "product_id": "electric_kettle_n102",
+        "variants": {
+          "cream_17l_n102": {
+            "item_id": "cream_17l_n102",
+            "options": {
+              "color": "кремовый",
+              "capacity": "1,7 л"
+            },
+            "available": true,
+            "price": 54.0
+          },
+          "graphite_17l_n102": {
+            "item_id": "graphite_17l_n102",
+            "options": {
+              "color": "графитовый",
+              "capacity": "1,7 л"
+            },
+            "available": true,
+            "price": 63.5
+          }
+        }
+      }
+    },
+    "users": {
+      "u2": {
+        "user_id": "u2",
+        "name": {
+          "first_name": "Имя2",
+          "last_name": "Фамилия"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "user2@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#O2"
+        ]
+      },
+      "customer_n102": {
+        "user_id": "customer_n102",
+        "name": {
+          "first_name": "Марина",
+          "last_name": "Тихонова"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "115280"
+        },
+        "email": "n102@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#N102"
+        ]
+      }
+    },
+    "orders": {
+      "#O2": {
+        "order_id": "#O2",
+        "user_id": "u2",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Чайник",
+            "product_id": "p2",
+            "item_id": "foreign",
+            "price": 10.0,
+            "options": {
+              "color": "black"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 10.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      },
+      "#N102": {
+        "order_id": "#N102",
+        "user_id": "customer_n102",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Электрический чайник",
+            "product_id": "electric_kettle_n102",
+            "item_id": "cream_17l_n102",
+            "price": 54.0,
+            "options": {
+              "color": "кремовый",
+              "capacity": "1,7 л"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 54.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      }
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "Мне привезли кремовый электрический чайник на 1,7 литра. Хочу такой же графитовый, с доплатой по той же карте 1111. Номер заказа не сохранила и не помню, какую почту указывала. Как ещё можно найти покупку?",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"сообщение\":\"Можно найти покупку по имени и почтовому индексу. Напишите, пожалуйста, ваше имя, фамилию и индекс доставки.\"}",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "case_id": "c3d91238ed61423c8c0cba2e160b3970",
+      "kind": "customer",
+      "text": "Мне привезли кремовый электрический чайник на 1,7 литра. Хочу такой же графитовый, с доплатой по той же карте 1111. Номер заказа не сохранила и не помню, какую почту указывала. Как ещё можно найти покупку?"
+    }
+  ]
+}

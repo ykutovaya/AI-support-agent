@@ -1,0 +1,414 @@
+{
+  "scope": "read_only_publication_and_setup_audit",
+  "base_commit": "530cb26ff3ae8e37e47bd72087c1a27cd7684463",
+  "working_tree_clean": false,
+  "setup_run_repeated": false,
+  "api_calls": 0,
+  "documents_checked": 33,
+  "local_links_checked": 281,
+  "missing_links": [
+    {
+      "source": "evals/investigation/2026-11-03-new-control/README-at-run.md",
+      "target": "2026-11-03-known-cases/review.json",
+      "reason": "missing_file"
+    },
+    {
+      "source": "evals/investigation/2026-11-03-new-control/README-at-run.md",
+      "target": "2026-11-03-offline-new-replies/summary.json",
+      "reason": "missing_file"
+    },
+    {
+      "source": "evals/investigation/2026-11-03-new-control/README-at-run.md",
+      "target": "2026-11-03-offline-replies/summary.json",
+      "reason": "missing_file"
+    },
+    {
+      "source": "evals/investigation/2026-11-03-new-control/README-at-run.md",
+      "target": "2026-11-03/summary.json",
+      "reason": "missing_file"
+    }
+  ],
+  "ignored_targets": [],
+  "anchors_needing_manual_review": [],
+  "links_to_untracked_publishable_targets": [
+    {
+      "source": "documents/evaluation/evaluator.md",
+      "target": "../../evals/investigation/2026-11-03-grader-metrics/validation.json",
+      "target_path": "evals/investigation/2026-11-03-grader-metrics/validation.json"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/2026-11-03-continuation-policy/analysis.json",
+      "target_path": "evals/investigation/2026-11-03-continuation-policy/analysis.json"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/2026-11-03-continuation-policy/validation.json",
+      "target_path": "evals/investigation/2026-11-03-continuation-policy/validation.json"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/2026-11-03-continuation-policy/check-after.xml",
+      "target_path": "evals/investigation/2026-11-03-continuation-policy/check-after.xml"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/2026-11-03-known-cases/summary.json",
+      "target_path": "evals/investigation/2026-11-03-known-cases/summary.json"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/2026-11-03-known-cases/series.json",
+      "target_path": "evals/investigation/2026-11-03-known-cases/series.json"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/2026-11-03-known-cases/freeze.json",
+      "target_path": "evals/investigation/2026-11-03-known-cases/freeze.json"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/2026-11-03-known-cases/review.json",
+      "target_path": "evals/investigation/2026-11-03-known-cases/review.json"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/2026-11-03-known-cases/validation.json",
+      "target_path": "evals/investigation/2026-11-03-known-cases/validation.json"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/2026-11-03-offline-new-replies/summary.json",
+      "target_path": "evals/investigation/2026-11-03-offline-new-replies/summary.json"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/2026-11-03-offline-new-replies/manifest.json",
+      "target_path": "evals/investigation/2026-11-03-offline-new-replies/manifest.json"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/2026-11-03-offline-new-replies/validation.json",
+      "target_path": "evals/investigation/2026-11-03-offline-new-replies/validation.json"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/data_card.md",
+      "target_path": "evals/investigation/data_card.md"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/2026-11-03-new-control/summary.json",
+      "target_path": "evals/investigation/2026-11-03-new-control/summary.json"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/2026-11-03-new-control/review.json",
+      "target_path": "evals/investigation/2026-11-03-new-control/review.json"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/2026-11-03-new-control/series.json",
+      "target_path": "evals/investigation/2026-11-03-new-control/series.json"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/2026-11-03-new-control/freeze.json",
+      "target_path": "evals/investigation/2026-11-03-new-control/freeze.json"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/2026-11-03-new-control/validation.json",
+      "target_path": "evals/investigation/2026-11-03-new-control/validation.json"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/control-new-2026-11-03-v2-card.md",
+      "target_path": "evals/investigation/control-new-2026-11-03-v2-card.md"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/2026-11-03-grader-metrics/validation.json",
+      "target_path": "evals/investigation/2026-11-03-grader-metrics/validation.json"
+    },
+    {
+      "source": "documents/evaluation/investigation.md",
+      "target": "../../evals/investigation/2026-11-03-grader-metrics/review.json",
+      "target_path": "evals/investigation/2026-11-03-grader-metrics/review.json"
+    },
+    {
+      "source": "evals/README.md",
+      "target": "investigation/2026-11-03-known-cases/summary.json",
+      "target_path": "evals/investigation/2026-11-03-known-cases/summary.json"
+    },
+    {
+      "source": "evals/README.md",
+      "target": "investigation/2026-11-03-offline-new-replies/summary.json",
+      "target_path": "evals/investigation/2026-11-03-offline-new-replies/summary.json"
+    },
+    {
+      "source": "evals/README.md",
+      "target": "investigation/2026-11-03-offline-new-replies/validation.json",
+      "target_path": "evals/investigation/2026-11-03-offline-new-replies/validation.json"
+    },
+    {
+      "source": "evals/README.md",
+      "target": "investigation/2026-11-03-new-control/summary.json",
+      "target_path": "evals/investigation/2026-11-03-new-control/summary.json"
+    },
+    {
+      "source": "evals/README.md",
+      "target": "investigation/data_card.md",
+      "target_path": "evals/investigation/data_card.md"
+    },
+    {
+      "source": "evals/README.md",
+      "target": "investigation/2026-11-03-grader-metrics/validation.json",
+      "target_path": "evals/investigation/2026-11-03-grader-metrics/validation.json"
+    },
+    {
+      "source": "evals/README.md",
+      "target": "investigation/control-new-2026-11-03-v2-card.md",
+      "target_path": "evals/investigation/control-new-2026-11-03-v2-card.md"
+    },
+    {
+      "source": "evals/investigation/2026-11-03-grader-metrics/README.md",
+      "target": "../control-new-2026-11-03-v2.json",
+      "target_path": "evals/investigation/control-new-2026-11-03-v2.json"
+    },
+    {
+      "source": "evals/investigation/2026-11-03-grader-metrics/README.md",
+      "target": "../control-new-2026-11-03-v2-card.md",
+      "target_path": "evals/investigation/control-new-2026-11-03-v2-card.md"
+    },
+    {
+      "source": "evals/investigation/README.md",
+      "target": "2026-11-03-grader-metrics/validation.json",
+      "target_path": "evals/investigation/2026-11-03-grader-metrics/validation.json"
+    },
+    {
+      "source": "evals/investigation/README.md",
+      "target": "2026-11-03-grader-metrics/review.json",
+      "target_path": "evals/investigation/2026-11-03-grader-metrics/review.json"
+    },
+    {
+      "source": "evals/investigation/README.md",
+      "target": "control-new-2026-11-03-v2-card.md",
+      "target_path": "evals/investigation/control-new-2026-11-03-v2-card.md"
+    },
+    {
+      "source": "evals/investigation/README.md",
+      "target": "data_card.md",
+      "target_path": "evals/investigation/data_card.md"
+    },
+    {
+      "source": "evals/investigation/README.md",
+      "target": "2026-11-03-known-cases/review.json",
+      "target_path": "evals/investigation/2026-11-03-known-cases/review.json"
+    },
+    {
+      "source": "evals/investigation/README.md",
+      "target": "2026-11-03-offline-new-replies/summary.json",
+      "target_path": "evals/investigation/2026-11-03-offline-new-replies/summary.json"
+    }
+  ],
+  "required_runtime_files": [
+    {
+      "path": ".env.example",
+      "exists": true,
+      "tracked": true,
+      "sha256": "d8db4c3890aba70a6b7ab830ae7d1b7e72a70591fb50cda07bb68a6a3f9ab098"
+    },
+    {
+      "path": "pyproject.toml",
+      "exists": true,
+      "tracked": true,
+      "sha256": "aab77e678e1366b06647d835ec1356bc20c2cc27bae7e2ff35e0b81f36f5a45a"
+    },
+    {
+      "path": "uv.lock",
+      "exists": true,
+      "tracked": true,
+      "sha256": "93e2066845b69b1f5f710b771527a320fdafb1357d4eb6e7f82857f8395c7030"
+    },
+    {
+      "path": ".github/workflows/checks.yml",
+      "exists": true,
+      "tracked": true,
+      "sha256": "a8c861e494e9d3dbc50e29f4bc66243a1f83fb5efc985564c5ac1ebf1c642b26"
+    },
+    {
+      "path": "src/support_agent/ui.py",
+      "exists": true,
+      "tracked": true,
+      "sha256": "f2ffc95235c62410d06b00ebed9acf2ca5ada08d401d489ee6c3d35fdaf56511"
+    },
+    {
+      "path": "src/support_agent/bootstrap.py",
+      "exists": true,
+      "tracked": true,
+      "sha256": "e56b7d8f372b04f144faf87688f2831c0f93d71d422bc22f3170503e8d89b9ab"
+    },
+    {
+      "path": "evals/reapproval/base_shop.json",
+      "exists": true,
+      "tracked": true,
+      "sha256": "ad8dcc22be2617673cd0b7f27e80b26c308301297abd0b3b019bc89b6bec7b0a"
+    },
+    {
+      "path": "evals/reapproval/policy.md",
+      "exists": true,
+      "tracked": true,
+      "sha256": "e26e08b74077e25526bf0c28c8aca1700179002c6bf6ee76d5b93a878775b02f"
+    },
+    {
+      "path": "evals/ticket-integration/base_shop.json",
+      "exists": true,
+      "tracked": true,
+      "sha256": "5c6b5527b9a86af6bcbd3bf3fe485710042f77f19408ff003a29ee85426cbd49"
+    },
+    {
+      "path": "evals/ticket-integration/policy.md",
+      "exists": true,
+      "tracked": true,
+      "sha256": "7a94512f5b38950b2709e466a8719a391f14d676e32b9fe829cbfd314b6b13f0"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "exists": true,
+      "tracked": true,
+      "sha256": "47661ea20ae415d3cd5bcb0e8f498aaebe1d0444cfcd6f463ffea862d22fdf42"
+    },
+    {
+      "path": "documents/usage.md",
+      "exists": true,
+      "tracked": true,
+      "sha256": "77d791117633f69adf3d63adf861c47989a26e853d3d12816ecea33b22f9c17e"
+    }
+  ],
+  "dependency_versions": {
+    "pydantic": {
+      "declared": "2.13.5",
+      "locked": "2.13.5",
+      "matches": true
+    },
+    "jsonschema": {
+      "declared": "4.25.1",
+      "locked": "4.25.1",
+      "matches": true
+    },
+    "litellm": {
+      "declared": "1.81.11",
+      "locked": "1.81.11",
+      "matches": true
+    },
+    "python-dotenv": {
+      "declared": "1.2.4",
+      "locked": "1.2.4",
+      "matches": true
+    },
+    "openai": {
+      "declared": "2.20.0",
+      "locked": "2.20.0",
+      "matches": true
+    },
+    "streamlit": {
+      "declared": "1.56.0",
+      "locked": "1.56.0",
+      "matches": true
+    },
+    "pytest": {
+      "declared": "8.3.5",
+      "locked": "8.3.5",
+      "matches": true
+    },
+    "ruff": {
+      "declared": "0.11.7",
+      "locked": "0.11.7",
+      "matches": true
+    },
+    "websockets": {
+      "declared": "17.4",
+      "locked": "17.4",
+      "matches": true
+    },
+    "tau2": {
+      "declared": "2.0.0",
+      "locked": "2.0.0",
+      "matches": true
+    }
+  },
+  "tau2_declared_source": {
+    "git": "https://github.com/sierra-research/tau2-bench.git",
+    "rev": "da0835f6c67baef58bdda18f2a3b037dfb3a1754"
+  },
+  "tau2_locked_source": {
+    "git": "https://github.com/sierra-research/tau2-bench.git?rev=da0835f6c67baef58bdda18f2a3b037dfb3a1754#da0835f6c67baef58bdda18f2a3b037dfb3a1754"
+  },
+  "tracked_sensitive_paths": [],
+  "installation_evidence": {
+    "historical_report": "documents/evaluation/startup.md",
+    "applies_to": "pinned retail dependency and uv installation route",
+    "limit": "historical startup used Streamlit 1.66.0; current lock and README use 1.56.0, later shutdown evidence applies; no claim of new clean installation",
+    "current_streamlit_evidence": "evals/shutdown/2026-11-02-native/summary.json",
+    "fresh_install_claim": false
+  },
+  "active_missing_links": [],
+  "archived_context_links": [
+    {
+      "source": "evals/investigation/2026-11-03-new-control/README-at-run.md",
+      "target": "2026-11-03-known-cases/review.json",
+      "reason": "missing_file",
+      "original_document_directory": "evals/investigation",
+      "exists_from_original_directory": true,
+      "action": "preserve historical snapshot; resolve links in original document context"
+    },
+    {
+      "source": "evals/investigation/2026-11-03-new-control/README-at-run.md",
+      "target": "2026-11-03-offline-new-replies/summary.json",
+      "reason": "missing_file",
+      "original_document_directory": "evals/investigation",
+      "exists_from_original_directory": true,
+      "action": "preserve historical snapshot; resolve links in original document context"
+    },
+    {
+      "source": "evals/investigation/2026-11-03-new-control/README-at-run.md",
+      "target": "2026-11-03-offline-replies/summary.json",
+      "reason": "missing_file",
+      "original_document_directory": "evals/investigation",
+      "exists_from_original_directory": true,
+      "action": "preserve historical snapshot; resolve links in original document context"
+    },
+    {
+      "source": "evals/investigation/2026-11-03-new-control/README-at-run.md",
+      "target": "2026-11-03/summary.json",
+      "reason": "missing_file",
+      "original_document_directory": "evals/investigation",
+      "exists_from_original_directory": true,
+      "action": "preserve historical snapshot; resolve links in original document context"
+    }
+  ],
+  "untracked_link_targets_to_include_before_publication": [
+    "evals/investigation/2026-11-03-continuation-policy/analysis.json",
+    "evals/investigation/2026-11-03-continuation-policy/check-after.xml",
+    "evals/investigation/2026-11-03-continuation-policy/validation.json",
+    "evals/investigation/2026-11-03-grader-metrics/review.json",
+    "evals/investigation/2026-11-03-grader-metrics/validation.json",
+    "evals/investigation/2026-11-03-known-cases/freeze.json",
+    "evals/investigation/2026-11-03-known-cases/review.json",
+    "evals/investigation/2026-11-03-known-cases/series.json",
+    "evals/investigation/2026-11-03-known-cases/summary.json",
+    "evals/investigation/2026-11-03-known-cases/validation.json",
+    "evals/investigation/2026-11-03-new-control/freeze.json",
+    "evals/investigation/2026-11-03-new-control/review.json",
+    "evals/investigation/2026-11-03-new-control/series.json",
+    "evals/investigation/2026-11-03-new-control/summary.json",
+    "evals/investigation/2026-11-03-new-control/validation.json",
+    "evals/investigation/2026-11-03-offline-new-replies/manifest.json",
+    "evals/investigation/2026-11-03-offline-new-replies/summary.json",
+    "evals/investigation/2026-11-03-offline-new-replies/validation.json",
+    "evals/investigation/control-new-2026-11-03-v2-card.md",
+    "evals/investigation/control-new-2026-11-03-v2.json",
+    "evals/investigation/data_card.md"
+  ]
+}

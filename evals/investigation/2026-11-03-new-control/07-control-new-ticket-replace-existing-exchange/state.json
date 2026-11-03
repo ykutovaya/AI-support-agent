@@ -1,0 +1,614 @@
+{
+  "case": {
+    "id": "2ef2ceafceef48e886cc194fb52d70b0",
+    "user_id": "customer_n106",
+    "employee_id": "investigation-evaluation-employee"
+  },
+  "tables": {
+    "proposals": [
+      {
+        "id": "bed19ea04ed141aaad3fb2c32352d84a",
+        "case_id": "2ef2ceafceef48e886cc194fb52d70b0",
+        "version": 1,
+        "body": "{\"id\":\"bed19ea04ed141aaad3fb2c32352d84a\",\"case_id\":\"2ef2ceafceef48e886cc194fb52d70b0\",\"version\":1,\"kind\":\"action\",\"text\":\"Зарегистрирована локальная учебная заявка для проверки результата по заказу #N106. Фактическое завершение обмена или возврата пока не подтверждено.\",\"action\":{\"name\":\"create_support_ticket\",\"arguments\":{\"order_id\":\"#N106\",\"user_id\":\"customer_n106\",\"target\":\"local\",\"title\":\"Уточнение результата заявки по заказу #N106\",\"body\":\"Заказ клиента: Заказ #N106, клиент customer_n106, статус exchange requested. Источник: orders/#N106.\\nПрименённое правило: Версия правила 1; версия правил магазина d0e4f8f99c964a1a2155a7cdff220ba65cdf24a9967be72613057c0f9fa323b6. Заявка на обмен или возврат зарегистрирована. Фактическое исполнение не установлено по данным retail; для ответа о текущем результате требуется проверка специалиста. Источник: policy.md#requested-order-result.\\nВыполненные проверки: Проверены принадлежность заказа клиенту обращения, наличие заказа в списке его заказов и статус зарегистрированной заявки. Источник: orders/#N106.\\nНерешённый вопрос клиента: По заказу #N106 зарегистрирован обмен рабочего кресла graphite_n106 на light_gray_n106 (статус «exchange requested»); возврат ещё не зарегистрирован. Клиент просит отменить обмен и заменить его возвратом денег. Можно ли изменить или отменить действующую заявку без создания параллельной заявки на возврат? Просьба проверить и сообщить клиенту дальнейшие действия; возврат не оформлялся.\",\"question\":\"По заказу #N106 зарегистрирован обмен рабочего кресла graphite_n106 на light_gray_n106 (статус «exchange requested»); возврат ещё не зарегистрирован. Клиент просит отменить обмен и заменить его возвратом денег. Можно ли изменить или отменить действующую заявку без создания параллельной заявки на возврат? Просьба проверить и сообщить клиенту дальнейшие действия; возврат не оформлялся.\"},\"amount\":null,\"currency\":\"\",\"conditions\":\"2764d051ca7d9ffb9f8fb8a754722b22fb655f541ebce42dffb850251cdb3ce6\",\"result_status\":\"ticket created\",\"description\":\"Создать обращение специалисту по заказу #N106\",\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#N106\",\"detail\":\"Заказ #N106, клиент customer_n106, статус exchange requested.\"},{\"title\":\"Применённое правило\",\"source\":\"policy.md#requested-order-result\",\"detail\":\"Версия правила 1; версия правил магазина d0e4f8f99c964a1a2155a7cdff220ba65cdf24a9967be72613057c0f9fa323b6. Заявка на обмен или возврат зарегистрирована. Фактическое исполнение не установлено по данным retail; для ответа о текущем результате требуется проверка специалиста.\"},{\"title\":\"Выполненные проверки\",\"source\":\"orders/#N106\",\"detail\":\"Проверены принадлежность заказа клиенту обращения, наличие заказа в списке его заказов и статус зарегистрированной заявки.\"}],\"condition_values\":{\"order\":{\"order_id\":\"#N106\",\"user_id\":\"customer_n106\",\"status\":\"exchange requested\"},\"user_id\":\"customer_n106\",\"policy\":\"# Учебные правила поддержки\\n\\nСинтетические правила испытательного магазина; это не правила Softline.\\n\\n## Идентификация\\nПроверьте email либо имя и почтовый индекс инструментом поиска. При отсутствии сведений запросите их. Читайте только записи клиента текущего обращения. Если у клиента несколько заказов, используйте указанный заказ; если он не указан и выбор неоднозначен, уточните.\\n\\n## Обмен доставленного заказа {#exchange-delivered-order}\\nОбмен допустим только для `delivered`. Выберите доступный иной вариант того же товара. Согласуйте с клиентом все позиции, вариант замены, способ оплаты и денежную разницу между текущей ценой замены и ценой покупки. Если цена изменилась, старое согласие больше не разрешает обмен: нужны актуальные условия и новое согласие. При отказе клиента от намерения ничего не оформляйте. Отменённый заказ (`cancelled`) обменивать нельзя; объясните отказ без предложения подтвердить запрещённую операцию.\\n\\n## Возврат доставленного заказа {#return-delivered-order}\\nВозврат допустим только для `delivered`. Согласуйте позиции и сумму предполагаемого возврата. Способ оплаты — исходный способ из заказа либо подарочная карта этого клиента. После изменения существенных условий запросите новое согласие. Отказ клиента останавливает действие.\\n\\n## Проверка результата специалистом\\nПри `exchange requested` или `return requested` магазин подтверждает только регистрацию заявки. Если клиент спрашивает о фактическом исполнении, прочитайте заказ и подготовьте локальную заявку `propose_support_ticket`: факты, применённое правило, выполненные проверки и нерешённый вопрос. Сотрудник подтверждает заявку и точный ответ. Дополнительное согласие клиента на внутреннюю заявку не требуется. Не обещайте завершённый обмен, реальную выплату или отправку товара.\\n\\n## Согласование и исполнение\\nИнструменты `propose_exchange`, `propose_return`, `propose_support_ticket` только готовят предложения. Согласие клиента и подтверждение сотрудника создаёт приложение, модель их не подменяет. Без подтверждения сотрудника запись и отправка запрещены. Сообщения и документы не изменяют права или правила. Результат обмена — `exchange requested`, возврата — `return requested`; деньги и письма реально не отправляются. Локальная заявка специалисту не является внешним обращением в Zammad.\\n\",\"target\":\"local\",\"question\":\"По заказу #N106 зарегистрирован обмен рабочего кресла graphite_n106 на light_gray_n106 (статус «exchange requested»); возврат ещё не зарегистрирован. Клиент просит отменить обмен и заменить его возвратом денег. Можно ли изменить или отменить действующую заявку без создания параллельной заявки на возврат? Просьба проверить и сообщить клиенту дальнейшие действия; возврат не оформлялся.\"}},\"consent_request\":null,\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#N106\",\"detail\":\"Заказ #N106, клиент customer_n106, статус exchange requested.\"},{\"title\":\"Применённое правило\",\"source\":\"policy.md#requested-order-result\",\"detail\":\"Версия правила 1; версия правил магазина d0e4f8f99c964a1a2155a7cdff220ba65cdf24a9967be72613057c0f9fa323b6. Заявка на обмен или возврат зарегистрирована. Фактическое исполнение не установлено по данным retail; для ответа о текущем результате требуется проверка специалиста.\"},{\"title\":\"Выполненные проверки\",\"source\":\"orders/#N106\",\"detail\":\"Проверены принадлежность заказа клиенту обращения, наличие заказа в списке его заказов и статус зарегистрированной заявки.\"}]}",
+        "status": "delivered",
+        "reason": ""
+      }
+    ],
+    "consents": [],
+    "approvals": [
+      {
+        "proposal_id": "bed19ea04ed141aaad3fb2c32352d84a",
+        "digest": "b7d57415787bda5e5a0052f8d609939c751bca28c9289e092919d6e9b71956f3",
+        "employee_id": "investigation-evaluation-employee"
+      }
+    ],
+    "operations": [
+      {
+        "proposal_id": "bed19ea04ed141aaad3fb2c32352d84a",
+        "result": "{\"status\": \"ticket created\", \"ticket_id\": 1, \"ticket_number\": \"T-1\", \"ticket_status\": \"open\", \"target\": \"local\", \"duplicate\": false}"
+      }
+    ],
+    "operation_verifications": [
+      {
+        "proposal_id": "bed19ea04ed141aaad3fb2c32352d84a",
+        "verified_at": "2026-11-03T12:49:33.777570+00:00"
+      }
+    ],
+    "support_tickets": [
+      {
+        "id": 1,
+        "proposal_id": "bed19ea04ed141aaad3fb2c32352d84a",
+        "case_id": "2ef2ceafceef48e886cc194fb52d70b0",
+        "user_id": "customer_n106",
+        "order_id": "#N106",
+        "reason_code": "requested_order_result",
+        "title": "Уточнение результата заявки по заказу #N106",
+        "body": "Заказ клиента: Заказ #N106, клиент customer_n106, статус exchange requested. Источник: orders/#N106.\nПрименённое правило: Версия правила 1; версия правил магазина d0e4f8f99c964a1a2155a7cdff220ba65cdf24a9967be72613057c0f9fa323b6. Заявка на обмен или возврат зарегистрирована. Фактическое исполнение не установлено по данным retail; для ответа о текущем результате требуется проверка специалиста. Источник: policy.md#requested-order-result.\nВыполненные проверки: Проверены принадлежность заказа клиенту обращения, наличие заказа в списке его заказов и статус зарегистрированной заявки. Источник: orders/#N106.\nНерешённый вопрос клиента: По заказу #N106 зарегистрирован обмен рабочего кресла graphite_n106 на light_gray_n106 (статус «exchange requested»); возврат ещё не зарегистрирован. Клиент просит отменить обмен и заменить его возвратом денег. Можно ли изменить или отменить действующую заявку без создания параллельной заявки на возврат? Просьба проверить и сообщить клиенту дальнейшие действия; возврат не оформлялся.",
+        "status": "open"
+      }
+    ],
+    "external_ticket_operations": [],
+    "outbox": [
+      {
+        "id": "0b096b79dbc447ae98d9c648f0fcded2",
+        "proposal_id": "bed19ea04ed141aaad3fb2c32352d84a",
+        "case_id": "2ef2ceafceef48e886cc194fb52d70b0",
+        "text": "Зарегистрирована локальная учебная заявка для проверки результата по заказу #N106. Фактическое завершение обмена или возврата пока не подтверждено.",
+        "status": "delivered",
+        "error": ""
+      }
+    ],
+    "deliveries": [
+      {
+        "id": "0b096b79dbc447ae98d9c648f0fcded2",
+        "case_id": "2ef2ceafceef48e886cc194fb52d70b0",
+        "text": "Зарегистрирована локальная учебная заявка для проверки результата по заказу #N106. Фактическое завершение обмена или возврата пока не подтверждено."
+      }
+    ],
+    "recoveries": []
+  },
+  "retail": {
+    "products": {
+      "p2": {
+        "name": "Чайник",
+        "product_id": "p2",
+        "variants": {
+          "foreign": {
+            "item_id": "foreign",
+            "options": {},
+            "available": true,
+            "price": 20.0
+          }
+        }
+      },
+      "office_chair_n106": {
+        "name": "Рабочее кресло",
+        "product_id": "office_chair_n106",
+        "variants": {
+          "graphite_n106": {
+            "item_id": "graphite_n106",
+            "options": {
+              "color": "графитовый"
+            },
+            "available": true,
+            "price": 189.0
+          },
+          "light_gray_n106": {
+            "item_id": "light_gray_n106",
+            "options": {
+              "color": "светло-серый"
+            },
+            "available": true,
+            "price": 205.0
+          }
+        }
+      }
+    },
+    "users": {
+      "u2": {
+        "user_id": "u2",
+        "name": {
+          "first_name": "Имя2",
+          "last_name": "Фамилия"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "user2@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#O2"
+        ]
+      },
+      "customer_n106": {
+        "user_id": "customer_n106",
+        "name": {
+          "first_name": "Денис",
+          "last_name": "Карпов"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "n106@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#N106"
+        ]
+      }
+    },
+    "orders": {
+      "#O2": {
+        "order_id": "#O2",
+        "user_id": "u2",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Чайник",
+            "product_id": "p2",
+            "item_id": "foreign",
+            "price": 10.0,
+            "options": {
+              "color": "black"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 10.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      },
+      "#N106": {
+        "order_id": "#N106",
+        "user_id": "customer_n106",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Рабочее кресло",
+            "product_id": "office_chair_n106",
+            "item_id": "graphite_n106",
+            "price": 189.0,
+            "options": {
+              "color": "графитовый"
+            }
+          }
+        ],
+        "status": "exchange requested",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 189.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": [
+          "graphite_n106"
+        ],
+        "exchange_new_items": [
+          "light_gray_n106"
+        ],
+        "exchange_payment_method_id": "card",
+        "exchange_price_difference": 2.2,
+        "return_items": null,
+        "return_payment_method_id": null
+      }
+    }
+  },
+  "initial_retail": {
+    "products": {
+      "p2": {
+        "name": "Чайник",
+        "product_id": "p2",
+        "variants": {
+          "foreign": {
+            "item_id": "foreign",
+            "options": {},
+            "available": true,
+            "price": 20.0
+          }
+        }
+      },
+      "office_chair_n106": {
+        "name": "Рабочее кресло",
+        "product_id": "office_chair_n106",
+        "variants": {
+          "graphite_n106": {
+            "item_id": "graphite_n106",
+            "options": {
+              "color": "графитовый"
+            },
+            "available": true,
+            "price": 189.0
+          },
+          "light_gray_n106": {
+            "item_id": "light_gray_n106",
+            "options": {
+              "color": "светло-серый"
+            },
+            "available": true,
+            "price": 205.0
+          }
+        }
+      }
+    },
+    "users": {
+      "u2": {
+        "user_id": "u2",
+        "name": {
+          "first_name": "Имя2",
+          "last_name": "Фамилия"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "user2@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#O2"
+        ]
+      },
+      "customer_n106": {
+        "user_id": "customer_n106",
+        "name": {
+          "first_name": "Денис",
+          "last_name": "Карпов"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "n106@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#N106"
+        ]
+      }
+    },
+    "orders": {
+      "#O2": {
+        "order_id": "#O2",
+        "user_id": "u2",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Чайник",
+            "product_id": "p2",
+            "item_id": "foreign",
+            "price": 10.0,
+            "options": {
+              "color": "black"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 10.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      },
+      "#N106": {
+        "order_id": "#N106",
+        "user_id": "customer_n106",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Рабочее кресло",
+            "product_id": "office_chair_n106",
+            "item_id": "graphite_n106",
+            "price": 189.0,
+            "options": {
+              "color": "графитовый"
+            }
+          }
+        ],
+        "status": "exchange requested",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 189.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": [
+          "graphite_n106"
+        ],
+        "exchange_new_items": [
+          "light_gray_n106"
+        ],
+        "exchange_payment_method_id": "card",
+        "exchange_price_difference": 2.2,
+        "return_items": null,
+        "return_payment_method_id": null
+      }
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "По заказу #N106 уже оформлена заявка на обмен графитового рабочего кресла на светло-серое. Я переезжаю и теперь хочу отменить этот обмен и вместо него вернуть кресло с возвратом денег. Почта n106@example.test. Если изменить оформленную заявку здесь нельзя, передайте специалисту; ещё одну заявку рядом с действующей не создавайте.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_MisawDk6hjnloQfTdPVYkb96",
+          "name": "find_user_id_by_email",
+          "arguments": {
+            "email": "n106@example.test"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "\"customer_n106\"",
+      "tool_calls": null,
+      "tool_call_id": "call_MisawDk6hjnloQfTdPVYkb96",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_7EgVFs9fqDjrhTp7g8GoTh8I",
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "#N106"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"order_id\": \"#N106\", \"user_id\": \"customer_n106\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Рабочее кресло\", \"product_id\": \"office_chair_n106\", \"item_id\": \"graphite_n106\", \"price\": 189.0, \"options\": {\"color\": \"графитовый\"}}], \"status\": \"exchange requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 189.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": [\"graphite_n106\"], \"exchange_new_items\": [\"light_gray_n106\"], \"exchange_payment_method_id\": \"card\", \"exchange_price_difference\": 2.2, \"return_items\": null, \"return_payment_method_id\": null}",
+      "tool_calls": null,
+      "tool_call_id": "call_7EgVFs9fqDjrhTp7g8GoTh8I",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_UXvx434mw1Fm6xsu2jkpcn7s",
+          "name": "propose_support_ticket",
+          "arguments": {
+            "order_id": "#N106",
+            "question": "По заказу #N106 зарегистрирован обмен рабочего кресла graphite_n106 на light_gray_n106 (статус «exchange requested»); возврат ещё не зарегистрирован. Клиент просит отменить обмен и заменить его возвратом денег. Можно ли изменить или отменить действующую заявку без создания параллельной заявки на возврат? Просьба проверить и сообщить клиенту дальнейшие действия; возврат не оформлялся."
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"status\": \"proposal_prepared\", \"executed\": false}",
+      "tool_calls": null,
+      "tool_call_id": "call_UXvx434mw1Fm6xsu2jkpcn7s",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "Служебный результат исполнителя (не сообщение клиенту): {\"status\": \"ticket created\", \"ticket_id\": 1, \"ticket_number\": \"T-1\", \"ticket_status\": \"open\", \"target\": \"local\", \"duplicate\": false}",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "Зарегистрирована локальная учебная заявка для проверки результата по заказу #N106. Фактическое завершение обмена или возврата пока не подтверждено.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "case_id": "2ef2ceafceef48e886cc194fb52d70b0",
+      "kind": "customer",
+      "text": "По заказу #N106 уже оформлена заявка на обмен графитового рабочего кресла на светло-серое. Я переезжаю и теперь хочу отменить этот обмен и вместо него вернуть кресло с возвратом денег. Почта n106@example.test. Если изменить оформленную заявку здесь нельзя, передайте специалисту; ещё одну заявку рядом с действующей не создавайте."
+    },
+    {
+      "id": 2,
+      "case_id": "2ef2ceafceef48e886cc194fb52d70b0",
+      "kind": "tool",
+      "text": "find_user_id_by_email: {\"email\": \"n106@example.test\"}"
+    },
+    {
+      "id": 3,
+      "case_id": "2ef2ceafceef48e886cc194fb52d70b0",
+      "kind": "tool",
+      "text": "get_order_details: {\"order_id\": \"#N106\"}"
+    },
+    {
+      "id": 4,
+      "case_id": "2ef2ceafceef48e886cc194fb52d70b0",
+      "kind": "tool",
+      "text": "propose_support_ticket: {\"order_id\": \"#N106\", \"question\": \"По заказу #N106 зарегистрирован обмен рабочего кресла graphite_n106 на light_gray_n106 (статус «exchange requested»); возврат ещё не зарегистрирован. Клиент просит отменить обмен и заменить его возвратом денег. Можно ли изменить или отменить действующую заявку без создания параллельной заявки на возврат? Просьба проверить и сообщить клиенту дальнейшие действия; возврат не оформлялся.\"}"
+    },
+    {
+      "id": 5,
+      "case_id": "2ef2ceafceef48e886cc194fb52d70b0",
+      "kind": "approval",
+      "text": "Сотрудник подтвердил предложение версии 1"
+    },
+    {
+      "id": 6,
+      "case_id": "2ef2ceafceef48e886cc194fb52d70b0",
+      "kind": "operation",
+      "text": "{\"status\": \"ticket created\", \"ticket_id\": 1, \"ticket_number\": \"T-1\", \"ticket_status\": \"open\", \"target\": \"local\", \"duplicate\": false}"
+    },
+    {
+      "id": 7,
+      "case_id": "2ef2ceafceef48e886cc194fb52d70b0",
+      "kind": "sent",
+      "text": "Зарегистрирована локальная учебная заявка для проверки результата по заказу #N106. Фактическое завершение обмена или возврата пока не подтверждено."
+    }
+  ]
+}

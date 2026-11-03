@@ -1,7 +1,9 @@
 """Ограничения новой серии: расходы, попытки и запись вызовов до их выполнения."""
 
 import json
+import math
 import time
+from copy import deepcopy
 from pathlib import Path
 
 MODEL = "openai/responses/gpt-6-luna"
@@ -59,25 +61,73 @@ class Limit:
         self.steps += count
 
 
-class AttemptRegistry:
-    CAPS = {"connection": 1, "development": 4, "control": 6, "repeat": 4}
+def _positive_finite(value):
+    return type(value) in (int, float) and math.isfinite(value) and value > 0
 
-    def __init__(self, path):
+
+def _authorization(value):
+    """Проверить явно переданные пределы, не подставляя прежнее разрешение."""
+    if not isinstance(value, dict):
+        raise ValueError("Нужно явное разрешение для текущей серии")
+    caps = value.get("phase_caps")
+    case_ids = value.get("case_ids")
+    if (
+        not _positive_finite(value.get("max_usd"))
+        or type(value.get("max_attempts")) is not int
+        or value["max_attempts"] <= 0
+        or not isinstance(caps, dict)
+        or not caps
+        or any(
+            not isinstance(phase, str) or not phase or type(cap) is not int or cap < 0
+            for phase, cap in caps.items()
+        )
+        or not isinstance(case_ids, list)
+        or not case_ids
+        or any(not isinstance(case_id, str) or not case_id for case_id in case_ids)
+        or len(set(case_ids)) != len(case_ids)
+        or not isinstance(value.get("scope"), str)
+        or not value["scope"]
+    ):
+        raise ValueError("Некорректные пределы или выборка текущей серии")
+    return deepcopy(value)
+
+
+class AttemptRegistry:
+    def __init__(self, path, *, authorization):
         self.path = Path(path)
-        self.rows = (
+        self.authorization = _authorization(authorization)
+        self.data = (
             json.loads(self.path.read_text(encoding="utf-8"))
             if self.path.exists()
-            else []
+            else {"authorization": self.authorization, "attempts": []}
         )
+        if (
+            not isinstance(self.data, dict)
+            or self.data.get("authorization") != self.authorization
+            or not isinstance(self.data.get("attempts"), list)
+        ):
+            raise ValueError("Разрешение сохранённой серии менять нельзя")
+        self.rows = self.data["attempts"]
+        if not self.path.exists():
+            write_json(self.path, self.data)
 
     def reserve(self, phase, case_id):
-        if phase not in self.CAPS:
-            raise ValueError("Неизвестный этап")
-        if sum(r["phase"] == phase for r in self.rows) >= self.CAPS[phase]:
-            raise RuntimeLimit("Исчерпано согласованное число попыток")
-        if phase != "repeat" and any(
-            r["phase"] == phase and r["case_id"] == case_id for r in self.rows
+        caps = self.authorization["phase_caps"]
+        if phase not in caps:
+            raise ValueError("Этап не разрешён для текущей серии")
+        allowed_case = (
+            case_id == "connection"
+            if phase == "connection"
+            else case_id in self.authorization["case_ids"]
+        )
+        if not allowed_case:
+            raise ValueError("Случай не входит в согласованную выборку")
+        if (
+            len(self.rows) >= self.authorization["max_attempts"]
+            or sum(r["phase"] == phase for r in self.rows) >= caps[phase]
         ):
+            raise RuntimeLimit("Исчерпано согласованное число попыток")
+        if phase != "repeat" and any(r["case_id"] == case_id for r in self.rows):
             raise RuntimeLimit("Повтор нужно учитывать отдельно")
         row = {
             "number": len(self.rows) + 1,
@@ -86,32 +136,40 @@ class AttemptRegistry:
             "status": "reserved",
         }
         self.rows.append(row)
-        write_json(self.path, self.rows)
+        write_json(self.path, self.data)
         return row
 
     def finish(self, number, status):
         self.rows[number - 1]["status"] = status
-        write_json(self.path, self.rows)
+        write_json(self.path, self.data)
 
 
 class Budget:
-    def __init__(self, path, limit):
+    def __init__(self, path, limit, *, authorization):
         self.path = Path(path)
-        if not 0 < float(limit) <= 5:
-            raise ValueError("Согласованный предел новой серии — $5")
+        allowed = _authorization(authorization)
+        if not _positive_finite(limit) or limit != allowed["max_usd"]:
+            raise ValueError("Лимит должен совпадать с разрешением текущей серии")
         self.data = (
             json.loads(self.path.read_text(encoding="utf-8"))
             if self.path.exists()
             else {
-                "authorization": "Пользователь: 3 ноября 2026, $5, не более 15 попыток",
+                "authorization": allowed,
                 "limit_usd": float(limit),
                 "model": MODEL,
                 "pricing": PRICING,
                 "calls": [],
             }
         )
-        if self.data["limit_usd"] != float(limit) or self.data["model"] != MODEL:
+        if (
+            not isinstance(self.data, dict)
+            or self.data.get("authorization") != allowed
+            or self.data.get("limit_usd") != float(limit)
+            or self.data.get("model") != MODEL
+        ):
             raise ValueError("Настройки сохранённого бюджета менять нельзя")
+        if not self.path.exists():
+            write_json(self.path, self.data)
 
     @property
     def used(self):

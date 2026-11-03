@@ -104,9 +104,46 @@ def _approve(service, proposal, limit):
     )
 
 
-def _customer(service, case_id, text, limit):
+def _customer(service, case_id, text, limit, *, annotations, reason="unknown"):
+    """Передать только текст, сохранив основание метрики вне контекста модели."""
+    if reason not in {"refusal", "request_change", "unknown"}:
+        raise ValueError("Неизвестная причина сообщения клиента в сценарии")
     limit.take()
-    return service.investigate(case_id, text, EMPLOYEE)
+    before_events = service.store.events(case_id)
+    boundary = max((event["id"] for event in before_events), default=0)
+    with service.store.connection() as conn:
+        active_ids = {
+            row["id"]
+            for row in conn.execute(
+                "SELECT id FROM consents WHERE case_id=? AND accepted=1 AND revoked=0",
+                (case_id,),
+            )
+        }
+    try:
+        return service.investigate(case_id, text, EMPLOYEE)
+    finally:
+        incoming = [
+            event
+            for event in service.store.events(case_id)
+            if event["id"] > boundary and event["kind"] == "customer"
+        ]
+        if incoming:
+            with service.store.connection() as conn:
+                revoked_ids = {
+                    row["id"]
+                    for row in conn.execute(
+                        "SELECT id FROM consents WHERE case_id=? AND accepted=1 AND revoked=1",
+                        (case_id,),
+                    )
+                }
+            annotations.append(
+                {
+                    "case_id": case_id,
+                    "event_id": incoming[0]["id"],
+                    "reason": reason,
+                    "revoked_consent_ids": sorted(active_ids & revoked_ids),
+                }
+            )
 
 
 def _apply_price(service, event):
@@ -143,6 +180,7 @@ def run_case(folder, case, model, *, max_steps=60, max_seconds=600, limit=None):
     consumed = []
     reviews = []
     decisions = []
+    customer_annotations = []
     failure = None
     evaluator_failure = None
     review_required = False
@@ -150,7 +188,13 @@ def run_case(folder, case, model, *, max_steps=60, max_seconds=600, limit=None):
     stage = "initial"
     stop_reason = "not_started"
     try:
-        proposal = _customer(service, case_id, case["initial_message"], limit)
+        proposal = _customer(
+            service,
+            case_id,
+            case["initial_message"],
+            limit,
+            annotations=customer_annotations,
+        )
         while True:
             limit.take()
             try:
@@ -220,7 +264,14 @@ def run_case(folder, case, model, *, max_steps=60, max_seconds=600, limit=None):
                 )
                 consumed.append(index)
                 if event["kind"] == "customer":
-                    proposal = _customer(service, case_id, event["text"], limit)
+                    proposal = _customer(
+                        service,
+                        case_id,
+                        event["text"],
+                        limit,
+                        annotations=customer_annotations,
+                        reason=event.get("customer_intent", "unknown"),
+                    )
                     stage = "changed"
                     continue
                 if event["kind"] != "price_change":
@@ -263,7 +314,14 @@ def run_case(folder, case, model, *, max_steps=60, max_seconds=600, limit=None):
                 consumed.append(index)
                 if event["kind"] != "customer":
                     raise ValueError("Неизвестный ответ клиента")
-                proposal = _customer(service, case_id, event["text"], limit)
+                proposal = _customer(
+                    service,
+                    case_id,
+                    event["text"],
+                    limit,
+                    annotations=customer_annotations,
+                    reason=event.get("customer_intent", "unknown"),
+                )
                 continue
             stop_reason = "message_delivered"
             break
@@ -273,7 +331,9 @@ def run_case(folder, case, model, *, max_steps=60, max_seconds=600, limit=None):
     state = capture_state(store, case_id, initial_retail)
     events = store.events(case_id)
     state["events"] = events
+    state["customer_annotations"] = customer_annotations
     _write(folder / "state.json", state)
+    _write(folder / "customer-annotations.json", customer_annotations)
     _write(folder / "events.json", events)
     _write(folder / "staff-reviews.json", reviews)
     _write(folder / "staff-decisions.json", decisions)
@@ -299,6 +359,7 @@ def run_case(folder, case, model, *, max_steps=60, max_seconds=600, limit=None):
             events,
             correct=correct,
             error_category=(failure or evaluator_failure or {}).get("category"),
+            customer_annotations=customer_annotations,
         )
     except Exception as error:
         evaluator_failure = _failure(error, evaluator=True)
@@ -318,8 +379,21 @@ def run_case(folder, case, model, *, max_steps=60, max_seconds=600, limit=None):
         if assessment and assessment["complete"]
         else "failed"
     )
+    result_outcome = status
+    if status == "complete":
+        result_outcome = (
+            "completed_with_help"
+            if any(d["decision"] in {"reject", "withhold"} for d in decisions)
+            else "complete_without_corrections"
+        )
     result = {
         "status": status,
+        "outcome": result_outcome,
+        "structured_action_hint_used": any(
+            d["decision"] == "reject"
+            and d.get("reason") == "structured_action_required"
+            for d in decisions
+        ),
         "case_id": case["id"],
         "split": case["split"],
         "application_case_id": case_id,

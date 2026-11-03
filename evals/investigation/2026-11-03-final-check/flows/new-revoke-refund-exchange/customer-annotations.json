@@ -1,0 +1,16 @@
+[
+  {
+    "case_id": "799b7ad9beed464c9e17827bc8ad106e",
+    "event_id": 1,
+    "reason": "unknown",
+    "revoked_consent_ids": []
+  },
+  {
+    "case_id": "799b7ad9beed464c9e17827bc8ad106e",
+    "event_id": 10,
+    "reason": "refusal",
+    "revoked_consent_ids": [
+      "27108ef6e78440b9ba6ff1413af6a5fb"
+    ]
+  }
+]

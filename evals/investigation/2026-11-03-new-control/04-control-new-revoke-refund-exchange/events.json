@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "case_id": "fd9ec8213bb84c0a95f6e4f12aa6f3ef",
+    "kind": "customer",
+    "text": "Покупала бордовую непромокаемую куртку размера L, заказ #N103, почта n103@example.test. Поменяйте на M, цвет оставьте тот же. Размер M сейчас по скидке, возврат разницы на исходную карту 1111 меня устраивает."
+  },
+  {
+    "id": 2,
+    "case_id": "fd9ec8213bb84c0a95f6e4f12aa6f3ef",
+    "kind": "tool",
+    "text": "find_user_id_by_email: {\"email\": \"n103@example.test\"}"
+  },
+  {
+    "id": 3,
+    "case_id": "fd9ec8213bb84c0a95f6e4f12aa6f3ef",
+    "kind": "tool",
+    "text": "get_order_details: {\"order_id\": \"#N103\"}"
+  },
+  {
+    "id": 4,
+    "case_id": "fd9ec8213bb84c0a95f6e4f12aa6f3ef",
+    "kind": "tool",
+    "text": "get_product_details: {\"product_id\": \"rain_jacket_n103\"}"
+  },
+  {
+    "id": 5,
+    "case_id": "fd9ec8213bb84c0a95f6e4f12aa6f3ef",
+    "kind": "tool",
+    "text": "get_user_details: {\"user_id\": \"customer_n103\"}"
+  },
+  {
+    "id": 6,
+    "case_id": "fd9ec8213bb84c0a95f6e4f12aa6f3ef",
+    "kind": "tool",
+    "text": "propose_exchange: {\"order_id\": \"#N103\", \"item_ids\": [\"burgundy_l_n103\"], \"new_item_ids\": [\"burgundy_m_n103\"], \"payment_method_id\": \"card\"}"
+  },
+  {
+    "id": 7,
+    "case_id": "fd9ec8213bb84c0a95f6e4f12aa6f3ef",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 1"
+  },
+  {
+    "id": 8,
+    "case_id": "fd9ec8213bb84c0a95f6e4f12aa6f3ef",
+    "kind": "sent",
+    "text": "Заявка на обмен 1 позиций заказа #N103. Заказ #N103. Позиции: burgundy_l_n103. Замена на: burgundy_m_n103. Сумма предполагаемого возврата: 21.00 USD. Способ оплаты: card. Подтвердите эти условия."
+  },
+  {
+    "id": 9,
+    "case_id": "fd9ec8213bb84c0a95f6e4f12aa6f3ef",
+    "kind": "customer",
+    "text": "Подтверждаю указанные позиции, замену, способ оплаты и сумму -21.00 USD."
+  },
+  {
+    "id": 10,
+    "case_id": "fd9ec8213bb84c0a95f6e4f12aa6f3ef",
+    "kind": "consent",
+    "text": "Клиент подтвердил текущие условия"
+  },
+  {
+    "id": 11,
+    "case_id": "fd9ec8213bb84c0a95f6e4f12aa6f3ef",
+    "kind": "customer",
+    "text": "Стоп, сестра померила и решила забрать мою куртку размера L. Отзываю согласие на обмен: оставляю бордовую куртку, которую уже получила. Возвращать её и оформлять возврат денег тоже не нужно."
+  }
+]

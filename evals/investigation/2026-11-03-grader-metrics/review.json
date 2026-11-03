@@ -1,0 +1,39 @@
+{
+  "kind": "offline_text_regression",
+  "source": "evals/investigation/2026-11-03-new-control/review.json",
+  "source_sha256": "6a154f6430ae5585aaf3b0e1d9b5fcb53929cd44a92c9458d6d135b85cf540d0",
+  "before_version": "investigation-v5",
+  "after_version": "investigation-v6",
+  "data_version": "control-new-2026-11-03-v2",
+  "cases": [
+    {
+      "case_id": "new-identify-name-zip",
+      "text": "Можно найти покупку по имени и почтовому индексу. Напишите, пожалуйста, ваше имя, фамилию и индекс доставки.",
+      "before": {
+        "status": "review",
+        "reason": "unrecognized_customer_reply"
+      },
+      "after": {
+        "status": "pass",
+        "reason": "request_missing_identity"
+      },
+      "original_text_delivered": false
+    },
+    {
+      "case_id": "new-revoke-refund-exchange",
+      "text": "Поняла. Обмен не оформляю; возврат денег тоже не оформляю. Предложение обмена было только подготовлено и не исполнено. Вы оставляете у себя полученную бордовую куртку размера L.",
+      "before": {
+        "status": "review",
+        "reason": "cancellation_acknowledgement"
+      },
+      "after": {
+        "status": "pass",
+        "reason": "cancellation_acknowledgement"
+      },
+      "original_text_delivered": false
+    }
+  ],
+  "api_calls": 0,
+  "changes_historical_results": false,
+  "delivery_retested": false
+}

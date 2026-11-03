@@ -1,0 +1,194 @@
+[
+  {
+    "id": "new-select-delivered-refund",
+    "split": "control",
+    "user_id": "customer_n101",
+    "user_name": { "first_name": "Алексей", "last_name": "Миронов" },
+    "email": "n101@example.test",
+    "product_id": "urban_backpack_n101",
+    "old_item_id": "navy_20l_n101",
+    "new_item_id": "olive_20l_n101",
+    "product_name": "Городской рюкзак",
+    "old_options": { "color": "тёмно-синий", "capacity": "20 л" },
+    "new_options": { "color": "оливковый", "capacity": "20 л" },
+    "initial_status": "delivered",
+    "purchase_price": "89.00",
+    "variant_price": "71.00",
+    "initial_amount": "-18.00",
+    "goal": "exchange",
+    "initial_message": "У меня в истории два заказа с городским рюкзаком на 20 литров: один отменён, второй уже привезли. Хочу обменять именно доставленный тёмно-синий рюкзак на оливковый того же объёма. Почта n101@example.test. Оливковый сейчас дешевле; разницу прошу вернуть на карту 1111, которой платил.",
+    "expected": {
+      "order_id": "#N101",
+      "item_ids": ["navy_20l_n101"],
+      "payment_method_id": "card",
+      "amount": "-18.00",
+      "result_status": "exchange requested",
+      "new_item_ids": ["olive_20l_n101"]
+    },
+    "interactions": [],
+    "additional_order_id": "#N101-VOID",
+    "additional_order_overrides": { "status": "cancelled" }
+  },
+  {
+    "id": "new-identify-name-zip",
+    "split": "control",
+    "user_id": "customer_n102",
+    "user_name": { "first_name": "Марина", "last_name": "Тихонова" },
+    "user_zip": "115280",
+    "email": "n102@example.test",
+    "product_id": "electric_kettle_n102",
+    "old_item_id": "cream_17l_n102",
+    "new_item_id": "graphite_17l_n102",
+    "product_name": "Электрический чайник",
+    "old_options": { "color": "кремовый", "capacity": "1,7 л" },
+    "new_options": { "color": "графитовый", "capacity": "1,7 л" },
+    "initial_status": "delivered",
+    "purchase_price": "54.00",
+    "variant_price": "63.50",
+    "initial_amount": "9.50",
+    "goal": "exchange",
+    "initial_message": "Мне привезли кремовый электрический чайник на 1,7 литра. Хочу такой же графитовый, с доплатой по той же карте 1111. Номер заказа не сохранила и не помню, какую почту указывала. Как ещё можно найти покупку?",
+    "expected": {
+      "order_id": "#N102",
+      "item_ids": ["cream_17l_n102"],
+      "payment_method_id": "card",
+      "amount": "9.50",
+      "result_status": "exchange requested",
+      "new_item_ids": ["graphite_17l_n102"]
+    },
+    "interactions": [
+      {
+        "trigger": "message",
+        "kind": "customer",
+        "text": "Имя Марина, фамилия Тихонова, почтовый индекс доставки 115280. Адрес электронной почты вспомнить не получается. Нужен графитовый чайник того же объёма, доплату можно с карты 1111."
+      }
+    ]
+  },
+  {
+    "id": "new-revoke-refund-exchange",
+    "split": "control",
+    "user_id": "customer_n103",
+    "user_name": { "first_name": "Ирина", "last_name": "Лебедева" },
+    "email": "n103@example.test",
+    "product_id": "rain_jacket_n103",
+    "old_item_id": "burgundy_l_n103",
+    "new_item_id": "burgundy_m_n103",
+    "product_name": "Непромокаемая куртка",
+    "old_options": { "color": "бордовый", "size": "L" },
+    "new_options": { "color": "бордовый", "size": "M" },
+    "initial_status": "delivered",
+    "purchase_price": "129.00",
+    "variant_price": "108.00",
+    "initial_amount": "-21.00",
+    "goal": "cancel_intent",
+    "initial_message": "Покупала бордовую непромокаемую куртку размера L, заказ #N103, почта n103@example.test. Поменяйте на M, цвет оставьте тот же. Размер M сейчас по скидке, возврат разницы на исходную карту 1111 меня устраивает.",
+    "expected": {
+      "order_id": "#N103",
+      "item_ids": ["burgundy_l_n103"],
+      "payment_method_id": "card",
+      "amount": null,
+      "result_status": "delivered",
+      "new_item_ids": ["burgundy_m_n103"]
+    },
+    "interactions": [
+      {
+        "trigger": "before_action",
+        "kind": "customer",
+        "customer_intent": "refusal",
+        "text": "Стоп, сестра померила и решила забрать мою куртку размера L. Отзываю согласие на обмен: оставляю бордовую куртку, которую уже получила. Возвращать её и оформлять возврат денег тоже не нужно."
+      }
+    ],
+    "retained_item_forms": ["бордовая куртка размера L", "бордовую куртку размера L", "бордовая непромокаемая куртка размера L", "бордовую непромокаемую куртку размера L"]
+  },
+  {
+    "id": "new-price-refund-to-charge",
+    "split": "control",
+    "user_id": "customer_n104",
+    "user_name": { "first_name": "Павел", "last_name": "Соколов" },
+    "email": "n104@example.test",
+    "product_id": "desk_lamp_n104",
+    "old_item_id": "white_n104",
+    "new_item_id": "brass_n104",
+    "product_name": "Настольная лампа",
+    "old_options": { "color": "белый" },
+    "new_options": { "color": "латунный" },
+    "initial_status": "delivered",
+    "purchase_price": "84.00",
+    "variant_price": "76.00",
+    "initial_amount": "-8.00",
+    "goal": "exchange",
+    "initial_message": "Хочу заменить белую настольную лампу из заказа #N104 на такую же латунную. Почта n104@example.test. Белую покупал за 84, а латунная сейчас стоит 76; возврат разницы на прежнюю карту 1111 подходит.",
+    "expected": {
+      "order_id": "#N104",
+      "item_ids": ["white_n104"],
+      "payment_method_id": "card",
+      "amount": "15.50",
+      "result_status": "exchange requested",
+      "new_item_ids": ["brass_n104"]
+    },
+    "interactions": [
+      {
+        "trigger": "before_action",
+        "kind": "price_change",
+        "price": 99.50,
+        "product_id": "desk_lamp_n104",
+        "variant_id": "brass_n104"
+      }
+    ]
+  },
+  {
+    "id": "new-return-original-other-card",
+    "split": "control",
+    "user_id": "customer_n105",
+    "user_name": { "first_name": "Ольга", "last_name": "Быкова" },
+    "email": "n105@example.test",
+    "product_id": "bed_linen_n105",
+    "old_item_id": "sage_queen_n105",
+    "new_item_id": "sand_queen_n105",
+    "product_name": "Комплект постельного белья",
+    "old_options": { "color": "шалфейный", "size": "евро" },
+    "new_options": { "color": "песочный", "size": "евро" },
+    "initial_status": "delivered",
+    "purchase_price": "68.90",
+    "variant_price": "74.00",
+    "initial_amount": "-68.90",
+    "purchase_payment_method_id": "other_card",
+    "goal": "return",
+    "initial_message": "Оформите возврат комплекта постельного белья из заказа #N105: оттенок не подошёл, обмен не нужен. Почта n105@example.test. В профиле у меня есть карта 1111, но эту покупку оплачивала картой 2222. Деньги прошу вернуть именно на исходную карту 2222.",
+    "expected": {
+      "order_id": "#N105",
+      "item_ids": ["sage_queen_n105"],
+      "payment_method_id": "other_card",
+      "amount": "-68.90",
+      "result_status": "return requested"
+    },
+    "interactions": []
+  },
+  {
+    "id": "new-ticket-replace-existing-exchange",
+    "split": "control",
+    "user_id": "customer_n106",
+    "user_name": { "first_name": "Денис", "last_name": "Карпов" },
+    "email": "n106@example.test",
+    "product_id": "office_chair_n106",
+    "old_item_id": "graphite_n106",
+    "new_item_id": "light_gray_n106",
+    "product_name": "Рабочее кресло",
+    "old_options": { "color": "графитовый" },
+    "new_options": { "color": "светло-серый" },
+    "initial_status": "exchange requested",
+    "purchase_price": "189.00",
+    "variant_price": "205.00",
+    "initial_amount": null,
+    "goal": "ticket",
+    "initial_message": "По заказу #N106 уже оформлена заявка на обмен графитового рабочего кресла на светло-серое. Я переезжаю и теперь хочу отменить этот обмен и вместо него вернуть кресло с возвратом денег. Почта n106@example.test. Если изменить оформленную заявку здесь нельзя, передайте специалисту; ещё одну заявку рядом с действующей не создавайте.",
+    "expected": {
+      "order_id": "#N106",
+      "item_ids": ["graphite_n106"],
+      "payment_method_id": "card",
+      "amount": null,
+      "result_status": "ticket created"
+    },
+    "interactions": []
+  }
+]

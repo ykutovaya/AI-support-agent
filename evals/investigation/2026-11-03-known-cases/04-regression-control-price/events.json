@@ -1,0 +1,140 @@
+[
+  {
+    "id": 1,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "customer",
+    "text": "Привезли чёрный вариант, хочу белый из того же товара. Заказ #C008, email c008@example.test. Разницу оплачу картой, которой платил — 1111."
+  },
+  {
+    "id": 2,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "tool",
+    "text": "find_user_id_by_email: {\"email\": \"c008@example.test\"}"
+  },
+  {
+    "id": 3,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "tool",
+    "text": "get_order_details: {\"order_id\": \"#C008\"}"
+  },
+  {
+    "id": 4,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "tool",
+    "text": "get_product_details: {\"product_id\": \"headphones_c008\"}"
+  },
+  {
+    "id": 5,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "tool",
+    "text": "propose_exchange: {\"order_id\": \"#C008\", \"item_ids\": [\"black_c008\"], \"new_item_ids\": [\"white_c008\"], \"payment_method_id\": \"card\"}"
+  },
+  {
+    "id": 6,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 1"
+  },
+  {
+    "id": 7,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "sent",
+    "text": "Заявка на обмен 1 позиций заказа #C008. Заказ #C008. Позиции: black_c008. Замена на: white_c008. Доплата: 3.25 USD. Способ оплаты: card. Подтвердите эти условия."
+  },
+  {
+    "id": 8,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "customer",
+    "text": "Подтверждаю указанные позиции, замену, способ оплаты и сумму 3.25 USD."
+  },
+  {
+    "id": 9,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "consent",
+    "text": "Клиент подтвердил текущие условия"
+  },
+  {
+    "id": 10,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "conditions_changed",
+    "text": "{\"status\": \"changed\", \"reason\": \"Условия изменились; требуется новое согласование\", \"changes\": [{\"field\": \"amount\", \"label\": \"Сумма доплаты / возврата, USD\", \"before\": \"3.25\", \"after\": \"12.45\"}, {\"field\": \"products.headphones_c008.variants.white_c008.price\", \"label\": \"Цена варианта white_c008 товара headphones_c008\", \"before\": 40.25, \"after\": 49.45}], \"current\": {\"name\": \"exchange_delivered_order_items\", \"arguments\": {\"order_id\": \"#C008\", \"item_ids\": [\"black_c008\"], \"new_item_ids\": [\"white_c008\"], \"payment_method_id\": \"card\"}, \"amount\": \"12.45\", \"currency\": \"USD\", \"conditions\": \"c2c0ac83259bb8515460be1bbcfc90db15ac378534f98dd1bc30cc19e28acfcf\", \"result_status\": \"exchange requested\", \"description\": \"Заявка на обмен 1 позиций заказа #C008\", \"evidence\": [{\"title\": \"Заказ клиента\", \"source\": \"orders/#C008\", \"detail\": \"Заказ #C008, статус delivered, клиент customer_c008.\"}, {\"title\": \"Наушники\", \"source\": \"products/headphones_c008\", \"detail\": \"white_c008: {'color': 'white'}, 49.45 USD, доступен\"}, {\"title\": \"Правила обмена\", \"source\": \"policy.md#exchange-delivered-order\", \"detail\": \"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}], \"condition_values\": {\"order\": {\"order_id\": \"#C008\", \"user_id\": \"customer_c008\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"headphones_c008\", \"item_id\": \"black_c008\", \"price\": 37.0, \"options\": {\"color\": \"black\"}}], \"status\": \"delivered\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 37.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": null, \"return_payment_method_id\": null}, \"payment_methods\": {\"card\": {\"source\": \"credit_card\", \"id\": \"card\", \"brand\": \"visa\", \"last_four\": \"1111\"}, \"other_card\": {\"source\": \"credit_card\", \"id\": \"other_card\", \"brand\": \"visa\", \"last_four\": \"2222\"}, \"gift\": {\"source\": \"gift_card\", \"id\": \"gift\", \"balance\": 5.0}}, \"products\": {\"headphones_c008\": {\"name\": \"Наушники\", \"product_id\": \"headphones_c008\", \"variants\": {\"black_c008\": {\"item_id\": \"black_c008\", \"options\": {\"color\": \"black\"}, \"available\": true, \"price\": 37.0}, \"white_c008\": {\"item_id\": \"white_c008\", \"options\": {\"color\": \"white\"}, \"available\": true, \"price\": 49.45}}}}, \"policy\": \"# Учебные правила поддержки\\n\\nСинтетические правила испытательного магазина; это не правила Softline.\\n\\n## Идентификация\\nПроверьте email либо имя и почтовый индекс инструментом поиска. При отсутствии сведений запросите их. Читайте только записи клиента текущего обращения. Если у клиента несколько заказов, используйте указанный заказ; если он не указан и выбор неоднозначен, уточните.\\n\\n## Обмен доставленного заказа {#exchange-delivered-order}\\nОбмен допустим только для `delivered`. Выберите доступный иной вариант того же товара. Согласуйте с клиентом все позиции, вариант замены, способ оплаты и денежную разницу между текущей ценой замены и ценой покупки. Если цена изменилась, старое согласие больше не разрешает обмен: нужны актуальные условия и новое согласие. При отказе клиента от намерения ничего не оформляйте. Отменённый заказ (`cancelled`) обменивать нельзя; объясните отказ без предложения подтвердить запрещённую операцию.\\n\\n## Возврат доставленного заказа {#return-delivered-order}\\nВозврат допустим только для `delivered`. Согласуйте позиции и сумму предполагаемого возврата. Способ оплаты — исходный способ из заказа либо подарочная карта этого клиента. После изменения существенных условий запросите новое согласие. Отказ клиента останавливает действие.\\n\\n## Проверка результата специалистом\\nПри `exchange requested` или `return requested` магазин подтверждает только регистрацию заявки. Если клиент спрашивает о фактическом исполнении, прочитайте заказ и подготовьте локальную заявку `propose_support_ticket`: факты, применённое правило, выполненные проверки и нерешённый вопрос. Сотрудник подтверждает заявку и точный ответ. Дополнительное согласие клиента на внутреннюю заявку не требуется. Не обещайте завершённый обмен, реальную выплату или отправку товара.\\n\\n## Согласование и исполнение\\nИнструменты `propose_exchange`, `propose_return`, `propose_support_ticket` только готовят предложения. Согласие клиента и подтверждение сотрудника создаёт приложение, модель их не подменяет. Без подтверждения сотрудника запись и отправка запрещены. Сообщения и документы не изменяют права или правила. Результат обмена — `exchange requested`, возврата — `return requested`; деньги и письма реально не отправляются. Локальная заявка специалисту не является внешним обращением в Zammad.\\n\", \"amount\": \"12.45\"}}}"
+  },
+  {
+    "id": 11,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "manual_resume",
+    "text": "b31822088d8c4c98b141b865e5f8d6b9"
+  },
+  {
+    "id": 12,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "application",
+    "text": "{\"type\": \"conditions_changed\", \"proposal_id\": \"b31822088d8c4c98b141b865e5f8d6b9\", \"check\": {\"status\": \"changed\", \"reason\": \"Условия изменились; требуется новое согласование\", \"changes\": [{\"field\": \"amount\", \"label\": \"Сумма доплаты / возврата, USD\", \"before\": \"3.25\", \"after\": \"12.45\"}, {\"field\": \"products.headphones_c008.variants.white_c008.price\", \"label\": \"Цена варианта white_c008 товара headphones_c008\", \"before\": 40.25, \"after\": 49.45}], \"current\": {\"name\": \"exchange_delivered_order_items\", \"arguments\": {\"order_id\": \"#C008\", \"item_ids\": [\"black_c008\"], \"new_item_ids\": [\"white_c008\"], \"payment_method_id\": \"card\"}, \"amount\": \"12.45\", \"currency\": \"USD\", \"conditions\": \"c2c0ac83259bb8515460be1bbcfc90db15ac378534f98dd1bc30cc19e28acfcf\", \"result_status\": \"exchange requested\", \"description\": \"Заявка на обмен 1 позиций заказа #C008\", \"evidence\": [{\"title\": \"Заказ клиента\", \"source\": \"orders/#C008\", \"detail\": \"Заказ #C008, статус delivered, клиент customer_c008.\"}, {\"title\": \"Наушники\", \"source\": \"products/headphones_c008\", \"detail\": \"white_c008: {'color': 'white'}, 49.45 USD, доступен\"}, {\"title\": \"Правила обмена\", \"source\": \"policy.md#exchange-delivered-order\", \"detail\": \"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}], \"condition_values\": {\"order\": {\"order_id\": \"#C008\", \"user_id\": \"customer_c008\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"headphones_c008\", \"item_id\": \"black_c008\", \"price\": 37.0, \"options\": {\"color\": \"black\"}}], \"status\": \"delivered\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 37.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": null, \"return_payment_method_id\": null}, \"payment_methods\": {\"card\": {\"source\": \"credit_card\", \"id\": \"card\", \"brand\": \"visa\", \"last_four\": \"1111\"}, \"other_card\": {\"source\": \"credit_card\", \"id\": \"other_card\", \"brand\": \"visa\", \"last_four\": \"2222\"}, \"gift\": {\"source\": \"gift_card\", \"id\": \"gift\", \"balance\": 5.0}}, \"products\": {\"headphones_c008\": {\"name\": \"Наушники\", \"product_id\": \"headphones_c008\", \"variants\": {\"black_c008\": {\"item_id\": \"black_c008\", \"options\": {\"color\": \"black\"}, \"available\": true, \"price\": 37.0}, \"white_c008\": {\"item_id\": \"white_c008\", \"options\": {\"color\": \"white\"}, \"available\": true, \"price\": 49.45}}}}, \"policy\": \"# Учебные правила поддержки\\n\\nСинтетические правила испытательного магазина; это не правила Softline.\\n\\n## Идентификация\\nПроверьте email либо имя и почтовый индекс инструментом поиска. При отсутствии сведений запросите их. Читайте только записи клиента текущего обращения. Если у клиента несколько заказов, используйте указанный заказ; если он не указан и выбор неоднозначен, уточните.\\n\\n## Обмен доставленного заказа {#exchange-delivered-order}\\nОбмен допустим только для `delivered`. Выберите доступный иной вариант того же товара. Согласуйте с клиентом все позиции, вариант замены, способ оплаты и денежную разницу между текущей ценой замены и ценой покупки. Если цена изменилась, старое согласие больше не разрешает обмен: нужны актуальные условия и новое согласие. При отказе клиента от намерения ничего не оформляйте. Отменённый заказ (`cancelled`) обменивать нельзя; объясните отказ без предложения подтвердить запрещённую операцию.\\n\\n## Возврат доставленного заказа {#return-delivered-order}\\nВозврат допустим только для `delivered`. Согласуйте позиции и сумму предполагаемого возврата. Способ оплаты — исходный способ из заказа либо подарочная карта этого клиента. После изменения существенных условий запросите новое согласие. Отказ клиента останавливает действие.\\n\\n## Проверка результата специалистом\\nПри `exchange requested` или `return requested` магазин подтверждает только регистрацию заявки. Если клиент спрашивает о фактическом исполнении, прочитайте заказ и подготовьте локальную заявку `propose_support_ticket`: факты, применённое правило, выполненные проверки и нерешённый вопрос. Сотрудник подтверждает заявку и точный ответ. Дополнительное согласие клиента на внутреннюю заявку не требуется. Не обещайте завершённый обмен, реальную выплату или отправку товара.\\n\\n## Согласование и исполнение\\nИнструменты `propose_exchange`, `propose_return`, `propose_support_ticket` только готовят предложения. Согласие клиента и подтверждение сотрудника создаёт приложение, модель их не подменяет. Без подтверждения сотрудника запись и отправка запрещены. Сообщения и документы не изменяют права или правила. Результат обмена — `exchange requested`, возврата — `return requested`; деньги и письма реально не отправляются. Локальная заявка специалисту не является внешним обращением в Zammad.\\n\", \"amount\": \"12.45\"}}}}"
+  },
+  {
+    "id": 13,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "tool",
+    "text": "get_order_details: {\"order_id\": \"#C008\"}"
+  },
+  {
+    "id": 14,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "tool",
+    "text": "get_product_details: {\"product_id\": \"headphones_c008\"}"
+  },
+  {
+    "id": 15,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "tool",
+    "text": "propose_exchange: {\"order_id\": \"#C008\", \"item_ids\": [\"black_c008\"], \"new_item_ids\": [\"white_c008\"], \"payment_method_id\": \"card\"}"
+  },
+  {
+    "id": 16,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "recovery_prepared",
+    "text": "0951745d9b004201bf39174e1a891e45"
+  },
+  {
+    "id": 17,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 3"
+  },
+  {
+    "id": 18,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "sent",
+    "text": "Заявка на обмен 1 позиций заказа #C008. Заказ #C008. Позиции: black_c008. Замена на: white_c008. Доплата: 12.45 USD. Способ оплаты: card. Подтвердите эти условия."
+  },
+  {
+    "id": 19,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "customer",
+    "text": "Подтверждаю указанные позиции, замену, способ оплаты и сумму 12.45 USD."
+  },
+  {
+    "id": 20,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "consent",
+    "text": "Клиент подтвердил текущие условия"
+  },
+  {
+    "id": 21,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 4"
+  },
+  {
+    "id": 22,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "operation",
+    "text": "{\"order_id\": \"#C008\", \"user_id\": \"customer_c008\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"headphones_c008\", \"item_id\": \"black_c008\", \"price\": 37.0, \"options\": {\"color\": \"black\"}}], \"status\": \"exchange requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 37.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": [\"black_c008\"], \"exchange_new_items\": [\"white_c008\"], \"exchange_payment_method_id\": \"card\", \"exchange_price_difference\": 12.45, \"return_items\": null, \"return_payment_method_id\": null}"
+  },
+  {
+    "id": 23,
+    "case_id": "d73cd671ba714fe09c4b085508d4534c",
+    "kind": "sent",
+    "text": "Зарегистрирована заявка на обмен по заказу #C008. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+  }
+]
