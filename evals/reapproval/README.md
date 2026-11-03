@@ -4,21 +4,26 @@
 Клиент и сотрудник следуют заранее заданному сценарию; их удобство и время работы
 здесь не измеряются. Используются настоящее ядро, SQLite и RetailTools.
 
+Команды выполняются из корня проекта в PowerShell после [установки окружения](../../README.md#запуск-рабочего-места). Полный checkout τ-bench для `--repo` подготовьте по [инструкции испытаний](../README.md#подключение-общего-ядра).
+
 ## Без API
 
 ```powershell
-python evals/reapproval/run_reapproval.py --offline --run-dir C:/Temp/reapproval-offline
+.\var\runtime\Scripts\python.exe evals\reapproval\run_reapproval.py --offline --run-dir evals\reapproval\runs\offline-check
 ```
 
 Каталог должен быть новым. Проверка выполняет шесть проходов с программной
-заглушкой и сохраняет `offline/manifest.json`. Это проверка проводки, не пилот и
+заглушкой и сохраняет `offline/manifest.json`. Это проверка процесса, не пилот и
 не доказательство преимущества языковой модели.
 
 ## Оплачиваемое сравнение
 
+Новая платная серия требует отдельного согласования объёма и денежного лимита. В примере указан лимит $5 на всю серию; прежнее разрешение не распространяется на новый запуск.
+
 ```powershell
-python evals/reapproval/run_reapproval.py --run --phase pilot --budget-usd 5 --repo C:/Users/USER/Documents/portfolio/tau2-bench --run-dir C:/Temp/reapproval-live
-python evals/reapproval/run_reapproval.py --run --phase main --budget-usd 5 --repo C:/Users/USER/Documents/portfolio/tau2-bench --run-dir C:/Temp/reapproval-live
+.\var\runtime\Scripts\python.exe evals\reapproval\run_reapproval.py --run --phase pilot --repo var/tau2-source --budget-usd 5 --run-dir evals\reapproval\runs\series-1
+# Основной прогон — после разбора технически готового пилота.
+.\var\runtime\Scripts\python.exe evals\reapproval\run_reapproval.py --run --phase main --repo var/tau2-source --budget-usd 5 --run-dir evals\reapproval\runs\series-1
 ```
 
 Вторую команду запускают после разбора пилота: измерение должно работать, гипотеза
@@ -27,14 +32,16 @@ python evals/reapproval/run_reapproval.py --run --phase main --budget-usd 5 --re
 готовность пилота и неизменность кода, данных и настроек. Без этого она остановится.
 
 `budget.json` общий для подготовки, шести пилотных и восемнадцати основных попыток.
-Не создавайте новый каталог для обхода лимита. Ключи читаются из `.env` соседнего
-τ-bench только при `--run`, не передаются в параметры модели и не сохраняются.
+Не создавайте новый каталог для обхода лимита. Ключ читается из окружения либо
+`.env` checkout, указанного в `--repo`, только при `--run`; он не передаётся в
+параметры модели и не сохраняется. Установка и проверки приложения новую серию не запускают.
 Имитация клиента и сотрудника не вызывает API; отдельного оценщика нет.
 
 Модель — `openai/responses/gpt-6-luna`, `reasoning_effort=low`, `max_tokens=8192`,
 тайм-аут запроса до 90 секунд, повторов API и целой попытки нет. На всю попытку,
 включая повторную подготовку, допускаются 60 шагов и 600 секунд. Шаг — вызов модели,
-запрошенный ею инструмент или действие имитируемого сотрудника.
+запрошенный ею инструмент или действие имитируемого сотрудника. Эти ограничения
+относятся к стенду: в API-режиме рабочего места сохранён один технический повтор запроса.
 
 До каждого запроса в журнал записывается резерв: размер полного запроса в байтах
 UTF-8 плюс 8192 токена на обрамление, полный допустимый выход и более дорогой тариф
