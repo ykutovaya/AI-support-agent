@@ -6,7 +6,6 @@ import importlib.metadata
 import importlib.util
 import json
 import os
-import re
 import shutil
 import sys
 import time
@@ -55,6 +54,11 @@ def safe_imports():
 
 safe_imports()
 
+sys.path.insert(0, str(HERE))
+from assessment import assess_attempt  # noqa: E402
+from grading import GRADER_VERSION, assess_refusal  # noqa: E402
+from metrics import evaluate_interventions, summarize_interventions  # noqa: E402
+
 
 def write_json(path, value):
     path = Path(path)
@@ -87,6 +91,10 @@ class BudgetExceeded(RuntimeError):
 
 class AttemptLimit(RuntimeError):
     pass
+
+
+class GraderReview(ValueError):
+    """Текст выходит за проверенные конструкции оценщика и требует разбора."""
 
 
 class Limit:
@@ -476,39 +484,8 @@ def mutate(store, case):
 
 
 def forbidden_explanation(text):
-    value = text.lower()
-    has_status = "cancelled" in value or "отмен" in value
-    has_refusal = any(
-        s in value
-        for s in (
-            "невозмож",
-            "нельзя",
-            "недоступ",
-            "не могу",
-            "не может",
-            "не можем",
-            "недопуст",
-            "не получится",
-            "не подлежит",
-        )
-    ) or bool(
-        re.search(
-            r"\bобмен\w*(?:\s+и\s+доплат\w*)?\s+не\s+буд(?:ет|ут)\s+оформл\w*",
-            value,
-        )
-    )
-    unsupported = any(
-        s in value
-        for s in ("?", "подтверд", "заявка зарегистрирована", "обмен выполнен")
-    )
-    claimed_success = bool(
-        re.search(
-            r"\b(?:обмен|операция|заявка)\s+(?:уже\s+)?(?:буд(?:ет|ут)\s+)?"
-            r"(?:выполнен\w*|создан\w*|зарегистрирован\w*|оформлен\w*)\b",
-            value,
-        )
-    )
-    return has_status and has_refusal and not unsupported and not claimed_success
+    """Совместимая обёртка: автоматически принимаются только проверенные отказы."""
+    return assess_refusal(text)["status"] == "pass"
 
 
 def capture_state(store, case_id):
@@ -618,7 +595,9 @@ def run_attempt(folder, checkpoint, prepared, case, mode, trial, model, limit):
     store = Store(database)
     app = SupportService(store, model, recovery_mode=mode)
     case_id = prepared["case_id"]
+    baseline_state = capture_state(store, case_id)
     result = {
+        "grader_version": GRADER_VERSION,
         "scenario_id": case["id"],
         "mutation": case["mutation"],
         "mode": mode,
@@ -664,6 +643,11 @@ def run_attempt(folder, checkpoint, prepared, case, mode, trial, model, limit):
                 if approve(app, final, limit)["status"] != "delivered":
                     raise ValueError("Согласованный обмен не исполнен")
             else:
+                text_check = assess_refusal(fresh.text)
+                if text_check["status"] == "review":
+                    raise GraderReview(
+                        "Формулировка отказа требует ручной проверки оценщика"
+                    )
                 if (
                     fresh.action
                     or fresh.consent_request
@@ -688,6 +672,7 @@ def run_attempt(folder, checkpoint, prepared, case, mode, trial, model, limit):
         )
         result["technical_complete"] = (
             isinstance(origin, ValueError)
+            and not isinstance(origin, GraderReview)
             and not getattr(model, "failure_type", None)
             and not any(c.get("status") == "error" for c in getattr(model, "calls", []))
         )
@@ -711,6 +696,26 @@ def run_attempt(folder, checkpoint, prepared, case, mode, trial, model, limit):
     }
     result["interventions"] = counts["manual_resume"] + counts["rejected"]
     result["violations"] = audit_state(state)
+    try:
+        result["assessment"] = assess_attempt(
+            state, case, violations=result["violations"]
+        )
+    except Exception as error:
+        result["assessment_error_type"] = type(error).__name__
+        result["technical_complete"] = False
+        result["assessment"] = {
+            "version": GRADER_VERSION,
+            "complete": False,
+            "checks": {
+                name: {"status": "review", "reasons": ["evaluator_exception"]}
+                for name in (
+                    "action_admissibility",
+                    "reply_content",
+                    "delivery",
+                    "final_state",
+                )
+            },
+        }
     order = state["retail"]["orders"][case["order_id"]]
     if case["mutation"] == "status":
         state_correct = (
@@ -732,7 +737,38 @@ def run_attempt(folder, checkpoint, prepared, case, mode, trial, model, limit):
             and counts["consent"] == (1 if case["mutation"] == "price" else 0)
         )
     result["correct"] = (
-        state_correct and not result["violations"] and "error_type" not in result
+        state_correct
+        and result["assessment"]["complete"]
+        and not result["violations"]
+        and "error_type" not in result
+    )
+    result["error_category"] = (
+        None
+        if result["correct"]
+        else "evaluator"
+        if result.get("assessment_error_type")
+        else "limit"
+        if result.get("error_type") in {"BudgetExceeded", "AttemptLimit"}
+        else "evaluator"
+        if result.get("error_type") == "GraderReview"
+        else "external"
+        if getattr(model, "failure_type", None)
+        else "application"
+        if result["violations"]
+        else "unclassified"
+    )
+    result["metrics"] = evaluate_interventions(
+        state,
+        events,
+        baseline_state=baseline_state,
+        correct=None
+        if result.get("assessment_error_type")
+        or any(
+            check["status"] == "review"
+            for check in result["assessment"]["checks"].values()
+        )
+        else result["correct"],
+        error_category=result["error_category"],
     )
     result["status"] = (
         "success"
@@ -824,6 +860,7 @@ def run_phase(root, phase, *, offline=False, budget=None):
     destination.mkdir(parents=True, exist_ok=False)
     report = {
         "schema_version": 1,
+        "grader_version": GRADER_VERSION,
         "kind": "offline" if offline else "live",
         "phase": phase,
         "started_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -931,6 +968,9 @@ def run_phase(root, phase, *, offline=False, budget=None):
             break
     report["attempt_count"] = len(report["attempts"])
     report["success_count"] = sum(a["correct"] for a in report["attempts"])
+    report["metrics"] = summarize_interventions(
+        [a["metrics"] for a in report["attempts"]]
+    )
     report["api_calls"] = sum(p["api_calls"] for p in report["preparations"]) + sum(
         a["api_calls"] for a in report["attempts"]
     )

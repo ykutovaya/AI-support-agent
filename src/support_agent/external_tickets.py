@@ -228,9 +228,7 @@ class ExternalTicketExecution:
                 delivery_id = delivery["id"]
             else:
                 case = self.store.load_case(conn, row["case_id"])
-                conn.execute(
-                    "INSERT INTO operations VALUES (?,?)", (proposal_id, encode(result))
-                )
+                self.store.save_operation(conn, proposal_id, result)
                 conn.execute(
                     """UPDATE external_ticket_operations SET status='verified',ticket_id=?,result=?,reason=''
                     WHERE proposal_id=?""",

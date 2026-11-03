@@ -1,5 +1,6 @@
 """Неденежная локальная заявка на общем экране сотрудника."""
 
+import test_ui
 from test_ticket_flow import ticket_service
 from test_ui import EMPLOYEE, FakeService, visible_text
 
@@ -8,7 +9,7 @@ from support_agent.proposals import Action, Proposal
 from support_agent.storage import Store
 from support_agent.workflow import SupportService
 
-pytest_plugins = ["test_ui"]
+open_app = test_ui.open_app
 
 
 def ticket_proposal(case_id):

@@ -3,6 +3,7 @@
 import json
 import sqlite3
 from contextlib import contextmanager
+from datetime import datetime, timezone
 from pathlib import Path
 from uuid import uuid4
 
@@ -38,6 +39,9 @@ class Store:
                     employee_id TEXT NOT NULL);
                 CREATE TABLE IF NOT EXISTS operations (
                     proposal_id TEXT PRIMARY KEY REFERENCES proposals(id), result TEXT NOT NULL);
+                CREATE TABLE IF NOT EXISTS operation_verifications (
+                    proposal_id TEXT PRIMARY KEY REFERENCES operations(proposal_id),
+                    verified_at TEXT NOT NULL);
                 CREATE TABLE IF NOT EXISTS support_tickets (
                     id INTEGER PRIMARY KEY, proposal_id TEXT UNIQUE NOT NULL REFERENCES proposals(id),
                     case_id TEXT NOT NULL REFERENCES cases(id), user_id TEXT NOT NULL,
@@ -111,6 +115,17 @@ class Store:
     @staticmethod
     def save_retail(conn, snapshot):
         conn.execute("UPDATE retail_state SET body=? WHERE id=1", (encode(snapshot),))
+
+    @staticmethod
+    def save_operation(conn, proposal_id, result):
+        """Записать проверенный результат и время в той же транзакции."""
+        conn.execute(
+            "INSERT INTO operations VALUES (?,?)", (proposal_id, encode(result))
+        )
+        conn.execute(
+            "INSERT INTO operation_verifications VALUES (?,?)",
+            (proposal_id, datetime.now(timezone.utc).isoformat()),
+        )
 
     def create_case(self, user_id, employee_id):
         case_id = uuid4().hex

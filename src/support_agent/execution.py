@@ -221,10 +221,7 @@ class Executor(ExternalTicketExecution):
                                 "reason": "Заявка по этому вопросу уже зарегистрирована",
                                 "operation_result": result,
                             }
-                        conn.execute(
-                            "INSERT INTO operations VALUES (?,?)",
-                            (proposal_id, encode(result)),
-                        )
+                        self.store.save_operation(conn, proposal_id, result)
                         if not is_ticket:
                             conn.execute(
                                 "UPDATE consents SET revoked=1 WHERE case_id=?",

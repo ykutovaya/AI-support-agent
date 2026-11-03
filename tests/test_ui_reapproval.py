@@ -72,7 +72,7 @@ def recovering_service(mode, status="pending", *, replaced=False):
 
 @pytest.mark.parametrize("mode", ["manual", "auto"])
 @pytest.mark.parametrize("replaced", [False, True])
-def test_difference_is_visible_only_in_auto_mode_and_retained_for_new_version(
+def test_difference_is_visible_in_both_modes_and_retained_for_new_version(
     open_app, mode, replaced
 ):
     service = recovering_service(
@@ -83,11 +83,10 @@ def test_difference_is_visible_only_in_auto_mode_and_retained_for_new_version(
     assert "Изменилась сумма доплаты." in content
     if mode == "auto":
         assert "Автоматическая подготовка новой версии" in content
-        assert "Было: 16.85 USD" in content
-        assert "Стало: 21.10 USD" in content
     else:
         assert "Подготовка новой версии по команде сотрудника" in content
-        assert "Было:" not in content and "Стало:" not in content
+    assert "Было: 16.85 USD" in content
+    assert "Стало: 21.10 USD" in content
     assert service.resumes == []
     assert service.approvals == []
     assert service.operations == []

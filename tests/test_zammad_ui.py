@@ -1,10 +1,11 @@
 """Удалённая заявка и чтение неизвестного результата в существующей карточке."""
 
 import pytest
+import test_ui
 from test_ticket_ui import ticket_proposal
 from test_ui import EMPLOYEE, FakeService, visible_text
 
-pytest_plugins = ["test_ui"]
+open_app = test_ui.open_app
 
 
 def remote_proposal(case_id):

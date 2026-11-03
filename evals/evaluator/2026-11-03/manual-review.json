@@ -1,0 +1,74 @@
+{
+  "reviewer": "assistant",
+  "date": "2026-11-03",
+  "human_usability_acceptance": false,
+  "automatic_grades_changed": false,
+  "entries": [
+    {
+      "series": "2026-10-31/pilot",
+      "attempt_id": "pilot-status-0-manual",
+      "source": "evals/reapproval/2026-10-31/pilot/attempts/pilot-status-0-manual/state.json",
+      "source_sha256": "a1615e8bca4dd8825ed36c337afc0955ac0aeed417a0a4b3a65d65620bf1eba6",
+      "proposal_id": "62280e4bc16049df9e9bdbbaf161726a",
+      "text_semantics": "корректный отказ по отменённому заказу; нет обещания исполнения или нового согласия",
+      "format": "клиенту доставлен исходный JSON, а не обычный текст",
+      "automatic_status": "review",
+      "original_grade_changed": false
+    },
+    {
+      "series": "2026-10-31-revised/pilot",
+      "attempt_id": "pilot-status-0-manual",
+      "source": "evals/reapproval/2026-10-31-revised/pilot/attempts/pilot-status-0-manual/state.json",
+      "source_sha256": "6fb16157cf635a8b1f01c72923cae4211f447633f48b0ca984e73fae205a7491",
+      "proposal_id": "dd4acd2e42744a2e9dde1cf7138d802a",
+      "text_semantics": "корректный отказ по отменённому заказу; нет обещания исполнения или нового согласия",
+      "format": "клиенту доставлен исходный JSON, а не обычный текст",
+      "automatic_status": "review",
+      "original_grade_changed": false
+    },
+    {
+      "series": "2026-10-31-revised/pilot",
+      "attempt_id": "pilot-status-0-auto",
+      "source": "evals/reapproval/2026-10-31-revised/pilot/attempts/pilot-status-0-auto/state.json",
+      "source_sha256": "4307f1aa3aac4d1be0b8043bebaa917a48afa8a8452f55e84802bf3a5d310cfe",
+      "proposal_id": "1e35b6b141f74b589fb7caac3c6b5aa6",
+      "text_semantics": "корректный отказ по отменённому заказу; нет обещания исполнения или нового согласия",
+      "format": "клиенту доставлен исходный JSON, а не обычный текст",
+      "automatic_status": "review",
+      "original_grade_changed": false
+    },
+    {
+      "series": "2026-10-31-revised/main",
+      "attempt_id": "main-status-0-manual",
+      "source": "evals/reapproval/2026-10-31-revised/main/attempts/main-status-0-manual/state.json",
+      "source_sha256": "668dab55595c0c1444a15a3aaca793bb9c20171e8d9d8b8bd56df73fb7b834b5",
+      "proposal_id": "225d9d7399134985a32bd3cd9e1eb5a8",
+      "text_semantics": "корректный отказ по отменённому заказу; нет обещания исполнения или нового согласия",
+      "format": "клиенту доставлен исходный JSON, а не обычный текст",
+      "automatic_status": "review",
+      "original_grade_changed": false
+    },
+    {
+      "series": "2026-10-31-revised/main",
+      "attempt_id": "main-status-0-auto",
+      "source": "evals/reapproval/2026-10-31-revised/main/attempts/main-status-0-auto/state.json",
+      "source_sha256": "23829bc9c49738430e4c732ec75f26520d6f6b3e9ceb787a24c8c18c03d1dddb",
+      "proposal_id": "bae32a43e3e44310a00772dbbbc0dd9f",
+      "text_semantics": "корректный отказ по отменённому заказу; нет обещания исполнения или нового согласия",
+      "format": "клиенту доставлен исходный JSON, а не обычный текст",
+      "automatic_status": "review",
+      "original_grade_changed": false
+    },
+    {
+      "series": "2026-10-31-revised/main",
+      "attempt_id": "main-status-1-auto",
+      "source": "evals/reapproval/2026-10-31-revised/main/attempts/main-status-1-auto/state.json",
+      "source_sha256": "d49650f67354dd2a8fa96c25015278c042c3d6334125f0b5077a885f347a712f",
+      "proposal_id": "918cb32fb6404e5a8dc7119868f066bf",
+      "text_semantics": "корректный отказ по отменённому заказу; нет обещания исполнения или нового согласия",
+      "format": "клиенту доставлен исходный JSON, а не обычный текст",
+      "automatic_status": "review",
+      "original_grade_changed": false
+    }
+  ]
+}

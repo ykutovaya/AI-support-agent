@@ -1,0 +1,115 @@
+{
+  "date": "2026-11-03",
+  "base_commit": "667e4fe1b81fbcd278715b208a60fc302060b51d",
+  "python": "3.12.12",
+  "streamlit": "1.56.0",
+  "tau2_commit": "da0835f6c67baef58bdda18f2a3b037dfb3a1754",
+  "model": "DemoModel / scripted test models",
+  "ticket_backend": "local / fake Zammad API",
+  "paid_api_calls": 0,
+  "real_zammad_requests": 0,
+  "pytest": {
+    "tests": 418,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "command": "python -m pytest -q -p no:cacheprovider --basetemp <temporary-directory> --junitxml <report>"
+  },
+  "ruff": "passed",
+  "tdd": [
+    {
+      "run": "setup-red.xml",
+      "tests": 2,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0,
+      "failed_checks": [
+        "test_three_cases_keep_price_change_separate_and_do_not_execute",
+        "test_setup_refuses_to_overwrite_an_existing_database"
+      ]
+    },
+    {
+      "run": "verification-red.xml",
+      "tests": 8,
+      "failures": 8,
+      "errors": 0,
+      "skipped": 0,
+      "failed_checks": [
+        "test_current_approvals_and_verification_survive_replay_without_new_time",
+        "test_new_draft_does_not_borrow_previous_result_or_approval",
+        "test_historical_operation_has_no_invented_verification_time",
+        "test_saved_data_mismatch_cannot_look_confirmed[deliveries-text]",
+        "test_saved_data_mismatch_cannot_look_confirmed[outbox-text]",
+        "test_saved_data_mismatch_cannot_look_confirmed[approvals-digest]",
+        "test_unknown_external_result_gets_time_only_after_verified_recovery",
+        "test_failed_transaction_does_not_keep_verification_time"
+      ]
+    },
+    {
+      "run": "ui-red.xml",
+      "tests": 10,
+      "failures": 10,
+      "errors": 0,
+      "skipped": 0,
+      "failed_checks": [
+        "test_selected_case_survives_a_new_browser_session_without_side_effects",
+        "test_foreign_case_from_url_is_not_opened_and_does_not_hide_saved_cases",
+        "test_current_case_order_and_required_step_are_explicit[pending-\\u041f\\u0440\\u043e\\u0432\\u0435\\u0440\\u044c\\u0442\\u0435 \\u0434\\u0435\\u0439\\u0441\\u0442\\u0432\\u0438\\u0435 \\u0438 \\u0442\\u043e\\u0447\\u043d\\u044b\\u0439 \\u0442\\u0435\\u043a\\u0441\\u0442]",
+        "test_current_case_order_and_required_step_are_explicit[stale-\\u041f\\u0440\\u0435\\u0436\\u043d\\u0435\\u0435 \\u043f\\u043e\\u0434\\u0442\\u0432\\u0435\\u0440\\u0436\\u0434\\u0435\\u043d\\u0438\\u0435 \\u043d\\u0435\\u0434\\u0435\\u0439\\u0441\\u0442\\u0432\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u043e]",
+        "test_current_case_order_and_required_step_are_explicit[delivery_failed-\\u041f\\u043e\\u0432\\u0442\\u043e\\u0440\\u0438\\u0442\\u0435 \\u0434\\u043e\\u0441\\u0442\\u0430\\u0432\\u043a\\u0443 \\u0441\\u043e\\u0433\\u043b\\u0430\\u0441\\u043e\\u0432\\u0430\\u043d\\u043d\\u043e\\u0433\\u043e \\u0442\\u0435\\u043a\\u0441\\u0442\\u0430]",
+        "test_current_case_order_and_required_step_are_explicit[unknown-\\u041f\\u0440\\u043e\\u0432\\u0435\\u0440\\u044c\\u0442\\u0435 \\u0440\\u0435\\u0437\\u0443\\u043b\\u044c\\u0442\\u0430\\u0442 \\u0432 Zammad]",
+        "test_raw_journal_is_collapsed_and_previous_operation_is_not_current_success",
+        "test_four_result_blocks_distinguish_saved_verification_from_delivery[None]",
+        "test_four_result_blocks_distinguish_saved_verification_from_delivery[2026-11-03T10:20:30+00:00]",
+        "test_old_delivery_does_not_mark_current_reply_as_sent"
+      ]
+    },
+    {
+      "run": "manual-difference-red.xml",
+      "tests": 4,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0,
+      "failed_checks": [
+        "test_difference_is_visible_in_both_modes_and_retained_for_new_version[False-manual]",
+        "test_difference_is_visible_in_both_modes_and_retained_for_new_version[True-manual]"
+      ]
+    },
+    {
+      "run": "ui-readability-extra-red.xml",
+      "tests": 4,
+      "failures": 4,
+      "errors": 0,
+      "skipped": 0,
+      "failed_checks": [
+        "test_card_explains_items_and_payment_with_names_not_only_identifiers",
+        "test_recovery_hint_does_not_direct_to_disabled_resume[failed-\\u041f\\u043e\\u0434\\u0433\\u043e\\u0442\\u043e\\u0432\\u044c\\u0442\\u0435 \\u0440\\u0435\\u0448\\u0435\\u043d\\u0438\\u0435 \\u0437\\u0430\\u043d\\u043e\\u0432\\u043e]",
+        "test_recovery_hint_does_not_direct_to_disabled_resume[running-\\u0414\\u043e\\u0436\\u0434\\u0438\\u0442\\u0435\\u0441\\u044c \\u043d\\u043e\\u0432\\u043e\\u0439 \\u0432\\u0435\\u0440\\u0441\\u0438\\u0438]",
+        "test_recovery_hint_does_not_direct_to_disabled_resume[cancelled-\\u0412\\u0432\\u0435\\u0434\\u0438\\u0442\\u0435 \\u0443\\u0442\\u043e\\u0447\\u043d\\u0435\\u043d\\u0438\\u0435 \\u043a\\u043b\\u0438\\u0435\\u043d\\u0442\\u0430]"
+      ]
+    },
+    {
+      "run": "ui-stale-red.xml",
+      "tests": 2,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0,
+      "failed_checks": [
+        "test_stale_without_recovery_offers_existing_prepare_control"
+      ]
+    }
+  ],
+  "ui_flows": {
+    "exchange": "passed; 2.35 USD, 1 operation, 2 deliveries",
+    "price_change": "passed; stale action blocked, 9.99 USD after new approvals, 1 operation, 3 deliveries",
+    "local_ticket": "passed; 1 ticket, 1 operation, 1 delivery, no retail mutation",
+    "refresh": "passed; selected case restored from URL, saved state unchanged"
+  },
+  "human_acceptance": "pending; earlier assisted acceptance is preserved",
+  "limits": [
+    "Streamlit AppTest, not a human usability check",
+    "Results and timestamps are saved evidence, not live cloud reads",
+    "Legacy operations have no invented timestamp",
+    "No deployment, cloud calls, model evaluations or later plan stages"
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "date": "2026-11-03",
+  "base_commit": "667e4fe1b81fbcd278715b208a60fc302060b51d",
+  "base_note": "includes earlier uncommitted stage1 UI changes; precise files pinned by hashes",
+  "python": "3.12.12",
+  "grader_version": "reapproval-refusal-v2",
+  "metrics_version": "interventions-v1",
+  "pytest": {
+    "tests": 67,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "scope": "affected evaluator tests; includes offline executor flows and read-only history export",
+  "full_application_suite_repeated": false,
+  "ruff": "passed",
+  "paid_api_calls": 0,
+  "application_source_changed": false,
+  "historical_grades_changed": false,
+  "tdd": [
+    {
+      "run": "refusal-red.xml",
+      "tests": 12,
+      "failures": 7,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "run": "refusal-side-effects-red.xml",
+      "tests": 15,
+      "failures": 3,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "run": "refusal-residual-red.xml",
+      "tests": 21,
+      "failures": 6,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "run": "refusal-negation-red.xml",
+      "tests": 24,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "run": "metrics-red.xml",
+      "tests": 8,
+      "failures": 8,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "run": "metrics-approval-red.xml",
+      "tests": 9,
+      "failures": 3,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "run": "assessment-red.xml",
+      "tests": 5,
+      "failures": 5,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "run": "assessment-integrity-red.xml",
+      "tests": 7,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "run": "reporting-red.xml",
+      "tests": 2,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "run": "grader-crash-red.xml",
+      "tests": 1,
+      "failures": 1,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "source_sha256": {
+    "evals/reapproval/assessment.py": "b9284cc377a73e1f17f3383de9b6597141c832efe2c93e02677cccc6e6418b76",
+    "evals/reapproval/grading.py": "1f13aa89e71b56b100bfc460861d5ae3c3f1553b1eaf5e862f921516295472b6",
+    "evals/reapproval/metrics.py": "7c3f806fba713a2ced5e55ec1e89b0a2e0be2e01aa3a7888663e01531a04fd30",
+    "evals/reapproval/review_saved.py": "9eee254376d001a492fd028f5da7f3b32098ac653fc606d1c72e9df29c72b689",
+    "evals/reapproval/run_reapproval.py": "51ea2cbb8dcb4a367fce5a8b01073956089191db74bde446f4068c52766a3ef2",
+    "evals/reapproval/scenarios.json": "ef5cde8327bdd5e46709d739aee5636c4ce9f3bdf24af0f557a36412e95ef09a",
+    "src/support_agent/__init__.py": "3dab7fa392438c0f8fb323f52e3999144b77cfc71ee6ca91cde18f4e6e73bcdf",
+    "src/support_agent/adapters/__init__.py": "01a9b010035def2b4ba4b6d05eab45f93d3f6aab32dc3406ec61e94e02201aec",
+    "src/support_agent/adapters/demo_model.py": "27dfb52925124e422032857ba39d49416e7fabed005519a8031fcf71cb48a555",
+    "src/support_agent/adapters/llm.py": "59190880af8d5f88fa86eb3c573a6b2c7f6d2ea2c53126946a4c5e6a0b9d80a7",
+    "src/support_agent/adapters/retail.py": "feece21849bbed4929dd6d8e5a617ccc9f3c0cdb119f3993b99c2c28ab87c52c",
+    "src/support_agent/adapters/tau_bench.py": "bd8208af850ee61a2fa92926b13ac192d32f50a4698e472ece2ac9437229df22",
+    "src/support_agent/adapters/ticket_retail.py": "1837356b69d6d671de87569c35e1e23bf0b37485f70cf696bb62dfdede12a087",
+    "src/support_agent/adapters/zammad.py": "082b91e93f9dbe9ad80b6f51816d4748e934fbbe41c4e00cd153ba13e343f6d2",
+    "src/support_agent/agent.py": "1d4247931ddb96c3f73118a0b7839472b7ff52e75d29020beab0f52fd5d6fe54",
+    "src/support_agent/bootstrap.py": "e56b7d8f372b04f144faf87688f2831c0f93d71d422bc22f3170503e8d89b9ab",
+    "src/support_agent/demo.py": "b7c3991bc27aa09c9032da1f53aba752a9d2f20e46c39df48d021d3eea70aa5d",
+    "src/support_agent/execution.py": "4ede7c0b34b7e963519251f93223e29ac69659735e0f4b46f1182c5b7937b7cf",
+    "src/support_agent/external_tickets.py": "c7935b6c15784bddbf31cb5f686d3a68e0b6c6951c98b17285852f9c3ce1171c",
+    "src/support_agent/models.py": "1e9487bae05f7c824ed8bb29f62b9629014987871b5b16bd31d487e69d8060a9",
+    "src/support_agent/proposals.py": "6a88890ae4f2945fd8cdb34c8de19f559631e946a6f026aa5423d1b29f6bc057",
+    "src/support_agent/storage.py": "9ff946cc9d6ea221630e90abf28e5ad29702f2cdd31514b124cc0fc1fade5672",
+    "src/support_agent/tickets.py": "d7d3d4e4d378f8fa7e2139a7c09ab494c935f891dcabd6e6e44ddb16afafe842",
+    "src/support_agent/ui.py": "f2ffc95235c62410d06b00ebed9acf2ca5ada08d401d489ee6c3d35fdaf56511",
+    "src/support_agent/workflow.py": "1931f17994baa8865b0799c7a4e0fe0350b68e50168c3577aa0aa67485798596",
+    "tests/test_attempt_assessment.py": "8d420792a3842736ccaa60be949a3acb42f9aea98614b1f522a520aae5995c04",
+    "tests/test_grader_reporting.py": "356ef4bc7e436eba1ecba182d46cc6f3cbf9af488efe26f4faccc640658021e9",
+    "tests/test_intervention_metrics.py": "41186f37f26daea54dab0308670dde615aa77cc744ded9cb78107a3c1e183e5b",
+    "tests/test_reapproval_eval.py": "9e6d59a5ab2e6983534927b9086fcf250a1a9997a95c9f293f07e899ee845ed2",
+    "tests/test_refusal_grading.py": "ab318d4887092478c133c3169e4691fbf6a17403edac96a1b6b5dec560163608"
+  }
+}

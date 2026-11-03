@@ -560,6 +560,114 @@ class SupportService:
             "Условия изменились; продолжите расследование и согласуйте новый запрос"
         )
 
+    @staticmethod
+    def _consent_view(conn, case_id, proposal, operation):
+        action = proposal.action or proposal.consent_request if proposal else None
+        if action is None or action.name == "create_support_ticket":
+            return {"status": "not_required"}
+        consent = conn.execute(
+            """SELECT c.* FROM consents c JOIN outbox o ON o.proposal_id=c.question_id
+            WHERE c.case_id=? AND c.action_hash=? AND o.status='delivered'
+            ORDER BY c.rowid DESC LIMIT 1""",
+            (case_id, action.fingerprint()),
+        ).fetchone()
+        if consent is None:
+            return {"status": "waiting"}
+        status = (
+            "used"
+            if operation is not None and consent["accepted"]
+            else "outdated"
+            if consent["revoked"]
+            else "confirmed"
+            if consent["accepted"]
+            else "rejected"
+        )
+        return {"status": status, "response": consent["response"]}
+
+    @staticmethod
+    def _verification_view(conn, case, proposal, status, operation):
+        """Прочитать связанные записи, не выполнять действие и не обращаться в облако."""
+        verification = {
+            "status": "not_checked",
+            "verified_at": None,
+            "source": None,
+            "reason": "Исполнение ещё не подтверждено",
+        }
+        if proposal is None:
+            return None, None, verification
+        approval_row = conn.execute(
+            "SELECT * FROM approvals WHERE proposal_id=?", (proposal.id,)
+        ).fetchone()
+        approval = dict(approval_row) if approval_row else None
+        if approval:
+            approval["valid"] = (
+                approval["digest"] == proposal.digest()
+                and approval["employee_id"] == case["employee_id"]
+            )
+        outgoing_row = conn.execute(
+            "SELECT * FROM outbox WHERE proposal_id=?", (proposal.id,)
+        ).fetchone()
+        outgoing = dict(outgoing_row) if outgoing_row else None
+        delivered = None
+        if outgoing:
+            delivered = conn.execute(
+                "SELECT * FROM deliveries WHERE id=?", (outgoing["id"],)
+            ).fetchone()
+            outgoing["delivered"] = bool(
+                delivered
+                and delivered["case_id"] == case["id"]
+                and delivered["text"] == proposal.text == outgoing["text"]
+            )
+        if operation is not None:
+            timestamp = conn.execute(
+                "SELECT verified_at FROM operation_verifications WHERE proposal_id=?",
+                (proposal.id,),
+            ).fetchone()
+            verification.update(
+                status="confirmed",
+                source="saved_execution",
+                verified_at=timestamp["verified_at"] if timestamp else None,
+                reason="Сохранён результат проверки после исполнения",
+            )
+        elif outgoing and outgoing["delivered"]:
+            verification.update(
+                status="confirmed",
+                source="saved_delivery",
+                reason="Доставлен точный согласованный текст",
+            )
+        elif status in {"unknown", "submitting"}:
+            verification.update(
+                status="unknown",
+                reason="Результат внешней записи не подтверждён",
+            )
+        mismatch = (
+            (approval is not None and not approval["valid"])
+            or ((operation is not None or outgoing is not None) and approval is None)
+            or (
+                outgoing is not None
+                and (
+                    outgoing["case_id"] != case["id"]
+                    or outgoing["text"] != proposal.text
+                    or (outgoing["status"] == "delivered" and not outgoing["delivered"])
+                    or (delivered is not None and not outgoing["delivered"])
+                )
+            )
+            or (
+                operation is not None
+                and (
+                    proposal.action is None
+                    or json.loads(operation["result"]).get("status")
+                    != proposal.action.result_status
+                )
+            )
+        )
+        if mismatch:
+            verification.update(
+                status="mismatch",
+                reason="Сохранённые согласование, результат или ответ не совпадают",
+            )
+        return approval, outgoing, verification
+
     def view(self, case_id, employee_id):
         case = self.store.case(case_id)
         check_employee(case, employee_id)
@@ -595,6 +703,10 @@ class SupportService:
                 else None
             )
             operation_result = json.loads(operation["result"]) if operation else None
+            approval, current_delivery, verification = self._verification_view(
+                conn, case, proposal, row["status"] if row else "", operation
+            )
+            client_consent = self._consent_view(conn, case_id, proposal, operation)
             if proposal and row["status"] == "duplicate" and operation is None:
                 operation_result = existing_ticket_result(conn, case, proposal)
         return {
@@ -607,6 +719,10 @@ class SupportService:
             "events": self.store.events(case_id),
             "deliveries": deliveries,
             "operation_result": operation_result,
+            "approval": approval,
+            "client_consent": client_consent,
+            "current_delivery": current_delivery,
+            "verification": verification,
             "waiting_consent": proposal
             if proposal
             and proposal.consent_request
