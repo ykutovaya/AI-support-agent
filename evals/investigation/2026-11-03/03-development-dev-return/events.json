@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "case_id": "b6f2dd70f7f545948e7714cef45e0d15",
+    "kind": "customer",
+    "text": "Верните наушники из заказа #D002. Email d002@example.test. Деньги прошу на ту же карту, которой платил, 1111."
+  },
+  {
+    "id": 2,
+    "case_id": "b6f2dd70f7f545948e7714cef45e0d15",
+    "kind": "tool",
+    "text": "find_user_id_by_email: {\"email\": \"d002@example.test\"}"
+  },
+  {
+    "id": 3,
+    "case_id": "b6f2dd70f7f545948e7714cef45e0d15",
+    "kind": "tool",
+    "text": "get_order_details: {\"order_id\": \"#D002\"}"
+  },
+  {
+    "id": 4,
+    "case_id": "b6f2dd70f7f545948e7714cef45e0d15",
+    "kind": "tool",
+    "text": "get_user_details: {\"user_id\": \"customer_d002\"}"
+  }
+]

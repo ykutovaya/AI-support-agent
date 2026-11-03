@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "case_id": "3240d0aca8cf45a6a8b1bc8c9729f35f",
+    "kind": "customer",
+    "text": "Поменяйте чёрные наушники на белые по #C007. Разницу с карты 1111. Мой email c007@example.test."
+  },
+  {
+    "id": 2,
+    "case_id": "3240d0aca8cf45a6a8b1bc8c9729f35f",
+    "kind": "tool",
+    "text": "find_user_id_by_email: {\"email\": \"c007@example.test\"}"
+  },
+  {
+    "id": 3,
+    "case_id": "3240d0aca8cf45a6a8b1bc8c9729f35f",
+    "kind": "tool",
+    "text": "get_order_details: {\"order_id\": \"#C007\"}"
+  },
+  {
+    "id": 4,
+    "case_id": "3240d0aca8cf45a6a8b1bc8c9729f35f",
+    "kind": "tool",
+    "text": "get_product_details: {\"product_id\": \"headphones_c007\"}"
+  },
+  {
+    "id": 5,
+    "case_id": "3240d0aca8cf45a6a8b1bc8c9729f35f",
+    "kind": "tool",
+    "text": "propose_exchange: {\"order_id\": \"#C007\", \"item_ids\": [\"black_c007\"], \"new_item_ids\": [\"white_c007\"], \"payment_method_id\": \"card\"}"
+  },
+  {
+    "id": 6,
+    "case_id": "3240d0aca8cf45a6a8b1bc8c9729f35f",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 1"
+  },
+  {
+    "id": 7,
+    "case_id": "3240d0aca8cf45a6a8b1bc8c9729f35f",
+    "kind": "sent",
+    "text": "Заявка на обмен 1 позиций заказа #C007. Заказ #C007. Позиции: black_c007. Замена на: white_c007. Доплата: 3.35 USD. Способ оплаты: card. Подтвердите эти условия."
+  },
+  {
+    "id": 8,
+    "case_id": "3240d0aca8cf45a6a8b1bc8c9729f35f",
+    "kind": "customer",
+    "text": "Подтверждаю указанные позиции, замену, способ оплаты и сумму 3.35 USD."
+  },
+  {
+    "id": 9,
+    "case_id": "3240d0aca8cf45a6a8b1bc8c9729f35f",
+    "kind": "consent",
+    "text": "Клиент подтвердил текущие условия"
+  },
+  {
+    "id": 10,
+    "case_id": "3240d0aca8cf45a6a8b1bc8c9729f35f",
+    "kind": "customer",
+    "text": "Передумал. Не оформляйте обмен и ничего не меняйте. Оставлю чёрные наушники."
+  },
+  {
+    "id": 11,
+    "case_id": "3240d0aca8cf45a6a8b1bc8c9729f35f",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 3"
+  },
+  {
+    "id": 12,
+    "case_id": "3240d0aca8cf45a6a8b1bc8c9729f35f",
+    "kind": "sent",
+    "text": "Понял. Обмен не оформляю: чёрные наушники остаются у вас, списания не будет."
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "case_id": "5a076cd25dae4c9a968e169eeff7901f",
+    "kind": "customer",
+    "text": "Заказ #D004 отменён, но мне всё равно нужен обмен чёрных наушников на белые. Email d004@example.test, исходная карта 1111."
+  },
+  {
+    "id": 2,
+    "case_id": "5a076cd25dae4c9a968e169eeff7901f",
+    "kind": "tool",
+    "text": "find_user_id_by_email: {\"email\": \"d004@example.test\"}"
+  }
+]

@@ -55,3 +55,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Дополнительные случаи расследования
+
+`evals/investigation/cases.json`, `cases.py` и `policy.md` — собственные синтетические обращения и правила для проверки полного процесса. Снимки создаются из собственного `evals/reapproval/base_shop.json` в формате retail и проверяются типами закреплённой версии τ-bench. Это не штатные задания τ-bench и не правила Softline. Исходные задания, правила и база τ-bench не изменяются; результаты учитываются отдельно.

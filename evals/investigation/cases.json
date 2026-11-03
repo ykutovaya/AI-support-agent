@@ -1,0 +1,288 @@
+[
+  {
+    "id": "dev-exchange",
+    "split": "development",
+    "user_id": "customer_d001",
+    "email": "d001@example.test",
+    "product_id": "headphones_d001",
+    "old_item_id": "black_d001",
+    "new_item_id": "white_d001",
+    "initial_status": "delivered",
+    "purchase_price": "14.00",
+    "variant_price": "17.50",
+    "initial_amount": "3.50",
+    "goal": "exchange",
+    "initial_message": "Хочу поменять чёрные наушники на белые. Мой email d001@example.test. Заказ #D001. Оплачу разницу прежней картой, оканчивающейся на 1111.",
+    "expected": {
+      "order_id": "#D001",
+      "item_ids": [
+        "black_d001"
+      ],
+      "payment_method_id": "card",
+      "amount": "3.50",
+      "result_status": "exchange requested",
+      "new_item_ids": [
+        "white_d001"
+      ]
+    },
+    "interactions": []
+  },
+  {
+    "id": "dev-return",
+    "split": "development",
+    "user_id": "customer_d002",
+    "email": "d002@example.test",
+    "product_id": "headphones_d002",
+    "old_item_id": "black_d002",
+    "new_item_id": "white_d002",
+    "initial_status": "delivered",
+    "purchase_price": "23.40",
+    "variant_price": "25.90",
+    "initial_amount": "-23.40",
+    "goal": "return",
+    "initial_message": "Верните наушники из заказа #D002. Email d002@example.test. Деньги прошу на ту же карту, которой платил, 1111.",
+    "expected": {
+      "order_id": "#D002",
+      "item_ids": [
+        "black_d002"
+      ],
+      "payment_method_id": "card",
+      "amount": "-23.40",
+      "result_status": "return requested"
+    },
+    "interactions": []
+  },
+  {
+    "id": "dev-ticket",
+    "split": "development",
+    "user_id": "customer_d003",
+    "email": "d003@example.test",
+    "product_id": "headphones_d003",
+    "old_item_id": "black_d003",
+    "new_item_id": "white_d003",
+    "initial_status": "exchange requested",
+    "purchase_price": "18.00",
+    "variant_price": "20.20",
+    "initial_amount": null,
+    "goal": "ticket",
+    "initial_message": "По заказу #D003 обмен обещали, но в истории только заявка. Что с результатом? Передайте специалисту, если проверить нельзя. Email d003@example.test.",
+    "expected": {
+      "order_id": "#D003",
+      "item_ids": [
+        "black_d003"
+      ],
+      "payment_method_id": "card",
+      "amount": null,
+      "result_status": "ticket created"
+    },
+    "interactions": []
+  },
+  {
+    "id": "dev-cancelled",
+    "split": "development",
+    "user_id": "customer_d004",
+    "email": "d004@example.test",
+    "product_id": "headphones_d004",
+    "old_item_id": "black_d004",
+    "new_item_id": "white_d004",
+    "initial_status": "cancelled",
+    "purchase_price": "15.00",
+    "variant_price": "19.00",
+    "initial_amount": null,
+    "goal": "refusal",
+    "initial_message": "Заказ #D004 отменён, но мне всё равно нужен обмен чёрных наушников на белые. Email d004@example.test, исходная карта 1111.",
+    "expected": {
+      "order_id": "#D004",
+      "item_ids": [
+        "black_d004"
+      ],
+      "payment_method_id": "card",
+      "amount": null,
+      "result_status": "cancelled"
+    },
+    "interactions": []
+  },
+  {
+    "id": "control-identity",
+    "split": "control",
+    "user_id": "customer_c005",
+    "email": "c005@example.test",
+    "product_id": "headphones_c005",
+    "old_item_id": "black_c005",
+    "new_item_id": "white_c005",
+    "initial_status": "delivered",
+    "purchase_price": "31.10",
+    "variant_price": "34.25",
+    "initial_amount": "3.15",
+    "goal": "exchange",
+    "initial_message": "Наушники хочу белые вместо чёрных, разницу той же картой 1111. Что нужно, чтобы найти мой заказ?",
+    "expected": {
+      "order_id": "#C005",
+      "item_ids": [
+        "black_c005"
+      ],
+      "payment_method_id": "card",
+      "amount": "3.15",
+      "result_status": "exchange requested",
+      "new_item_ids": [
+        "white_c005"
+      ]
+    },
+    "interactions": [
+      {
+        "trigger": "message",
+        "kind": "customer",
+        "text": "Мой email c005@example.test. Нужны белые вместо чёрных; разницу оплачиваю исходной картой 1111."
+      }
+    ]
+  },
+  {
+    "id": "control-multiple",
+    "split": "control",
+    "user_id": "customer_c006",
+    "email": "c006@example.test",
+    "product_id": "headphones_c006",
+    "old_item_id": "black_c006",
+    "new_item_id": "white_c006",
+    "initial_status": "delivered",
+    "purchase_price": "42.00",
+    "variant_price": "46.60",
+    "initial_amount": "4.60",
+    "goal": "exchange",
+    "initial_message": "У меня два заказа с наушниками. Обмен нужен только по #C006, второй не трогайте. Вместо чёрных нужны белые. Email c006@example.test; доплата с исходной карты 1111.",
+    "expected": {
+      "order_id": "#C006",
+      "item_ids": [
+        "black_c006"
+      ],
+      "payment_method_id": "card",
+      "amount": "4.60",
+      "result_status": "exchange requested",
+      "new_item_ids": [
+        "white_c006"
+      ]
+    },
+    "interactions": [],
+    "additional_order_id": "#C006-SECOND"
+  },
+  {
+    "id": "control-intent",
+    "split": "control",
+    "user_id": "customer_c007",
+    "email": "c007@example.test",
+    "product_id": "headphones_c007",
+    "old_item_id": "black_c007",
+    "new_item_id": "white_c007",
+    "initial_status": "delivered",
+    "purchase_price": "28.80",
+    "variant_price": "32.15",
+    "initial_amount": "3.35",
+    "goal": "cancel_intent",
+    "initial_message": "Поменяйте чёрные наушники на белые по #C007. Разницу с карты 1111. Мой email c007@example.test.",
+    "expected": {
+      "order_id": "#C007",
+      "item_ids": [
+        "black_c007"
+      ],
+      "payment_method_id": "card",
+      "amount": null,
+      "result_status": "delivered",
+      "new_item_ids": [
+        "white_c007"
+      ]
+    },
+    "interactions": [
+      {
+        "trigger": "before_action",
+        "kind": "customer",
+        "text": "Передумал. Не оформляйте обмен и ничего не меняйте. Оставлю чёрные наушники."
+      }
+    ]
+  },
+  {
+    "id": "control-price",
+    "split": "control",
+    "user_id": "customer_c008",
+    "email": "c008@example.test",
+    "product_id": "headphones_c008",
+    "old_item_id": "black_c008",
+    "new_item_id": "white_c008",
+    "initial_status": "delivered",
+    "purchase_price": "37.00",
+    "variant_price": "40.25",
+    "initial_amount": "3.25",
+    "goal": "exchange",
+    "initial_message": "Привезли чёрный вариант, хочу белый из того же товара. Заказ #C008, email c008@example.test. Разницу оплачу картой, которой платил — 1111.",
+    "expected": {
+      "order_id": "#C008",
+      "item_ids": [
+        "black_c008"
+      ],
+      "payment_method_id": "card",
+      "amount": "12.45",
+      "result_status": "exchange requested",
+      "new_item_ids": [
+        "white_c008"
+      ]
+    },
+    "interactions": [
+      {
+        "trigger": "before_action",
+        "kind": "price_change",
+        "price": 49.45,
+        "product_id": "headphones_c008",
+        "variant_id": "white_c008"
+      }
+    ]
+  },
+  {
+    "id": "control-return",
+    "split": "control",
+    "user_id": "customer_c009",
+    "email": "c009@example.test",
+    "product_id": "headphones_c009",
+    "old_item_id": "black_c009",
+    "new_item_id": "white_c009",
+    "initial_status": "delivered",
+    "purchase_price": "19.85",
+    "variant_price": "24.35",
+    "initial_amount": "-19.85",
+    "goal": "return",
+    "initial_message": "Не оставлю наушники, оформите возврат по #C009. Email c009@example.test. Вернуть сумму на исходную карту 1111.",
+    "expected": {
+      "order_id": "#C009",
+      "item_ids": [
+        "black_c009"
+      ],
+      "payment_method_id": "card",
+      "amount": "-19.85",
+      "result_status": "return requested"
+    },
+    "interactions": []
+  },
+  {
+    "id": "control-ticket",
+    "split": "control",
+    "user_id": "customer_c010",
+    "email": "c010@example.test",
+    "product_id": "headphones_c010",
+    "old_item_id": "black_c010",
+    "new_item_id": "white_c010",
+    "initial_status": "return requested",
+    "purchase_price": "26.70",
+    "variant_price": "30.10",
+    "initial_amount": null,
+    "goal": "ticket",
+    "initial_message": "Есть заявка на возврат по #C010, но фактический возврат не вижу. Нужна проверка специалиста. Email c010@example.test.",
+    "expected": {
+      "order_id": "#C010",
+      "item_ids": [
+        "black_c010"
+      ],
+      "payment_method_id": "card",
+      "amount": null,
+      "result_status": "ticket created"
+    },
+    "interactions": []
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+    "kind": "customer",
+    "text": "Верните наушники из заказа #D002. Email d002@example.test. Деньги прошу на ту же карту, которой платил, 1111."
+  },
+  {
+    "id": 2,
+    "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+    "kind": "tool",
+    "text": "find_user_id_by_email: {\"email\": \"d002@example.test\"}"
+  },
+  {
+    "id": 3,
+    "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+    "kind": "tool",
+    "text": "get_order_details: {\"order_id\": \"#D002\"}"
+  },
+  {
+    "id": 4,
+    "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+    "kind": "tool",
+    "text": "propose_return: {\"order_id\": \"#D002\", \"item_ids\": [\"black_d002\"], \"payment_method_id\": \"card\"}"
+  },
+  {
+    "id": 5,
+    "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 1"
+  },
+  {
+    "id": 6,
+    "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+    "kind": "sent",
+    "text": "Заявка на возврат 1 позиций заказа #D002. Заказ #D002. Позиции: black_d002. Сумма предполагаемого возврата: 23.40 USD. Способ оплаты: card. Подтвердите эти условия."
+  },
+  {
+    "id": 7,
+    "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+    "kind": "customer",
+    "text": "Подтверждаю указанные позиции, замену, способ оплаты и сумму -23.40 USD."
+  },
+  {
+    "id": 8,
+    "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+    "kind": "consent",
+    "text": "Клиент подтвердил текущие условия"
+  },
+  {
+    "id": 9,
+    "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 2"
+  },
+  {
+    "id": 10,
+    "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+    "kind": "operation",
+    "text": "{\"order_id\": \"#D002\", \"user_id\": \"customer_d002\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"headphones_d002\", \"item_id\": \"black_d002\", \"price\": 23.4, \"options\": {\"color\": \"black\"}}], \"status\": \"return requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 23.4, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": [\"black_d002\"], \"return_payment_method_id\": \"card\"}"
+  },
+  {
+    "id": 11,
+    "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+    "kind": "sent",
+    "text": "Зарегистрирована заявка на возврат по заказу #D002. Статус: return requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "proposal_id": "42f7a7b5eb2e4b229e84b85fe4ad811e",
+    "version": 1,
+    "status": "pass",
+    "reason": "consent_question_about_expected_order"
+  },
+  {
+    "proposal_id": "10afbcbf4ee542f687a6ae3dd5b47051",
+    "version": 2,
+    "status": "pass",
+    "reason": "approved_registration_text"
+  },
+  {
+    "proposal_id": "1480c2b8684248b0beb8922917bca480",
+    "version": 3,
+    "status": "fail",
+    "reason": "structured_action_required"
+  },
+  {
+    "proposal_id": "2f976371fa0445098b123a66d6a4aecd",
+    "version": 4,
+    "status": "pass",
+    "reason": "consent_question_about_expected_order"
+  },
+  {
+    "proposal_id": "c826b0d74f32453ea3e571861b28ba7e",
+    "version": 5,
+    "status": "pass",
+    "reason": "approved_registration_text"
+  }
+]

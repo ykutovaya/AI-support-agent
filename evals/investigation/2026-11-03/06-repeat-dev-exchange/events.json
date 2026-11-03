@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "case_id": "b5acff63a49e4c6ab1941db3743974e8",
+    "kind": "customer",
+    "text": "Хочу поменять чёрные наушники на белые. Мой email d001@example.test. Заказ #D001. Оплачу разницу прежней картой, оканчивающейся на 1111."
+  },
+  {
+    "id": 2,
+    "case_id": "b5acff63a49e4c6ab1941db3743974e8",
+    "kind": "tool",
+    "text": "find_user_id_by_email: {\"email\": \"d001@example.test\"}"
+  },
+  {
+    "id": 3,
+    "case_id": "b5acff63a49e4c6ab1941db3743974e8",
+    "kind": "tool",
+    "text": "get_order_details: {\"order_id\": \"#D001\"}"
+  },
+  {
+    "id": 4,
+    "case_id": "b5acff63a49e4c6ab1941db3743974e8",
+    "kind": "tool",
+    "text": "get_product_details: {\"product_id\": \"headphones_d001\"}"
+  },
+  {
+    "id": 5,
+    "case_id": "b5acff63a49e4c6ab1941db3743974e8",
+    "kind": "tool",
+    "text": "get_user_details: {\"user_id\": \"customer_d001\"}"
+  },
+  {
+    "id": 6,
+    "case_id": "b5acff63a49e4c6ab1941db3743974e8",
+    "kind": "tool",
+    "text": "propose_exchange: {\"order_id\": \"#D001\", \"item_ids\": [\"black_d001\"], \"new_item_ids\": [\"white_d001\"], \"payment_method_id\": \"card\"}"
+  },
+  {
+    "id": 7,
+    "case_id": "b5acff63a49e4c6ab1941db3743974e8",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 1"
+  },
+  {
+    "id": 8,
+    "case_id": "b5acff63a49e4c6ab1941db3743974e8",
+    "kind": "sent",
+    "text": "Заявка на обмен 1 позиций заказа #D001. Заказ #D001. Позиции: black_d001. Замена на: white_d001. Доплата: 3.50 USD. Способ оплаты: card. Подтвердите эти условия."
+  },
+  {
+    "id": 9,
+    "case_id": "b5acff63a49e4c6ab1941db3743974e8",
+    "kind": "customer",
+    "text": "Подтверждаю указанные позиции, замену, способ оплаты и сумму 3.50 USD."
+  },
+  {
+    "id": 10,
+    "case_id": "b5acff63a49e4c6ab1941db3743974e8",
+    "kind": "consent",
+    "text": "Клиент подтвердил текущие условия"
+  },
+  {
+    "id": 11,
+    "case_id": "b5acff63a49e4c6ab1941db3743974e8",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 2"
+  },
+  {
+    "id": 12,
+    "case_id": "b5acff63a49e4c6ab1941db3743974e8",
+    "kind": "operation",
+    "text": "{\"order_id\": \"#D001\", \"user_id\": \"customer_d001\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"headphones_d001\", \"item_id\": \"black_d001\", \"price\": 14.0, \"options\": {\"color\": \"black\"}}], \"status\": \"exchange requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 14.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": [\"black_d001\"], \"exchange_new_items\": [\"white_d001\"], \"exchange_payment_method_id\": \"card\", \"exchange_price_difference\": 3.5, \"return_items\": null, \"return_payment_method_id\": null}"
+  },
+  {
+    "id": 13,
+    "case_id": "b5acff63a49e4c6ab1941db3743974e8",
+    "kind": "sent",
+    "text": "Зарегистрирована заявка на обмен по заказу #D001. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "case_id": "e4765747a35d450d9f8d97d58ebfe1f9",
+    "kind": "customer",
+    "text": "Есть заявка на возврат по #C010, но фактический возврат не вижу. Нужна проверка специалиста. Email c010@example.test."
+  },
+  {
+    "id": 2,
+    "case_id": "e4765747a35d450d9f8d97d58ebfe1f9",
+    "kind": "tool",
+    "text": "find_user_id_by_email: {\"email\": \"c010@example.test\"}"
+  },
+  {
+    "id": 3,
+    "case_id": "e4765747a35d450d9f8d97d58ebfe1f9",
+    "kind": "tool",
+    "text": "get_order_details: {\"order_id\": \"#C010\"}"
+  },
+  {
+    "id": 4,
+    "case_id": "e4765747a35d450d9f8d97d58ebfe1f9",
+    "kind": "tool",
+    "text": "propose_support_ticket: {\"order_id\": \"#C010\", \"question\": \"Клиент сообщает, что не видит фактический возврат средств, и просит проверку специалиста. В заказе #C010 статус `return requested`, позиции `black_c010` (наушники, 26,70) и способ возврата `card`; это подтверждает регистрацию заявки, но не фактическое исполнение. Проверьте текущий статус возврата и сообщите клиенту результат.\"}"
+  },
+  {
+    "id": 5,
+    "case_id": "e4765747a35d450d9f8d97d58ebfe1f9",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 1"
+  },
+  {
+    "id": 6,
+    "case_id": "e4765747a35d450d9f8d97d58ebfe1f9",
+    "kind": "operation",
+    "text": "{\"status\": \"ticket created\", \"ticket_id\": 1, \"ticket_number\": \"T-1\", \"ticket_status\": \"open\", \"target\": \"local\", \"duplicate\": false}"
+  },
+  {
+    "id": 7,
+    "case_id": "e4765747a35d450d9f8d97d58ebfe1f9",
+    "kind": "sent",
+    "text": "Зарегистрирована локальная учебная заявка для проверки результата по заказу #C010. Фактическое завершение обмена или возврата пока не подтверждено."
+  }
+]

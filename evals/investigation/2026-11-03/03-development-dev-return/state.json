@@ -1,0 +1,527 @@
+{
+  "case": {
+    "id": "b6f2dd70f7f545948e7714cef45e0d15",
+    "user_id": "customer_d002",
+    "employee_id": "investigation-evaluation-employee"
+  },
+  "tables": {
+    "proposals": [
+      {
+        "id": "12c480a6d53a4a4c9539dde33835a3d8",
+        "case_id": "b6f2dd70f7f545948e7714cef45e0d15",
+        "version": 1,
+        "body": "{\"id\":\"12c480a6d53a4a4c9539dde33835a3d8\",\"case_id\":\"b6f2dd70f7f545948e7714cef45e0d15\",\"version\":1,\"kind\":\"message\",\"text\":\"В заказе #D002 обнаружены наушники стоимостью $23,40; заказ доставлен. Возврат на карту Visa, заканчивающуюся на 1111, предполагает возврат $23,40. Подтвердите, пожалуйста, что согласны вернуть наушники на этих условиях.\",\"action\":null,\"consent_request\":null,\"evidence\":[{\"title\":\"Найденная запись\",\"source\":\"users/d002@example.test\",\"detail\":\"\\\"customer_d002\\\"\"},{\"title\":\"Найденная запись\",\"source\":\"orders/#D002\",\"detail\":\"{\\\"order_id\\\": \\\"#D002\\\", \\\"user_id\\\": \\\"customer_d002\\\", \\\"address\\\": {\\\"address1\\\": \\\"Учебная 1\\\", \\\"address2\\\": \\\"\\\", \\\"city\\\": \\\"Город\\\", \\\"country\\\": \\\"US\\\", \\\"state\\\": \\\"CA\\\", \\\"zip\\\": \\\"12345\\\"}, \\\"items\\\": [{\\\"name\\\": \\\"Наушники\\\", \\\"product_id\\\": \\\"headphones_d002\\\", \\\"item_id\\\": \\\"black_d002\\\", \\\"price\\\": 23.4, \\\"options\\\": {\\\"color\\\": \\\"black\\\"}}], \\\"status\\\": \\\"delivered\\\", \\\"fulfillments\\\": [], \\\"payment_history\\\": [{\\\"transaction_type\\\": \\\"payment\\\", \\\"amount\\\": 23.4, \\\"payment_method_id\\\": \\\"card\\\"}], \\\"cancel_reason\\\": null, \\\"exchange_items\\\": null, \\\"exchange_new_items\\\": null, \\\"exchange_payment_method_id\\\": null, \\\"exchange_price_difference\\\": null, \\\"return_items\\\": null, \\\"return_payment_method_id\\\": null}\"},{\"title\":\"Найденная запись\",\"source\":\"users/customer_d002\",\"detail\":\"{\\\"user_id\\\": \\\"customer_d002\\\", \\\"name\\\": {\\\"first_name\\\": \\\"Учебный\\\", \\\"last_name\\\": \\\"dev-return\\\"}, \\\"address\\\": {\\\"address1\\\": \\\"Учебная 1\\\", \\\"address2\\\": \\\"\\\", \\\"city\\\": \\\"Город\\\", \\\"country\\\": \\\"US\\\", \\\"state\\\": \\\"CA\\\", \\\"zip\\\": \\\"12345\\\"}, \\\"email\\\": \\\"d002@example.test\\\", \\\"payment_methods\\\": {\\\"card\\\": {\\\"source\\\": \\\"credit_card\\\", \\\"id\\\": \\\"card\\\", \\\"brand\\\": \\\"visa\\\", \\\"last_four\\\": \\\"1111\\\"}, \\\"other_card\\\": {\\\"source\\\": \\\"credit_card\\\", \\\"id\\\": \\\"other_card\\\", \\\"brand\\\": \\\"visa\\\", \\\"last_four\\\": \\\"2222\\\"}, \\\"gift\\\": {\\\"source\\\": \\\"gift_card\\\", \\\"id\\\": \\\"gift\\\", \\\"balance\\\": 5.0}}, \\\"orders\\\": [\\\"#D002\\\"]}\"}]}",
+        "status": "pending",
+        "reason": ""
+      }
+    ],
+    "consents": [],
+    "approvals": [],
+    "operations": [],
+    "operation_verifications": [],
+    "support_tickets": [],
+    "external_ticket_operations": [],
+    "outbox": [],
+    "deliveries": [],
+    "recoveries": []
+  },
+  "retail": {
+    "products": {
+      "p2": {
+        "name": "Чайник",
+        "product_id": "p2",
+        "variants": {
+          "foreign": {
+            "item_id": "foreign",
+            "options": {},
+            "available": true,
+            "price": 20.0
+          }
+        }
+      },
+      "headphones_d002": {
+        "name": "Наушники",
+        "product_id": "headphones_d002",
+        "variants": {
+          "black_d002": {
+            "item_id": "black_d002",
+            "options": {
+              "color": "black"
+            },
+            "available": true,
+            "price": 23.4
+          },
+          "white_d002": {
+            "item_id": "white_d002",
+            "options": {
+              "color": "white"
+            },
+            "available": true,
+            "price": 25.9
+          }
+        }
+      }
+    },
+    "users": {
+      "u2": {
+        "user_id": "u2",
+        "name": {
+          "first_name": "Имя2",
+          "last_name": "Фамилия"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "user2@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#O2"
+        ]
+      },
+      "customer_d002": {
+        "user_id": "customer_d002",
+        "name": {
+          "first_name": "Учебный",
+          "last_name": "dev-return"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "d002@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#D002"
+        ]
+      }
+    },
+    "orders": {
+      "#O2": {
+        "order_id": "#O2",
+        "user_id": "u2",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Чайник",
+            "product_id": "p2",
+            "item_id": "foreign",
+            "price": 10.0,
+            "options": {
+              "color": "black"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 10.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      },
+      "#D002": {
+        "order_id": "#D002",
+        "user_id": "customer_d002",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Наушники",
+            "product_id": "headphones_d002",
+            "item_id": "black_d002",
+            "price": 23.4,
+            "options": {
+              "color": "black"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 23.4,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      }
+    }
+  },
+  "initial_retail": {
+    "products": {
+      "p2": {
+        "name": "Чайник",
+        "product_id": "p2",
+        "variants": {
+          "foreign": {
+            "item_id": "foreign",
+            "options": {},
+            "available": true,
+            "price": 20.0
+          }
+        }
+      },
+      "headphones_d002": {
+        "name": "Наушники",
+        "product_id": "headphones_d002",
+        "variants": {
+          "black_d002": {
+            "item_id": "black_d002",
+            "options": {
+              "color": "black"
+            },
+            "available": true,
+            "price": 23.4
+          },
+          "white_d002": {
+            "item_id": "white_d002",
+            "options": {
+              "color": "white"
+            },
+            "available": true,
+            "price": 25.9
+          }
+        }
+      }
+    },
+    "users": {
+      "u2": {
+        "user_id": "u2",
+        "name": {
+          "first_name": "Имя2",
+          "last_name": "Фамилия"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "user2@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#O2"
+        ]
+      },
+      "customer_d002": {
+        "user_id": "customer_d002",
+        "name": {
+          "first_name": "Учебный",
+          "last_name": "dev-return"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "d002@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#D002"
+        ]
+      }
+    },
+    "orders": {
+      "#O2": {
+        "order_id": "#O2",
+        "user_id": "u2",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Чайник",
+            "product_id": "p2",
+            "item_id": "foreign",
+            "price": 10.0,
+            "options": {
+              "color": "black"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 10.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      },
+      "#D002": {
+        "order_id": "#D002",
+        "user_id": "customer_d002",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Наушники",
+            "product_id": "headphones_d002",
+            "item_id": "black_d002",
+            "price": 23.4,
+            "options": {
+              "color": "black"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 23.4,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      }
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "Верните наушники из заказа #D002. Email d002@example.test. Деньги прошу на ту же карту, которой платил, 1111.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_sM8kroeh1uSwmwJf0C1tDqWf",
+          "name": "find_user_id_by_email",
+          "arguments": {
+            "email": "d002@example.test"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "\"customer_d002\"",
+      "tool_calls": null,
+      "tool_call_id": "call_sM8kroeh1uSwmwJf0C1tDqWf",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_hBRqDHX0mUjUr6FyBtNCDo5K",
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "#D002"
+          }
+        },
+        {
+          "id": "call_ds3vVJ8NhdMfBsUI22N94h94",
+          "name": "get_user_details",
+          "arguments": {
+            "user_id": "customer_d002"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"order_id\": \"#D002\", \"user_id\": \"customer_d002\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"headphones_d002\", \"item_id\": \"black_d002\", \"price\": 23.4, \"options\": {\"color\": \"black\"}}], \"status\": \"delivered\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 23.4, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": null, \"return_payment_method_id\": null}",
+      "tool_calls": null,
+      "tool_call_id": "call_hBRqDHX0mUjUr6FyBtNCDo5K",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"user_id\": \"customer_d002\", \"name\": {\"first_name\": \"Учебный\", \"last_name\": \"dev-return\"}, \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"email\": \"d002@example.test\", \"payment_methods\": {\"card\": {\"source\": \"credit_card\", \"id\": \"card\", \"brand\": \"visa\", \"last_four\": \"1111\"}, \"other_card\": {\"source\": \"credit_card\", \"id\": \"other_card\", \"brand\": \"visa\", \"last_four\": \"2222\"}, \"gift\": {\"source\": \"gift_card\", \"id\": \"gift\", \"balance\": 5.0}}, \"orders\": [\"#D002\"]}",
+      "tool_calls": null,
+      "tool_call_id": "call_ds3vVJ8NhdMfBsUI22N94h94",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "{\"message\":\"В заказе #D002 обнаружены наушники стоимостью $23,40; заказ доставлен. Возврат на карту Visa, заканчивающуюся на 1111, предполагает возврат $23,40. Подтвердите, пожалуйста, что согласны вернуть наушники на этих условиях.\"}",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "case_id": "b6f2dd70f7f545948e7714cef45e0d15",
+      "kind": "customer",
+      "text": "Верните наушники из заказа #D002. Email d002@example.test. Деньги прошу на ту же карту, которой платил, 1111."
+    },
+    {
+      "id": 2,
+      "case_id": "b6f2dd70f7f545948e7714cef45e0d15",
+      "kind": "tool",
+      "text": "find_user_id_by_email: {\"email\": \"d002@example.test\"}"
+    },
+    {
+      "id": 3,
+      "case_id": "b6f2dd70f7f545948e7714cef45e0d15",
+      "kind": "tool",
+      "text": "get_order_details: {\"order_id\": \"#D002\"}"
+    },
+    {
+      "id": 4,
+      "case_id": "b6f2dd70f7f545948e7714cef45e0d15",
+      "kind": "tool",
+      "text": "get_user_details: {\"user_id\": \"customer_d002\"}"
+    }
+  ]
+}

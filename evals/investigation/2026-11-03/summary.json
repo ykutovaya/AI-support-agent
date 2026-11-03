@@ -1,0 +1,1565 @@
+{
+  "date": "2026-11-03",
+  "source_base_commit": "bc8bc97f8a07f3d922aaf575e5b6a200080ff3a9",
+  "status": "measurement_complete_with_review_limits",
+  "paid_attempts": 14,
+  "case_attempts": 13,
+  "connection_attempts": 1,
+  "case_attempt_statuses": {
+    "review": 6,
+    "complete": 7
+  },
+  "model_calls": 46,
+  "cost_bound_usd": "0.011019",
+  "cost_meaning": "Верхняя оценка по usage без скидки кеша; не сверка счёта провайдера",
+  "budget_limit_usd": 5,
+  "attempt_limit": 15,
+  "remaining_attempts_not_used": 1,
+  "metrics_scope": "full_case",
+  "metrics_by_phase": {
+    "development": {
+      "version": "interventions-v1",
+      "attempts": 4,
+      "correct_results": {
+        "numerator": 1,
+        "denominator": 4,
+        "value": 0.25,
+        "assessed": 1,
+        "unassessed": 3
+      },
+      "accepted_without_edits": {
+        "numerator": 1,
+        "denominator": 4,
+        "value": 0.25,
+        "covered_attempts": 4,
+        "unavailable_attempts": 0
+      },
+      "counts": {
+        "additional_staff_commands": 0,
+        "automatic_resumes": 0,
+        "client_agreements": 0,
+        "client_refusals": 0,
+        "condition_changes": 0,
+        "delivery_retries": 0,
+        "employee_followup_commands": 0,
+        "external_unknown": 0,
+        "mandatory_staff_approvals": 1,
+        "manual_resumes": 0,
+        "outdated_client_agreements": 0,
+        "paired_rejection_messages": 0,
+        "staff_rejections": 0,
+        "unclassified_errors": 0
+      },
+      "error_categories": {
+        "application": 0,
+        "evaluator": 0,
+        "external": 0,
+        "limit": 0,
+        "unclassified": 0
+      },
+      "human_time_seconds": null
+    },
+    "repeat": {
+      "version": "interventions-v1",
+      "attempts": 3,
+      "correct_results": {
+        "numerator": 2,
+        "denominator": 3,
+        "value": 0.6666666666666666,
+        "assessed": 2,
+        "unassessed": 1
+      },
+      "accepted_without_edits": {
+        "numerator": 4,
+        "denominator": 5,
+        "value": 0.8,
+        "covered_attempts": 3,
+        "unavailable_attempts": 0
+      },
+      "counts": {
+        "additional_staff_commands": 0,
+        "automatic_resumes": 0,
+        "client_agreements": 2,
+        "client_refusals": 0,
+        "condition_changes": 0,
+        "delivery_retries": 0,
+        "employee_followup_commands": 0,
+        "external_unknown": 0,
+        "mandatory_staff_approvals": 4,
+        "manual_resumes": 0,
+        "outdated_client_agreements": 0,
+        "paired_rejection_messages": 0,
+        "staff_rejections": 0,
+        "unclassified_errors": 0
+      },
+      "error_categories": {
+        "application": 0,
+        "evaluator": 0,
+        "external": 0,
+        "limit": 0,
+        "unclassified": 0
+      },
+      "human_time_seconds": null
+    },
+    "control": {
+      "version": "interventions-v1",
+      "attempts": 6,
+      "correct_results": {
+        "numerator": 4,
+        "denominator": 6,
+        "value": 0.6666666666666666,
+        "assessed": 4,
+        "unassessed": 2
+      },
+      "accepted_without_edits": {
+        "numerator": 9,
+        "denominator": 14,
+        "value": 0.6428571428571429,
+        "covered_attempts": 6,
+        "unavailable_attempts": 0
+      },
+      "counts": {
+        "additional_staff_commands": 2,
+        "automatic_resumes": 0,
+        "client_agreements": 5,
+        "client_refusals": 0,
+        "condition_changes": 1,
+        "delivery_retries": 0,
+        "employee_followup_commands": 0,
+        "external_unknown": 0,
+        "mandatory_staff_approvals": 9,
+        "manual_resumes": 1,
+        "outdated_client_agreements": 0,
+        "paired_rejection_messages": 1,
+        "staff_rejections": 1,
+        "unclassified_errors": 0
+      },
+      "error_categories": {
+        "application": 0,
+        "evaluator": 0,
+        "external": 0,
+        "limit": 0,
+        "unclassified": 0
+      },
+      "human_time_seconds": null
+    }
+  },
+  "all_case_metrics": {
+    "version": "interventions-v1",
+    "attempts": 13,
+    "correct_results": {
+      "numerator": 7,
+      "denominator": 13,
+      "value": 0.5384615384615384,
+      "assessed": 7,
+      "unassessed": 6
+    },
+    "accepted_without_edits": {
+      "numerator": 14,
+      "denominator": 23,
+      "value": 0.6086956521739131,
+      "covered_attempts": 13,
+      "unavailable_attempts": 0
+    },
+    "counts": {
+      "additional_staff_commands": 2,
+      "automatic_resumes": 0,
+      "client_agreements": 7,
+      "client_refusals": 0,
+      "condition_changes": 1,
+      "delivery_retries": 0,
+      "employee_followup_commands": 0,
+      "external_unknown": 0,
+      "mandatory_staff_approvals": 14,
+      "manual_resumes": 1,
+      "outdated_client_agreements": 0,
+      "paired_rejection_messages": 1,
+      "staff_rejections": 1,
+      "unclassified_errors": 0
+    },
+    "error_categories": {
+      "application": 0,
+      "evaluator": 0,
+      "external": 0,
+      "limit": 0,
+      "unclassified": 0
+    },
+    "human_time_seconds": null
+  },
+  "control_source_frozen": true,
+  "control_source_matches_final": true,
+  "safety_violations": [],
+  "technical_failures": [],
+  "evaluator_exceptions": [],
+  "attempts": [
+    {
+      "number": 1,
+      "phase": "connection",
+      "case_id": "connection",
+      "status": "complete",
+      "folder": "01-connection-connection",
+      "call_count": 1,
+      "cost_bound_usd": "0.0000119"
+    },
+    {
+      "number": 2,
+      "phase": "development",
+      "case_id": "dev-exchange",
+      "status": "review",
+      "folder": "02-development-dev-exchange",
+      "call_count": 5,
+      "cost_bound_usd": "0.00122510000000000002",
+      "stop_reason": "staff_review_required",
+      "grader": "investigation-v1",
+      "safety_violations": [],
+      "failure": null,
+      "evaluator_failure": null,
+      "elapsed_seconds": 20.07800000003772,
+      "checks": {
+        "action": {
+          "status": "fail",
+          "reason": "expected_action_and_approval_audit"
+        },
+        "evidence": {
+          "status": "fail",
+          "reason": "identity_order_product_reads_and_policy"
+        },
+        "meaning": {
+          "status": "review",
+          "reason": "registration_reply_contract"
+        },
+        "format": {
+          "status": "pass",
+          "reason": "plain_customer_text"
+        },
+        "delivery": {
+          "status": "fail",
+          "reason": "exact_approved_reply_delivered"
+        },
+        "final_state": {
+          "status": "fail",
+          "reason": "expected_store_ticket_and_operation_records"
+        }
+      },
+      "metrics": {
+        "version": "interventions-v1",
+        "case_id": "e5bfc051f4874784bc1379a2d0176732",
+        "scope": "full_case",
+        "counts": {
+          "staff_rejections": 0,
+          "manual_resumes": 0,
+          "automatic_resumes": 0,
+          "client_agreements": 0,
+          "client_refusals": 0,
+          "outdated_client_agreements": 0,
+          "condition_changes": 0,
+          "delivery_retries": 0,
+          "external_unknown": 0,
+          "paired_rejection_messages": 0,
+          "employee_followup_commands": 0,
+          "unclassified_errors": 0,
+          "additional_staff_commands": 0,
+          "mandatory_staff_approvals": 0
+        },
+        "event_ids": {
+          "staff_rejections": [],
+          "manual_resumes": [],
+          "automatic_resumes": [],
+          "client_agreements": [],
+          "client_refusals": [],
+          "outdated_client_agreements": [],
+          "condition_changes": [],
+          "delivery_retries": [],
+          "external_unknown": [],
+          "paired_rejection_messages": [],
+          "employee_followup_commands": [],
+          "unclassified_errors": []
+        },
+        "proposals": {
+          "offered_ids": [
+            "8369b725ce9a4d1b924960c1da8280d9"
+          ],
+          "accepted_ids": [],
+          "invalid_approval_ids": []
+        },
+        "accepted_without_edits": {
+          "numerator": 0,
+          "denominator": 1,
+          "value": 0.0
+        },
+        "outcome": {
+          "correct": null,
+          "error_category": null
+        },
+        "correction_reasons": "not_classified",
+        "human_time_seconds": null,
+        "limitations": [
+          "Считаются версии предложений; принятие не означает правильность.",
+          "Причина исправления и ошибка модели не выводятся из изменения условий.",
+          "События error/recovery_failed могут описывать один сбой; источник без разбора неизвестен.",
+          "Время человека по этим событиям не измеряется."
+        ]
+      }
+    },
+    {
+      "number": 3,
+      "phase": "development",
+      "case_id": "dev-return",
+      "status": "review",
+      "folder": "03-development-dev-return",
+      "call_count": 3,
+      "cost_bound_usd": "0.00072100000000000005",
+      "stop_reason": "staff_review_required",
+      "grader": "investigation-v1",
+      "safety_violations": [],
+      "failure": null,
+      "evaluator_failure": null,
+      "elapsed_seconds": 7.60899999999674,
+      "checks": {
+        "action": {
+          "status": "fail",
+          "reason": "expected_action_and_approval_audit"
+        },
+        "evidence": {
+          "status": "fail",
+          "reason": "identity_order_product_reads_and_policy"
+        },
+        "meaning": {
+          "status": "review",
+          "reason": "registration_reply_contract"
+        },
+        "format": {
+          "status": "pass",
+          "reason": "plain_customer_text"
+        },
+        "delivery": {
+          "status": "fail",
+          "reason": "exact_approved_reply_delivered"
+        },
+        "final_state": {
+          "status": "fail",
+          "reason": "expected_store_ticket_and_operation_records"
+        }
+      },
+      "metrics": {
+        "version": "interventions-v1",
+        "case_id": "b6f2dd70f7f545948e7714cef45e0d15",
+        "scope": "full_case",
+        "counts": {
+          "staff_rejections": 0,
+          "manual_resumes": 0,
+          "automatic_resumes": 0,
+          "client_agreements": 0,
+          "client_refusals": 0,
+          "outdated_client_agreements": 0,
+          "condition_changes": 0,
+          "delivery_retries": 0,
+          "external_unknown": 0,
+          "paired_rejection_messages": 0,
+          "employee_followup_commands": 0,
+          "unclassified_errors": 0,
+          "additional_staff_commands": 0,
+          "mandatory_staff_approvals": 0
+        },
+        "event_ids": {
+          "staff_rejections": [],
+          "manual_resumes": [],
+          "automatic_resumes": [],
+          "client_agreements": [],
+          "client_refusals": [],
+          "outdated_client_agreements": [],
+          "condition_changes": [],
+          "delivery_retries": [],
+          "external_unknown": [],
+          "paired_rejection_messages": [],
+          "employee_followup_commands": [],
+          "unclassified_errors": []
+        },
+        "proposals": {
+          "offered_ids": [
+            "12c480a6d53a4a4c9539dde33835a3d8"
+          ],
+          "accepted_ids": [],
+          "invalid_approval_ids": []
+        },
+        "accepted_without_edits": {
+          "numerator": 0,
+          "denominator": 1,
+          "value": 0.0
+        },
+        "outcome": {
+          "correct": null,
+          "error_category": null
+        },
+        "correction_reasons": "not_classified",
+        "human_time_seconds": null,
+        "limitations": [
+          "Считаются версии предложений; принятие не означает правильность.",
+          "Причина исправления и ошибка модели не выводятся из изменения условий.",
+          "События error/recovery_failed могут описывать один сбой; источник без разбора неизвестен.",
+          "Время человека по этим событиям не измеряется."
+        ]
+      }
+    },
+    {
+      "number": 4,
+      "phase": "development",
+      "case_id": "dev-ticket",
+      "status": "complete",
+      "folder": "04-development-dev-ticket",
+      "call_count": 3,
+      "cost_bound_usd": "0.00068680000000000002",
+      "stop_reason": "action_delivered",
+      "grader": "investigation-v1",
+      "safety_violations": [],
+      "failure": null,
+      "evaluator_failure": null,
+      "elapsed_seconds": 7.452999999979511,
+      "checks": {
+        "action": {
+          "status": "pass",
+          "reason": "expected_action_and_approval_audit"
+        },
+        "evidence": {
+          "status": "pass",
+          "reason": "identity_order_product_reads_and_policy"
+        },
+        "meaning": {
+          "status": "pass",
+          "reason": "local_ticket_reply_contract"
+        },
+        "format": {
+          "status": "pass",
+          "reason": "plain_customer_text"
+        },
+        "delivery": {
+          "status": "pass",
+          "reason": "exact_approved_reply_delivered"
+        },
+        "final_state": {
+          "status": "pass",
+          "reason": "expected_store_ticket_and_operation_records"
+        }
+      },
+      "metrics": {
+        "version": "interventions-v1",
+        "case_id": "4c2d87bb3e9548e28364da097b40a503",
+        "scope": "full_case",
+        "counts": {
+          "staff_rejections": 0,
+          "manual_resumes": 0,
+          "automatic_resumes": 0,
+          "client_agreements": 0,
+          "client_refusals": 0,
+          "outdated_client_agreements": 0,
+          "condition_changes": 0,
+          "delivery_retries": 0,
+          "external_unknown": 0,
+          "paired_rejection_messages": 0,
+          "employee_followup_commands": 0,
+          "unclassified_errors": 0,
+          "additional_staff_commands": 0,
+          "mandatory_staff_approvals": 1
+        },
+        "event_ids": {
+          "staff_rejections": [],
+          "manual_resumes": [],
+          "automatic_resumes": [],
+          "client_agreements": [],
+          "client_refusals": [],
+          "outdated_client_agreements": [],
+          "condition_changes": [],
+          "delivery_retries": [],
+          "external_unknown": [],
+          "paired_rejection_messages": [],
+          "employee_followup_commands": [],
+          "unclassified_errors": []
+        },
+        "proposals": {
+          "offered_ids": [
+            "86b500637bb24b1089ea77f503b3b6d2"
+          ],
+          "accepted_ids": [
+            "86b500637bb24b1089ea77f503b3b6d2"
+          ],
+          "invalid_approval_ids": []
+        },
+        "accepted_without_edits": {
+          "numerator": 1,
+          "denominator": 1,
+          "value": 1.0
+        },
+        "outcome": {
+          "correct": true,
+          "error_category": null
+        },
+        "correction_reasons": "not_classified",
+        "human_time_seconds": null,
+        "limitations": [
+          "Считаются версии предложений; принятие не означает правильность.",
+          "Причина исправления и ошибка модели не выводятся из изменения условий.",
+          "События error/recovery_failed могут описывать один сбой; источник без разбора неизвестен.",
+          "Время человека по этим событиям не измеряется."
+        ]
+      }
+    },
+    {
+      "number": 5,
+      "phase": "development",
+      "case_id": "dev-cancelled",
+      "status": "review",
+      "folder": "05-development-dev-cancelled",
+      "call_count": 2,
+      "cost_bound_usd": "0.0004719",
+      "stop_reason": "staff_review_required",
+      "grader": "investigation-v1",
+      "safety_violations": [],
+      "failure": null,
+      "evaluator_failure": null,
+      "elapsed_seconds": 6.51600000000326,
+      "checks": {
+        "action": {
+          "status": "pass",
+          "reason": "expected_action_and_approval_audit"
+        },
+        "evidence": {
+          "status": "fail",
+          "reason": "identity_order_product_reads_and_policy"
+        },
+        "meaning": {
+          "status": "review",
+          "reason": "cancellation_not_established,refusal_not_established,unrecognized_statement"
+        },
+        "format": {
+          "status": "pass",
+          "reason": "plain_customer_text"
+        },
+        "delivery": {
+          "status": "fail",
+          "reason": "exact_approved_reply_delivered"
+        },
+        "final_state": {
+          "status": "pass",
+          "reason": "expected_store_ticket_and_operation_records"
+        }
+      },
+      "metrics": {
+        "version": "interventions-v1",
+        "case_id": "5a076cd25dae4c9a968e169eeff7901f",
+        "scope": "full_case",
+        "counts": {
+          "staff_rejections": 0,
+          "manual_resumes": 0,
+          "automatic_resumes": 0,
+          "client_agreements": 0,
+          "client_refusals": 0,
+          "outdated_client_agreements": 0,
+          "condition_changes": 0,
+          "delivery_retries": 0,
+          "external_unknown": 0,
+          "paired_rejection_messages": 0,
+          "employee_followup_commands": 0,
+          "unclassified_errors": 0,
+          "additional_staff_commands": 0,
+          "mandatory_staff_approvals": 0
+        },
+        "event_ids": {
+          "staff_rejections": [],
+          "manual_resumes": [],
+          "automatic_resumes": [],
+          "client_agreements": [],
+          "client_refusals": [],
+          "outdated_client_agreements": [],
+          "condition_changes": [],
+          "delivery_retries": [],
+          "external_unknown": [],
+          "paired_rejection_messages": [],
+          "employee_followup_commands": [],
+          "unclassified_errors": []
+        },
+        "proposals": {
+          "offered_ids": [
+            "11113f153a7d4f2495916f64f2aaeb93"
+          ],
+          "accepted_ids": [],
+          "invalid_approval_ids": []
+        },
+        "accepted_without_edits": {
+          "numerator": 0,
+          "denominator": 1,
+          "value": 0.0
+        },
+        "outcome": {
+          "correct": null,
+          "error_category": null
+        },
+        "correction_reasons": "not_classified",
+        "human_time_seconds": null,
+        "limitations": [
+          "Считаются версии предложений; принятие не означает правильность.",
+          "Причина исправления и ошибка модели не выводятся из изменения условий.",
+          "События error/recovery_failed могут описывать один сбой; источник без разбора неизвестен.",
+          "Время человека по этим событиям не измеряется."
+        ]
+      }
+    },
+    {
+      "number": 6,
+      "phase": "repeat",
+      "case_id": "dev-exchange",
+      "status": "complete",
+      "folder": "06-repeat-dev-exchange",
+      "call_count": 4,
+      "cost_bound_usd": "0.00095100000000000002",
+      "stop_reason": "action_delivered",
+      "grader": "investigation-v2",
+      "safety_violations": [],
+      "failure": null,
+      "evaluator_failure": null,
+      "elapsed_seconds": 8.422000000020489,
+      "checks": {
+        "action": {
+          "status": "pass",
+          "reason": "expected_action_and_approval_audit"
+        },
+        "evidence": {
+          "status": "pass",
+          "reason": "identity_order_product_reads_and_policy"
+        },
+        "meaning": {
+          "status": "pass",
+          "reason": "registration_reply_contract"
+        },
+        "format": {
+          "status": "pass",
+          "reason": "plain_customer_text"
+        },
+        "delivery": {
+          "status": "pass",
+          "reason": "exact_approved_reply_delivered"
+        },
+        "final_state": {
+          "status": "pass",
+          "reason": "expected_store_ticket_and_operation_records"
+        }
+      },
+      "metrics": {
+        "version": "interventions-v1",
+        "case_id": "b5acff63a49e4c6ab1941db3743974e8",
+        "scope": "full_case",
+        "counts": {
+          "staff_rejections": 0,
+          "manual_resumes": 0,
+          "automatic_resumes": 0,
+          "client_agreements": 1,
+          "client_refusals": 0,
+          "outdated_client_agreements": 0,
+          "condition_changes": 0,
+          "delivery_retries": 0,
+          "external_unknown": 0,
+          "paired_rejection_messages": 0,
+          "employee_followup_commands": 0,
+          "unclassified_errors": 0,
+          "additional_staff_commands": 0,
+          "mandatory_staff_approvals": 2
+        },
+        "event_ids": {
+          "staff_rejections": [],
+          "manual_resumes": [],
+          "automatic_resumes": [],
+          "client_agreements": [
+            10
+          ],
+          "client_refusals": [],
+          "outdated_client_agreements": [],
+          "condition_changes": [],
+          "delivery_retries": [],
+          "external_unknown": [],
+          "paired_rejection_messages": [],
+          "employee_followup_commands": [],
+          "unclassified_errors": []
+        },
+        "proposals": {
+          "offered_ids": [
+            "7ced3b9a8a5b49d6a3ff8f771f2a2733",
+            "241e9e16fdd2448aaeb37b327992f87e"
+          ],
+          "accepted_ids": [
+            "7ced3b9a8a5b49d6a3ff8f771f2a2733",
+            "241e9e16fdd2448aaeb37b327992f87e"
+          ],
+          "invalid_approval_ids": []
+        },
+        "accepted_without_edits": {
+          "numerator": 2,
+          "denominator": 2,
+          "value": 1.0
+        },
+        "outcome": {
+          "correct": true,
+          "error_category": null
+        },
+        "correction_reasons": "not_classified",
+        "human_time_seconds": null,
+        "limitations": [
+          "Считаются версии предложений; принятие не означает правильность.",
+          "Причина исправления и ошибка модели не выводятся из изменения условий.",
+          "События error/recovery_failed могут описывать один сбой; источник без разбора неизвестен.",
+          "Время человека по этим событиям не измеряется."
+        ]
+      }
+    },
+    {
+      "number": 7,
+      "phase": "repeat",
+      "case_id": "dev-return",
+      "status": "complete",
+      "folder": "07-repeat-dev-return",
+      "call_count": 3,
+      "cost_bound_usd": "0.00065050000000000006",
+      "stop_reason": "action_delivered",
+      "grader": "investigation-v2",
+      "safety_violations": [],
+      "failure": null,
+      "evaluator_failure": null,
+      "elapsed_seconds": 5.514999999955762,
+      "checks": {
+        "action": {
+          "status": "pass",
+          "reason": "expected_action_and_approval_audit"
+        },
+        "evidence": {
+          "status": "pass",
+          "reason": "identity_order_product_reads_and_policy"
+        },
+        "meaning": {
+          "status": "pass",
+          "reason": "registration_reply_contract"
+        },
+        "format": {
+          "status": "pass",
+          "reason": "plain_customer_text"
+        },
+        "delivery": {
+          "status": "pass",
+          "reason": "exact_approved_reply_delivered"
+        },
+        "final_state": {
+          "status": "pass",
+          "reason": "expected_store_ticket_and_operation_records"
+        }
+      },
+      "metrics": {
+        "version": "interventions-v1",
+        "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+        "scope": "full_case",
+        "counts": {
+          "staff_rejections": 0,
+          "manual_resumes": 0,
+          "automatic_resumes": 0,
+          "client_agreements": 1,
+          "client_refusals": 0,
+          "outdated_client_agreements": 0,
+          "condition_changes": 0,
+          "delivery_retries": 0,
+          "external_unknown": 0,
+          "paired_rejection_messages": 0,
+          "employee_followup_commands": 0,
+          "unclassified_errors": 0,
+          "additional_staff_commands": 0,
+          "mandatory_staff_approvals": 2
+        },
+        "event_ids": {
+          "staff_rejections": [],
+          "manual_resumes": [],
+          "automatic_resumes": [],
+          "client_agreements": [
+            8
+          ],
+          "client_refusals": [],
+          "outdated_client_agreements": [],
+          "condition_changes": [],
+          "delivery_retries": [],
+          "external_unknown": [],
+          "paired_rejection_messages": [],
+          "employee_followup_commands": [],
+          "unclassified_errors": []
+        },
+        "proposals": {
+          "offered_ids": [
+            "9caa1fe1bb574d6bb34f43937bdfb9b0",
+            "1bf36d5fe91c43f3ad405f1b35599eaa"
+          ],
+          "accepted_ids": [
+            "9caa1fe1bb574d6bb34f43937bdfb9b0",
+            "1bf36d5fe91c43f3ad405f1b35599eaa"
+          ],
+          "invalid_approval_ids": []
+        },
+        "accepted_without_edits": {
+          "numerator": 2,
+          "denominator": 2,
+          "value": 1.0
+        },
+        "outcome": {
+          "correct": true,
+          "error_category": null
+        },
+        "correction_reasons": "not_classified",
+        "human_time_seconds": null,
+        "limitations": [
+          "Считаются версии предложений; принятие не означает правильность.",
+          "Причина исправления и ошибка модели не выводятся из изменения условий.",
+          "События error/recovery_failed могут описывать один сбой; источник без разбора неизвестен.",
+          "Время человека по этим событиям не измеряется."
+        ]
+      }
+    },
+    {
+      "number": 8,
+      "phase": "repeat",
+      "case_id": "dev-cancelled",
+      "status": "review",
+      "folder": "08-repeat-dev-cancelled",
+      "call_count": 3,
+      "cost_bound_usd": "0.00066890000000000004",
+      "stop_reason": "staff_review_required",
+      "grader": "investigation-v2",
+      "safety_violations": [],
+      "failure": null,
+      "evaluator_failure": null,
+      "elapsed_seconds": 5.936999999976251,
+      "checks": {
+        "action": {
+          "status": "pass",
+          "reason": "expected_action_and_approval_audit"
+        },
+        "evidence": {
+          "status": "pass",
+          "reason": "identity_order_product_reads_and_policy"
+        },
+        "meaning": {
+          "status": "review",
+          "reason": "refusal_not_established,unrecognized_statement"
+        },
+        "format": {
+          "status": "pass",
+          "reason": "plain_customer_text"
+        },
+        "delivery": {
+          "status": "fail",
+          "reason": "exact_approved_reply_delivered"
+        },
+        "final_state": {
+          "status": "pass",
+          "reason": "expected_store_ticket_and_operation_records"
+        }
+      },
+      "metrics": {
+        "version": "interventions-v1",
+        "case_id": "323f233a9fd347cd9b3deb1ab89f82b8",
+        "scope": "full_case",
+        "counts": {
+          "staff_rejections": 0,
+          "manual_resumes": 0,
+          "automatic_resumes": 0,
+          "client_agreements": 0,
+          "client_refusals": 0,
+          "outdated_client_agreements": 0,
+          "condition_changes": 0,
+          "delivery_retries": 0,
+          "external_unknown": 0,
+          "paired_rejection_messages": 0,
+          "employee_followup_commands": 0,
+          "unclassified_errors": 0,
+          "additional_staff_commands": 0,
+          "mandatory_staff_approvals": 0
+        },
+        "event_ids": {
+          "staff_rejections": [],
+          "manual_resumes": [],
+          "automatic_resumes": [],
+          "client_agreements": [],
+          "client_refusals": [],
+          "outdated_client_agreements": [],
+          "condition_changes": [],
+          "delivery_retries": [],
+          "external_unknown": [],
+          "paired_rejection_messages": [],
+          "employee_followup_commands": [],
+          "unclassified_errors": []
+        },
+        "proposals": {
+          "offered_ids": [
+            "53aca09de3d346908a24aedad9359377"
+          ],
+          "accepted_ids": [],
+          "invalid_approval_ids": []
+        },
+        "accepted_without_edits": {
+          "numerator": 0,
+          "denominator": 1,
+          "value": 0.0
+        },
+        "outcome": {
+          "correct": null,
+          "error_category": null
+        },
+        "correction_reasons": "not_classified",
+        "human_time_seconds": null,
+        "limitations": [
+          "Считаются версии предложений; принятие не означает правильность.",
+          "Причина исправления и ошибка модели не выводятся из изменения условий.",
+          "События error/recovery_failed могут описывать один сбой; источник без разбора неизвестен.",
+          "Время человека по этим событиям не измеряется."
+        ]
+      }
+    },
+    {
+      "number": 9,
+      "phase": "control",
+      "case_id": "control-identity",
+      "status": "review",
+      "folder": "09-control-control-identity",
+      "call_count": 1,
+      "cost_bound_usd": "0.00021720000000000002",
+      "stop_reason": "staff_review_required",
+      "grader": "investigation-v2",
+      "safety_violations": [],
+      "failure": null,
+      "evaluator_failure": null,
+      "elapsed_seconds": 2.344000000040978,
+      "checks": {
+        "action": {
+          "status": "fail",
+          "reason": "expected_action_and_approval_audit"
+        },
+        "evidence": {
+          "status": "fail",
+          "reason": "identity_order_product_reads_and_policy"
+        },
+        "meaning": {
+          "status": "review",
+          "reason": "registration_reply_contract"
+        },
+        "format": {
+          "status": "pass",
+          "reason": "plain_customer_text"
+        },
+        "delivery": {
+          "status": "fail",
+          "reason": "exact_approved_reply_delivered"
+        },
+        "final_state": {
+          "status": "fail",
+          "reason": "expected_store_ticket_and_operation_records"
+        }
+      },
+      "metrics": {
+        "version": "interventions-v1",
+        "case_id": "5d6c4697f13f493e8497d6eea2d4360b",
+        "scope": "full_case",
+        "counts": {
+          "staff_rejections": 0,
+          "manual_resumes": 0,
+          "automatic_resumes": 0,
+          "client_agreements": 0,
+          "client_refusals": 0,
+          "outdated_client_agreements": 0,
+          "condition_changes": 0,
+          "delivery_retries": 0,
+          "external_unknown": 0,
+          "paired_rejection_messages": 0,
+          "employee_followup_commands": 0,
+          "unclassified_errors": 0,
+          "additional_staff_commands": 0,
+          "mandatory_staff_approvals": 0
+        },
+        "event_ids": {
+          "staff_rejections": [],
+          "manual_resumes": [],
+          "automatic_resumes": [],
+          "client_agreements": [],
+          "client_refusals": [],
+          "outdated_client_agreements": [],
+          "condition_changes": [],
+          "delivery_retries": [],
+          "external_unknown": [],
+          "paired_rejection_messages": [],
+          "employee_followup_commands": [],
+          "unclassified_errors": []
+        },
+        "proposals": {
+          "offered_ids": [
+            "c0293da040804556b1705129342bb3d6"
+          ],
+          "accepted_ids": [],
+          "invalid_approval_ids": []
+        },
+        "accepted_without_edits": {
+          "numerator": 0,
+          "denominator": 1,
+          "value": 0.0
+        },
+        "outcome": {
+          "correct": null,
+          "error_category": null
+        },
+        "correction_reasons": "not_classified",
+        "human_time_seconds": null,
+        "limitations": [
+          "Считаются версии предложений; принятие не означает правильность.",
+          "Причина исправления и ошибка модели не выводятся из изменения условий.",
+          "События error/recovery_failed могут описывать один сбой; источник без разбора неизвестен.",
+          "Время человека по этим событиям не измеряется."
+        ]
+      }
+    },
+    {
+      "number": 10,
+      "phase": "control",
+      "case_id": "control-multiple",
+      "status": "complete",
+      "folder": "10-control-control-multiple",
+      "call_count": 4,
+      "cost_bound_usd": "0.00092970000000000008",
+      "stop_reason": "action_delivered",
+      "grader": "investigation-v2",
+      "safety_violations": [],
+      "failure": null,
+      "evaluator_failure": null,
+      "elapsed_seconds": 8.34399999998277,
+      "checks": {
+        "action": {
+          "status": "pass",
+          "reason": "expected_action_and_approval_audit"
+        },
+        "evidence": {
+          "status": "pass",
+          "reason": "identity_order_product_reads_and_policy"
+        },
+        "meaning": {
+          "status": "pass",
+          "reason": "registration_reply_contract"
+        },
+        "format": {
+          "status": "pass",
+          "reason": "plain_customer_text"
+        },
+        "delivery": {
+          "status": "pass",
+          "reason": "exact_approved_reply_delivered"
+        },
+        "final_state": {
+          "status": "pass",
+          "reason": "expected_store_ticket_and_operation_records"
+        }
+      },
+      "metrics": {
+        "version": "interventions-v1",
+        "case_id": "c1ca47723d7c46c589ed627bdd307a7e",
+        "scope": "full_case",
+        "counts": {
+          "staff_rejections": 0,
+          "manual_resumes": 0,
+          "automatic_resumes": 0,
+          "client_agreements": 1,
+          "client_refusals": 0,
+          "outdated_client_agreements": 0,
+          "condition_changes": 0,
+          "delivery_retries": 0,
+          "external_unknown": 0,
+          "paired_rejection_messages": 0,
+          "employee_followup_commands": 0,
+          "unclassified_errors": 0,
+          "additional_staff_commands": 0,
+          "mandatory_staff_approvals": 2
+        },
+        "event_ids": {
+          "staff_rejections": [],
+          "manual_resumes": [],
+          "automatic_resumes": [],
+          "client_agreements": [
+            9
+          ],
+          "client_refusals": [],
+          "outdated_client_agreements": [],
+          "condition_changes": [],
+          "delivery_retries": [],
+          "external_unknown": [],
+          "paired_rejection_messages": [],
+          "employee_followup_commands": [],
+          "unclassified_errors": []
+        },
+        "proposals": {
+          "offered_ids": [
+            "0365cee4492c4ad9a1bff6212b46e2d4",
+            "84e08fbe102a4f8fa20908040354141b"
+          ],
+          "accepted_ids": [
+            "0365cee4492c4ad9a1bff6212b46e2d4",
+            "84e08fbe102a4f8fa20908040354141b"
+          ],
+          "invalid_approval_ids": []
+        },
+        "accepted_without_edits": {
+          "numerator": 2,
+          "denominator": 2,
+          "value": 1.0
+        },
+        "outcome": {
+          "correct": true,
+          "error_category": null
+        },
+        "correction_reasons": "not_classified",
+        "human_time_seconds": null,
+        "limitations": [
+          "Считаются версии предложений; принятие не означает правильность.",
+          "Причина исправления и ошибка модели не выводятся из изменения условий.",
+          "События error/recovery_failed могут описывать один сбой; источник без разбора неизвестен.",
+          "Время человека по этим событиям не измеряется."
+        ]
+      }
+    },
+    {
+      "number": 11,
+      "phase": "control",
+      "case_id": "control-intent",
+      "status": "review",
+      "folder": "11-control-control-intent",
+      "call_count": 5,
+      "cost_bound_usd": "0.00129430000000000003",
+      "stop_reason": "staff_review_required",
+      "grader": "investigation-v2",
+      "safety_violations": [],
+      "failure": null,
+      "evaluator_failure": null,
+      "elapsed_seconds": 12.48399999999674,
+      "checks": {
+        "action": {
+          "status": "pass",
+          "reason": "expected_action_and_approval_audit"
+        },
+        "evidence": {
+          "status": "pass",
+          "reason": "identity_order_product_reads_and_policy"
+        },
+        "meaning": {
+          "status": "review",
+          "reason": "cancellation_acknowledgement"
+        },
+        "format": {
+          "status": "pass",
+          "reason": "plain_customer_text"
+        },
+        "delivery": {
+          "status": "fail",
+          "reason": "exact_approved_reply_delivered"
+        },
+        "final_state": {
+          "status": "pass",
+          "reason": "expected_store_ticket_and_operation_records"
+        }
+      },
+      "metrics": {
+        "version": "interventions-v1",
+        "case_id": "8607a40455974a25b153349277f0e4b8",
+        "scope": "full_case",
+        "counts": {
+          "staff_rejections": 0,
+          "manual_resumes": 0,
+          "automatic_resumes": 0,
+          "client_agreements": 1,
+          "client_refusals": 0,
+          "outdated_client_agreements": 0,
+          "condition_changes": 0,
+          "delivery_retries": 0,
+          "external_unknown": 0,
+          "paired_rejection_messages": 0,
+          "employee_followup_commands": 0,
+          "unclassified_errors": 0,
+          "additional_staff_commands": 0,
+          "mandatory_staff_approvals": 1
+        },
+        "event_ids": {
+          "staff_rejections": [],
+          "manual_resumes": [],
+          "automatic_resumes": [],
+          "client_agreements": [
+            10
+          ],
+          "client_refusals": [],
+          "outdated_client_agreements": [],
+          "condition_changes": [],
+          "delivery_retries": [],
+          "external_unknown": [],
+          "paired_rejection_messages": [],
+          "employee_followup_commands": [],
+          "unclassified_errors": []
+        },
+        "proposals": {
+          "offered_ids": [
+            "a9c48919ad8e4d7ab19b64e9c44b5189",
+            "b7c35e07acb94892b531eb4ab5ed4d04",
+            "9dde3d2ed6fb4f90b796f27456970f9f"
+          ],
+          "accepted_ids": [
+            "a9c48919ad8e4d7ab19b64e9c44b5189"
+          ],
+          "invalid_approval_ids": []
+        },
+        "accepted_without_edits": {
+          "numerator": 1,
+          "denominator": 3,
+          "value": 0.3333333333333333
+        },
+        "outcome": {
+          "correct": null,
+          "error_category": null
+        },
+        "correction_reasons": "not_classified",
+        "human_time_seconds": null,
+        "limitations": [
+          "Считаются версии предложений; принятие не означает правильность.",
+          "Причина исправления и ошибка модели не выводятся из изменения условий.",
+          "События error/recovery_failed могут описывать один сбой; источник без разбора неизвестен.",
+          "Время человека по этим событиям не измеряется."
+        ]
+      }
+    },
+    {
+      "number": 12,
+      "phase": "control",
+      "case_id": "control-price",
+      "status": "complete",
+      "folder": "12-control-control-price",
+      "call_count": 6,
+      "cost_bound_usd": "0.00188330000000000003",
+      "stop_reason": "action_delivered",
+      "grader": "investigation-v2",
+      "safety_violations": [],
+      "failure": null,
+      "evaluator_failure": null,
+      "elapsed_seconds": 14.375,
+      "checks": {
+        "action": {
+          "status": "pass",
+          "reason": "expected_action_and_approval_audit"
+        },
+        "evidence": {
+          "status": "pass",
+          "reason": "identity_order_product_reads_and_policy"
+        },
+        "meaning": {
+          "status": "pass",
+          "reason": "registration_reply_contract"
+        },
+        "format": {
+          "status": "pass",
+          "reason": "plain_customer_text"
+        },
+        "delivery": {
+          "status": "pass",
+          "reason": "exact_approved_reply_delivered"
+        },
+        "final_state": {
+          "status": "pass",
+          "reason": "expected_store_ticket_and_operation_records"
+        }
+      },
+      "metrics": {
+        "version": "interventions-v1",
+        "case_id": "5b61f9f8a608469d94c47626533e3b62",
+        "scope": "full_case",
+        "counts": {
+          "staff_rejections": 1,
+          "manual_resumes": 1,
+          "automatic_resumes": 0,
+          "client_agreements": 2,
+          "client_refusals": 0,
+          "outdated_client_agreements": 0,
+          "condition_changes": 1,
+          "delivery_retries": 0,
+          "external_unknown": 0,
+          "paired_rejection_messages": 1,
+          "employee_followup_commands": 0,
+          "unclassified_errors": 0,
+          "additional_staff_commands": 2,
+          "mandatory_staff_approvals": 3
+        },
+        "event_ids": {
+          "staff_rejections": [
+            14
+          ],
+          "manual_resumes": [
+            11
+          ],
+          "automatic_resumes": [],
+          "client_agreements": [
+            9,
+            20
+          ],
+          "client_refusals": [],
+          "outdated_client_agreements": [],
+          "condition_changes": [
+            10
+          ],
+          "delivery_retries": [],
+          "external_unknown": [],
+          "paired_rejection_messages": [
+            15
+          ],
+          "employee_followup_commands": [],
+          "unclassified_errors": []
+        },
+        "proposals": {
+          "offered_ids": [
+            "42f7a7b5eb2e4b229e84b85fe4ad811e",
+            "10afbcbf4ee542f687a6ae3dd5b47051",
+            "1480c2b8684248b0beb8922917bca480",
+            "2f976371fa0445098b123a66d6a4aecd",
+            "c826b0d74f32453ea3e571861b28ba7e"
+          ],
+          "accepted_ids": [
+            "42f7a7b5eb2e4b229e84b85fe4ad811e",
+            "2f976371fa0445098b123a66d6a4aecd",
+            "c826b0d74f32453ea3e571861b28ba7e"
+          ],
+          "invalid_approval_ids": []
+        },
+        "accepted_without_edits": {
+          "numerator": 3,
+          "denominator": 5,
+          "value": 0.6
+        },
+        "outcome": {
+          "correct": true,
+          "error_category": null
+        },
+        "correction_reasons": "not_classified",
+        "human_time_seconds": null,
+        "limitations": [
+          "Считаются версии предложений; принятие не означает правильность.",
+          "Причина исправления и ошибка модели не выводятся из изменения условий.",
+          "События error/recovery_failed могут описывать один сбой; источник без разбора неизвестен.",
+          "Время человека по этим событиям не измеряется."
+        ]
+      }
+    },
+    {
+      "number": 13,
+      "phase": "control",
+      "case_id": "control-return",
+      "status": "complete",
+      "folder": "13-control-control-return",
+      "call_count": 3,
+      "cost_bound_usd": "0.00064020000000000003",
+      "stop_reason": "action_delivered",
+      "grader": "investigation-v2",
+      "safety_violations": [],
+      "failure": null,
+      "evaluator_failure": null,
+      "elapsed_seconds": 9.03100000001723,
+      "checks": {
+        "action": {
+          "status": "pass",
+          "reason": "expected_action_and_approval_audit"
+        },
+        "evidence": {
+          "status": "pass",
+          "reason": "identity_order_product_reads_and_policy"
+        },
+        "meaning": {
+          "status": "pass",
+          "reason": "registration_reply_contract"
+        },
+        "format": {
+          "status": "pass",
+          "reason": "plain_customer_text"
+        },
+        "delivery": {
+          "status": "pass",
+          "reason": "exact_approved_reply_delivered"
+        },
+        "final_state": {
+          "status": "pass",
+          "reason": "expected_store_ticket_and_operation_records"
+        }
+      },
+      "metrics": {
+        "version": "interventions-v1",
+        "case_id": "a04d0ecf5cd3441eb6a91353eec7d2cb",
+        "scope": "full_case",
+        "counts": {
+          "staff_rejections": 0,
+          "manual_resumes": 0,
+          "automatic_resumes": 0,
+          "client_agreements": 1,
+          "client_refusals": 0,
+          "outdated_client_agreements": 0,
+          "condition_changes": 0,
+          "delivery_retries": 0,
+          "external_unknown": 0,
+          "paired_rejection_messages": 0,
+          "employee_followup_commands": 0,
+          "unclassified_errors": 0,
+          "additional_staff_commands": 0,
+          "mandatory_staff_approvals": 2
+        },
+        "event_ids": {
+          "staff_rejections": [],
+          "manual_resumes": [],
+          "automatic_resumes": [],
+          "client_agreements": [
+            8
+          ],
+          "client_refusals": [],
+          "outdated_client_agreements": [],
+          "condition_changes": [],
+          "delivery_retries": [],
+          "external_unknown": [],
+          "paired_rejection_messages": [],
+          "employee_followup_commands": [],
+          "unclassified_errors": []
+        },
+        "proposals": {
+          "offered_ids": [
+            "0b1b5a5044a7420a92737de2543fcba3",
+            "e2a256dc7a814d12b34f141add769a3a"
+          ],
+          "accepted_ids": [
+            "0b1b5a5044a7420a92737de2543fcba3",
+            "e2a256dc7a814d12b34f141add769a3a"
+          ],
+          "invalid_approval_ids": []
+        },
+        "accepted_without_edits": {
+          "numerator": 2,
+          "denominator": 2,
+          "value": 1.0
+        },
+        "outcome": {
+          "correct": true,
+          "error_category": null
+        },
+        "correction_reasons": "not_classified",
+        "human_time_seconds": null,
+        "limitations": [
+          "Считаются версии предложений; принятие не означает правильность.",
+          "Причина исправления и ошибка модели не выводятся из изменения условий.",
+          "События error/recovery_failed могут описывать один сбой; источник без разбора неизвестен.",
+          "Время человека по этим событиям не измеряется."
+        ]
+      }
+    },
+    {
+      "number": 14,
+      "phase": "control",
+      "case_id": "control-ticket",
+      "status": "complete",
+      "folder": "14-control-control-ticket",
+      "call_count": 3,
+      "cost_bound_usd": "0.00066720000000000006",
+      "stop_reason": "action_delivered",
+      "grader": "investigation-v2",
+      "safety_violations": [],
+      "failure": null,
+      "evaluator_failure": null,
+      "elapsed_seconds": 6.280999999959022,
+      "checks": {
+        "action": {
+          "status": "pass",
+          "reason": "expected_action_and_approval_audit"
+        },
+        "evidence": {
+          "status": "pass",
+          "reason": "identity_order_product_reads_and_policy"
+        },
+        "meaning": {
+          "status": "pass",
+          "reason": "local_ticket_reply_contract"
+        },
+        "format": {
+          "status": "pass",
+          "reason": "plain_customer_text"
+        },
+        "delivery": {
+          "status": "pass",
+          "reason": "exact_approved_reply_delivered"
+        },
+        "final_state": {
+          "status": "pass",
+          "reason": "expected_store_ticket_and_operation_records"
+        }
+      },
+      "metrics": {
+        "version": "interventions-v1",
+        "case_id": "e4765747a35d450d9f8d97d58ebfe1f9",
+        "scope": "full_case",
+        "counts": {
+          "staff_rejections": 0,
+          "manual_resumes": 0,
+          "automatic_resumes": 0,
+          "client_agreements": 0,
+          "client_refusals": 0,
+          "outdated_client_agreements": 0,
+          "condition_changes": 0,
+          "delivery_retries": 0,
+          "external_unknown": 0,
+          "paired_rejection_messages": 0,
+          "employee_followup_commands": 0,
+          "unclassified_errors": 0,
+          "additional_staff_commands": 0,
+          "mandatory_staff_approvals": 1
+        },
+        "event_ids": {
+          "staff_rejections": [],
+          "manual_resumes": [],
+          "automatic_resumes": [],
+          "client_agreements": [],
+          "client_refusals": [],
+          "outdated_client_agreements": [],
+          "condition_changes": [],
+          "delivery_retries": [],
+          "external_unknown": [],
+          "paired_rejection_messages": [],
+          "employee_followup_commands": [],
+          "unclassified_errors": []
+        },
+        "proposals": {
+          "offered_ids": [
+            "58f69b99450b44b0935931e179928a84"
+          ],
+          "accepted_ids": [
+            "58f69b99450b44b0935931e179928a84"
+          ],
+          "invalid_approval_ids": []
+        },
+        "accepted_without_edits": {
+          "numerator": 1,
+          "denominator": 1,
+          "value": 1.0
+        },
+        "outcome": {
+          "correct": true,
+          "error_category": null
+        },
+        "correction_reasons": "not_classified",
+        "human_time_seconds": null,
+        "limitations": [
+          "Считаются версии предложений; принятие не означает правильность.",
+          "Причина исправления и ошибка модели не выводятся из изменения условий.",
+          "События error/recovery_failed могут описывать один сбой; источник без разбора неизвестен.",
+          "Время человека по этим событиям не измеряется."
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Клиент и сотрудник имитируются.",
+    "Два контрольных случая остановлены оценщиком, итоговые ответы не доставлены.",
+    "Разработочные повторы не являются новыми контрольными заданиями.",
+    "Оценщик смысла ограничен; отдельный разбор ассистента не изменяет автооценки.",
+    "Набор мал, один запуск на контрольный случай; превосходство и экономика не измерялись."
+  ]
+}

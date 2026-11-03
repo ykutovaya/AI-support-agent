@@ -1,0 +1,81 @@
+[
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "find_user_id_by_email",
+        "name": "find_user_id_by_email",
+        "arguments": {
+          "email": "c007@example.test"
+        }
+      }
+    ],
+    "tool_call_id": null,
+    "error": false,
+    "execution_status": "executed"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "get_order_details",
+        "name": "get_order_details",
+        "arguments": {
+          "order_id": "#C007"
+        }
+      }
+    ],
+    "tool_call_id": null,
+    "error": false,
+    "execution_status": "executed"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "get_product_details",
+        "name": "get_product_details",
+        "arguments": {
+          "product_id": "headphones_c007"
+        }
+      }
+    ],
+    "tool_call_id": null,
+    "error": false,
+    "execution_status": "executed"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "propose_exchange",
+        "name": "propose_exchange",
+        "arguments": {
+          "order_id": "#C007",
+          "item_ids": [
+            "black_c007"
+          ],
+          "new_item_ids": [
+            "white_c007"
+          ],
+          "payment_method_id": "card"
+        }
+      }
+    ],
+    "tool_call_id": null,
+    "error": false,
+    "execution_status": "executed"
+  },
+  {
+    "role": "assistant",
+    "content": "Понял. Обмен не оформляю: чёрные наушники остаются у вас, списания не будет.",
+    "tool_calls": null,
+    "tool_call_id": null,
+    "error": false,
+    "execution_status": "executed"
+  }
+]

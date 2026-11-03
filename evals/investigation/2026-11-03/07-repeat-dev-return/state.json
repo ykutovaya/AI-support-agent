@@ -1,0 +1,675 @@
+{
+  "case": {
+    "id": "a1c500c3f1d646e2ad67d0c6f5073298",
+    "user_id": "customer_d002",
+    "employee_id": "investigation-evaluation-employee"
+  },
+  "tables": {
+    "proposals": [
+      {
+        "id": "9caa1fe1bb574d6bb34f43937bdfb9b0",
+        "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+        "version": 1,
+        "body": "{\"id\":\"9caa1fe1bb574d6bb34f43937bdfb9b0\",\"case_id\":\"a1c500c3f1d646e2ad67d0c6f5073298\",\"version\":1,\"kind\":\"message\",\"text\":\"Заявка на возврат 1 позиций заказа #D002. Заказ #D002. Позиции: black_d002. Сумма предполагаемого возврата: 23.40 USD. Способ оплаты: card. Подтвердите эти условия.\",\"action\":null,\"consent_request\":{\"name\":\"return_delivered_order_items\",\"arguments\":{\"order_id\":\"#D002\",\"item_ids\":[\"black_d002\"],\"payment_method_id\":\"card\"},\"amount\":\"-23.40\",\"currency\":\"USD\",\"conditions\":\"0ffef9b4c721284c1b3f1424d50874b1256475af344dc91818a2c990510d6d3d\",\"result_status\":\"return requested\",\"description\":\"Заявка на возврат 1 позиций заказа #D002\",\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#D002\",\"detail\":\"Заказ #D002, статус delivered, клиент customer_d002.\"},{\"title\":\"Наушники\",\"source\":\"products/headphones_d002\",\"detail\":\"black_d002: цена покупки 23.40 USD\"},{\"title\":\"Правила возврата\",\"source\":\"policy.md#return-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}],\"condition_values\":{\"order\":{\"order_id\":\"#D002\",\"user_id\":\"customer_d002\",\"address\":{\"address1\":\"Учебная 1\",\"address2\":\"\",\"city\":\"Город\",\"country\":\"US\",\"state\":\"CA\",\"zip\":\"12345\"},\"items\":[{\"name\":\"Наушники\",\"product_id\":\"headphones_d002\",\"item_id\":\"black_d002\",\"price\":23.4,\"options\":{\"color\":\"black\"}}],\"status\":\"delivered\",\"fulfillments\":[],\"payment_history\":[{\"transaction_type\":\"payment\",\"amount\":23.4,\"payment_method_id\":\"card\"}],\"cancel_reason\":null,\"exchange_items\":null,\"exchange_new_items\":null,\"exchange_payment_method_id\":null,\"exchange_price_difference\":null,\"return_items\":null,\"return_payment_method_id\":null},\"payment_methods\":{\"card\":{\"source\":\"credit_card\",\"id\":\"card\",\"brand\":\"visa\",\"last_four\":\"1111\"},\"other_card\":{\"source\":\"credit_card\",\"id\":\"other_card\",\"brand\":\"visa\",\"last_four\":\"2222\"},\"gift\":{\"source\":\"gift_card\",\"id\":\"gift\",\"balance\":5.0}},\"products\":{\"headphones_d002\":{\"name\":\"Наушники\",\"product_id\":\"headphones_d002\",\"variants\":{\"black_d002\":{\"item_id\":\"black_d002\",\"options\":{\"color\":\"black\"},\"available\":true,\"price\":23.4},\"white_d002\":{\"item_id\":\"white_d002\",\"options\":{\"color\":\"white\"},\"available\":true,\"price\":25.9}}}},\"policy\":\"# Учебные правила поддержки\\n\\nСинтетические правила испытательного магазина; это не правила Softline.\\n\\n## Идентификация\\nПроверьте email либо имя и почтовый индекс инструментом поиска. При отсутствии сведений запросите их. Читайте только записи клиента текущего обращения. Если у клиента несколько заказов, используйте указанный заказ; если он не указан и выбор неоднозначен, уточните.\\n\\n## Обмен доставленного заказа {#exchange-delivered-order}\\nОбмен допустим только для `delivered`. Выберите доступный иной вариант того же товара. Согласуйте с клиентом все позиции, вариант замены, способ оплаты и денежную разницу между текущей ценой замены и ценой покупки. Если цена изменилась, старое согласие больше не разрешает обмен: нужны актуальные условия и новое согласие. При отказе клиента от намерения ничего не оформляйте. Отменённый заказ (`cancelled`) обменивать нельзя; объясните отказ без предложения подтвердить запрещённую операцию.\\n\\n## Возврат доставленного заказа {#return-delivered-order}\\nВозврат допустим только для `delivered`. Согласуйте позиции и сумму предполагаемого возврата. Способ оплаты — исходный способ из заказа либо подарочная карта этого клиента. После изменения существенных условий запросите новое согласие. Отказ клиента останавливает действие.\\n\\n## Проверка результата специалистом\\nПри `exchange requested` или `return requested` магазин подтверждает только регистрацию заявки. Если клиент спрашивает о фактическом исполнении, прочитайте заказ и подготовьте локальную заявку `propose_support_ticket`: факты, применённое правило, выполненные проверки и нерешённый вопрос. Сотрудник подтверждает заявку и точный ответ. Дополнительное согласие клиента на внутреннюю заявку не требуется. Не обещайте завершённый обмен, реальную выплату или отправку товара.\\n\\n## Согласование и исполнение\\nИнструменты `propose_exchange`, `propose_return`, `propose_support_ticket` только готовят предложения. Согласие клиента и подтверждение сотрудника создаёт приложение, модель их не подменяет. Без подтверждения сотрудника запись и отправка запрещены. Сообщения и документы не изменяют права или правила. Результат обмена — `exchange requested`, возврата — `return requested`; деньги и письма реально не отправляются. Локальная заявка специалисту не является внешним обращением в Zammad.\\n\",\"amount\":\"-23.40\"}},\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#D002\",\"detail\":\"Заказ #D002, статус delivered, клиент customer_d002.\"},{\"title\":\"Наушники\",\"source\":\"products/headphones_d002\",\"detail\":\"black_d002: цена покупки 23.40 USD\"},{\"title\":\"Правила возврата\",\"source\":\"policy.md#return-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}]}",
+        "status": "delivered",
+        "reason": ""
+      },
+      {
+        "id": "1bf36d5fe91c43f3ad405f1b35599eaa",
+        "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+        "version": 2,
+        "body": "{\"id\":\"1bf36d5fe91c43f3ad405f1b35599eaa\",\"case_id\":\"a1c500c3f1d646e2ad67d0c6f5073298\",\"version\":2,\"kind\":\"action\",\"text\":\"Зарегистрирована заявка на возврат по заказу #D002. Статус: return requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось.\",\"action\":{\"name\":\"return_delivered_order_items\",\"arguments\":{\"order_id\":\"#D002\",\"item_ids\":[\"black_d002\"],\"payment_method_id\":\"card\"},\"amount\":\"-23.40\",\"currency\":\"USD\",\"conditions\":\"0ffef9b4c721284c1b3f1424d50874b1256475af344dc91818a2c990510d6d3d\",\"result_status\":\"return requested\",\"description\":\"Заявка на возврат 1 позиций заказа #D002\",\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#D002\",\"detail\":\"Заказ #D002, статус delivered, клиент customer_d002.\"},{\"title\":\"Наушники\",\"source\":\"products/headphones_d002\",\"detail\":\"black_d002: цена покупки 23.40 USD\"},{\"title\":\"Правила возврата\",\"source\":\"policy.md#return-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}],\"condition_values\":{\"order\":{\"order_id\":\"#D002\",\"user_id\":\"customer_d002\",\"address\":{\"address1\":\"Учебная 1\",\"address2\":\"\",\"city\":\"Город\",\"country\":\"US\",\"state\":\"CA\",\"zip\":\"12345\"},\"items\":[{\"name\":\"Наушники\",\"product_id\":\"headphones_d002\",\"item_id\":\"black_d002\",\"price\":23.4,\"options\":{\"color\":\"black\"}}],\"status\":\"delivered\",\"fulfillments\":[],\"payment_history\":[{\"transaction_type\":\"payment\",\"amount\":23.4,\"payment_method_id\":\"card\"}],\"cancel_reason\":null,\"exchange_items\":null,\"exchange_new_items\":null,\"exchange_payment_method_id\":null,\"exchange_price_difference\":null,\"return_items\":null,\"return_payment_method_id\":null},\"payment_methods\":{\"card\":{\"source\":\"credit_card\",\"id\":\"card\",\"brand\":\"visa\",\"last_four\":\"1111\"},\"other_card\":{\"source\":\"credit_card\",\"id\":\"other_card\",\"brand\":\"visa\",\"last_four\":\"2222\"},\"gift\":{\"source\":\"gift_card\",\"id\":\"gift\",\"balance\":5.0}},\"products\":{\"headphones_d002\":{\"name\":\"Наушники\",\"product_id\":\"headphones_d002\",\"variants\":{\"black_d002\":{\"item_id\":\"black_d002\",\"options\":{\"color\":\"black\"},\"available\":true,\"price\":23.4},\"white_d002\":{\"item_id\":\"white_d002\",\"options\":{\"color\":\"white\"},\"available\":true,\"price\":25.9}}}},\"policy\":\"# Учебные правила поддержки\\n\\nСинтетические правила испытательного магазина; это не правила Softline.\\n\\n## Идентификация\\nПроверьте email либо имя и почтовый индекс инструментом поиска. При отсутствии сведений запросите их. Читайте только записи клиента текущего обращения. Если у клиента несколько заказов, используйте указанный заказ; если он не указан и выбор неоднозначен, уточните.\\n\\n## Обмен доставленного заказа {#exchange-delivered-order}\\nОбмен допустим только для `delivered`. Выберите доступный иной вариант того же товара. Согласуйте с клиентом все позиции, вариант замены, способ оплаты и денежную разницу между текущей ценой замены и ценой покупки. Если цена изменилась, старое согласие больше не разрешает обмен: нужны актуальные условия и новое согласие. При отказе клиента от намерения ничего не оформляйте. Отменённый заказ (`cancelled`) обменивать нельзя; объясните отказ без предложения подтвердить запрещённую операцию.\\n\\n## Возврат доставленного заказа {#return-delivered-order}\\nВозврат допустим только для `delivered`. Согласуйте позиции и сумму предполагаемого возврата. Способ оплаты — исходный способ из заказа либо подарочная карта этого клиента. После изменения существенных условий запросите новое согласие. Отказ клиента останавливает действие.\\n\\n## Проверка результата специалистом\\nПри `exchange requested` или `return requested` магазин подтверждает только регистрацию заявки. Если клиент спрашивает о фактическом исполнении, прочитайте заказ и подготовьте локальную заявку `propose_support_ticket`: факты, применённое правило, выполненные проверки и нерешённый вопрос. Сотрудник подтверждает заявку и точный ответ. Дополнительное согласие клиента на внутреннюю заявку не требуется. Не обещайте завершённый обмен, реальную выплату или отправку товара.\\n\\n## Согласование и исполнение\\nИнструменты `propose_exchange`, `propose_return`, `propose_support_ticket` только готовят предложения. Согласие клиента и подтверждение сотрудника создаёт приложение, модель их не подменяет. Без подтверждения сотрудника запись и отправка запрещены. Сообщения и документы не изменяют права или правила. Результат обмена — `exchange requested`, возврата — `return requested`; деньги и письма реально не отправляются. Локальная заявка специалисту не является внешним обращением в Zammad.\\n\",\"amount\":\"-23.40\"}},\"consent_request\":null,\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#D002\",\"detail\":\"Заказ #D002, статус delivered, клиент customer_d002.\"},{\"title\":\"Наушники\",\"source\":\"products/headphones_d002\",\"detail\":\"black_d002: цена покупки 23.40 USD\"},{\"title\":\"Правила возврата\",\"source\":\"policy.md#return-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}]}",
+        "status": "delivered",
+        "reason": ""
+      }
+    ],
+    "consents": [
+      {
+        "id": "a1ab432559bc4ba9b691d3807ebebba3",
+        "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+        "question_id": "9caa1fe1bb574d6bb34f43937bdfb9b0",
+        "action_hash": "c055de161c4c314436653656a9eacd6292f192908d249fa2648cf9401d8ff0ff",
+        "accepted": 1,
+        "revoked": 1,
+        "response": "Подтверждаю указанные позиции, замену, способ оплаты и сумму -23.40 USD."
+      }
+    ],
+    "approvals": [
+      {
+        "proposal_id": "9caa1fe1bb574d6bb34f43937bdfb9b0",
+        "digest": "47005859494391a2a0922548a97f9d5cc5db2078047e0c9289c3d9c0f69ddd8d",
+        "employee_id": "investigation-evaluation-employee"
+      },
+      {
+        "proposal_id": "1bf36d5fe91c43f3ad405f1b35599eaa",
+        "digest": "0b830e173982d5877a3bf7a61a335bc5d4d668521d2e6907d06649413e45961b",
+        "employee_id": "investigation-evaluation-employee"
+      }
+    ],
+    "operations": [
+      {
+        "proposal_id": "1bf36d5fe91c43f3ad405f1b35599eaa",
+        "result": "{\"order_id\": \"#D002\", \"user_id\": \"customer_d002\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"headphones_d002\", \"item_id\": \"black_d002\", \"price\": 23.4, \"options\": {\"color\": \"black\"}}], \"status\": \"return requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 23.4, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": [\"black_d002\"], \"return_payment_method_id\": \"card\"}"
+      }
+    ],
+    "operation_verifications": [
+      {
+        "proposal_id": "1bf36d5fe91c43f3ad405f1b35599eaa",
+        "verified_at": "2026-11-03T02:58:13.224265+00:00"
+      }
+    ],
+    "support_tickets": [],
+    "external_ticket_operations": [],
+    "outbox": [
+      {
+        "id": "5be449be8df54840b4b54317966962fc",
+        "proposal_id": "9caa1fe1bb574d6bb34f43937bdfb9b0",
+        "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+        "text": "Заявка на возврат 1 позиций заказа #D002. Заказ #D002. Позиции: black_d002. Сумма предполагаемого возврата: 23.40 USD. Способ оплаты: card. Подтвердите эти условия.",
+        "status": "delivered",
+        "error": ""
+      },
+      {
+        "id": "23fbbb0dd40a4a1090f6f54fcde5e84b",
+        "proposal_id": "1bf36d5fe91c43f3ad405f1b35599eaa",
+        "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+        "text": "Зарегистрирована заявка на возврат по заказу #D002. Статус: return requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось.",
+        "status": "delivered",
+        "error": ""
+      }
+    ],
+    "deliveries": [
+      {
+        "id": "5be449be8df54840b4b54317966962fc",
+        "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+        "text": "Заявка на возврат 1 позиций заказа #D002. Заказ #D002. Позиции: black_d002. Сумма предполагаемого возврата: 23.40 USD. Способ оплаты: card. Подтвердите эти условия."
+      },
+      {
+        "id": "23fbbb0dd40a4a1090f6f54fcde5e84b",
+        "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+        "text": "Зарегистрирована заявка на возврат по заказу #D002. Статус: return requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+      }
+    ],
+    "recoveries": []
+  },
+  "retail": {
+    "products": {
+      "p2": {
+        "name": "Чайник",
+        "product_id": "p2",
+        "variants": {
+          "foreign": {
+            "item_id": "foreign",
+            "options": {},
+            "available": true,
+            "price": 20.0
+          }
+        }
+      },
+      "headphones_d002": {
+        "name": "Наушники",
+        "product_id": "headphones_d002",
+        "variants": {
+          "black_d002": {
+            "item_id": "black_d002",
+            "options": {
+              "color": "black"
+            },
+            "available": true,
+            "price": 23.4
+          },
+          "white_d002": {
+            "item_id": "white_d002",
+            "options": {
+              "color": "white"
+            },
+            "available": true,
+            "price": 25.9
+          }
+        }
+      }
+    },
+    "users": {
+      "u2": {
+        "user_id": "u2",
+        "name": {
+          "first_name": "Имя2",
+          "last_name": "Фамилия"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "user2@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#O2"
+        ]
+      },
+      "customer_d002": {
+        "user_id": "customer_d002",
+        "name": {
+          "first_name": "Учебный",
+          "last_name": "dev-return"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "d002@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#D002"
+        ]
+      }
+    },
+    "orders": {
+      "#O2": {
+        "order_id": "#O2",
+        "user_id": "u2",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Чайник",
+            "product_id": "p2",
+            "item_id": "foreign",
+            "price": 10.0,
+            "options": {
+              "color": "black"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 10.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      },
+      "#D002": {
+        "order_id": "#D002",
+        "user_id": "customer_d002",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Наушники",
+            "product_id": "headphones_d002",
+            "item_id": "black_d002",
+            "price": 23.4,
+            "options": {
+              "color": "black"
+            }
+          }
+        ],
+        "status": "return requested",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 23.4,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": [
+          "black_d002"
+        ],
+        "return_payment_method_id": "card"
+      }
+    }
+  },
+  "initial_retail": {
+    "products": {
+      "p2": {
+        "name": "Чайник",
+        "product_id": "p2",
+        "variants": {
+          "foreign": {
+            "item_id": "foreign",
+            "options": {},
+            "available": true,
+            "price": 20.0
+          }
+        }
+      },
+      "headphones_d002": {
+        "name": "Наушники",
+        "product_id": "headphones_d002",
+        "variants": {
+          "black_d002": {
+            "item_id": "black_d002",
+            "options": {
+              "color": "black"
+            },
+            "available": true,
+            "price": 23.4
+          },
+          "white_d002": {
+            "item_id": "white_d002",
+            "options": {
+              "color": "white"
+            },
+            "available": true,
+            "price": 25.9
+          }
+        }
+      }
+    },
+    "users": {
+      "u2": {
+        "user_id": "u2",
+        "name": {
+          "first_name": "Имя2",
+          "last_name": "Фамилия"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "user2@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#O2"
+        ]
+      },
+      "customer_d002": {
+        "user_id": "customer_d002",
+        "name": {
+          "first_name": "Учебный",
+          "last_name": "dev-return"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "d002@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#D002"
+        ]
+      }
+    },
+    "orders": {
+      "#O2": {
+        "order_id": "#O2",
+        "user_id": "u2",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Чайник",
+            "product_id": "p2",
+            "item_id": "foreign",
+            "price": 10.0,
+            "options": {
+              "color": "black"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 10.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      },
+      "#D002": {
+        "order_id": "#D002",
+        "user_id": "customer_d002",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Наушники",
+            "product_id": "headphones_d002",
+            "item_id": "black_d002",
+            "price": 23.4,
+            "options": {
+              "color": "black"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 23.4,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      }
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "Верните наушники из заказа #D002. Email d002@example.test. Деньги прошу на ту же карту, которой платил, 1111.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_RVAmaVFeEzofSQqIvaa1JXzq",
+          "name": "find_user_id_by_email",
+          "arguments": {
+            "email": "d002@example.test"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "\"customer_d002\"",
+      "tool_calls": null,
+      "tool_call_id": "call_RVAmaVFeEzofSQqIvaa1JXzq",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_2oVa6JDGxlEfwYzyQG8ctPlD",
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "#D002"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"order_id\": \"#D002\", \"user_id\": \"customer_d002\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"headphones_d002\", \"item_id\": \"black_d002\", \"price\": 23.4, \"options\": {\"color\": \"black\"}}], \"status\": \"delivered\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 23.4, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": null, \"return_payment_method_id\": null}",
+      "tool_calls": null,
+      "tool_call_id": "call_2oVa6JDGxlEfwYzyQG8ctPlD",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_wWVqQhYduMBowDrKNzc80ocF",
+          "name": "propose_return",
+          "arguments": {
+            "order_id": "#D002",
+            "item_ids": [
+              "black_d002"
+            ],
+            "payment_method_id": "card"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"status\": \"proposal_prepared\", \"executed\": false}",
+      "tool_calls": null,
+      "tool_call_id": "call_wWVqQhYduMBowDrKNzc80ocF",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "Заявка на возврат 1 позиций заказа #D002. Заказ #D002. Позиции: black_d002. Сумма предполагаемого возврата: 23.40 USD. Способ оплаты: card. Подтвердите эти условия.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "user",
+      "content": "Подтверждаю указанные позиции, замену, способ оплаты и сумму -23.40 USD.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "Служебный результат исполнителя (не сообщение клиенту): {\"order_id\": \"#D002\", \"user_id\": \"customer_d002\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"headphones_d002\", \"item_id\": \"black_d002\", \"price\": 23.4, \"options\": {\"color\": \"black\"}}], \"status\": \"return requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 23.4, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": [\"black_d002\"], \"return_payment_method_id\": \"card\"}",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "Зарегистрирована заявка на возврат по заказу #D002. Статус: return requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+      "kind": "customer",
+      "text": "Верните наушники из заказа #D002. Email d002@example.test. Деньги прошу на ту же карту, которой платил, 1111."
+    },
+    {
+      "id": 2,
+      "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+      "kind": "tool",
+      "text": "find_user_id_by_email: {\"email\": \"d002@example.test\"}"
+    },
+    {
+      "id": 3,
+      "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+      "kind": "tool",
+      "text": "get_order_details: {\"order_id\": \"#D002\"}"
+    },
+    {
+      "id": 4,
+      "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+      "kind": "tool",
+      "text": "propose_return: {\"order_id\": \"#D002\", \"item_ids\": [\"black_d002\"], \"payment_method_id\": \"card\"}"
+    },
+    {
+      "id": 5,
+      "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+      "kind": "approval",
+      "text": "Сотрудник подтвердил предложение версии 1"
+    },
+    {
+      "id": 6,
+      "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+      "kind": "sent",
+      "text": "Заявка на возврат 1 позиций заказа #D002. Заказ #D002. Позиции: black_d002. Сумма предполагаемого возврата: 23.40 USD. Способ оплаты: card. Подтвердите эти условия."
+    },
+    {
+      "id": 7,
+      "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+      "kind": "customer",
+      "text": "Подтверждаю указанные позиции, замену, способ оплаты и сумму -23.40 USD."
+    },
+    {
+      "id": 8,
+      "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+      "kind": "consent",
+      "text": "Клиент подтвердил текущие условия"
+    },
+    {
+      "id": 9,
+      "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+      "kind": "approval",
+      "text": "Сотрудник подтвердил предложение версии 2"
+    },
+    {
+      "id": 10,
+      "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+      "kind": "operation",
+      "text": "{\"order_id\": \"#D002\", \"user_id\": \"customer_d002\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"headphones_d002\", \"item_id\": \"black_d002\", \"price\": 23.4, \"options\": {\"color\": \"black\"}}], \"status\": \"return requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 23.4, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": [\"black_d002\"], \"return_payment_method_id\": \"card\"}"
+    },
+    {
+      "id": 11,
+      "case_id": "a1c500c3f1d646e2ad67d0c6f5073298",
+      "kind": "sent",
+      "text": "Зарегистрирована заявка на возврат по заказу #D002. Статус: return requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+    }
+  ]
+}

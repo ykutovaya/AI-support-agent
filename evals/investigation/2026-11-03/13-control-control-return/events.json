@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "case_id": "a04d0ecf5cd3441eb6a91353eec7d2cb",
+    "kind": "customer",
+    "text": "Не оставлю наушники, оформите возврат по #C009. Email c009@example.test. Вернуть сумму на исходную карту 1111."
+  },
+  {
+    "id": 2,
+    "case_id": "a04d0ecf5cd3441eb6a91353eec7d2cb",
+    "kind": "tool",
+    "text": "find_user_id_by_email: {\"email\": \"c009@example.test\"}"
+  },
+  {
+    "id": 3,
+    "case_id": "a04d0ecf5cd3441eb6a91353eec7d2cb",
+    "kind": "tool",
+    "text": "get_order_details: {\"order_id\": \"#C009\"}"
+  },
+  {
+    "id": 4,
+    "case_id": "a04d0ecf5cd3441eb6a91353eec7d2cb",
+    "kind": "tool",
+    "text": "propose_return: {\"order_id\": \"#C009\", \"item_ids\": [\"black_c009\"], \"payment_method_id\": \"card\"}"
+  },
+  {
+    "id": 5,
+    "case_id": "a04d0ecf5cd3441eb6a91353eec7d2cb",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 1"
+  },
+  {
+    "id": 6,
+    "case_id": "a04d0ecf5cd3441eb6a91353eec7d2cb",
+    "kind": "sent",
+    "text": "Заявка на возврат 1 позиций заказа #C009. Заказ #C009. Позиции: black_c009. Сумма предполагаемого возврата: 19.85 USD. Способ оплаты: card. Подтвердите эти условия."
+  },
+  {
+    "id": 7,
+    "case_id": "a04d0ecf5cd3441eb6a91353eec7d2cb",
+    "kind": "customer",
+    "text": "Подтверждаю указанные позиции, замену, способ оплаты и сумму -19.85 USD."
+  },
+  {
+    "id": 8,
+    "case_id": "a04d0ecf5cd3441eb6a91353eec7d2cb",
+    "kind": "consent",
+    "text": "Клиент подтвердил текущие условия"
+  },
+  {
+    "id": 9,
+    "case_id": "a04d0ecf5cd3441eb6a91353eec7d2cb",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 2"
+  },
+  {
+    "id": 10,
+    "case_id": "a04d0ecf5cd3441eb6a91353eec7d2cb",
+    "kind": "operation",
+    "text": "{\"order_id\": \"#C009\", \"user_id\": \"customer_c009\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Наушники\", \"product_id\": \"headphones_c009\", \"item_id\": \"black_c009\", \"price\": 19.85, \"options\": {\"color\": \"black\"}}], \"status\": \"return requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 19.85, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": [\"black_c009\"], \"return_payment_method_id\": \"card\"}"
+  },
+  {
+    "id": 11,
+    "case_id": "a04d0ecf5cd3441eb6a91353eec7d2cb",
+    "kind": "sent",
+    "text": "Зарегистрирована заявка на возврат по заказу #C009. Статус: return requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+  }
+]

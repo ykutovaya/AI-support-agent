@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "case_id": "e5bfc051f4874784bc1379a2d0176732",
+    "kind": "customer",
+    "text": "Хочу поменять чёрные наушники на белые. Мой email d001@example.test. Заказ #D001. Оплачу разницу прежней картой, оканчивающейся на 1111."
+  },
+  {
+    "id": 2,
+    "case_id": "e5bfc051f4874784bc1379a2d0176732",
+    "kind": "tool",
+    "text": "find_user_id_by_email: {\"email\": \"d001@example.test\"}"
+  },
+  {
+    "id": 3,
+    "case_id": "e5bfc051f4874784bc1379a2d0176732",
+    "kind": "tool",
+    "text": "get_order_details: {\"order_id\": \"#D001\"}"
+  },
+  {
+    "id": 4,
+    "case_id": "e5bfc051f4874784bc1379a2d0176732",
+    "kind": "tool",
+    "text": "get_product_details: {\"product_id\": \"headphones_d001\"}"
+  },
+  {
+    "id": 5,
+    "case_id": "e5bfc051f4874784bc1379a2d0176732",
+    "kind": "tool",
+    "text": "get_user_details: {\"user_id\": \"customer_d001\"}"
+  }
+]

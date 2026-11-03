@@ -1,0 +1,15 @@
+﻿number,phase,case_id,status,call_count,cost_bound_usd,folder
+1,connection,connection,complete,1,0.0000119,01-connection-connection
+2,development,dev-exchange,review,5,0.00122510000000000002,02-development-dev-exchange
+3,development,dev-return,review,3,0.00072100000000000005,03-development-dev-return
+4,development,dev-ticket,complete,3,0.00068680000000000002,04-development-dev-ticket
+5,development,dev-cancelled,review,2,0.0004719,05-development-dev-cancelled
+6,repeat,dev-exchange,complete,4,0.00095100000000000002,06-repeat-dev-exchange
+7,repeat,dev-return,complete,3,0.00065050000000000006,07-repeat-dev-return
+8,repeat,dev-cancelled,review,3,0.00066890000000000004,08-repeat-dev-cancelled
+9,control,control-identity,review,1,0.00021720000000000002,09-control-control-identity
+10,control,control-multiple,complete,4,0.00092970000000000008,10-control-control-multiple
+11,control,control-intent,review,5,0.00129430000000000003,11-control-control-intent
+12,control,control-price,complete,6,0.00188330000000000003,12-control-control-price
+13,control,control-return,complete,3,0.00064020000000000003,13-control-control-return
+14,control,control-ticket,complete,3,0.00066720000000000006,14-control-control-ticket

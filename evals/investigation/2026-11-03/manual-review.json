@@ -1,0 +1,446 @@
+{
+  "date": "2026-11-03",
+  "status": "assistant_read_only_review_complete",
+  "reviewer": "assistant_independent_read_only",
+  "is_human_acceptance": false,
+  "method": "Чтение сохранённых текстов, state, staff-reviews и итогов; сверка с запросом клиента и фактами. Без API, исполнения, доставки и повторной оценки исходными оценщиками.",
+  "source_series": "evals/investigation/2026-11-03",
+  "original_results_changed": false,
+  "automatic_reviews_promoted": false,
+  "limitations": [
+    "Смысловая оценка ассистента не заменяет самостоятельную человеческую приёмку или полный проход.",
+    "Корректный pending-текст не считается отправленным ответом и не делает обращение завершённым.",
+    "Разработочные v1 и исправленные v2 результаты не являются прямым сравнением одной версии."
+  ],
+  "attempts": [
+    {
+      "attempt": "01-connection-connection",
+      "automated_status": "complete",
+      "automated_evaluator_version": null,
+      "manual_semantic_assessment": {
+        "status": "not_applicable",
+        "reason": "Проверка подключения, а не расследование обращения.",
+        "is_full_case_success_override": false
+      },
+      "execution_observation": {
+        "operation_count": 0,
+        "delivery_count": 0,
+        "latest_proposal_status": null,
+        "latest_draft_text": null,
+        "latest_draft_delivered": false,
+        "full_case_execution_confirmed": false,
+        "not_executed_by_manual_review": true
+      },
+      "ticket_review": [],
+      "issues": [],
+      "evidence_sha256": {
+        "provenance.json": "fadf8b7cc7ff9c0c78ea58015b046e21cb012580a15102a24402545e766836d9",
+        "result.json": "eafb2093c9749edab605eb0a07f36f5804386dec05a6c06f74e223a5c5320d2b"
+      }
+    },
+    {
+      "attempt": "02-development-dev-exchange",
+      "automated_status": "review",
+      "automated_evaluator_version": "investigation-v1",
+      "manual_semantic_assessment": {
+        "status": "correct",
+        "reason": "Условия обмена, обе цены, доплата 3.50 и карта 1111 соответствуют прочитанным данным; текст не утверждает исполнение.",
+        "is_full_case_success_override": false
+      },
+      "execution_observation": {
+        "operation_count": 0,
+        "delivery_count": 0,
+        "latest_proposal_status": "pending",
+        "latest_draft_text": "Заказ #D001 доставлен, поэтому обмен возможен. Предлагаю заменить чёрные наушники на белые: цена белых — $17,50 вместо $14,00, разница к оплате — $3,50 с карты, оканчивающейся на 1111. Подтверждаете обмен на этих условиях? Пока предложение не оформлено.",
+        "latest_draft_delivered": false,
+        "full_case_execution_confirmed": false,
+        "not_executed_by_manual_review": true
+      },
+      "ticket_review": [],
+      "issues": [
+        "Условия подготовлены свободным текстом вместо структурированного propose_exchange. Согласие клиента, исполнение и доставка не состоялись."
+      ],
+      "evidence_sha256": {
+        "provenance.json": "c7037e331a3994f85eb53c7cfc857a8017c7b286b1315f33bd78b5f40f1649be",
+        "result.json": "b05074d1ac60adfbaec1b080c878895c2c9001f0a6061a3fe46852fc3eb4c222",
+        "staff-decisions.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "staff-reviews.json": "7b29b3dd64725d719dc316a424a31eb6c2cf7789fca0ca66458b3ca1e954d1a7",
+        "state.json": "ae028612cb9643ff452b807a718412d0b5af04e0009c91740cae727314e6c5c9"
+      }
+    },
+    {
+      "attempt": "03-development-dev-return",
+      "automated_status": "review",
+      "automated_evaluator_version": "investigation-v1",
+      "manual_semantic_assessment": {
+        "status": "correct",
+        "reason": "Запрос подтверждения возврата 23.40 на исходную карту соответствует заказу; фактическая выплата не заявлена.",
+        "is_full_case_success_override": false
+      },
+      "execution_observation": {
+        "operation_count": 0,
+        "delivery_count": 0,
+        "latest_proposal_status": "pending",
+        "latest_draft_text": "В заказе #D002 обнаружены наушники стоимостью $23,40; заказ доставлен. Возврат на карту Visa, заканчивающуюся на 1111, предполагает возврат $23,40. Подтвердите, пожалуйста, что согласны вернуть наушники на этих условиях.",
+        "latest_draft_delivered": false,
+        "full_case_execution_confirmed": false,
+        "not_executed_by_manual_review": true
+      },
+      "ticket_review": [],
+      "issues": [
+        "Текст не связан со структурированным consent_request. Ни операция, ни доставка не выполнены."
+      ],
+      "evidence_sha256": {
+        "provenance.json": "1db94616c34c28ce2f8a448de1ec435b2ac926e741fbb901c757bee05c01b936",
+        "result.json": "7a6cd8a29de53d359b3f8c4316c328946cd06675150c0eb3ca02fcbca4015be1",
+        "staff-decisions.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "staff-reviews.json": "1525a44341e63513ca4a5131af1f8acc746ce149871d75b2567b2480e72ad383",
+        "state.json": "650673a82f8a8956c64e371a60cfc6cbbd84df79e29a53e21e9a1dccd8192656"
+      }
+    },
+    {
+      "attempt": "04-development-dev-ticket",
+      "automated_status": "complete",
+      "automated_evaluator_version": "investigation-v1",
+      "manual_semantic_assessment": {
+        "status": "correct",
+        "reason": "Вопрос специалисту и тело заявки точно отделяют exchange requested от фактического обмена; факты о заказе, вариантах и отсутствии исполнений подтверждены источником. Нерешённый вопрос релевантен.",
+        "is_full_case_success_override": false
+      },
+      "execution_observation": {
+        "operation_count": 1,
+        "delivery_count": 1,
+        "latest_proposal_status": "delivered",
+        "latest_draft_text": "Зарегистрирована локальная учебная заявка для проверки результата по заказу #D003. Фактическое завершение обмена или возврата пока не подтверждено.",
+        "latest_draft_delivered": true,
+        "full_case_execution_confirmed": true,
+        "not_executed_by_manual_review": true
+      },
+      "ticket_review": [
+        {
+          "proposal_version": 1,
+          "question": "Клиент спрашивает о фактическом результате обмена. Проверено: заказ #D003 имеет статус «exchange requested», в заказе указаны обмен чёрных наушников на белые; список исполнений пуст. По правилам этот статус подтверждает только регистрацию заявки, а не завершение обмена. Просьба проверить и сообщить текущий фактический статус обмена.",
+          "body": "Заказ клиента: Заказ #D003, клиент customer_d003, статус exchange requested. Источник: orders/#D003.\nПрименённое правило: Версия правила 1; версия правил магазина d0e4f8f99c964a1a2155a7cdff220ba65cdf24a9967be72613057c0f9fa323b6. Заявка на обмен или возврат зарегистрирована. Фактическое исполнение не установлено по данным retail; для ответа о текущем результате требуется проверка специалиста. Источник: policy.md#requested-order-result.\nВыполненные проверки: Проверены принадлежность заказа клиенту обращения, наличие заказа в списке его заказов и статус зарегистрированной заявки. Источник: orders/#D003.\nНерешённый вопрос клиента: Клиент спрашивает о фактическом результате обмена. Проверено: заказ #D003 имеет статус «exchange requested», в заказе указаны обмен чёрных наушников на белые; список исполнений пуст. По правилам этот статус подтверждает только регистрацию заявки, а не завершение обмена. Просьба проверить и сообщить текущий фактический статус обмена.",
+          "title": "Уточнение результата заявки по заказу #D003",
+          "saved_title_body_match": true,
+          "semantic_assessment": "correct",
+          "reason": "Факты, правило, выполненные проверки и нерешённый вопрос согласованы с источником и запросом клиента."
+        }
+      ],
+      "issues": [
+        "Это локальная учебная заявка, не реальное обращение в Zammad и не решение вопроса."
+      ],
+      "evidence_sha256": {
+        "provenance.json": "24056dcbad4ea8cd1a9cbe667444ccb552a51cb47d719dabddcb2efb82bfee23",
+        "result.json": "f4846e35c71a1f5a7db24097b266c724f7698c6c08d50845ee6bce9aa5ff5e19",
+        "staff-decisions.json": "6755fb339f0cc88f81f247dd8ccab9c4048a79cf48b74df4a9fd32cc120f4bd6",
+        "staff-reviews.json": "91c3a73db7090e5c4cb550ef5f061571bc7c302bbeed621f0dd6193cc3d9a461",
+        "state.json": "e9328b922cba34f91e2b0537ab3c5acc3f99e117012a7b51ef1ba478f5fcd13e"
+      }
+    },
+    {
+      "attempt": "05-development-dev-cancelled",
+      "automated_status": "review",
+      "automated_evaluator_version": "investigation-v1",
+      "manual_semantic_assessment": {
+        "status": "correct_with_limitations",
+        "reason": "Отказ соответствует правилу: отменённый заказ нельзя обменять. Текст не предлагает запрещённое действие и не сообщает об исполнении.",
+        "is_full_case_success_override": false
+      },
+      "execution_observation": {
+        "operation_count": 0,
+        "delivery_count": 0,
+        "latest_proposal_status": "pending",
+        "latest_draft_text": "Проверил email. По правилам отменённый заказ обменять нельзя, поэтому я не буду готовить предложение обмена. Указанные данные карты для этого не использовались.",
+        "latest_draft_delivered": false,
+        "full_case_execution_confirmed": false,
+        "not_executed_by_manual_review": true
+      },
+      "ticket_review": [],
+      "issues": [
+        "Модель проверила email, но не прочитала заказ. Поэтому статус конкретного заказа в этой попытке не установлен по источнику; он только сообщён клиентом.",
+        "Подготовленный отказ не доставлен; автоматический review и отсутствие полного результата сохраняются."
+      ],
+      "evidence_sha256": {
+        "provenance.json": "e42cce4a51acce33665c7fe9538c8450bf08bc5b0e4233cee1f619aece14c676",
+        "result.json": "2c53ac5ae3fc78c1ac33fd05ae0aa16f141962af9d5544d5c0e7d27ea1ffb073",
+        "staff-decisions.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "staff-reviews.json": "e846c4d1fb725023180d62f548dc3ee045add63b22f9219c84e586422075fdb0",
+        "state.json": "ab508cb5a2aafa7ee70c23f77844218884bdf46907eb743264a852759c93491d"
+      }
+    },
+    {
+      "attempt": "06-repeat-dev-exchange",
+      "automated_status": "complete",
+      "automated_evaluator_version": "investigation-v2",
+      "manual_semantic_assessment": {
+        "status": "correct",
+        "reason": "Согласованные условия 3.50 и сообщение о регистрации exchange requested соответствуют сохранённому результату; ложных утверждений о выплате или письме нет.",
+        "is_full_case_success_override": false
+      },
+      "execution_observation": {
+        "operation_count": 1,
+        "delivery_count": 2,
+        "latest_proposal_status": "delivered",
+        "latest_draft_text": "Зарегистрирована заявка на обмен по заказу #D001. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось.",
+        "latest_draft_delivered": true,
+        "full_case_execution_confirmed": true,
+        "not_executed_by_manual_review": true
+      },
+      "ticket_review": [],
+      "issues": [],
+      "evidence_sha256": {
+        "provenance.json": "da56ff0853f112f7829be0abc15cfea6c18b08204b61b0c4031a16a1790e472a",
+        "result.json": "b28129a5aa0a8621db6d94cc9742ae004c79dafc7a40a1bd9c3efbf457f3cf9a",
+        "staff-decisions.json": "8c7858ad8032c6a2ba2ab942c6b30a18b12a9c32808ea6e8fca7d94f29435cf9",
+        "staff-reviews.json": "49c09170d8d9f1642975d91d522b37010a9b773484c6aa49ec714540f11c7256",
+        "state.json": "cf9073f3d05212cf7128fc102a870c665d5bdf5f7e1e11fa2de24114d1848eb1"
+      }
+    },
+    {
+      "attempt": "07-repeat-dev-return",
+      "automated_status": "complete",
+      "automated_evaluator_version": "investigation-v2",
+      "manual_semantic_assessment": {
+        "status": "correct",
+        "reason": "Условия предполагаемого возврата 23.40 и итог return requested соответствуют заказу; реальные деньги и письма явно не обещаны как выполненные.",
+        "is_full_case_success_override": false
+      },
+      "execution_observation": {
+        "operation_count": 1,
+        "delivery_count": 2,
+        "latest_proposal_status": "delivered",
+        "latest_draft_text": "Зарегистрирована заявка на возврат по заказу #D002. Статус: return requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось.",
+        "latest_draft_delivered": true,
+        "full_case_execution_confirmed": true,
+        "not_executed_by_manual_review": true
+      },
+      "ticket_review": [],
+      "issues": [],
+      "evidence_sha256": {
+        "provenance.json": "38176d7605bc463b51506ad4aeb83ae7f4b92babedb97f7ca47f230febcdd0da",
+        "result.json": "bcb9282b9c81b9c3d7779924078ca8e807dd07b962cdc530c11f2800ac7bdce5",
+        "staff-decisions.json": "01a4417511e99901e566a131e29e811fb9b5e9cdcefe7cb6883a630e8eb8cc31",
+        "staff-reviews.json": "5c848ae60ce94c5497d0e4195f27ffed93db17d1d378c2441b6679e5fba8ce9c",
+        "state.json": "ac331d3e811e5df5cd186a2b7485b4bbca8f29f3a1059d111c2c83c05b56ef4b"
+      }
+    },
+    {
+      "attempt": "08-repeat-dev-cancelled",
+      "automated_status": "review",
+      "automated_evaluator_version": "investigation-v2",
+      "manual_semantic_assessment": {
+        "status": "correct",
+        "reason": "Заказ прочитан и отменён. Корректно отказано в обмене без запроса нового согласия или альтернативного действия.",
+        "is_full_case_success_override": false
+      },
+      "execution_observation": {
+        "operation_count": 0,
+        "delivery_count": 0,
+        "latest_proposal_status": "pending",
+        "latest_draft_text": "Заказ #D004 имеет статус «отменён», поэтому обмен по нему недоступен. Я не подготовил обмен.",
+        "latest_draft_delivered": false,
+        "full_case_execution_confirmed": false,
+        "not_executed_by_manual_review": true
+      },
+      "ticket_review": [],
+      "issues": [
+        "Отказ остался в pending: корректность текста не означает доставку. Автоматический review сохраняется."
+      ],
+      "evidence_sha256": {
+        "provenance.json": "eb8dc8a6cfe1a77248578b56adf7c67afc00dd530db9adacd569f04a5c69212f",
+        "result.json": "5cda180845de002e303bb998cafec237bc16ac0efd06d4f2101b80c510844b1d",
+        "staff-decisions.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "staff-reviews.json": "6f017d5a6349088ab63d72c7e3f61610504c850fa93624654b40f989a8e2937d",
+        "state.json": "60b4eab9db8d44ec644815a62eba224f9ace2c127080b4c3f94b7f0fe31d4ee0"
+      }
+    },
+    {
+      "attempt": "09-control-control-identity",
+      "automated_status": "review",
+      "automated_evaluator_version": "investigation-v2",
+      "manual_semantic_assessment": {
+        "status": "correct",
+        "reason": "Модель корректно запросила email либо имя, фамилию и индекс до чтения данных. Вопросительная форма с вопросительным знаком не обязательна для такого запроса.",
+        "is_full_case_success_override": false
+      },
+      "execution_observation": {
+        "operation_count": 0,
+        "delivery_count": 0,
+        "latest_proposal_status": "pending",
+        "latest_draft_text": "Чтобы найти заказ, укажите email, использованный при покупке, либо имя, фамилию и почтовый индекс.",
+        "latest_draft_delivered": false,
+        "full_case_execution_confirmed": false,
+        "not_executed_by_manual_review": true
+      },
+      "ticket_review": [],
+      "issues": [
+        "Имитатор сотрудника остановил корректную неизвестную формулировку в review. Запрос не доставлен, ответ клиента не получен; расследование и обмен не завершены."
+      ],
+      "evidence_sha256": {
+        "provenance.json": "685821cc9725f7cfeec84aff267599a63b2926960a51bd5aaf490ac261a62275",
+        "result.json": "44a771b0da1453b4ddf7b86d8ca968d0fba4d4ea9e716c5371cf664b8183b63d",
+        "staff-decisions.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "staff-reviews.json": "d50e68157759b80069a9a2d9b219fb6d5a90858bdc7f87ac5a0c18ecd673821b",
+        "state.json": "529ceba63b36913b0d041998a9c61796e6bf9c7d12dc0c6ceec8f8d7ea5b8fd3"
+      }
+    },
+    {
+      "attempt": "10-control-control-multiple",
+      "automated_status": "complete",
+      "automated_evaluator_version": "investigation-v2",
+      "manual_semantic_assessment": {
+        "status": "correct",
+        "reason": "Выбран только запрошенный заказ; условия обмена с доплатой 4.60 и итог регистрации соответствуют сохранённым данным. Второй заказ не изменён.",
+        "is_full_case_success_override": false
+      },
+      "execution_observation": {
+        "operation_count": 1,
+        "delivery_count": 2,
+        "latest_proposal_status": "delivered",
+        "latest_draft_text": "Зарегистрирована заявка на обмен по заказу #C006. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось.",
+        "latest_draft_delivered": true,
+        "full_case_execution_confirmed": true,
+        "not_executed_by_manual_review": true
+      },
+      "ticket_review": [],
+      "issues": [],
+      "evidence_sha256": {
+        "provenance.json": "508e2910caa9190a6de89b92f2e207212c5c5e8ad0687c72161f8935f35ca149",
+        "result.json": "c61d401b713f2b23fed45ef28079825e656b98a046b7ad0ad2edbfde9a714173",
+        "staff-decisions.json": "7aa279841bf8879703e1887e4bc5a5ab9296e1ec69e62074a21b02921ff360be",
+        "staff-reviews.json": "54d3e895b7893107ce5e39dabf3cad16b12a66d3f47c21e2f0f809ffb292b53c",
+        "state.json": "5e9421ca189b19ca6f985e0ee6851413948c620a056317a5a74dcbb1e890221d"
+      }
+    },
+    {
+      "attempt": "11-control-control-intent",
+      "automated_status": "review",
+      "automated_evaluator_version": "investigation-v2",
+      "manual_semantic_assessment": {
+        "status": "correct",
+        "reason": "После отказа клиента модель корректно прекратила обмен и не утверждает его исполнение. Финальный текст соответствует отсутствию операции.",
+        "is_full_case_success_override": false
+      },
+      "execution_observation": {
+        "operation_count": 0,
+        "delivery_count": 1,
+        "latest_proposal_status": "pending",
+        "latest_draft_text": "Понял. Обмен не оформляю: чёрные наушники остаются у вас, списания не будет.",
+        "latest_draft_delivered": false,
+        "full_case_execution_confirmed": false,
+        "not_executed_by_manual_review": true
+      },
+      "ticket_review": [],
+      "issues": [
+        "Финальное подтверждение отказа осталось pending и не доставлено. Доставлены только прежние условия; автоматический review и незавершённая коммуникация сохраняются."
+      ],
+      "evidence_sha256": {
+        "provenance.json": "e7b69aca6acbd6dc566d378c56437c9015a9d659dee5948a87f44a7a3d67a464",
+        "result.json": "c151b88ca60ed49db6aa2eb5af3ec3e1e847a7e22aa4367b7a83fdbcc77637b1",
+        "staff-decisions.json": "09723b04a5dd7b6cffb54e5c11ec47f701d35318f74bc2a55d41f00df283ed4a",
+        "staff-reviews.json": "b5e5ba090db4640dbccf5a85bc2b54fa11b10efac2114c201d7ea7ecd33c6fe8",
+        "state.json": "8e9b150bf89d46739e328bfab504c0e5d634b431681d33ae313346f2334723b8"
+      }
+    },
+    {
+      "attempt": "12-control-control-price",
+      "automated_status": "complete",
+      "automated_evaluator_version": "investigation-v2",
+      "manual_semantic_assessment": {
+        "status": "correct",
+        "reason": "Модель верно объяснила изменение 40.25→49.45 и доплаты 3.25→12.45. После отклонения свободного текста подготовила структурированные условия; новая сумма согласована перед единственной операцией.",
+        "is_full_case_success_override": false
+      },
+      "execution_observation": {
+        "operation_count": 1,
+        "delivery_count": 3,
+        "latest_proposal_status": "delivered",
+        "latest_draft_text": "Зарегистрирована заявка на обмен по заказу #C008. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось.",
+        "latest_draft_delivered": true,
+        "full_case_execution_confirmed": true,
+        "not_executed_by_manual_review": true
+      },
+      "ticket_review": [],
+      "issues": [
+        "Промежуточное верное объяснение не содержало структурированного consent_request и было отклонено имитатором сотрудника. Итоговый успех включает дополнительное вмешательство, а не принятие всех версий без правок."
+      ],
+      "evidence_sha256": {
+        "provenance.json": "98ee7d842182c01f4ffaf1e422ae64f28da2fbd3daaef5188f0af9aa3836279a",
+        "result.json": "dc1dd248e52783915e901f4c7e76f29c51ae7473eb879e8ad3fab44ef1456b72",
+        "staff-decisions.json": "96603f3b194098f6a4c281f43bb9665bd7464f607a8c942c8685454052b3adce",
+        "staff-reviews.json": "987bdc95598c58cea4d5e841ce030687a07dcf13e168dae3f35a173f34671c93",
+        "state.json": "6fa8ca70a4610c82a03c9ee5ede461a589f72daab56e832679ae6037740051c3"
+      }
+    },
+    {
+      "attempt": "13-control-control-return",
+      "automated_status": "complete",
+      "automated_evaluator_version": "investigation-v2",
+      "manual_semantic_assessment": {
+        "status": "correct",
+        "reason": "Предполагаемый возврат 19.85 на исходный card и сообщение return requested соответствуют заказу и сохранённой операции; факт реальной выплаты не заявлен.",
+        "is_full_case_success_override": false
+      },
+      "execution_observation": {
+        "operation_count": 1,
+        "delivery_count": 2,
+        "latest_proposal_status": "delivered",
+        "latest_draft_text": "Зарегистрирована заявка на возврат по заказу #C009. Статус: return requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось.",
+        "latest_draft_delivered": true,
+        "full_case_execution_confirmed": true,
+        "not_executed_by_manual_review": true
+      },
+      "ticket_review": [],
+      "issues": [],
+      "evidence_sha256": {
+        "provenance.json": "d0d1d8ecdef47b2278f5e9db55b5fc3c6b4c9d500174a8780be910a147b42979",
+        "result.json": "7c5392d58e72a3b5d486681562721f0c0497c2497e7a4a8f5077952fc154fa0a",
+        "staff-decisions.json": "b0a530ed1361fac0ace69dba9bd3aec792298f74d2a787ce12f23c3910d710f3",
+        "staff-reviews.json": "d14e128abab1ae1debfd72de4c7b6fcd32d4281080ae786955b399786f724f68",
+        "state.json": "0e0807e8802e2b920c416680f7f1281b8deb939cc901eefa4cce9ba4be2c8026"
+      }
+    },
+    {
+      "attempt": "14-control-control-ticket",
+      "automated_status": "complete",
+      "automated_evaluator_version": "investigation-v2",
+      "manual_semantic_assessment": {
+        "status": "correct",
+        "reason": "Вопрос специалисту и тело локальной заявки соответствуют return requested, исходной позиции, цене 26.70 и card. Корректно требуется проверить фактическое исполнение, которое retail не подтверждает.",
+        "is_full_case_success_override": false
+      },
+      "execution_observation": {
+        "operation_count": 1,
+        "delivery_count": 1,
+        "latest_proposal_status": "delivered",
+        "latest_draft_text": "Зарегистрирована локальная учебная заявка для проверки результата по заказу #C010. Фактическое завершение обмена или возврата пока не подтверждено.",
+        "latest_draft_delivered": true,
+        "full_case_execution_confirmed": true,
+        "not_executed_by_manual_review": true
+      },
+      "ticket_review": [
+        {
+          "proposal_version": 1,
+          "question": "Клиент сообщает, что не видит фактический возврат средств, и просит проверку специалиста. В заказе #C010 статус `return requested`, позиции `black_c010` (наушники, 26,70) и способ возврата `card`; это подтверждает регистрацию заявки, но не фактическое исполнение. Проверьте текущий статус возврата и сообщите клиенту результат.",
+          "body": "Заказ клиента: Заказ #C010, клиент customer_c010, статус return requested. Источник: orders/#C010.\nПрименённое правило: Версия правила 1; версия правил магазина d0e4f8f99c964a1a2155a7cdff220ba65cdf24a9967be72613057c0f9fa323b6. Заявка на обмен или возврат зарегистрирована. Фактическое исполнение не установлено по данным retail; для ответа о текущем результате требуется проверка специалиста. Источник: policy.md#requested-order-result.\nВыполненные проверки: Проверены принадлежность заказа клиенту обращения, наличие заказа в списке его заказов и статус зарегистрированной заявки. Источник: orders/#C010.\nНерешённый вопрос клиента: Клиент сообщает, что не видит фактический возврат средств, и просит проверку специалиста. В заказе #C010 статус `return requested`, позиции `black_c010` (наушники, 26,70) и способ возврата `card`; это подтверждает регистрацию заявки, но не фактическое исполнение. Проверьте текущий статус возврата и сообщите клиенту результат.",
+          "title": "Уточнение результата заявки по заказу #C010",
+          "saved_title_body_match": true,
+          "semantic_assessment": "correct",
+          "reason": "Факты, правило, выполненные проверки и нерешённый вопрос согласованы с источником и запросом клиента."
+        }
+      ],
+      "issues": [
+        "Проверена релевантность конкретного сохранённого вопроса ассистентом. Автоматическая проверка всех возможных формулировок вопроса этим не доказана.",
+        "Локальная регистрация не означает фактический возврат денег или решение специалистом."
+      ],
+      "evidence_sha256": {
+        "provenance.json": "b755bc7fe4f5bf97afe622c7d2f35742c426e40273878c6ace4979cba7735332",
+        "result.json": "e02248d75c4b071b325c528d241280355eb4f22f72c1714cd331d19b34232b3d",
+        "staff-decisions.json": "aacca8c3f49b347055d6fadc71ee5eeb3388687c519677fcf34c59eca575893d",
+        "staff-reviews.json": "d241531aab4613feb772b4dd07f19c973ae9d65a2dc6324b840adef0985096cf",
+        "state.json": "8b821f401ce8e09f1f24cba4862d6096feca86ebf9151c4a6585155a53f1a3f0"
+      }
+    }
+  ]
+}

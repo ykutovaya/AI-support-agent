@@ -1,0 +1,86 @@
+[
+  {
+    "number": 1,
+    "phase": "connection",
+    "case_id": "connection",
+    "status": "complete"
+  },
+  {
+    "number": 2,
+    "phase": "development",
+    "case_id": "dev-exchange",
+    "status": "review"
+  },
+  {
+    "number": 3,
+    "phase": "development",
+    "case_id": "dev-return",
+    "status": "review"
+  },
+  {
+    "number": 4,
+    "phase": "development",
+    "case_id": "dev-ticket",
+    "status": "complete"
+  },
+  {
+    "number": 5,
+    "phase": "development",
+    "case_id": "dev-cancelled",
+    "status": "review"
+  },
+  {
+    "number": 6,
+    "phase": "repeat",
+    "case_id": "dev-exchange",
+    "status": "complete"
+  },
+  {
+    "number": 7,
+    "phase": "repeat",
+    "case_id": "dev-return",
+    "status": "complete"
+  },
+  {
+    "number": 8,
+    "phase": "repeat",
+    "case_id": "dev-cancelled",
+    "status": "review"
+  },
+  {
+    "number": 9,
+    "phase": "control",
+    "case_id": "control-identity",
+    "status": "review"
+  },
+  {
+    "number": 10,
+    "phase": "control",
+    "case_id": "control-multiple",
+    "status": "complete"
+  },
+  {
+    "number": 11,
+    "phase": "control",
+    "case_id": "control-intent",
+    "status": "review"
+  },
+  {
+    "number": 12,
+    "phase": "control",
+    "case_id": "control-price",
+    "status": "complete"
+  },
+  {
+    "number": 13,
+    "phase": "control",
+    "case_id": "control-return",
+    "status": "complete"
+  },
+  {
+    "number": 14,
+    "phase": "control",
+    "case_id": "control-ticket",
+    "status": "complete"
+  }
+]
