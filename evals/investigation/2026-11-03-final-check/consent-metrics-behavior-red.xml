@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="0.185" timestamp="2026-11-03T16:53:15.147645+03:00" hostname="DESKTOP-PNPT252"><testcase classname="tests.test_intervention_metrics" name="test_used_consent_is_not_a_client_revocation_in_saved_full_flow[new-identify-name-zip-0-1]" time="0.002"><failure message="assert 1 == 0">case_id = 'new-identify-name-zip', client_revocations = 0, unattributed = 1
+
+    @pytest.mark.parametrize(
+        "case_id,client_revocations,unattributed",
+        [("new-identify-name-zip", 0, 1), ("new-revoke-refund-exchange", 1, 0)],
+    )
+    def test_used_consent_is_not_a_client_revocation_in_saved_full_flow(
+        case_id, client_revocations, unattributed
+    ):
+        folder = (
+            Path(__file__).parents[1]
+            / "evals/investigation/2026-11-03-final-check/flows"
+            / case_id
+        )
+        saved = json.loads((folder / "state.json").read_text(encoding="utf-8"))
+        events = json.loads((folder / "events.json").read_text(encoding="utf-8"))
+        historical = json.loads((folder / "result.json").read_text(encoding="utf-8"))
+        assert historical["metrics"]["version"] == "interventions-v2"
+        assert historical["metrics"]["counts"]["client_consent_revocations"] == 1
+        metrics = module()
+        result = metrics.evaluate_interventions(saved, events)
+&gt;       assert result["counts"]["client_consent_revocations"] == client_revocations
+E       assert 1 == 0
+
+tests\test_intervention_metrics.py:487: AssertionError</failure></testcase><testcase classname="tests.test_intervention_metrics" name="test_used_consent_is_not_a_client_revocation_in_saved_full_flow[new-revoke-refund-exchange-1-0]" time="0.003"><failure message="KeyError: 'consent_invalidations'">case_id = 'new-revoke-refund-exchange', client_revocations = 1, unattributed = 0
+
+    @pytest.mark.parametrize(
+        "case_id,client_revocations,unattributed",
+        [("new-identify-name-zip", 0, 1), ("new-revoke-refund-exchange", 1, 0)],
+    )
+    def test_used_consent_is_not_a_client_revocation_in_saved_full_flow(
+        case_id, client_revocations, unattributed
+    ):
+        folder = (
+            Path(__file__).parents[1]
+            / "evals/investigation/2026-11-03-final-check/flows"
+            / case_id
+        )
+        saved = json.loads((folder / "state.json").read_text(encoding="utf-8"))
+        events = json.loads((folder / "events.json").read_text(encoding="utf-8"))
+        historical = json.loads((folder / "result.json").read_text(encoding="utf-8"))
+        assert historical["metrics"]["version"] == "interventions-v2"
+        assert historical["metrics"]["counts"]["client_consent_revocations"] == 1
+        metrics = module()
+        result = metrics.evaluate_interventions(saved, events)
+        assert result["counts"]["client_consent_revocations"] == client_revocations
+&gt;       assert result["counts"]["consent_invalidations"] == 1
+E       KeyError: 'consent_invalidations'
+
+tests\test_intervention_metrics.py:488: KeyError</failure></testcase></testsuite></testsuites>

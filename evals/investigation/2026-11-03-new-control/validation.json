@@ -1,0 +1,80 @@
+{
+  "python": "3.12.12 (main, Feb 12 2026, 00:40:26) [MSC v.1944 64 bit (AMD64)]",
+  "versions": {
+    "litellm": "1.81.11",
+    "tau2": "2.0.0",
+    "pytest": "8.3.5",
+    "ruff": "0.11.7"
+  },
+  "tests": [
+    {
+      "file": "cases-before.xml",
+      "tests": 4,
+      "failures": 2,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "cases-after.xml",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "cli-new-control-before.xml",
+      "tests": 24,
+      "failures": 6,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "cli-new-control-after.xml",
+      "tests": 24,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "grader-development-before.xml",
+      "tests": 70,
+      "failures": 5,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "grader-development-after.xml",
+      "tests": 70,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "development-flows.xml",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "file": "existing-flows.xml",
+      "tests": 17,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "successful_tests": 121,
+  "ruff": "passed",
+  "application_changed": false,
+  "pre_control_source_hashes_verified": true,
+  "new_control_dataset_sha256": "c2c575510ef16e8c0a6b1ab41c34054e1ab8ee38f61ebb50e9d4a19aaec16800",
+  "note": "Оценщик v5 проверен на разработочных примерах до чтения нового контроля; неизвестный смысл остаётся review. Исторический run_environment.py переиспользован без правок с проверкой TLS.",
+  "base_commit": "530cb26ff3ae8e37e47bd72087c1a27cd7684463",
+  "version_note": "Рабочая версия включает ранее незакоммиченные изменения; точная версия определяется freeze.json.",
+  "post_run_documentation_change": {
+    "path": "evals/investigation/README.md",
+    "frozen_copy": "README-at-run.md",
+    "reason": "Команды нового контроля добавлены после прогона; исполняемый код, данные и оценки не менялись."
+  }
+}

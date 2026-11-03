@@ -1,0 +1,34 @@
+{
+  "offline": {
+    "pytest": {
+      "passed": 103,
+      "failed": 0,
+      "report": "offline-checks.xml"
+    },
+    "ruff": "passed",
+    "network": "socket.connect and socket.create_connection blocked",
+    "dotenv_loading": "disabled",
+    "red_checks": {
+      "cli_failures_before": 6,
+      "runtime_failures_before": 22,
+      "runner_missing_outcome": "KeyError reproduced"
+    }
+  },
+  "api": {
+    "attempts": 4,
+    "model_calls": 14,
+    "retries": 0,
+    "all_responses_received": true,
+    "tls": "verification enabled; certifi plus trusted Windows ROOT/CA certificates",
+    "environment_wrapper": "run_environment.py"
+  },
+  "unchanged": "Приложение, оценщик, правила и исходные случаи не менялись в этой серии; менялся только запуск и описание результатов.",
+  "integrity": {
+    "frozen_sources_match": true,
+    "application_unchanged": true,
+    "grader_and_dataset_unchanged": true,
+    "historical_files_compared": 131,
+    "historical_files_unchanged": true,
+    "secret_pattern_check": "passed"
+  }
+}

@@ -81,6 +81,8 @@ def test_fresh_full_case_reaches_result_with_two_deliveries_and_no_hidden_data(
     assert len(state["tables"]["operations"]) == 1
     assert len(state["tables"]["deliveries"]) == 2
     assert result["metrics"]["scope"] == "full_case"
+    assert result["outcome"] == "complete_without_corrections"
+    assert result["structured_action_hint_used"] is False
     assert not any(
         exchange_case["hidden_test_marker"] in str(messages)
         for messages in model.requests
@@ -108,6 +110,8 @@ def test_model_failure_preserves_state_and_separates_technical_failure(
     result = runner.run_case(tmp_path / "failure", exchange_case, Broken())
     state = json.loads((tmp_path / "failure/state.json").read_text(encoding="utf-8"))
     assert result["failure"]["category"] == "external"
+    assert result["outcome"] == "failed"
+    assert result["structured_action_hint_used"] is False
     assert not state["tables"]["operations"]
     assert not state["tables"]["deliveries"]
     assert state["messages"][0]["content"] == exchange_case["initial_message"]
@@ -132,6 +136,7 @@ def test_price_change_blocks_old_action_then_requires_new_question_and_consent(
         [
             tool("find_user_id_by_email", {"email": "user1@example.test"}, "id"),
             tool("get_order_details", {"order_id": "#O1"}, "order"),
+            tool("get_product_details", {"product_id": "p1"}, "product"),
             tool(
                 "propose_exchange",
                 {
@@ -164,10 +169,14 @@ def test_price_change_blocks_old_action_then_requires_new_question_and_consent(
     assert state["retail"]["orders"]["#O1"]["exchange_price_difference"] == 9.99
     assert any(p["status"] == "stale" for p in state["tables"]["proposals"])
     assert result["metrics"]["counts"]["manual_resumes"] == 1
+    assert result["status"] == "complete"
+    assert result["outcome"] == "complete_without_corrections"
+    assert result["structured_action_hint_used"] is False
 
 
+@pytest.mark.parametrize("reason", ["refusal", "request_change", None])
 def test_customer_changed_mind_stops_action_and_records_actual_new_message(
-    tmp_path, exchange_case
+    tmp_path, exchange_case, reason
 ):
     case = deepcopy(exchange_case)
     case["goal"] = "cancel_intent"
@@ -180,6 +189,12 @@ def test_customer_changed_mind_stops_action_and_records_actual_new_message(
             "text": "Передумал. Не оформляйте обмен.",
         }
     ]
+    if reason is not None:
+        case["interactions"][0]["customer_intent"] = reason
+    if reason == "request_change":
+        case["interactions"][0]["text"] = (
+            "Пока не оформляйте обмен. Хочу сначала уточнить другой размер."
+        )
     initial = list(exchange_model().replies)
     model = Replies(
         *initial, Message(role="assistant", content="Хорошо, обмен не оформляю.")
@@ -193,6 +208,25 @@ def test_customer_changed_mind_stops_action_and_records_actual_new_message(
     assert any(
         m["content"] == case["interactions"][0]["text"] for m in state["messages"]
     )
+    annotations = json.loads(
+        (tmp_path / "intent/customer-annotations.json").read_text(encoding="utf-8")
+    )
+    actual = next(row for row in annotations if row["revoked_consent_ids"])
+    assert actual["reason"] == (reason or "unknown")
+    assert actual["case_id"] == state["case"]["id"]
+    assert actual["revoked_consent_ids"] == [state["tables"]["consents"][0]["id"]]
+    event = next(e for e in state["events"] if e["id"] == actual["event_id"])
+    assert event["kind"] == "customer"
+    assert event["text"] == case["interactions"][0]["text"]
+    assert "customer_intent" not in str(model.requests)
+    assert "revoked_consent_ids" not in str(model.requests)
+    assert result["evaluator_failure"] is None
+    counts = result["metrics"]["counts"]
+    assert counts["client_refusals"] == int(reason == "refusal")
+    assert counts["client_text_refusals"] == int(reason == "refusal")
+    assert counts["client_button_refusals"] == 0
+    assert counts["client_consent_revocations"] == 1
+    assert counts["client_consent_revocations_unknown_reason"] == int(reason is None)
 
 
 def test_missing_identity_is_answered_only_after_delivered_question(
@@ -233,6 +267,8 @@ def test_unknown_refusal_is_not_sent_or_counted_as_success(tmp_path, exchange_ca
     )
     state = json.loads((tmp_path / "review/state.json").read_text(encoding="utf-8"))
     assert result["review_required"] is True
+    assert result["outcome"] == "review"
+    assert result["structured_action_hint_used"] is False
     assert result["metrics"]["outcome"]["correct"] is None
     assert not state["tables"]["deliveries"]
     assert not state["tables"]["operations"]
@@ -315,3 +351,26 @@ def test_textual_monetary_consent_gets_structured_correction_without_hidden_answ
     assert employee[0] in last_request
     assert exchange_case["hidden_test_marker"] not in last_request
     assert "new_item_ids" not in employee[0] and "2.35" not in employee[0]
+    saved = json.loads(
+        (tmp_path / "structured-correction/result.json").read_text(encoding="utf-8")
+    )
+    assert saved["outcome"] == "completed_with_help"
+    assert saved["structured_action_hint_used"] is True
+
+
+def test_corrected_payment_is_help_without_a_structured_action_hint(
+    tmp_path, exchange_case
+):
+    scripted = list(exchange_model().replies)
+    wrong_payment = deepcopy(scripted[-1])
+    wrong_payment.tool_calls[0].arguments["payment_method_id"] = "other_card"
+    model = Replies(*scripted[:-1], wrong_payment, scripted[-1])
+
+    runner.run_case(tmp_path / "payment-correction", exchange_case, model)
+    saved = json.loads(
+        (tmp_path / "payment-correction/result.json").read_text(encoding="utf-8")
+    )
+    assert saved["status"] == "complete"
+    assert saved["metrics"]["counts"]["staff_rejections"] == 1
+    assert saved["outcome"] == "completed_with_help"
+    assert saved["structured_action_hint_used"] is False

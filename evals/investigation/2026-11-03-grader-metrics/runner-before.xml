@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="3" time="3.051" timestamp="2026-11-03T16:32:04.439892+03:00" hostname="DESKTOP-PNPT252"><testcase classname="tests.test_investigation_runner" name="test_customer_changed_mind_stops_action_and_records_actual_new_message[refusal]" time="0.144"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\USER\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-681\\test_customer_changed_mind_sto0\\intent\\customer-annotations.json'">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-681/test_customer_changed_mind_sto0')
+exchange_case = {'email': 'user1@example.test', 'expected': {'amount': '2.35', 'item_ids': ['old'], 'new_item_ids': ['new'], 'order_id': '#O1', ...}, 'goal': 'exchange', 'hidden_test_marker': 'НЕ ПЕРЕДАВАТЬ МОДЕЛИ', ...}
+reason = 'refusal'
+
+    @pytest.mark.parametrize("reason", ["refusal", "request_change", None])
+    def test_customer_changed_mind_stops_action_and_records_actual_new_message(
+        tmp_path, exchange_case, reason
+    ):
+        case = deepcopy(exchange_case)
+        case["goal"] = "cancel_intent"
+        case["expected"]["amount"] = None
+        case["expected"]["result_status"] = "delivered"
+        case["interactions"] = [
+            {
+                "trigger": "before_action",
+                "kind": "customer",
+                "text": "Передумал. Не оформляйте обмен.",
+            }
+        ]
+        if reason is not None:
+            case["interactions"][0]["customer_intent"] = reason
+        if reason == "request_change":
+            case["interactions"][0]["text"] = (
+                "Пока не оформляйте обмен. Хочу сначала уточнить другой размер."
+            )
+        initial = list(exchange_model().replies)
+        model = Replies(
+            *initial, Message(role="assistant", content="Хорошо, обмен не оформляю.")
+        )
+        result = runner.run_case(tmp_path / "intent", case, model)
+        state = json.loads((tmp_path / "intent/state.json").read_text(encoding="utf-8"))
+        assert result["failure"] is None
+        assert not state["tables"]["operations"]
+        assert state["retail"]["orders"]["#O1"]["status"] == "delivered"
+        assert len(state["tables"]["deliveries"]) == 2
+        assert any(
+            m["content"] == case["interactions"][0]["text"] for m in state["messages"]
+        )
+        annotations = json.loads(
+&gt;           (tmp_path / "intent/customer-annotations.json").read_text(encoding="utf-8")
+        )
+
+tests\test_investigation_runner.py:212: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-681/test_customer_changed_mind_sto0/intent/customer-annotations.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\USER\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-681\\test_customer_changed_mind_sto0\\intent\\customer-annotations.json'
+
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\pathlib.py:1013: FileNotFoundError</failure></testcase><testcase classname="tests.test_investigation_runner" name="test_customer_changed_mind_stops_action_and_records_actual_new_message[request_change]" time="0.137"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\USER\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-681\\test_customer_changed_mind_sto1\\intent\\customer-annotations.json'">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-681/test_customer_changed_mind_sto1')
+exchange_case = {'email': 'user1@example.test', 'expected': {'amount': '2.35', 'item_ids': ['old'], 'new_item_ids': ['new'], 'order_id': '#O1', ...}, 'goal': 'exchange', 'hidden_test_marker': 'НЕ ПЕРЕДАВАТЬ МОДЕЛИ', ...}
+reason = 'request_change'
+
+    @pytest.mark.parametrize("reason", ["refusal", "request_change", None])
+    def test_customer_changed_mind_stops_action_and_records_actual_new_message(
+        tmp_path, exchange_case, reason
+    ):
+        case = deepcopy(exchange_case)
+        case["goal"] = "cancel_intent"
+        case["expected"]["amount"] = None
+        case["expected"]["result_status"] = "delivered"
+        case["interactions"] = [
+            {
+                "trigger": "before_action",
+                "kind": "customer",
+                "text": "Передумал. Не оформляйте обмен.",
+            }
+        ]
+        if reason is not None:
+            case["interactions"][0]["customer_intent"] = reason
+        if reason == "request_change":
+            case["interactions"][0]["text"] = (
+                "Пока не оформляйте обмен. Хочу сначала уточнить другой размер."
+            )
+        initial = list(exchange_model().replies)
+        model = Replies(
+            *initial, Message(role="assistant", content="Хорошо, обмен не оформляю.")
+        )
+        result = runner.run_case(tmp_path / "intent", case, model)
+        state = json.loads((tmp_path / "intent/state.json").read_text(encoding="utf-8"))
+        assert result["failure"] is None
+        assert not state["tables"]["operations"]
+        assert state["retail"]["orders"]["#O1"]["status"] == "delivered"
+        assert len(state["tables"]["deliveries"]) == 2
+        assert any(
+            m["content"] == case["interactions"][0]["text"] for m in state["messages"]
+        )
+        annotations = json.loads(
+&gt;           (tmp_path / "intent/customer-annotations.json").read_text(encoding="utf-8")
+        )
+
+tests\test_investigation_runner.py:212: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-681/test_customer_changed_mind_sto1/intent/customer-annotations.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\USER\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-681\\test_customer_changed_mind_sto1\\intent\\customer-annotations.json'
+
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\pathlib.py:1013: FileNotFoundError</failure></testcase><testcase classname="tests.test_investigation_runner" name="test_customer_changed_mind_stops_action_and_records_actual_new_message[None]" time="0.136"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\USER\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-681\\test_customer_changed_mind_sto2\\intent\\customer-annotations.json'">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-681/test_customer_changed_mind_sto2')
+exchange_case = {'email': 'user1@example.test', 'expected': {'amount': '2.35', 'item_ids': ['old'], 'new_item_ids': ['new'], 'order_id': '#O1', ...}, 'goal': 'exchange', 'hidden_test_marker': 'НЕ ПЕРЕДАВАТЬ МОДЕЛИ', ...}
+reason = None
+
+    @pytest.mark.parametrize("reason", ["refusal", "request_change", None])
+    def test_customer_changed_mind_stops_action_and_records_actual_new_message(
+        tmp_path, exchange_case, reason
+    ):
+        case = deepcopy(exchange_case)
+        case["goal"] = "cancel_intent"
+        case["expected"]["amount"] = None
+        case["expected"]["result_status"] = "delivered"
+        case["interactions"] = [
+            {
+                "trigger": "before_action",
+                "kind": "customer",
+                "text": "Передумал. Не оформляйте обмен.",
+            }
+        ]
+        if reason is not None:
+            case["interactions"][0]["customer_intent"] = reason
+        if reason == "request_change":
+            case["interactions"][0]["text"] = (
+                "Пока не оформляйте обмен. Хочу сначала уточнить другой размер."
+            )
+        initial = list(exchange_model().replies)
+        model = Replies(
+            *initial, Message(role="assistant", content="Хорошо, обмен не оформляю.")
+        )
+        result = runner.run_case(tmp_path / "intent", case, model)
+        state = json.loads((tmp_path / "intent/state.json").read_text(encoding="utf-8"))
+        assert result["failure"] is None
+        assert not state["tables"]["operations"]
+        assert state["retail"]["orders"]["#O1"]["status"] == "delivered"
+        assert len(state["tables"]["deliveries"]) == 2
+        assert any(
+            m["content"] == case["interactions"][0]["text"] for m in state["messages"]
+        )
+        annotations = json.loads(
+&gt;           (tmp_path / "intent/customer-annotations.json").read_text(encoding="utf-8")
+        )
+
+tests\test_investigation_runner.py:212: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\pathlib.py:1027: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-681/test_customer_changed_mind_sto2/intent/customer-annotations.json')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed to by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return io.open(self, mode, buffering, encoding, errors, newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\USER\\AppData\\Local\\Temp\\pytest-of-USER\\pytest-681\\test_customer_changed_mind_sto2\\intent\\customer-annotations.json'
+
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\pathlib.py:1013: FileNotFoundError</failure></testcase></testsuite></testsuites>

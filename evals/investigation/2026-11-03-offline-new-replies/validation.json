@@ -1,0 +1,60 @@
+{
+  "grader_before": "investigation-v3",
+  "grader_after": "investigation-v4",
+  "expected": "Две корректные формулировки принимаются целиком; ложный успех, противоречия и неизвестное продолжение не получают pass.",
+  "before": {
+    "assessment": {
+      "failed": 4,
+      "passed": 56,
+      "report": "assessment-before.xml"
+    },
+    "full_flow": {
+      "failed": 2,
+      "passed": 2,
+      "report": "offline-before-evaluator.xml"
+    },
+    "reason": "Корректные ответы получали review вместо pass; полные процессы останавливались до доставки."
+  },
+  "after": {
+    "changed_checks": {
+      "passed": 64,
+      "report": "changed-checks.xml"
+    },
+    "runner_checks": {
+      "passed": 13,
+      "report": "runner-checks.xml"
+    },
+    "total_passed": 77,
+    "failed": 0,
+    "ruff": "passed",
+    "full_flows": 2
+  },
+  "python": "3.12.12 (main, Feb 12 2026, 00:40:26) [MSC v.1944 64 bit (AMD64)]",
+  "dependencies": {
+    "pytest": "8.3.5",
+    "tau2": "2.0.0",
+    "pydantic": "2.13.5",
+    "ruff": "0.11.7"
+  },
+  "execution": {
+    "model": "scripted",
+    "employee": "scripted_review",
+    "client": "scripted",
+    "recovery_mode": "manual",
+    "ticket_backend": "local",
+    "api_calls": 0,
+    "api_cost_usd": 0,
+    "network_in_full_flow": "socket.connect and socket.create_connection blocked",
+    "implicit_dotenv_loading": "disabled"
+  },
+  "integrity": {
+    "historical_files_unchanged": 164,
+    "application_unchanged": true,
+    "dataset_and_policy_unchanged": true
+  },
+  "limitations": [
+    "Проверены заданные ответы; это не новый прогон настоящей модели.",
+    "Правила оценщика ограничены; неизвестный смысл остаётся review.",
+    "Исходные 4/6 и review сохранены; старые результаты не пересчитывались."
+  ]
+}

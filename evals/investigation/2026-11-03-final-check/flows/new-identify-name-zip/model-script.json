@@ -1,0 +1,83 @@
+[
+  {
+    "role": "assistant",
+    "content": "Можно найти покупку по имени и почтовому индексу. Напишите, пожалуйста, ваше имя, фамилию и индекс доставки.",
+    "tool_calls": null,
+    "tool_call_id": null,
+    "error": false,
+    "execution_status": "executed"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "find_user_id_by_name_zip",
+        "name": "find_user_id_by_name_zip",
+        "arguments": {
+          "first_name": "Марина",
+          "last_name": "Тихонова",
+          "zip": "115280"
+        }
+      }
+    ],
+    "tool_call_id": null,
+    "error": false,
+    "execution_status": "executed"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "get_order_details",
+        "name": "get_order_details",
+        "arguments": {
+          "order_id": "#N102"
+        }
+      }
+    ],
+    "tool_call_id": null,
+    "error": false,
+    "execution_status": "executed"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "get_product_details",
+        "name": "get_product_details",
+        "arguments": {
+          "product_id": "electric_kettle_n102"
+        }
+      }
+    ],
+    "tool_call_id": null,
+    "error": false,
+    "execution_status": "executed"
+  },
+  {
+    "role": "assistant",
+    "content": null,
+    "tool_calls": [
+      {
+        "id": "propose_exchange",
+        "name": "propose_exchange",
+        "arguments": {
+          "order_id": "#N102",
+          "item_ids": [
+            "cream_17l_n102"
+          ],
+          "new_item_ids": [
+            "graphite_17l_n102"
+          ],
+          "payment_method_id": "card"
+        }
+      }
+    ],
+    "tool_call_id": null,
+    "error": false,
+    "execution_status": "executed"
+  }
+]

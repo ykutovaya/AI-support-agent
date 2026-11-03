@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="6" skipped="0" tests="24" time="3.260" timestamp="2026-11-03T15:38:41.306602+03:00" hostname="DESKTOP-PNPT252"><testcase classname="tests.test_investigation_cli" name="test_freeze_detects_source_drift" time="0.015" /><testcase classname="tests.test_investigation_cli" name="test_default_command_does_not_read_credentials_or_call_api" time="0.001" /><testcase classname="tests.test_investigation_cli" name="test_second_process_cannot_open_same_series" time="0.002" /><testcase classname="tests.test_investigation_cli" name="test_resume_only_selects_cases_never_started" time="0.000" /><testcase classname="tests.test_investigation_cli" name="test_selected_series_freezes_before_any_paid_attempt" time="0.075" /><testcase classname="tests.test_investigation_cli" name="test_invalid_selection_creates_no_series[selection0]" time="0.003" /><testcase classname="tests.test_investigation_cli" name="test_invalid_selection_creates_no_series[selection1]" time="0.003" /><testcase classname="tests.test_investigation_cli" name="test_init_requires_explicit_budget" time="0.002" /><testcase classname="tests.test_investigation_cli" name="test_out_of_scope_run_cannot_read_credentials[run_args0]" time="0.017" /><testcase classname="tests.test_investigation_cli" name="test_out_of_scope_run_cannot_read_credentials[run_args1]" time="2.444" /><testcase classname="tests.test_investigation_cli" name="test_out_of_scope_run_cannot_read_credentials[run_args2]" time="0.018" /><testcase classname="tests.test_investigation_cli" name="test_selected_run_calls_only_allowed_cases_once" time="0.045" /><testcase classname="tests.test_investigation_cli" name="test_new_control_freezes_six_cases_without_development" time="0.003"><failure message="SystemExit: 2">tests\test_investigation_cli.py:204: in test_new_control_freezes_six_cases_without_development
+    assert init_control(series, dataset) == 0
+tests\test_investigation_cli.py:193: in init_control
+    return cli.main([
+evals\investigation\run_investigation.py:148: in main
+    args = parser.parse_args(argv)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:1908: in parse_args
+    self.error(msg)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:2650: in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:2637: in exit
+    _sys.exit(status)
+E   SystemExit: 2</failure></testcase><testcase classname="tests.test_investigation_cli" name="test_invalid_new_control_is_rejected_before_series_creation[five]" time="0.003" /><testcase classname="tests.test_investigation_cli" name="test_invalid_new_control_is_rejected_before_series_creation[duplicate]" time="0.004" /><testcase classname="tests.test_investigation_cli" name="test_invalid_new_control_is_rejected_before_series_creation[old_id]" time="0.003" /><testcase classname="tests.test_investigation_cli" name="test_invalid_new_control_is_rejected_before_series_creation[development]" time="0.003" /><testcase classname="tests.test_investigation_cli" name="test_invalid_new_control_is_rejected_before_series_creation[mix]" time="0.004" /><testcase classname="tests.test_investigation_cli" name="test_invalid_new_control_is_rejected_before_series_creation[repeats]" time="0.003" /><testcase classname="tests.test_investigation_cli" name="test_new_control_requires_unchanged_freeze_before_credentials[not_frozen-connection]" time="0.003"><failure message="SystemExit: 2">tests\test_investigation_cli.py:247: in test_new_control_requires_unchanged_freeze_before_credentials
+    init_control(series, dataset)
+tests\test_investigation_cli.py:193: in init_control
+    return cli.main([
+evals\investigation\run_investigation.py:148: in main
+    args = parser.parse_args(argv)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:1908: in parse_args
+    self.error(msg)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:2650: in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:2637: in exit
+    _sys.exit(status)
+E   SystemExit: 2</failure></testcase><testcase classname="tests.test_investigation_cli" name="test_new_control_requires_unchanged_freeze_before_credentials[not_frozen-control]" time="0.006"><failure message="SystemExit: 2">tests\test_investigation_cli.py:247: in test_new_control_requires_unchanged_freeze_before_credentials
+    init_control(series, dataset)
+tests\test_investigation_cli.py:193: in init_control
+    return cli.main([
+evals\investigation\run_investigation.py:148: in main
+    args = parser.parse_args(argv)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:1908: in parse_args
+    self.error(msg)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:2650: in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:2637: in exit
+    _sys.exit(status)
+E   SystemExit: 2</failure></testcase><testcase classname="tests.test_investigation_cli" name="test_new_control_requires_unchanged_freeze_before_credentials[changed_copy-connection]" time="0.003"><failure message="SystemExit: 2">tests\test_investigation_cli.py:247: in test_new_control_requires_unchanged_freeze_before_credentials
+    init_control(series, dataset)
+tests\test_investigation_cli.py:193: in init_control
+    return cli.main([
+evals\investigation\run_investigation.py:148: in main
+    args = parser.parse_args(argv)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:1908: in parse_args
+    self.error(msg)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:2650: in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:2637: in exit
+    _sys.exit(status)
+E   SystemExit: 2</failure></testcase><testcase classname="tests.test_investigation_cli" name="test_new_control_requires_unchanged_freeze_before_credentials[changed_copy-control]" time="0.004"><failure message="SystemExit: 2">tests\test_investigation_cli.py:247: in test_new_control_requires_unchanged_freeze_before_credentials
+    init_control(series, dataset)
+tests\test_investigation_cli.py:193: in init_control
+    return cli.main([
+evals\investigation\run_investigation.py:148: in main
+    args = parser.parse_args(argv)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:1908: in parse_args
+    self.error(msg)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:2650: in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:2637: in exit
+    _sys.exit(status)
+E   SystemExit: 2</failure></testcase><testcase classname="tests.test_investigation_cli" name="test_new_control_runs_frozen_copy_only_once" time="0.003"><failure message="SystemExit: 2">tests\test_investigation_cli.py:269: in test_new_control_runs_frozen_copy_only_once
+    init_control(series, dataset)
+tests\test_investigation_cli.py:193: in init_control
+    return cli.main([
+evals\investigation\run_investigation.py:148: in main
+    args = parser.parse_args(argv)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:1908: in parse_args
+    self.error(msg)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:2650: in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:2637: in exit
+    _sys.exit(status)
+E   SystemExit: 2</failure></testcase></testsuite></testsuites>

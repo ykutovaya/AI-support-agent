@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "case_id": "03ae52db09874888a8bb952ffe216f8c",
+    "kind": "customer",
+    "text": "Оформите возврат комплекта постельного белья из заказа #N105: оттенок не подошёл, обмен не нужен. Почта n105@example.test. В профиле у меня есть карта 1111, но эту покупку оплачивала картой 2222. Деньги прошу вернуть именно на исходную карту 2222."
+  },
+  {
+    "id": 2,
+    "case_id": "03ae52db09874888a8bb952ffe216f8c",
+    "kind": "tool",
+    "text": "find_user_id_by_email: {\"email\": \"n105@example.test\"}"
+  },
+  {
+    "id": 3,
+    "case_id": "03ae52db09874888a8bb952ffe216f8c",
+    "kind": "tool",
+    "text": "get_order_details: {\"order_id\": \"#N105\"}"
+  },
+  {
+    "id": 4,
+    "case_id": "03ae52db09874888a8bb952ffe216f8c",
+    "kind": "tool",
+    "text": "get_user_details: {\"user_id\": \"customer_n105\"}"
+  },
+  {
+    "id": 5,
+    "case_id": "03ae52db09874888a8bb952ffe216f8c",
+    "kind": "tool",
+    "text": "propose_return: {\"order_id\": \"#N105\", \"item_ids\": [\"sage_queen_n105\"], \"payment_method_id\": \"other_card\"}"
+  },
+  {
+    "id": 6,
+    "case_id": "03ae52db09874888a8bb952ffe216f8c",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 1"
+  },
+  {
+    "id": 7,
+    "case_id": "03ae52db09874888a8bb952ffe216f8c",
+    "kind": "sent",
+    "text": "Заявка на возврат 1 позиций заказа #N105. Заказ #N105. Позиции: sage_queen_n105. Сумма предполагаемого возврата: 68.90 USD. Способ оплаты: other_card. Подтвердите эти условия."
+  },
+  {
+    "id": 8,
+    "case_id": "03ae52db09874888a8bb952ffe216f8c",
+    "kind": "customer",
+    "text": "Подтверждаю указанные позиции, замену, способ оплаты и сумму -68.90 USD."
+  },
+  {
+    "id": 9,
+    "case_id": "03ae52db09874888a8bb952ffe216f8c",
+    "kind": "consent",
+    "text": "Клиент подтвердил текущие условия"
+  },
+  {
+    "id": 10,
+    "case_id": "03ae52db09874888a8bb952ffe216f8c",
+    "kind": "approval",
+    "text": "Сотрудник подтвердил предложение версии 2"
+  },
+  {
+    "id": 11,
+    "case_id": "03ae52db09874888a8bb952ffe216f8c",
+    "kind": "operation",
+    "text": "{\"order_id\": \"#N105\", \"user_id\": \"customer_n105\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Комплект постельного белья\", \"product_id\": \"bed_linen_n105\", \"item_id\": \"sage_queen_n105\", \"price\": 68.9, \"options\": {\"color\": \"шалфейный\", \"size\": \"евро\"}}], \"status\": \"return requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 68.9, \"payment_method_id\": \"other_card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": [\"sage_queen_n105\"], \"return_payment_method_id\": \"other_card\"}"
+  },
+  {
+    "id": 12,
+    "case_id": "03ae52db09874888a8bb952ffe216f8c",
+    "kind": "sent",
+    "text": "Зарегистрирована заявка на возврат по заказу #N105. Статус: return requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+  }
+]

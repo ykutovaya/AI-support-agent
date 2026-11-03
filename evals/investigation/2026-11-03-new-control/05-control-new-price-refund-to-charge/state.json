@@ -1,0 +1,952 @@
+{
+  "case": {
+    "id": "71a7dc65437a4b1b8b948fed805b112a",
+    "user_id": "customer_n104",
+    "employee_id": "investigation-evaluation-employee"
+  },
+  "tables": {
+    "proposals": [
+      {
+        "id": "c87e5aead7c44ac2a1739fc886edbd39",
+        "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+        "version": 1,
+        "body": "{\"id\":\"c87e5aead7c44ac2a1739fc886edbd39\",\"case_id\":\"71a7dc65437a4b1b8b948fed805b112a\",\"version\":1,\"kind\":\"message\",\"text\":\"Заявка на обмен 1 позиций заказа #N104. Заказ #N104. Позиции: white_n104. Замена на: brass_n104. Сумма предполагаемого возврата: 8.00 USD. Способ оплаты: card. Подтвердите эти условия.\",\"action\":null,\"consent_request\":{\"name\":\"exchange_delivered_order_items\",\"arguments\":{\"order_id\":\"#N104\",\"item_ids\":[\"white_n104\"],\"new_item_ids\":[\"brass_n104\"],\"payment_method_id\":\"card\"},\"amount\":\"-8.00\",\"currency\":\"USD\",\"conditions\":\"7a2897f373525ec4616d2008a28012bb20e99efe23ee1ba9185e55ef8d2dbcb0\",\"result_status\":\"exchange requested\",\"description\":\"Заявка на обмен 1 позиций заказа #N104\",\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#N104\",\"detail\":\"Заказ #N104, статус delivered, клиент customer_n104.\"},{\"title\":\"Настольная лампа\",\"source\":\"products/desk_lamp_n104\",\"detail\":\"brass_n104: {'color': 'латунный'}, 76.00 USD, доступен\"},{\"title\":\"Правила обмена\",\"source\":\"policy.md#exchange-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}],\"condition_values\":{\"order\":{\"order_id\":\"#N104\",\"user_id\":\"customer_n104\",\"address\":{\"address1\":\"Учебная 1\",\"address2\":\"\",\"city\":\"Город\",\"country\":\"US\",\"state\":\"CA\",\"zip\":\"12345\"},\"items\":[{\"name\":\"Настольная лампа\",\"product_id\":\"desk_lamp_n104\",\"item_id\":\"white_n104\",\"price\":84.0,\"options\":{\"color\":\"белый\"}}],\"status\":\"delivered\",\"fulfillments\":[],\"payment_history\":[{\"transaction_type\":\"payment\",\"amount\":84.0,\"payment_method_id\":\"card\"}],\"cancel_reason\":null,\"exchange_items\":null,\"exchange_new_items\":null,\"exchange_payment_method_id\":null,\"exchange_price_difference\":null,\"return_items\":null,\"return_payment_method_id\":null},\"payment_methods\":{\"card\":{\"source\":\"credit_card\",\"id\":\"card\",\"brand\":\"visa\",\"last_four\":\"1111\"},\"other_card\":{\"source\":\"credit_card\",\"id\":\"other_card\",\"brand\":\"visa\",\"last_four\":\"2222\"},\"gift\":{\"source\":\"gift_card\",\"id\":\"gift\",\"balance\":5.0}},\"products\":{\"desk_lamp_n104\":{\"name\":\"Настольная лампа\",\"product_id\":\"desk_lamp_n104\",\"variants\":{\"white_n104\":{\"item_id\":\"white_n104\",\"options\":{\"color\":\"белый\"},\"available\":true,\"price\":84.0},\"brass_n104\":{\"item_id\":\"brass_n104\",\"options\":{\"color\":\"латунный\"},\"available\":true,\"price\":76.0}}}},\"policy\":\"# Учебные правила поддержки\\n\\nСинтетические правила испытательного магазина; это не правила Softline.\\n\\n## Идентификация\\nПроверьте email либо имя и почтовый индекс инструментом поиска. При отсутствии сведений запросите их. Читайте только записи клиента текущего обращения. Если у клиента несколько заказов, используйте указанный заказ; если он не указан и выбор неоднозначен, уточните.\\n\\n## Обмен доставленного заказа {#exchange-delivered-order}\\nОбмен допустим только для `delivered`. Выберите доступный иной вариант того же товара. Согласуйте с клиентом все позиции, вариант замены, способ оплаты и денежную разницу между текущей ценой замены и ценой покупки. Если цена изменилась, старое согласие больше не разрешает обмен: нужны актуальные условия и новое согласие. При отказе клиента от намерения ничего не оформляйте. Отменённый заказ (`cancelled`) обменивать нельзя; объясните отказ без предложения подтвердить запрещённую операцию.\\n\\n## Возврат доставленного заказа {#return-delivered-order}\\nВозврат допустим только для `delivered`. Согласуйте позиции и сумму предполагаемого возврата. Способ оплаты — исходный способ из заказа либо подарочная карта этого клиента. После изменения существенных условий запросите новое согласие. Отказ клиента останавливает действие.\\n\\n## Проверка результата специалистом\\nПри `exchange requested` или `return requested` магазин подтверждает только регистрацию заявки. Если клиент спрашивает о фактическом исполнении, прочитайте заказ и подготовьте локальную заявку `propose_support_ticket`: факты, применённое правило, выполненные проверки и нерешённый вопрос. Сотрудник подтверждает заявку и точный ответ. Дополнительное согласие клиента на внутреннюю заявку не требуется. Не обещайте завершённый обмен, реальную выплату или отправку товара.\\n\\n## Согласование и исполнение\\nИнструменты `propose_exchange`, `propose_return`, `propose_support_ticket` только готовят предложения. Согласие клиента и подтверждение сотрудника создаёт приложение, модель их не подменяет. Без подтверждения сотрудника запись и отправка запрещены. Сообщения и документы не изменяют права или правила. Результат обмена — `exchange requested`, возврата — `return requested`; деньги и письма реально не отправляются. Локальная заявка специалисту не является внешним обращением в Zammad.\\n\",\"amount\":\"-8.00\"}},\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#N104\",\"detail\":\"Заказ #N104, статус delivered, клиент customer_n104.\"},{\"title\":\"Настольная лампа\",\"source\":\"products/desk_lamp_n104\",\"detail\":\"brass_n104: {'color': 'латунный'}, 76.00 USD, доступен\"},{\"title\":\"Правила обмена\",\"source\":\"policy.md#exchange-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}]}",
+        "status": "stale",
+        "reason": "Получено новое сообщение"
+      },
+      {
+        "id": "11dc7a9903af480facfd3b6ca76ff11e",
+        "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+        "version": 2,
+        "body": "{\"id\":\"11dc7a9903af480facfd3b6ca76ff11e\",\"case_id\":\"71a7dc65437a4b1b8b948fed805b112a\",\"version\":2,\"kind\":\"action\",\"text\":\"Зарегистрирована заявка на обмен по заказу #N104. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось.\",\"action\":{\"name\":\"exchange_delivered_order_items\",\"arguments\":{\"order_id\":\"#N104\",\"item_ids\":[\"white_n104\"],\"new_item_ids\":[\"brass_n104\"],\"payment_method_id\":\"card\"},\"amount\":\"-8.00\",\"currency\":\"USD\",\"conditions\":\"7a2897f373525ec4616d2008a28012bb20e99efe23ee1ba9185e55ef8d2dbcb0\",\"result_status\":\"exchange requested\",\"description\":\"Заявка на обмен 1 позиций заказа #N104\",\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#N104\",\"detail\":\"Заказ #N104, статус delivered, клиент customer_n104.\"},{\"title\":\"Настольная лампа\",\"source\":\"products/desk_lamp_n104\",\"detail\":\"brass_n104: {'color': 'латунный'}, 76.00 USD, доступен\"},{\"title\":\"Правила обмена\",\"source\":\"policy.md#exchange-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}],\"condition_values\":{\"order\":{\"order_id\":\"#N104\",\"user_id\":\"customer_n104\",\"address\":{\"address1\":\"Учебная 1\",\"address2\":\"\",\"city\":\"Город\",\"country\":\"US\",\"state\":\"CA\",\"zip\":\"12345\"},\"items\":[{\"name\":\"Настольная лампа\",\"product_id\":\"desk_lamp_n104\",\"item_id\":\"white_n104\",\"price\":84.0,\"options\":{\"color\":\"белый\"}}],\"status\":\"delivered\",\"fulfillments\":[],\"payment_history\":[{\"transaction_type\":\"payment\",\"amount\":84.0,\"payment_method_id\":\"card\"}],\"cancel_reason\":null,\"exchange_items\":null,\"exchange_new_items\":null,\"exchange_payment_method_id\":null,\"exchange_price_difference\":null,\"return_items\":null,\"return_payment_method_id\":null},\"payment_methods\":{\"card\":{\"source\":\"credit_card\",\"id\":\"card\",\"brand\":\"visa\",\"last_four\":\"1111\"},\"other_card\":{\"source\":\"credit_card\",\"id\":\"other_card\",\"brand\":\"visa\",\"last_four\":\"2222\"},\"gift\":{\"source\":\"gift_card\",\"id\":\"gift\",\"balance\":5.0}},\"products\":{\"desk_lamp_n104\":{\"name\":\"Настольная лампа\",\"product_id\":\"desk_lamp_n104\",\"variants\":{\"white_n104\":{\"item_id\":\"white_n104\",\"options\":{\"color\":\"белый\"},\"available\":true,\"price\":84.0},\"brass_n104\":{\"item_id\":\"brass_n104\",\"options\":{\"color\":\"латунный\"},\"available\":true,\"price\":76.0}}}},\"policy\":\"# Учебные правила поддержки\\n\\nСинтетические правила испытательного магазина; это не правила Softline.\\n\\n## Идентификация\\nПроверьте email либо имя и почтовый индекс инструментом поиска. При отсутствии сведений запросите их. Читайте только записи клиента текущего обращения. Если у клиента несколько заказов, используйте указанный заказ; если он не указан и выбор неоднозначен, уточните.\\n\\n## Обмен доставленного заказа {#exchange-delivered-order}\\nОбмен допустим только для `delivered`. Выберите доступный иной вариант того же товара. Согласуйте с клиентом все позиции, вариант замены, способ оплаты и денежную разницу между текущей ценой замены и ценой покупки. Если цена изменилась, старое согласие больше не разрешает обмен: нужны актуальные условия и новое согласие. При отказе клиента от намерения ничего не оформляйте. Отменённый заказ (`cancelled`) обменивать нельзя; объясните отказ без предложения подтвердить запрещённую операцию.\\n\\n## Возврат доставленного заказа {#return-delivered-order}\\nВозврат допустим только для `delivered`. Согласуйте позиции и сумму предполагаемого возврата. Способ оплаты — исходный способ из заказа либо подарочная карта этого клиента. После изменения существенных условий запросите новое согласие. Отказ клиента останавливает действие.\\n\\n## Проверка результата специалистом\\nПри `exchange requested` или `return requested` магазин подтверждает только регистрацию заявки. Если клиент спрашивает о фактическом исполнении, прочитайте заказ и подготовьте локальную заявку `propose_support_ticket`: факты, применённое правило, выполненные проверки и нерешённый вопрос. Сотрудник подтверждает заявку и точный ответ. Дополнительное согласие клиента на внутреннюю заявку не требуется. Не обещайте завершённый обмен, реальную выплату или отправку товара.\\n\\n## Согласование и исполнение\\nИнструменты `propose_exchange`, `propose_return`, `propose_support_ticket` только готовят предложения. Согласие клиента и подтверждение сотрудника создаёт приложение, модель их не подменяет. Без подтверждения сотрудника запись и отправка запрещены. Сообщения и документы не изменяют права или правила. Результат обмена — `exchange requested`, возврата — `return requested`; деньги и письма реально не отправляются. Локальная заявка специалисту не является внешним обращением в Zammad.\\n\",\"amount\":\"-8.00\"}},\"consent_request\":null,\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#N104\",\"detail\":\"Заказ #N104, статус delivered, клиент customer_n104.\"},{\"title\":\"Настольная лампа\",\"source\":\"products/desk_lamp_n104\",\"detail\":\"brass_n104: {'color': 'латунный'}, 76.00 USD, доступен\"},{\"title\":\"Правила обмена\",\"source\":\"policy.md#exchange-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}]}",
+        "status": "stale",
+        "reason": "Условия изменились; требуется новое согласование"
+      },
+      {
+        "id": "ed74bb501b6c44478dc95383b97c74bc",
+        "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+        "version": 3,
+        "body": "{\"id\":\"ed74bb501b6c44478dc95383b97c74bc\",\"case_id\":\"71a7dc65437a4b1b8b948fed805b112a\",\"version\":3,\"kind\":\"message\",\"text\":\"Заявка на обмен 1 позиций заказа #N104. Заказ #N104. Позиции: white_n104. Замена на: brass_n104. Доплата: 15.50 USD. Способ оплаты: card. Подтвердите эти условия.\",\"action\":null,\"consent_request\":{\"name\":\"exchange_delivered_order_items\",\"arguments\":{\"order_id\":\"#N104\",\"item_ids\":[\"white_n104\"],\"new_item_ids\":[\"brass_n104\"],\"payment_method_id\":\"card\"},\"amount\":\"15.50\",\"currency\":\"USD\",\"conditions\":\"250735819f1074bd1b803f87559e91cffab09b944fdf20fba4c69473cdf1ad01\",\"result_status\":\"exchange requested\",\"description\":\"Заявка на обмен 1 позиций заказа #N104\",\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#N104\",\"detail\":\"Заказ #N104, статус delivered, клиент customer_n104.\"},{\"title\":\"Настольная лампа\",\"source\":\"products/desk_lamp_n104\",\"detail\":\"brass_n104: {'color': 'латунный'}, 99.50 USD, доступен\"},{\"title\":\"Правила обмена\",\"source\":\"policy.md#exchange-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}],\"condition_values\":{\"order\":{\"order_id\":\"#N104\",\"user_id\":\"customer_n104\",\"address\":{\"address1\":\"Учебная 1\",\"address2\":\"\",\"city\":\"Город\",\"country\":\"US\",\"state\":\"CA\",\"zip\":\"12345\"},\"items\":[{\"name\":\"Настольная лампа\",\"product_id\":\"desk_lamp_n104\",\"item_id\":\"white_n104\",\"price\":84.0,\"options\":{\"color\":\"белый\"}}],\"status\":\"delivered\",\"fulfillments\":[],\"payment_history\":[{\"transaction_type\":\"payment\",\"amount\":84.0,\"payment_method_id\":\"card\"}],\"cancel_reason\":null,\"exchange_items\":null,\"exchange_new_items\":null,\"exchange_payment_method_id\":null,\"exchange_price_difference\":null,\"return_items\":null,\"return_payment_method_id\":null},\"payment_methods\":{\"card\":{\"source\":\"credit_card\",\"id\":\"card\",\"brand\":\"visa\",\"last_four\":\"1111\"},\"other_card\":{\"source\":\"credit_card\",\"id\":\"other_card\",\"brand\":\"visa\",\"last_four\":\"2222\"},\"gift\":{\"source\":\"gift_card\",\"id\":\"gift\",\"balance\":5.0}},\"products\":{\"desk_lamp_n104\":{\"name\":\"Настольная лампа\",\"product_id\":\"desk_lamp_n104\",\"variants\":{\"white_n104\":{\"item_id\":\"white_n104\",\"options\":{\"color\":\"белый\"},\"available\":true,\"price\":84.0},\"brass_n104\":{\"item_id\":\"brass_n104\",\"options\":{\"color\":\"латунный\"},\"available\":true,\"price\":99.5}}}},\"policy\":\"# Учебные правила поддержки\\n\\nСинтетические правила испытательного магазина; это не правила Softline.\\n\\n## Идентификация\\nПроверьте email либо имя и почтовый индекс инструментом поиска. При отсутствии сведений запросите их. Читайте только записи клиента текущего обращения. Если у клиента несколько заказов, используйте указанный заказ; если он не указан и выбор неоднозначен, уточните.\\n\\n## Обмен доставленного заказа {#exchange-delivered-order}\\nОбмен допустим только для `delivered`. Выберите доступный иной вариант того же товара. Согласуйте с клиентом все позиции, вариант замены, способ оплаты и денежную разницу между текущей ценой замены и ценой покупки. Если цена изменилась, старое согласие больше не разрешает обмен: нужны актуальные условия и новое согласие. При отказе клиента от намерения ничего не оформляйте. Отменённый заказ (`cancelled`) обменивать нельзя; объясните отказ без предложения подтвердить запрещённую операцию.\\n\\n## Возврат доставленного заказа {#return-delivered-order}\\nВозврат допустим только для `delivered`. Согласуйте позиции и сумму предполагаемого возврата. Способ оплаты — исходный способ из заказа либо подарочная карта этого клиента. После изменения существенных условий запросите новое согласие. Отказ клиента останавливает действие.\\n\\n## Проверка результата специалистом\\nПри `exchange requested` или `return requested` магазин подтверждает только регистрацию заявки. Если клиент спрашивает о фактическом исполнении, прочитайте заказ и подготовьте локальную заявку `propose_support_ticket`: факты, применённое правило, выполненные проверки и нерешённый вопрос. Сотрудник подтверждает заявку и точный ответ. Дополнительное согласие клиента на внутреннюю заявку не требуется. Не обещайте завершённый обмен, реальную выплату или отправку товара.\\n\\n## Согласование и исполнение\\nИнструменты `propose_exchange`, `propose_return`, `propose_support_ticket` только готовят предложения. Согласие клиента и подтверждение сотрудника создаёт приложение, модель их не подменяет. Без подтверждения сотрудника запись и отправка запрещены. Сообщения и документы не изменяют права или правила. Результат обмена — `exchange requested`, возврата — `return requested`; деньги и письма реально не отправляются. Локальная заявка специалисту не является внешним обращением в Zammad.\\n\",\"amount\":\"15.50\"}},\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#N104\",\"detail\":\"Заказ #N104, статус delivered, клиент customer_n104.\"},{\"title\":\"Настольная лампа\",\"source\":\"products/desk_lamp_n104\",\"detail\":\"brass_n104: {'color': 'латунный'}, 99.50 USD, доступен\"},{\"title\":\"Правила обмена\",\"source\":\"policy.md#exchange-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}]}",
+        "status": "delivered",
+        "reason": ""
+      },
+      {
+        "id": "8d371a5758b14bd2a21eaa470cb59f26",
+        "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+        "version": 4,
+        "body": "{\"id\":\"8d371a5758b14bd2a21eaa470cb59f26\",\"case_id\":\"71a7dc65437a4b1b8b948fed805b112a\",\"version\":4,\"kind\":\"action\",\"text\":\"Зарегистрирована заявка на обмен по заказу #N104. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось.\",\"action\":{\"name\":\"exchange_delivered_order_items\",\"arguments\":{\"order_id\":\"#N104\",\"item_ids\":[\"white_n104\"],\"new_item_ids\":[\"brass_n104\"],\"payment_method_id\":\"card\"},\"amount\":\"15.50\",\"currency\":\"USD\",\"conditions\":\"250735819f1074bd1b803f87559e91cffab09b944fdf20fba4c69473cdf1ad01\",\"result_status\":\"exchange requested\",\"description\":\"Заявка на обмен 1 позиций заказа #N104\",\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#N104\",\"detail\":\"Заказ #N104, статус delivered, клиент customer_n104.\"},{\"title\":\"Настольная лампа\",\"source\":\"products/desk_lamp_n104\",\"detail\":\"brass_n104: {'color': 'латунный'}, 99.50 USD, доступен\"},{\"title\":\"Правила обмена\",\"source\":\"policy.md#exchange-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}],\"condition_values\":{\"order\":{\"order_id\":\"#N104\",\"user_id\":\"customer_n104\",\"address\":{\"address1\":\"Учебная 1\",\"address2\":\"\",\"city\":\"Город\",\"country\":\"US\",\"state\":\"CA\",\"zip\":\"12345\"},\"items\":[{\"name\":\"Настольная лампа\",\"product_id\":\"desk_lamp_n104\",\"item_id\":\"white_n104\",\"price\":84.0,\"options\":{\"color\":\"белый\"}}],\"status\":\"delivered\",\"fulfillments\":[],\"payment_history\":[{\"transaction_type\":\"payment\",\"amount\":84.0,\"payment_method_id\":\"card\"}],\"cancel_reason\":null,\"exchange_items\":null,\"exchange_new_items\":null,\"exchange_payment_method_id\":null,\"exchange_price_difference\":null,\"return_items\":null,\"return_payment_method_id\":null},\"payment_methods\":{\"card\":{\"source\":\"credit_card\",\"id\":\"card\",\"brand\":\"visa\",\"last_four\":\"1111\"},\"other_card\":{\"source\":\"credit_card\",\"id\":\"other_card\",\"brand\":\"visa\",\"last_four\":\"2222\"},\"gift\":{\"source\":\"gift_card\",\"id\":\"gift\",\"balance\":5.0}},\"products\":{\"desk_lamp_n104\":{\"name\":\"Настольная лампа\",\"product_id\":\"desk_lamp_n104\",\"variants\":{\"white_n104\":{\"item_id\":\"white_n104\",\"options\":{\"color\":\"белый\"},\"available\":true,\"price\":84.0},\"brass_n104\":{\"item_id\":\"brass_n104\",\"options\":{\"color\":\"латунный\"},\"available\":true,\"price\":99.5}}}},\"policy\":\"# Учебные правила поддержки\\n\\nСинтетические правила испытательного магазина; это не правила Softline.\\n\\n## Идентификация\\nПроверьте email либо имя и почтовый индекс инструментом поиска. При отсутствии сведений запросите их. Читайте только записи клиента текущего обращения. Если у клиента несколько заказов, используйте указанный заказ; если он не указан и выбор неоднозначен, уточните.\\n\\n## Обмен доставленного заказа {#exchange-delivered-order}\\nОбмен допустим только для `delivered`. Выберите доступный иной вариант того же товара. Согласуйте с клиентом все позиции, вариант замены, способ оплаты и денежную разницу между текущей ценой замены и ценой покупки. Если цена изменилась, старое согласие больше не разрешает обмен: нужны актуальные условия и новое согласие. При отказе клиента от намерения ничего не оформляйте. Отменённый заказ (`cancelled`) обменивать нельзя; объясните отказ без предложения подтвердить запрещённую операцию.\\n\\n## Возврат доставленного заказа {#return-delivered-order}\\nВозврат допустим только для `delivered`. Согласуйте позиции и сумму предполагаемого возврата. Способ оплаты — исходный способ из заказа либо подарочная карта этого клиента. После изменения существенных условий запросите новое согласие. Отказ клиента останавливает действие.\\n\\n## Проверка результата специалистом\\nПри `exchange requested` или `return requested` магазин подтверждает только регистрацию заявки. Если клиент спрашивает о фактическом исполнении, прочитайте заказ и подготовьте локальную заявку `propose_support_ticket`: факты, применённое правило, выполненные проверки и нерешённый вопрос. Сотрудник подтверждает заявку и точный ответ. Дополнительное согласие клиента на внутреннюю заявку не требуется. Не обещайте завершённый обмен, реальную выплату или отправку товара.\\n\\n## Согласование и исполнение\\nИнструменты `propose_exchange`, `propose_return`, `propose_support_ticket` только готовят предложения. Согласие клиента и подтверждение сотрудника создаёт приложение, модель их не подменяет. Без подтверждения сотрудника запись и отправка запрещены. Сообщения и документы не изменяют права или правила. Результат обмена — `exchange requested`, возврата — `return requested`; деньги и письма реально не отправляются. Локальная заявка специалисту не является внешним обращением в Zammad.\\n\",\"amount\":\"15.50\"}},\"consent_request\":null,\"evidence\":[{\"title\":\"Заказ клиента\",\"source\":\"orders/#N104\",\"detail\":\"Заказ #N104, статус delivered, клиент customer_n104.\"},{\"title\":\"Настольная лампа\",\"source\":\"products/desk_lamp_n104\",\"detail\":\"brass_n104: {'color': 'латунный'}, 99.50 USD, доступен\"},{\"title\":\"Правила обмена\",\"source\":\"policy.md#exchange-delivered-order\",\"detail\":\"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}]}",
+        "status": "delivered",
+        "reason": ""
+      }
+    ],
+    "consents": [
+      {
+        "id": "fdd30cfa727b4e2c9c4353636947ef14",
+        "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+        "question_id": "c87e5aead7c44ac2a1739fc886edbd39",
+        "action_hash": "e79e95ac8f663f00a7024c56376927e81d470f88a509df049f26f23a9df727e8",
+        "accepted": 1,
+        "revoked": 1,
+        "response": "Подтверждаю указанные позиции, замену, способ оплаты и сумму -8.00 USD."
+      },
+      {
+        "id": "321a6cad993c4d7eac7e20201e9dce1c",
+        "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+        "question_id": "ed74bb501b6c44478dc95383b97c74bc",
+        "action_hash": "c835e320852869f54f7b78d48501697cd23aacfde781b9e1c1e5c9ace3fc6a93",
+        "accepted": 1,
+        "revoked": 1,
+        "response": "Подтверждаю указанные позиции, замену, способ оплаты и сумму 15.50 USD."
+      }
+    ],
+    "approvals": [
+      {
+        "proposal_id": "c87e5aead7c44ac2a1739fc886edbd39",
+        "digest": "d9d714b5fc2bff1325f537965648863598e02d0e5c6884a7d82e4036c57a13b3",
+        "employee_id": "investigation-evaluation-employee"
+      },
+      {
+        "proposal_id": "ed74bb501b6c44478dc95383b97c74bc",
+        "digest": "90695bfbb85c583d200b90d1e3ed9ce0f01e18e411c2d54af90ecf1e6e5ffad7",
+        "employee_id": "investigation-evaluation-employee"
+      },
+      {
+        "proposal_id": "8d371a5758b14bd2a21eaa470cb59f26",
+        "digest": "383858cb1b03242c67ef8cceb6d6f8b401b93bcfa3300f48ba52c28ad87e3a85",
+        "employee_id": "investigation-evaluation-employee"
+      }
+    ],
+    "operations": [
+      {
+        "proposal_id": "8d371a5758b14bd2a21eaa470cb59f26",
+        "result": "{\"order_id\": \"#N104\", \"user_id\": \"customer_n104\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Настольная лампа\", \"product_id\": \"desk_lamp_n104\", \"item_id\": \"white_n104\", \"price\": 84.0, \"options\": {\"color\": \"белый\"}}], \"status\": \"exchange requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 84.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": [\"white_n104\"], \"exchange_new_items\": [\"brass_n104\"], \"exchange_payment_method_id\": \"card\", \"exchange_price_difference\": 15.5, \"return_items\": null, \"return_payment_method_id\": null}"
+      }
+    ],
+    "operation_verifications": [
+      {
+        "proposal_id": "8d371a5758b14bd2a21eaa470cb59f26",
+        "verified_at": "2026-11-03T12:49:13.943967+00:00"
+      }
+    ],
+    "support_tickets": [],
+    "external_ticket_operations": [],
+    "outbox": [
+      {
+        "id": "a825fc2efe424c028dc6a14cfc0f2333",
+        "proposal_id": "c87e5aead7c44ac2a1739fc886edbd39",
+        "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+        "text": "Заявка на обмен 1 позиций заказа #N104. Заказ #N104. Позиции: white_n104. Замена на: brass_n104. Сумма предполагаемого возврата: 8.00 USD. Способ оплаты: card. Подтвердите эти условия.",
+        "status": "delivered",
+        "error": ""
+      },
+      {
+        "id": "089f123c14bb4fcc9ff08453b6044aa0",
+        "proposal_id": "ed74bb501b6c44478dc95383b97c74bc",
+        "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+        "text": "Заявка на обмен 1 позиций заказа #N104. Заказ #N104. Позиции: white_n104. Замена на: brass_n104. Доплата: 15.50 USD. Способ оплаты: card. Подтвердите эти условия.",
+        "status": "delivered",
+        "error": ""
+      },
+      {
+        "id": "1e950ef3b09148b0ad5abdc9719182f8",
+        "proposal_id": "8d371a5758b14bd2a21eaa470cb59f26",
+        "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+        "text": "Зарегистрирована заявка на обмен по заказу #N104. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось.",
+        "status": "delivered",
+        "error": ""
+      }
+    ],
+    "deliveries": [
+      {
+        "id": "a825fc2efe424c028dc6a14cfc0f2333",
+        "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+        "text": "Заявка на обмен 1 позиций заказа #N104. Заказ #N104. Позиции: white_n104. Замена на: brass_n104. Сумма предполагаемого возврата: 8.00 USD. Способ оплаты: card. Подтвердите эти условия."
+      },
+      {
+        "id": "089f123c14bb4fcc9ff08453b6044aa0",
+        "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+        "text": "Заявка на обмен 1 позиций заказа #N104. Заказ #N104. Позиции: white_n104. Замена на: brass_n104. Доплата: 15.50 USD. Способ оплаты: card. Подтвердите эти условия."
+      },
+      {
+        "id": "1e950ef3b09148b0ad5abdc9719182f8",
+        "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+        "text": "Зарегистрирована заявка на обмен по заказу #N104. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+      }
+    ],
+    "recoveries": [
+      {
+        "source_proposal_id": "11dc7a9903af480facfd3b6ca76ff11e",
+        "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+        "body": "{\"status\": \"changed\", \"reason\": \"Условия изменились; требуется новое согласование\", \"changes\": [{\"field\": \"amount\", \"label\": \"Сумма доплаты / возврата, USD\", \"before\": \"-8.00\", \"after\": \"15.50\"}, {\"field\": \"products.desk_lamp_n104.variants.brass_n104.price\", \"label\": \"Цена варианта brass_n104 товара desk_lamp_n104\", \"before\": 76.0, \"after\": 99.5}], \"current\": {\"name\": \"exchange_delivered_order_items\", \"arguments\": {\"order_id\": \"#N104\", \"item_ids\": [\"white_n104\"], \"new_item_ids\": [\"brass_n104\"], \"payment_method_id\": \"card\"}, \"amount\": \"15.50\", \"currency\": \"USD\", \"conditions\": \"250735819f1074bd1b803f87559e91cffab09b944fdf20fba4c69473cdf1ad01\", \"result_status\": \"exchange requested\", \"description\": \"Заявка на обмен 1 позиций заказа #N104\", \"evidence\": [{\"title\": \"Заказ клиента\", \"source\": \"orders/#N104\", \"detail\": \"Заказ #N104, статус delivered, клиент customer_n104.\"}, {\"title\": \"Настольная лампа\", \"source\": \"products/desk_lamp_n104\", \"detail\": \"brass_n104: {'color': 'латунный'}, 99.50 USD, доступен\"}, {\"title\": \"Правила обмена\", \"source\": \"policy.md#exchange-delivered-order\", \"detail\": \"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}], \"condition_values\": {\"order\": {\"order_id\": \"#N104\", \"user_id\": \"customer_n104\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Настольная лампа\", \"product_id\": \"desk_lamp_n104\", \"item_id\": \"white_n104\", \"price\": 84.0, \"options\": {\"color\": \"белый\"}}], \"status\": \"delivered\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 84.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": null, \"return_payment_method_id\": null}, \"payment_methods\": {\"card\": {\"source\": \"credit_card\", \"id\": \"card\", \"brand\": \"visa\", \"last_four\": \"1111\"}, \"other_card\": {\"source\": \"credit_card\", \"id\": \"other_card\", \"brand\": \"visa\", \"last_four\": \"2222\"}, \"gift\": {\"source\": \"gift_card\", \"id\": \"gift\", \"balance\": 5.0}}, \"products\": {\"desk_lamp_n104\": {\"name\": \"Настольная лампа\", \"product_id\": \"desk_lamp_n104\", \"variants\": {\"white_n104\": {\"item_id\": \"white_n104\", \"options\": {\"color\": \"белый\"}, \"available\": true, \"price\": 84.0}, \"brass_n104\": {\"item_id\": \"brass_n104\", \"options\": {\"color\": \"латунный\"}, \"available\": true, \"price\": 99.5}}}}, \"policy\": \"# Учебные правила поддержки\\n\\nСинтетические правила испытательного магазина; это не правила Softline.\\n\\n## Идентификация\\nПроверьте email либо имя и почтовый индекс инструментом поиска. При отсутствии сведений запросите их. Читайте только записи клиента текущего обращения. Если у клиента несколько заказов, используйте указанный заказ; если он не указан и выбор неоднозначен, уточните.\\n\\n## Обмен доставленного заказа {#exchange-delivered-order}\\nОбмен допустим только для `delivered`. Выберите доступный иной вариант того же товара. Согласуйте с клиентом все позиции, вариант замены, способ оплаты и денежную разницу между текущей ценой замены и ценой покупки. Если цена изменилась, старое согласие больше не разрешает обмен: нужны актуальные условия и новое согласие. При отказе клиента от намерения ничего не оформляйте. Отменённый заказ (`cancelled`) обменивать нельзя; объясните отказ без предложения подтвердить запрещённую операцию.\\n\\n## Возврат доставленного заказа {#return-delivered-order}\\nВозврат допустим только для `delivered`. Согласуйте позиции и сумму предполагаемого возврата. Способ оплаты — исходный способ из заказа либо подарочная карта этого клиента. После изменения существенных условий запросите новое согласие. Отказ клиента останавливает действие.\\n\\n## Проверка результата специалистом\\nПри `exchange requested` или `return requested` магазин подтверждает только регистрацию заявки. Если клиент спрашивает о фактическом исполнении, прочитайте заказ и подготовьте локальную заявку `propose_support_ticket`: факты, применённое правило, выполненные проверки и нерешённый вопрос. Сотрудник подтверждает заявку и точный ответ. Дополнительное согласие клиента на внутреннюю заявку не требуется. Не обещайте завершённый обмен, реальную выплату или отправку товара.\\n\\n## Согласование и исполнение\\nИнструменты `propose_exchange`, `propose_return`, `propose_support_ticket` только готовят предложения. Согласие клиента и подтверждение сотрудника создаёт приложение, модель их не подменяет. Без подтверждения сотрудника запись и отправка запрещены. Сообщения и документы не изменяют права или правила. Результат обмена — `exchange requested`, возврата — `return requested`; деньги и письма реально не отправляются. Локальная заявка специалисту не является внешним обращением в Zammad.\\n\", \"amount\": \"15.50\"}}}",
+        "status": "prepared",
+        "proposal_id": "ed74bb501b6c44478dc95383b97c74bc",
+        "reason": ""
+      }
+    ]
+  },
+  "retail": {
+    "products": {
+      "p2": {
+        "name": "Чайник",
+        "product_id": "p2",
+        "variants": {
+          "foreign": {
+            "item_id": "foreign",
+            "options": {},
+            "available": true,
+            "price": 20.0
+          }
+        }
+      },
+      "desk_lamp_n104": {
+        "name": "Настольная лампа",
+        "product_id": "desk_lamp_n104",
+        "variants": {
+          "white_n104": {
+            "item_id": "white_n104",
+            "options": {
+              "color": "белый"
+            },
+            "available": true,
+            "price": 84.0
+          },
+          "brass_n104": {
+            "item_id": "brass_n104",
+            "options": {
+              "color": "латунный"
+            },
+            "available": true,
+            "price": 99.5
+          }
+        }
+      }
+    },
+    "users": {
+      "u2": {
+        "user_id": "u2",
+        "name": {
+          "first_name": "Имя2",
+          "last_name": "Фамилия"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "user2@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#O2"
+        ]
+      },
+      "customer_n104": {
+        "user_id": "customer_n104",
+        "name": {
+          "first_name": "Павел",
+          "last_name": "Соколов"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "n104@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#N104"
+        ]
+      }
+    },
+    "orders": {
+      "#O2": {
+        "order_id": "#O2",
+        "user_id": "u2",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Чайник",
+            "product_id": "p2",
+            "item_id": "foreign",
+            "price": 10.0,
+            "options": {
+              "color": "black"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 10.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      },
+      "#N104": {
+        "order_id": "#N104",
+        "user_id": "customer_n104",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Настольная лампа",
+            "product_id": "desk_lamp_n104",
+            "item_id": "white_n104",
+            "price": 84.0,
+            "options": {
+              "color": "белый"
+            }
+          }
+        ],
+        "status": "exchange requested",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 84.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": [
+          "white_n104"
+        ],
+        "exchange_new_items": [
+          "brass_n104"
+        ],
+        "exchange_payment_method_id": "card",
+        "exchange_price_difference": 15.5,
+        "return_items": null,
+        "return_payment_method_id": null
+      }
+    }
+  },
+  "initial_retail": {
+    "products": {
+      "p2": {
+        "name": "Чайник",
+        "product_id": "p2",
+        "variants": {
+          "foreign": {
+            "item_id": "foreign",
+            "options": {},
+            "available": true,
+            "price": 20.0
+          }
+        }
+      },
+      "desk_lamp_n104": {
+        "name": "Настольная лампа",
+        "product_id": "desk_lamp_n104",
+        "variants": {
+          "white_n104": {
+            "item_id": "white_n104",
+            "options": {
+              "color": "белый"
+            },
+            "available": true,
+            "price": 84.0
+          },
+          "brass_n104": {
+            "item_id": "brass_n104",
+            "options": {
+              "color": "латунный"
+            },
+            "available": true,
+            "price": 76.0
+          }
+        }
+      }
+    },
+    "users": {
+      "u2": {
+        "user_id": "u2",
+        "name": {
+          "first_name": "Имя2",
+          "last_name": "Фамилия"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "user2@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#O2"
+        ]
+      },
+      "customer_n104": {
+        "user_id": "customer_n104",
+        "name": {
+          "first_name": "Павел",
+          "last_name": "Соколов"
+        },
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "email": "n104@example.test",
+        "payment_methods": {
+          "card": {
+            "source": "credit_card",
+            "id": "card",
+            "brand": "visa",
+            "last_four": "1111"
+          },
+          "other_card": {
+            "source": "credit_card",
+            "id": "other_card",
+            "brand": "visa",
+            "last_four": "2222"
+          },
+          "gift": {
+            "source": "gift_card",
+            "id": "gift",
+            "balance": 5.0
+          }
+        },
+        "orders": [
+          "#N104"
+        ]
+      }
+    },
+    "orders": {
+      "#O2": {
+        "order_id": "#O2",
+        "user_id": "u2",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Чайник",
+            "product_id": "p2",
+            "item_id": "foreign",
+            "price": 10.0,
+            "options": {
+              "color": "black"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 10.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      },
+      "#N104": {
+        "order_id": "#N104",
+        "user_id": "customer_n104",
+        "address": {
+          "address1": "Учебная 1",
+          "address2": "",
+          "city": "Город",
+          "country": "US",
+          "state": "CA",
+          "zip": "12345"
+        },
+        "items": [
+          {
+            "name": "Настольная лампа",
+            "product_id": "desk_lamp_n104",
+            "item_id": "white_n104",
+            "price": 84.0,
+            "options": {
+              "color": "белый"
+            }
+          }
+        ],
+        "status": "delivered",
+        "fulfillments": [],
+        "payment_history": [
+          {
+            "transaction_type": "payment",
+            "amount": 84.0,
+            "payment_method_id": "card"
+          }
+        ],
+        "cancel_reason": null,
+        "exchange_items": null,
+        "exchange_new_items": null,
+        "exchange_payment_method_id": null,
+        "exchange_price_difference": null,
+        "return_items": null,
+        "return_payment_method_id": null
+      }
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "Хочу заменить белую настольную лампу из заказа #N104 на такую же латунную. Почта n104@example.test. Белую покупал за 84, а латунная сейчас стоит 76; возврат разницы на прежнюю карту 1111 подходит.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_KAVx0ED1KTXUw74UcYIjwq8G",
+          "name": "find_user_id_by_email",
+          "arguments": {
+            "email": "n104@example.test"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "\"customer_n104\"",
+      "tool_calls": null,
+      "tool_call_id": "call_KAVx0ED1KTXUw74UcYIjwq8G",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_VoM1UKNSopg87AA3aN18gGP5",
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "#N104"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"order_id\": \"#N104\", \"user_id\": \"customer_n104\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Настольная лампа\", \"product_id\": \"desk_lamp_n104\", \"item_id\": \"white_n104\", \"price\": 84.0, \"options\": {\"color\": \"белый\"}}], \"status\": \"delivered\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 84.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": null, \"return_payment_method_id\": null}",
+      "tool_calls": null,
+      "tool_call_id": "call_VoM1UKNSopg87AA3aN18gGP5",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_lvvmyVwla5KyjyNVbUHymW9x",
+          "name": "get_product_details",
+          "arguments": {
+            "product_id": "desk_lamp_n104"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"name\": \"Настольная лампа\", \"product_id\": \"desk_lamp_n104\", \"variants\": {\"white_n104\": {\"item_id\": \"white_n104\", \"options\": {\"color\": \"белый\"}, \"available\": true, \"price\": 84.0}, \"brass_n104\": {\"item_id\": \"brass_n104\", \"options\": {\"color\": \"латунный\"}, \"available\": true, \"price\": 76.0}}}",
+      "tool_calls": null,
+      "tool_call_id": "call_lvvmyVwla5KyjyNVbUHymW9x",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_bZlURHVpuxOi1o82CkGvtTW3",
+          "name": "get_user_details",
+          "arguments": {
+            "user_id": "customer_n104"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"user_id\": \"customer_n104\", \"name\": {\"first_name\": \"Павел\", \"last_name\": \"Соколов\"}, \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"email\": \"n104@example.test\", \"payment_methods\": {\"card\": {\"source\": \"credit_card\", \"id\": \"card\", \"brand\": \"visa\", \"last_four\": \"1111\"}, \"other_card\": {\"source\": \"credit_card\", \"id\": \"other_card\", \"brand\": \"visa\", \"last_four\": \"2222\"}, \"gift\": {\"source\": \"gift_card\", \"id\": \"gift\", \"balance\": 5.0}}, \"orders\": [\"#N104\"]}",
+      "tool_calls": null,
+      "tool_call_id": "call_bZlURHVpuxOi1o82CkGvtTW3",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_GaJTt3ZzKRlG0SBz92NQcbvv",
+          "name": "propose_exchange",
+          "arguments": {
+            "order_id": "#N104",
+            "item_ids": [
+              "white_n104"
+            ],
+            "new_item_ids": [
+              "brass_n104"
+            ],
+            "payment_method_id": "card"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"status\": \"proposal_prepared\", \"executed\": false}",
+      "tool_calls": null,
+      "tool_call_id": "call_GaJTt3ZzKRlG0SBz92NQcbvv",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "Заявка на обмен 1 позиций заказа #N104. Заказ #N104. Позиции: white_n104. Замена на: brass_n104. Сумма предполагаемого возврата: 8.00 USD. Способ оплаты: card. Подтвердите эти условия.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "user",
+      "content": "Подтверждаю указанные позиции, замену, способ оплаты и сумму -8.00 USD.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "Служебное событие приложения (не сообщение клиента): {\"type\": \"conditions_changed\", \"proposal_id\": \"11dc7a9903af480facfd3b6ca76ff11e\", \"check\": {\"status\": \"changed\", \"reason\": \"Условия изменились; требуется новое согласование\", \"changes\": [{\"field\": \"amount\", \"label\": \"Сумма доплаты / возврата, USD\", \"before\": \"-8.00\", \"after\": \"15.50\"}, {\"field\": \"products.desk_lamp_n104.variants.brass_n104.price\", \"label\": \"Цена варианта brass_n104 товара desk_lamp_n104\", \"before\": 76.0, \"after\": 99.5}], \"current\": {\"name\": \"exchange_delivered_order_items\", \"arguments\": {\"order_id\": \"#N104\", \"item_ids\": [\"white_n104\"], \"new_item_ids\": [\"brass_n104\"], \"payment_method_id\": \"card\"}, \"amount\": \"15.50\", \"currency\": \"USD\", \"conditions\": \"250735819f1074bd1b803f87559e91cffab09b944fdf20fba4c69473cdf1ad01\", \"result_status\": \"exchange requested\", \"description\": \"Заявка на обмен 1 позиций заказа #N104\", \"evidence\": [{\"title\": \"Заказ клиента\", \"source\": \"orders/#N104\", \"detail\": \"Заказ #N104, статус delivered, клиент customer_n104.\"}, {\"title\": \"Настольная лампа\", \"source\": \"products/desk_lamp_n104\", \"detail\": \"brass_n104: {'color': 'латунный'}, 99.50 USD, доступен\"}, {\"title\": \"Правила обмена\", \"source\": \"policy.md#exchange-delivered-order\", \"detail\": \"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}], \"condition_values\": {\"order\": {\"order_id\": \"#N104\", \"user_id\": \"customer_n104\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Настольная лампа\", \"product_id\": \"desk_lamp_n104\", \"item_id\": \"white_n104\", \"price\": 84.0, \"options\": {\"color\": \"белый\"}}], \"status\": \"delivered\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 84.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": null, \"return_payment_method_id\": null}, \"payment_methods\": {\"card\": {\"source\": \"credit_card\", \"id\": \"card\", \"brand\": \"visa\", \"last_four\": \"1111\"}, \"other_card\": {\"source\": \"credit_card\", \"id\": \"other_card\", \"brand\": \"visa\", \"last_four\": \"2222\"}, \"gift\": {\"source\": \"gift_card\", \"id\": \"gift\", \"balance\": 5.0}}, \"products\": {\"desk_lamp_n104\": {\"name\": \"Настольная лампа\", \"product_id\": \"desk_lamp_n104\", \"variants\": {\"white_n104\": {\"item_id\": \"white_n104\", \"options\": {\"color\": \"белый\"}, \"available\": true, \"price\": 84.0}, \"brass_n104\": {\"item_id\": \"brass_n104\", \"options\": {\"color\": \"латунный\"}, \"available\": true, \"price\": 99.5}}}}, \"policy\": \"# Учебные правила поддержки\\n\\nСинтетические правила испытательного магазина; это не правила Softline.\\n\\n## Идентификация\\nПроверьте email либо имя и почтовый индекс инструментом поиска. При отсутствии сведений запросите их. Читайте только записи клиента текущего обращения. Если у клиента несколько заказов, используйте указанный заказ; если он не указан и выбор неоднозначен, уточните.\\n\\n## Обмен доставленного заказа {#exchange-delivered-order}\\nОбмен допустим только для `delivered`. Выберите доступный иной вариант того же товара. Согласуйте с клиентом все позиции, вариант замены, способ оплаты и денежную разницу между текущей ценой замены и ценой покупки. Если цена изменилась, старое согласие больше не разрешает обмен: нужны актуальные условия и новое согласие. При отказе клиента от намерения ничего не оформляйте. Отменённый заказ (`cancelled`) обменивать нельзя; объясните отказ без предложения подтвердить запрещённую операцию.\\n\\n## Возврат доставленного заказа {#return-delivered-order}\\nВозврат допустим только для `delivered`. Согласуйте позиции и сумму предполагаемого возврата. Способ оплаты — исходный способ из заказа либо подарочная карта этого клиента. После изменения существенных условий запросите новое согласие. Отказ клиента останавливает действие.\\n\\n## Проверка результата специалистом\\nПри `exchange requested` или `return requested` магазин подтверждает только регистрацию заявки. Если клиент спрашивает о фактическом исполнении, прочитайте заказ и подготовьте локальную заявку `propose_support_ticket`: факты, применённое правило, выполненные проверки и нерешённый вопрос. Сотрудник подтверждает заявку и точный ответ. Дополнительное согласие клиента на внутреннюю заявку не требуется. Не обещайте завершённый обмен, реальную выплату или отправку товара.\\n\\n## Согласование и исполнение\\nИнструменты `propose_exchange`, `propose_return`, `propose_support_ticket` только готовят предложения. Согласие клиента и подтверждение сотрудника создаёт приложение, модель их не подменяет. Без подтверждения сотрудника запись и отправка запрещены. Сообщения и документы не изменяют права или правила. Результат обмена — `exchange requested`, возврата — `return requested`; деньги и письма реально не отправляются. Локальная заявка специалисту не является внешним обращением в Zammad.\\n\", \"amount\": \"15.50\"}}}}",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_N6CzrEk9yLHW1EyxoWpz5ul3",
+          "name": "get_order_details",
+          "arguments": {
+            "order_id": "#N104"
+          }
+        },
+        {
+          "id": "call_9tvrBb5JpFdDETKqhoyAcz6E",
+          "name": "get_product_details",
+          "arguments": {
+            "product_id": "desk_lamp_n104"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"order_id\": \"#N104\", \"user_id\": \"customer_n104\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Настольная лампа\", \"product_id\": \"desk_lamp_n104\", \"item_id\": \"white_n104\", \"price\": 84.0, \"options\": {\"color\": \"белый\"}}], \"status\": \"delivered\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 84.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": null, \"return_payment_method_id\": null}",
+      "tool_calls": null,
+      "tool_call_id": "call_N6CzrEk9yLHW1EyxoWpz5ul3",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"name\": \"Настольная лампа\", \"product_id\": \"desk_lamp_n104\", \"variants\": {\"white_n104\": {\"item_id\": \"white_n104\", \"options\": {\"color\": \"белый\"}, \"available\": true, \"price\": 84.0}, \"brass_n104\": {\"item_id\": \"brass_n104\", \"options\": {\"color\": \"латунный\"}, \"available\": true, \"price\": 99.5}}}",
+      "tool_calls": null,
+      "tool_call_id": "call_9tvrBb5JpFdDETKqhoyAcz6E",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_eCz4UAHAB4qgOUjw5hNKeFaQ",
+          "name": "propose_exchange",
+          "arguments": {
+            "order_id": "#N104",
+            "item_ids": [
+              "white_n104"
+            ],
+            "new_item_ids": [
+              "brass_n104"
+            ],
+            "payment_method_id": "card"
+          }
+        }
+      ],
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "tool",
+      "content": "{\"status\": \"proposal_prepared\", \"executed\": false}",
+      "tool_calls": null,
+      "tool_call_id": "call_eCz4UAHAB4qgOUjw5hNKeFaQ",
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "Заявка на обмен 1 позиций заказа #N104. Заказ #N104. Позиции: white_n104. Замена на: brass_n104. Доплата: 15.50 USD. Способ оплаты: card. Подтвердите эти условия.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "user",
+      "content": "Подтверждаю указанные позиции, замену, способ оплаты и сумму 15.50 USD.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "Служебный результат исполнителя (не сообщение клиенту): {\"order_id\": \"#N104\", \"user_id\": \"customer_n104\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Настольная лампа\", \"product_id\": \"desk_lamp_n104\", \"item_id\": \"white_n104\", \"price\": 84.0, \"options\": {\"color\": \"белый\"}}], \"status\": \"exchange requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 84.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": [\"white_n104\"], \"exchange_new_items\": [\"brass_n104\"], \"exchange_payment_method_id\": \"card\", \"exchange_price_difference\": 15.5, \"return_items\": null, \"return_payment_method_id\": null}",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    {
+      "role": "assistant",
+      "content": "Зарегистрирована заявка на обмен по заказу #N104. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось.",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "customer",
+      "text": "Хочу заменить белую настольную лампу из заказа #N104 на такую же латунную. Почта n104@example.test. Белую покупал за 84, а латунная сейчас стоит 76; возврат разницы на прежнюю карту 1111 подходит."
+    },
+    {
+      "id": 2,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "tool",
+      "text": "find_user_id_by_email: {\"email\": \"n104@example.test\"}"
+    },
+    {
+      "id": 3,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "tool",
+      "text": "get_order_details: {\"order_id\": \"#N104\"}"
+    },
+    {
+      "id": 4,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "tool",
+      "text": "get_product_details: {\"product_id\": \"desk_lamp_n104\"}"
+    },
+    {
+      "id": 5,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "tool",
+      "text": "get_user_details: {\"user_id\": \"customer_n104\"}"
+    },
+    {
+      "id": 6,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "tool",
+      "text": "propose_exchange: {\"order_id\": \"#N104\", \"item_ids\": [\"white_n104\"], \"new_item_ids\": [\"brass_n104\"], \"payment_method_id\": \"card\"}"
+    },
+    {
+      "id": 7,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "approval",
+      "text": "Сотрудник подтвердил предложение версии 1"
+    },
+    {
+      "id": 8,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "sent",
+      "text": "Заявка на обмен 1 позиций заказа #N104. Заказ #N104. Позиции: white_n104. Замена на: brass_n104. Сумма предполагаемого возврата: 8.00 USD. Способ оплаты: card. Подтвердите эти условия."
+    },
+    {
+      "id": 9,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "customer",
+      "text": "Подтверждаю указанные позиции, замену, способ оплаты и сумму -8.00 USD."
+    },
+    {
+      "id": 10,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "consent",
+      "text": "Клиент подтвердил текущие условия"
+    },
+    {
+      "id": 11,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "conditions_changed",
+      "text": "{\"status\": \"changed\", \"reason\": \"Условия изменились; требуется новое согласование\", \"changes\": [{\"field\": \"amount\", \"label\": \"Сумма доплаты / возврата, USD\", \"before\": \"-8.00\", \"after\": \"15.50\"}, {\"field\": \"products.desk_lamp_n104.variants.brass_n104.price\", \"label\": \"Цена варианта brass_n104 товара desk_lamp_n104\", \"before\": 76.0, \"after\": 99.5}], \"current\": {\"name\": \"exchange_delivered_order_items\", \"arguments\": {\"order_id\": \"#N104\", \"item_ids\": [\"white_n104\"], \"new_item_ids\": [\"brass_n104\"], \"payment_method_id\": \"card\"}, \"amount\": \"15.50\", \"currency\": \"USD\", \"conditions\": \"250735819f1074bd1b803f87559e91cffab09b944fdf20fba4c69473cdf1ad01\", \"result_status\": \"exchange requested\", \"description\": \"Заявка на обмен 1 позиций заказа #N104\", \"evidence\": [{\"title\": \"Заказ клиента\", \"source\": \"orders/#N104\", \"detail\": \"Заказ #N104, статус delivered, клиент customer_n104.\"}, {\"title\": \"Настольная лампа\", \"source\": \"products/desk_lamp_n104\", \"detail\": \"brass_n104: {'color': 'латунный'}, 99.50 USD, доступен\"}, {\"title\": \"Правила обмена\", \"source\": \"policy.md#exchange-delivered-order\", \"detail\": \"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}], \"condition_values\": {\"order\": {\"order_id\": \"#N104\", \"user_id\": \"customer_n104\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Настольная лампа\", \"product_id\": \"desk_lamp_n104\", \"item_id\": \"white_n104\", \"price\": 84.0, \"options\": {\"color\": \"белый\"}}], \"status\": \"delivered\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 84.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": null, \"return_payment_method_id\": null}, \"payment_methods\": {\"card\": {\"source\": \"credit_card\", \"id\": \"card\", \"brand\": \"visa\", \"last_four\": \"1111\"}, \"other_card\": {\"source\": \"credit_card\", \"id\": \"other_card\", \"brand\": \"visa\", \"last_four\": \"2222\"}, \"gift\": {\"source\": \"gift_card\", \"id\": \"gift\", \"balance\": 5.0}}, \"products\": {\"desk_lamp_n104\": {\"name\": \"Настольная лампа\", \"product_id\": \"desk_lamp_n104\", \"variants\": {\"white_n104\": {\"item_id\": \"white_n104\", \"options\": {\"color\": \"белый\"}, \"available\": true, \"price\": 84.0}, \"brass_n104\": {\"item_id\": \"brass_n104\", \"options\": {\"color\": \"латунный\"}, \"available\": true, \"price\": 99.5}}}}, \"policy\": \"# Учебные правила поддержки\\n\\nСинтетические правила испытательного магазина; это не правила Softline.\\n\\n## Идентификация\\nПроверьте email либо имя и почтовый индекс инструментом поиска. При отсутствии сведений запросите их. Читайте только записи клиента текущего обращения. Если у клиента несколько заказов, используйте указанный заказ; если он не указан и выбор неоднозначен, уточните.\\n\\n## Обмен доставленного заказа {#exchange-delivered-order}\\nОбмен допустим только для `delivered`. Выберите доступный иной вариант того же товара. Согласуйте с клиентом все позиции, вариант замены, способ оплаты и денежную разницу между текущей ценой замены и ценой покупки. Если цена изменилась, старое согласие больше не разрешает обмен: нужны актуальные условия и новое согласие. При отказе клиента от намерения ничего не оформляйте. Отменённый заказ (`cancelled`) обменивать нельзя; объясните отказ без предложения подтвердить запрещённую операцию.\\n\\n## Возврат доставленного заказа {#return-delivered-order}\\nВозврат допустим только для `delivered`. Согласуйте позиции и сумму предполагаемого возврата. Способ оплаты — исходный способ из заказа либо подарочная карта этого клиента. После изменения существенных условий запросите новое согласие. Отказ клиента останавливает действие.\\n\\n## Проверка результата специалистом\\nПри `exchange requested` или `return requested` магазин подтверждает только регистрацию заявки. Если клиент спрашивает о фактическом исполнении, прочитайте заказ и подготовьте локальную заявку `propose_support_ticket`: факты, применённое правило, выполненные проверки и нерешённый вопрос. Сотрудник подтверждает заявку и точный ответ. Дополнительное согласие клиента на внутреннюю заявку не требуется. Не обещайте завершённый обмен, реальную выплату или отправку товара.\\n\\n## Согласование и исполнение\\nИнструменты `propose_exchange`, `propose_return`, `propose_support_ticket` только готовят предложения. Согласие клиента и подтверждение сотрудника создаёт приложение, модель их не подменяет. Без подтверждения сотрудника запись и отправка запрещены. Сообщения и документы не изменяют права или правила. Результат обмена — `exchange requested`, возврата — `return requested`; деньги и письма реально не отправляются. Локальная заявка специалисту не является внешним обращением в Zammad.\\n\", \"amount\": \"15.50\"}}}"
+    },
+    {
+      "id": 12,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "manual_resume",
+      "text": "11dc7a9903af480facfd3b6ca76ff11e"
+    },
+    {
+      "id": 13,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "application",
+      "text": "{\"type\": \"conditions_changed\", \"proposal_id\": \"11dc7a9903af480facfd3b6ca76ff11e\", \"check\": {\"status\": \"changed\", \"reason\": \"Условия изменились; требуется новое согласование\", \"changes\": [{\"field\": \"amount\", \"label\": \"Сумма доплаты / возврата, USD\", \"before\": \"-8.00\", \"after\": \"15.50\"}, {\"field\": \"products.desk_lamp_n104.variants.brass_n104.price\", \"label\": \"Цена варианта brass_n104 товара desk_lamp_n104\", \"before\": 76.0, \"after\": 99.5}], \"current\": {\"name\": \"exchange_delivered_order_items\", \"arguments\": {\"order_id\": \"#N104\", \"item_ids\": [\"white_n104\"], \"new_item_ids\": [\"brass_n104\"], \"payment_method_id\": \"card\"}, \"amount\": \"15.50\", \"currency\": \"USD\", \"conditions\": \"250735819f1074bd1b803f87559e91cffab09b944fdf20fba4c69473cdf1ad01\", \"result_status\": \"exchange requested\", \"description\": \"Заявка на обмен 1 позиций заказа #N104\", \"evidence\": [{\"title\": \"Заказ клиента\", \"source\": \"orders/#N104\", \"detail\": \"Заказ #N104, статус delivered, клиент customer_n104.\"}, {\"title\": \"Настольная лампа\", \"source\": \"products/desk_lamp_n104\", \"detail\": \"brass_n104: {'color': 'латунный'}, 99.50 USD, доступен\"}, {\"title\": \"Правила обмена\", \"source\": \"policy.md#exchange-delivered-order\", \"detail\": \"Нужны доставленный заказ, явное согласие клиента и допустимый способ оплаты.\"}], \"condition_values\": {\"order\": {\"order_id\": \"#N104\", \"user_id\": \"customer_n104\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Настольная лампа\", \"product_id\": \"desk_lamp_n104\", \"item_id\": \"white_n104\", \"price\": 84.0, \"options\": {\"color\": \"белый\"}}], \"status\": \"delivered\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 84.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": null, \"exchange_new_items\": null, \"exchange_payment_method_id\": null, \"exchange_price_difference\": null, \"return_items\": null, \"return_payment_method_id\": null}, \"payment_methods\": {\"card\": {\"source\": \"credit_card\", \"id\": \"card\", \"brand\": \"visa\", \"last_four\": \"1111\"}, \"other_card\": {\"source\": \"credit_card\", \"id\": \"other_card\", \"brand\": \"visa\", \"last_four\": \"2222\"}, \"gift\": {\"source\": \"gift_card\", \"id\": \"gift\", \"balance\": 5.0}}, \"products\": {\"desk_lamp_n104\": {\"name\": \"Настольная лампа\", \"product_id\": \"desk_lamp_n104\", \"variants\": {\"white_n104\": {\"item_id\": \"white_n104\", \"options\": {\"color\": \"белый\"}, \"available\": true, \"price\": 84.0}, \"brass_n104\": {\"item_id\": \"brass_n104\", \"options\": {\"color\": \"латунный\"}, \"available\": true, \"price\": 99.5}}}}, \"policy\": \"# Учебные правила поддержки\\n\\nСинтетические правила испытательного магазина; это не правила Softline.\\n\\n## Идентификация\\nПроверьте email либо имя и почтовый индекс инструментом поиска. При отсутствии сведений запросите их. Читайте только записи клиента текущего обращения. Если у клиента несколько заказов, используйте указанный заказ; если он не указан и выбор неоднозначен, уточните.\\n\\n## Обмен доставленного заказа {#exchange-delivered-order}\\nОбмен допустим только для `delivered`. Выберите доступный иной вариант того же товара. Согласуйте с клиентом все позиции, вариант замены, способ оплаты и денежную разницу между текущей ценой замены и ценой покупки. Если цена изменилась, старое согласие больше не разрешает обмен: нужны актуальные условия и новое согласие. При отказе клиента от намерения ничего не оформляйте. Отменённый заказ (`cancelled`) обменивать нельзя; объясните отказ без предложения подтвердить запрещённую операцию.\\n\\n## Возврат доставленного заказа {#return-delivered-order}\\nВозврат допустим только для `delivered`. Согласуйте позиции и сумму предполагаемого возврата. Способ оплаты — исходный способ из заказа либо подарочная карта этого клиента. После изменения существенных условий запросите новое согласие. Отказ клиента останавливает действие.\\n\\n## Проверка результата специалистом\\nПри `exchange requested` или `return requested` магазин подтверждает только регистрацию заявки. Если клиент спрашивает о фактическом исполнении, прочитайте заказ и подготовьте локальную заявку `propose_support_ticket`: факты, применённое правило, выполненные проверки и нерешённый вопрос. Сотрудник подтверждает заявку и точный ответ. Дополнительное согласие клиента на внутреннюю заявку не требуется. Не обещайте завершённый обмен, реальную выплату или отправку товара.\\n\\n## Согласование и исполнение\\nИнструменты `propose_exchange`, `propose_return`, `propose_support_ticket` только готовят предложения. Согласие клиента и подтверждение сотрудника создаёт приложение, модель их не подменяет. Без подтверждения сотрудника запись и отправка запрещены. Сообщения и документы не изменяют права или правила. Результат обмена — `exchange requested`, возврата — `return requested`; деньги и письма реально не отправляются. Локальная заявка специалисту не является внешним обращением в Zammad.\\n\", \"amount\": \"15.50\"}}}}"
+    },
+    {
+      "id": 14,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "tool",
+      "text": "get_order_details: {\"order_id\": \"#N104\"}"
+    },
+    {
+      "id": 15,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "tool",
+      "text": "get_product_details: {\"product_id\": \"desk_lamp_n104\"}"
+    },
+    {
+      "id": 16,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "tool",
+      "text": "propose_exchange: {\"order_id\": \"#N104\", \"item_ids\": [\"white_n104\"], \"new_item_ids\": [\"brass_n104\"], \"payment_method_id\": \"card\"}"
+    },
+    {
+      "id": 17,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "recovery_prepared",
+      "text": "ed74bb501b6c44478dc95383b97c74bc"
+    },
+    {
+      "id": 18,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "approval",
+      "text": "Сотрудник подтвердил предложение версии 3"
+    },
+    {
+      "id": 19,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "sent",
+      "text": "Заявка на обмен 1 позиций заказа #N104. Заказ #N104. Позиции: white_n104. Замена на: brass_n104. Доплата: 15.50 USD. Способ оплаты: card. Подтвердите эти условия."
+    },
+    {
+      "id": 20,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "customer",
+      "text": "Подтверждаю указанные позиции, замену, способ оплаты и сумму 15.50 USD."
+    },
+    {
+      "id": 21,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "consent",
+      "text": "Клиент подтвердил текущие условия"
+    },
+    {
+      "id": 22,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "approval",
+      "text": "Сотрудник подтвердил предложение версии 4"
+    },
+    {
+      "id": 23,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "operation",
+      "text": "{\"order_id\": \"#N104\", \"user_id\": \"customer_n104\", \"address\": {\"address1\": \"Учебная 1\", \"address2\": \"\", \"city\": \"Город\", \"country\": \"US\", \"state\": \"CA\", \"zip\": \"12345\"}, \"items\": [{\"name\": \"Настольная лампа\", \"product_id\": \"desk_lamp_n104\", \"item_id\": \"white_n104\", \"price\": 84.0, \"options\": {\"color\": \"белый\"}}], \"status\": \"exchange requested\", \"fulfillments\": [], \"payment_history\": [{\"transaction_type\": \"payment\", \"amount\": 84.0, \"payment_method_id\": \"card\"}], \"cancel_reason\": null, \"exchange_items\": [\"white_n104\"], \"exchange_new_items\": [\"brass_n104\"], \"exchange_payment_method_id\": \"card\", \"exchange_price_difference\": 15.5, \"return_items\": null, \"return_payment_method_id\": null}"
+    },
+    {
+      "id": 24,
+      "case_id": "71a7dc65437a4b1b8b948fed805b112a",
+      "kind": "sent",
+      "text": "Зарегистрирована заявка на обмен по заказу #N104. Статус: exchange requested. В этой учебной системе деньги не списывались и не возвращались; письмо не отправлялось."
+    }
+  ]
+}

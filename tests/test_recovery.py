@@ -144,3 +144,46 @@ def test_failed_recovery_is_recorded_without_automatic_retries(tmp_path, snapsho
     confirm(app, p)
     assert len(app.model.requests) == count
     assert not any(e["kind"] == "operation" for e in app.store.events(case))
+
+
+@pytest.mark.parametrize("mode", ["manual", "auto"])
+@pytest.mark.parametrize(
+    "reply",
+    [
+        "Цена изменилась. Доплата теперь 9.99 USD. Подтвердите новые условия.",
+        "Уточните, какой вариант товара вы хотите получить вместо выбранного.",
+    ],
+    ids=["unstructured_terms", "clarification"],
+)
+def test_recovery_text_does_not_become_action_or_consent_request(
+    tmp_path, snapshot, mode, reply
+):
+    app, case, old = prepared(tmp_path, snapshot, mode)
+    change(app)
+    app.model = model = FakeModel(Message(role="assistant", content=reply))
+
+    assert confirm(app, old)["status"] == "stale"
+    if mode == "manual":
+        app.resume(case, old.id, "employee")
+
+    view = app.view(case, "employee")
+    message = view["proposal"]
+    assert message.text == reply
+    assert message.action is None and message.consent_request is None
+    assert view["proposal_status"] == "pending"
+    assert view["waiting_consent"] is None
+    with pytest.raises(ValueError):
+        app.record_client_response(case, message.id, True, "Согласен", "employee")
+    with app.store.connection() as conn:
+        assert conn.execute("SELECT COUNT(*) FROM operations").fetchone()[0] == 0
+        assert conn.execute(
+            "SELECT COUNT(*) FROM consents WHERE accepted=1 AND revoked=0"
+        ).fetchone()[0] == 0
+    assert app.store.snapshot()[0]["orders"]["#O1"]["status"] == "delivered"
+    assert len(view["deliveries"]) == 1
+    assert len(model.requests) == 1
+
+    restored = SupportService(Store(app.store.path), FakeModel(), recovery_mode=mode)
+    assert restored.view(case, "employee")["proposal"].id == message.id
+    assert len(restored.view(case, "employee")["deliveries"]) == 1
+    assert restored.model.requests == []

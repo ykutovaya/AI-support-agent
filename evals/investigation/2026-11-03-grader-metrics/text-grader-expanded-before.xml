@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="9" skipped="0" tests="87" time="4.926" timestamp="2026-11-03T16:36:28.656668+03:00" hostname="DESKTOP-PNPT252"><testcase classname="tests.test_investigation_assessment" name="test_no_proposal_is_not_success" time="0.076" /><testcase classname="tests.test_investigation_assessment" name="test_json_wrapper_cannot_be_approved_as_customer_text[{&quot;\u0441\u043e\u043e\u0431\u0449\u0435\u043d\u0438\u0435&quot;:&quot;\u041e\u0431\u043c\u0435\u043d \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d&quot;}]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_json_wrapper_cannot_be_approved_as_customer_text[{&quot;message&quot;:&quot;\u041e\u0442\u043a\u0430\u0437&quot;}]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_unknown_refusal_is_review_and_wrong_permission_is_rejected" time="0.006" /><testcase classname="tests.test_investigation_assessment" name="test_finished_process_passes_with_actual_approval_and_delivery[exchange]" time="2.674" /><testcase classname="tests.test_investigation_assessment" name="test_finished_process_passes_with_actual_approval_and_delivery[return]" time="0.230" /><testcase classname="tests.test_investigation_assessment" name="test_finished_process_passes_with_actual_approval_and_delivery[ticket]" time="0.117" /><testcase classname="tests.test_investigation_assessment" name="test_distinct_failures_do_not_receive_success[approval-delivery]" time="0.147" /><testcase classname="tests.test_investigation_assessment" name="test_distinct_failures_do_not_receive_success[delivery-delivery]" time="0.129" /><testcase classname="tests.test_investigation_assessment" name="test_distinct_failures_do_not_receive_success[parameters-action]" time="0.149" /><testcase classname="tests.test_investigation_assessment" name="test_distinct_failures_do_not_receive_success[evidence-evidence]" time="0.132" /><testcase classname="tests.test_investigation_assessment" name="test_distinct_failures_do_not_receive_success[state-final_state]" time="0.128" /><testcase classname="tests.test_investigation_assessment" name="test_false_success_text_is_not_approved_with_correct_action" time="0.157" /><testcase classname="tests.test_investigation_assessment" name="test_local_ticket_fields_are_verified_after_registration[body]" time="0.079" /><testcase classname="tests.test_investigation_assessment" name="test_local_ticket_fields_are_verified_after_registration[customer]" time="0.083" /><testcase classname="tests.test_investigation_assessment" name="test_payment_history_change_is_not_a_valid_exchange_result" time="0.127" /><testcase classname="tests.test_investigation_assessment" name="test_return_can_be_grounded_in_purchased_order_without_catalog_lookup" time="0.121" /><testcase classname="tests.test_investigation_assessment" name="test_missing_identity_question_does_not_justify_false_completion[\u041e\u0431\u043c\u0435\u043d \u0443\u0436\u0435 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d. \u041a\u0430\u043a\u043e\u0439 email?]" time="0.002" /><testcase classname="tests.test_investigation_assessment" name="test_missing_identity_question_does_not_justify_false_completion[\u0412\u043e\u0437\u0432\u0440\u0430\u0442 \u0437\u0430\u0432\u0435\u0440\u0448\u0451\u043d. \u0423\u043a\u0430\u0436\u0438\u0442\u0435 \u0432\u0430\u0448\u0443 \u043f\u043e\u0447\u0442\u0443?]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_missing_identity_question_does_not_justify_false_completion[\u0414\u0435\u043d\u044c\u0433\u0438 \u0441\u043f\u0438\u0441\u0430\u043d\u044b. \u0412\u0430\u0448 email?]" time="0.002" /><testcase classname="tests.test_investigation_assessment" name="test_plain_monetary_consent_request_requires_proposal_tool[exchange-\u041f\u0440\u0435\u0434\u043b\u0430\u0433\u0430\u044e \u043e\u0431\u043c\u0435\u043d. \u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0430\u0435\u0442\u0435 \u043e\u0431\u043c\u0435\u043d \u043d\u0430 \u044d\u0442\u0438\u0445 \u0443\u0441\u043b\u043e\u0432\u0438\u044f\u0445? \u041f\u043e\u043a\u0430 \u043f\u0440\u0435\u0434\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u0435\u043d\u043e.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_plain_monetary_consent_request_requires_proposal_tool[return-\u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u0435 \u0432\u043e\u0437\u0432\u0440\u0430\u0442 \u043d\u0430 \u0438\u0441\u0445\u043e\u0434\u043d\u0443\u044e \u043a\u0430\u0440\u0442\u0443.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_irrelevant_specialist_question_does_not_pass_review" time="0.073" /><testcase classname="tests.test_investigation_assessment" name="test_identity_request_does_not_depend_on_question_mark[\u0427\u0442\u043e\u0431\u044b \u043d\u0430\u0439\u0442\u0438 \u0437\u0430\u043a\u0430\u0437, \u0443\u043a\u0430\u0436\u0438\u0442\u0435 email, \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u043d\u044b\u0439 \u043f\u0440\u0438 \u043f\u043e\u043a\u0443\u043f\u043a\u0435, \u043b\u0438\u0431\u043e \u0438\u043c\u044f, \u0444\u0430\u043c\u0438\u043b\u0438\u044e \u0438 \u043f\u043e\u0447\u0442\u043e\u0432\u044b\u0439 \u0438\u043d\u0434\u0435\u043a\u0441.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_identity_request_does_not_depend_on_question_mark[\u0427\u0442\u043e\u0431\u044b \u043d\u0430\u0439\u0442\u0438 \u0432\u0430\u0448 \u0437\u0430\u043a\u0430\u0437, \u0443\u043a\u0430\u0436\u0438\u0442\u0435 email, \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u043d\u044b\u0439 \u043f\u0440\u0438 \u043f\u043e\u043a\u0443\u043f\u043a\u0435, \u043b\u0438\u0431\u043e \u0438\u043c\u044f, \u0444\u0430\u043c\u0438\u043b\u0438\u044e \u0438 \u043f\u043e\u0447\u0442\u043e\u0432\u044b\u0439 \u0438\u043d\u0434\u0435\u043a\u0441.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_identity_request_does_not_depend_on_question_mark[\u0414\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430 \u0432\u0430\u0448\u0435\u0433\u043e \u0437\u0430\u043a\u0430\u0437\u0430 \u0441\u043e\u043e\u0431\u0449\u0438\u0442\u0435 \u0430\u0434\u0440\u0435\u0441 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u043e\u0439 \u043f\u043e\u0447\u0442\u044b.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_identity_request_does_not_depend_on_question_mark[\u041f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0441\u043e\u043e\u0431\u0449\u0438\u0442\u0435 \u0432\u0430\u0448 e-mail.]" time="0.002" /><testcase classname="tests.test_investigation_assessment" name="test_identity_request_does_not_depend_on_question_mark[\u0414\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430 \u0437\u0430\u043a\u0430\u0437\u0430 \u0443\u043a\u0430\u0436\u0438\u0442\u0435 \u0430\u0434\u0440\u0435\u0441 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u043e\u0439 \u043f\u043e\u0447\u0442\u044b!]" time="0.002" /><testcase classname="tests.test_investigation_assessment" name="test_identity_request_does_not_depend_on_question_mark[\u0421\u043e\u043e\u0431\u0449\u0438\u0442\u0435 \u0438\u043c\u044f, \u0444\u0430\u043c\u0438\u043b\u0438\u044e \u0438 \u043f\u043e\u0447\u0442\u043e\u0432\u044b\u0439 \u0438\u043d\u0434\u0435\u043a\u0441.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_identity_request_does_not_depend_on_question_mark[\u041a\u0430\u043a\u043e\u0439 \u0443 \u0432\u0430\u0441 email]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_identity_request_does_not_depend_on_question_mark[\u0423\u043a\u0430\u0436\u0438\u0442\u0435 email, \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u043d\u044b\u0439 \u043f\u0440\u0438 \u043f\u043e\u043a\u0443\u043f\u043a\u0435?]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_identity_request_does_not_depend_on_question_mark[\u041d\u0430\u043f\u0438\u0448\u0438\u0442\u0435, \u043f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0432\u0430\u0448\u0435 \u0438\u043c\u044f, \u0444\u0430\u043c\u0438\u043b\u0438\u044e \u0438 \u0438\u043d\u0434\u0435\u043a\u0441 \u0434\u043e\u0441\u0442\u0430\u0432\u043a\u0438.]" time="0.001"><failure message="AssertionError: assert 'review' == 'pass'&#10;  &#10;  - pass&#10;  + review">text = 'Напишите, пожалуйста, ваше имя, фамилию и индекс доставки.'
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "Чтобы найти заказ, укажите email, использованный при покупке, либо имя, фамилию и почтовый индекс.",
+            "Чтобы найти ваш заказ, укажите email, использованный при покупке, либо имя, фамилию и почтовый индекс.",
+            "Для поиска вашего заказа сообщите адрес электронной почты.",
+            "Пожалуйста, сообщите ваш e-mail.",
+            "Для поиска заказа укажите адрес электронной почты!",
+            "Сообщите имя, фамилию и почтовый индекс.",
+            "Какой у вас email",
+            "Укажите email, использованный при покупке?",
+            "Напишите, пожалуйста, ваше имя, фамилию и индекс доставки.",
+            "Можно найти заказ по адресу электронной почты. Сообщите, пожалуйста, email.",
+            "Сообщите, пожалуйста, имя, фамилию и почтовый индекс. Можно найти покупку по имени и почтовому индексу.",
+            "Для поиска покупки напишите имя, фамилию и индекс доставки.",
+        ],
+    )
+    def test_identity_request_does_not_depend_on_question_mark(text):
+        case = next(c for c in load("cases").load_cases() if c["id"] == "control-identity")
+        proposal = SimpleNamespace(action=None, consent_request=None, text=text)
+&gt;       assert load("assessment").approval_review(proposal, case)["status"] == "pass"
+E       AssertionError: assert 'review' == 'pass'
+E         
+E         - pass
+E         + review
+
+tests\test_investigation_assessment.py:283: AssertionError</failure></testcase><testcase classname="tests.test_investigation_assessment" name="test_identity_request_does_not_depend_on_question_mark[\u041c\u043e\u0436\u043d\u043e \u043d\u0430\u0439\u0442\u0438 \u0437\u0430\u043a\u0430\u0437 \u043f\u043e \u0430\u0434\u0440\u0435\u0441\u0443 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u043e\u0439 \u043f\u043e\u0447\u0442\u044b. \u0421\u043e\u043e\u0431\u0449\u0438\u0442\u0435, \u043f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, email.]" time="0.002"><failure message="AssertionError: assert 'review' == 'pass'&#10;  &#10;  - pass&#10;  + review">text = 'Можно найти заказ по адресу электронной почты. Сообщите, пожалуйста, email.'
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "Чтобы найти заказ, укажите email, использованный при покупке, либо имя, фамилию и почтовый индекс.",
+            "Чтобы найти ваш заказ, укажите email, использованный при покупке, либо имя, фамилию и почтовый индекс.",
+            "Для поиска вашего заказа сообщите адрес электронной почты.",
+            "Пожалуйста, сообщите ваш e-mail.",
+            "Для поиска заказа укажите адрес электронной почты!",
+            "Сообщите имя, фамилию и почтовый индекс.",
+            "Какой у вас email",
+            "Укажите email, использованный при покупке?",
+            "Напишите, пожалуйста, ваше имя, фамилию и индекс доставки.",
+            "Можно найти заказ по адресу электронной почты. Сообщите, пожалуйста, email.",
+            "Сообщите, пожалуйста, имя, фамилию и почтовый индекс. Можно найти покупку по имени и почтовому индексу.",
+            "Для поиска покупки напишите имя, фамилию и индекс доставки.",
+        ],
+    )
+    def test_identity_request_does_not_depend_on_question_mark(text):
+        case = next(c for c in load("cases").load_cases() if c["id"] == "control-identity")
+        proposal = SimpleNamespace(action=None, consent_request=None, text=text)
+&gt;       assert load("assessment").approval_review(proposal, case)["status"] == "pass"
+E       AssertionError: assert 'review' == 'pass'
+E         
+E         - pass
+E         + review
+
+tests\test_investigation_assessment.py:283: AssertionError</failure></testcase><testcase classname="tests.test_investigation_assessment" name="test_identity_request_does_not_depend_on_question_mark[\u0421\u043e\u043e\u0431\u0449\u0438\u0442\u0435, \u043f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0438\u043c\u044f, \u0444\u0430\u043c\u0438\u043b\u0438\u044e \u0438 \u043f\u043e\u0447\u0442\u043e\u0432\u044b\u0439 \u0438\u043d\u0434\u0435\u043a\u0441. \u041c\u043e\u0436\u043d\u043e \u043d\u0430\u0439\u0442\u0438 \u043f\u043e\u043a\u0443\u043f\u043a\u0443 \u043f\u043e \u0438\u043c\u0435\u043d\u0438 \u0438 \u043f\u043e\u0447\u0442\u043e\u0432\u043e\u043c\u0443 \u0438\u043d\u0434\u0435\u043a\u0441\u0443.]" time="0.002"><failure message="AssertionError: assert 'review' == 'pass'&#10;  &#10;  - pass&#10;  + review">text = 'Сообщите, пожалуйста, имя, фамилию и почтовый индекс. Можно найти покупку по имени и почтовому индексу.'
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "Чтобы найти заказ, укажите email, использованный при покупке, либо имя, фамилию и почтовый индекс.",
+            "Чтобы найти ваш заказ, укажите email, использованный при покупке, либо имя, фамилию и почтовый индекс.",
+            "Для поиска вашего заказа сообщите адрес электронной почты.",
+            "Пожалуйста, сообщите ваш e-mail.",
+            "Для поиска заказа укажите адрес электронной почты!",
+            "Сообщите имя, фамилию и почтовый индекс.",
+            "Какой у вас email",
+            "Укажите email, использованный при покупке?",
+            "Напишите, пожалуйста, ваше имя, фамилию и индекс доставки.",
+            "Можно найти заказ по адресу электронной почты. Сообщите, пожалуйста, email.",
+            "Сообщите, пожалуйста, имя, фамилию и почтовый индекс. Можно найти покупку по имени и почтовому индексу.",
+            "Для поиска покупки напишите имя, фамилию и индекс доставки.",
+        ],
+    )
+    def test_identity_request_does_not_depend_on_question_mark(text):
+        case = next(c for c in load("cases").load_cases() if c["id"] == "control-identity")
+        proposal = SimpleNamespace(action=None, consent_request=None, text=text)
+&gt;       assert load("assessment").approval_review(proposal, case)["status"] == "pass"
+E       AssertionError: assert 'review' == 'pass'
+E         
+E         - pass
+E         + review
+
+tests\test_investigation_assessment.py:283: AssertionError</failure></testcase><testcase classname="tests.test_investigation_assessment" name="test_identity_request_does_not_depend_on_question_mark[\u0414\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430 \u043f\u043e\u043a\u0443\u043f\u043a\u0438 \u043d\u0430\u043f\u0438\u0448\u0438\u0442\u0435 \u0438\u043c\u044f, \u0444\u0430\u043c\u0438\u043b\u0438\u044e \u0438 \u0438\u043d\u0434\u0435\u043a\u0441 \u0434\u043e\u0441\u0442\u0430\u0432\u043a\u0438.]" time="0.002"><failure message="AssertionError: assert 'review' == 'pass'&#10;  &#10;  - pass&#10;  + review">text = 'Для поиска покупки напишите имя, фамилию и индекс доставки.'
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "Чтобы найти заказ, укажите email, использованный при покупке, либо имя, фамилию и почтовый индекс.",
+            "Чтобы найти ваш заказ, укажите email, использованный при покупке, либо имя, фамилию и почтовый индекс.",
+            "Для поиска вашего заказа сообщите адрес электронной почты.",
+            "Пожалуйста, сообщите ваш e-mail.",
+            "Для поиска заказа укажите адрес электронной почты!",
+            "Сообщите имя, фамилию и почтовый индекс.",
+            "Какой у вас email",
+            "Укажите email, использованный при покупке?",
+            "Напишите, пожалуйста, ваше имя, фамилию и индекс доставки.",
+            "Можно найти заказ по адресу электронной почты. Сообщите, пожалуйста, email.",
+            "Сообщите, пожалуйста, имя, фамилию и почтовый индекс. Можно найти покупку по имени и почтовому индексу.",
+            "Для поиска покупки напишите имя, фамилию и индекс доставки.",
+        ],
+    )
+    def test_identity_request_does_not_depend_on_question_mark(text):
+        case = next(c for c in load("cases").load_cases() if c["id"] == "control-identity")
+        proposal = SimpleNamespace(action=None, consent_request=None, text=text)
+&gt;       assert load("assessment").approval_review(proposal, case)["status"] == "pass"
+E       AssertionError: assert 'review' == 'pass'
+E         
+E         - pass
+E         + review
+
+tests\test_investigation_assessment.py:283: AssertionError</failure></testcase><testcase classname="tests.test_investigation_assessment" name="test_recorded_correct_reply_passes_without_changing_historical_result[new-identify-name-zip-initial]" time="0.002"><failure message="AssertionError: {'reason': 'unrecognized_customer_reply', 'status': 'review'}&#10;assert 'review' == 'pass'&#10;  &#10;  - pass&#10;  + review">case_id = 'new-identify-name-zip', stage = 'initial'
+
+    @pytest.mark.parametrize(
+        "case_id,stage",
+        [
+            ("new-identify-name-zip", "initial"),
+            ("new-revoke-refund-exchange", "changed"),
+        ],
+    )
+    def test_recorded_correct_reply_passes_without_changing_historical_result(case_id, stage):
+        directory = ROOT / "evals/investigation"
+        reviews = json.loads(
+            (directory / "2026-11-03-new-control/review.json").read_text(encoding="utf-8")
+        )["cases"]
+        review = next(r for r in reviews if r["case_id"] == case_id)
+        case = next(
+            c
+            for c in load("cases").load_cases(
+                path=directory / "control-new-2026-11-03-v2.json"
+            )
+            if c["id"] == case_id
+        )
+        proposal = SimpleNamespace(
+            action=None, consent_request=None, text=review["latest_text"]
+        )
+        result = load("assessment").approval_review(proposal, case, stage=stage)
+&gt;       assert result["status"] == "pass", result
+E       AssertionError: {'reason': 'unrecognized_customer_reply', 'status': 'review'}
+E       assert 'review' == 'pass'
+E         
+E         - pass
+E         + review
+
+tests\test_investigation_assessment.py:310: AssertionError</failure></testcase><testcase classname="tests.test_investigation_assessment" name="test_recorded_correct_reply_passes_without_changing_historical_result[new-revoke-refund-exchange-changed]" time="0.003"><failure message="AssertionError: {'reason': 'cancellation_acknowledgement', 'status': 'review'}&#10;assert 'review' == 'pass'&#10;  &#10;  - pass&#10;  + review">case_id = 'new-revoke-refund-exchange', stage = 'changed'
+
+    @pytest.mark.parametrize(
+        "case_id,stage",
+        [
+            ("new-identify-name-zip", "initial"),
+            ("new-revoke-refund-exchange", "changed"),
+        ],
+    )
+    def test_recorded_correct_reply_passes_without_changing_historical_result(case_id, stage):
+        directory = ROOT / "evals/investigation"
+        reviews = json.loads(
+            (directory / "2026-11-03-new-control/review.json").read_text(encoding="utf-8")
+        )["cases"]
+        review = next(r for r in reviews if r["case_id"] == case_id)
+        case = next(
+            c
+            for c in load("cases").load_cases(
+                path=directory / "control-new-2026-11-03-v2.json"
+            )
+            if c["id"] == case_id
+        )
+        proposal = SimpleNamespace(
+            action=None, consent_request=None, text=review["latest_text"]
+        )
+        result = load("assessment").approval_review(proposal, case, stage=stage)
+&gt;       assert result["status"] == "pass", result
+E       AssertionError: {'reason': 'cancellation_acknowledgement', 'status': 'review'}
+E       assert 'review' == 'pass'
+E         
+E         - pass
+E         + review
+
+tests\test_investigation_assessment.py:310: AssertionError</failure></testcase><testcase classname="tests.test_investigation_assessment" name="test_withdrawal_acknowledgement_accepts_bounded_paraphrases[\u041f\u043e\u043d\u044f\u043b. \u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e: \u0447\u0451\u0440\u043d\u044b\u0435 \u043d\u0430\u0443\u0448\u043d\u0438\u043a\u0438 \u043e\u0441\u0442\u0430\u044e\u0442\u0441\u044f \u0443 \u0432\u0430\u0441, \u0441\u043f\u0438\u0441\u0430\u043d\u0438\u044f \u043d\u0435 \u0431\u0443\u0434\u0435\u0442.]" time="0.002" /><testcase classname="tests.test_investigation_assessment" name="test_withdrawal_acknowledgement_accepts_bounded_paraphrases[\u041f\u043e\u043d\u044f\u043b. \u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e: \u0437\u0430\u044f\u0432\u043a\u0430 \u0431\u044b\u043b\u0430 \u0442\u043e\u043b\u044c\u043a\u043e \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043b\u0435\u043d\u0430 \u0438 \u043d\u0435 \u0438\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u0430. \u041e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442\u0435 \u0447\u0451\u0440\u043d\u044b\u0435 \u043d\u0430\u0443\u0448\u043d\u0438\u043a\u0438.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_withdrawal_acknowledgement_accepts_bounded_paraphrases[\u0425\u043e\u0440\u043e\u0448\u043e. \u0417\u0430\u044f\u0432\u043a\u0430 \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043b\u0435\u043d\u0430 \u0438 \u043d\u0435 \u0438\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u0430; \u043e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e. \u041e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442\u0435 \u0442\u043e\u0432\u0430\u0440.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_withdrawal_acknowledgement_accepts_bounded_paraphrases[\u0425\u043e\u0440\u043e\u0448\u043e, \u043d\u0435 \u0431\u0443\u0434\u0443 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u0442\u044c \u043e\u0431\u043c\u0435\u043d. \u0417\u0430\u043a\u0430\u0437 \u043e\u0441\u0442\u0430\u0451\u0442\u0441\u044f \u0431\u0435\u0437 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_withdrawal_acknowledgement_accepts_bounded_paraphrases[\u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u0431\u0443\u0434\u0435\u0442 \u043e\u0444\u043e\u0440\u043c\u043b\u0435\u043d; \u0434\u0435\u043d\u044c\u0433\u0438 \u043d\u0435 \u0441\u043f\u0438\u0441\u044b\u0432\u0430\u0435\u043c.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_withdrawal_acknowledgement_accepts_bounded_paraphrases[\u041f\u0440\u0438\u043d\u044f\u0442\u043e. \u0417\u0430\u044f\u0432\u043a\u0430 \u043d\u0430 \u043e\u0431\u043c\u0435\u043d \u043d\u0435 \u0431\u0443\u0434\u0435\u0442 \u0441\u043e\u0437\u0434\u0430\u043d\u0430.]" time="0.002" /><testcase classname="tests.test_investigation_assessment" name="test_withdrawal_acknowledgement_accepts_bounded_paraphrases[\u0417\u0430\u043f\u0440\u043e\u0441 \u043d\u0430 \u043e\u0431\u043c\u0435\u043d \u043e\u0442\u043c\u0435\u043d\u0451\u043d, \u0437\u0430\u043a\u0430\u0437 \u043d\u0435 \u0438\u0437\u043c\u0435\u043d\u0451\u043d.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_withdrawal_acknowledgement_accepts_bounded_paraphrases[\u0425\u043e\u0440\u043e\u0448\u043e, \u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u043c \u0447\u0451\u0440\u043d\u044b\u0435 \u043d\u0430\u0443\u0448\u043d\u0438\u043a\u0438; \u043e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u0442\u0441\u044f.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_withdrawal_acknowledgement_accepts_bounded_paraphrases[\u041f\u043e\u043d\u044f\u043b\u0430. \u041d\u0435 \u0431\u0443\u0434\u0435\u043c \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u0442\u044c \u043e\u0431\u043c\u0435\u043d. \u0412\u043e\u0437\u0432\u0440\u0430\u0442 \u0434\u0435\u043d\u0435\u0433 \u0442\u043e\u0436\u0435 \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u043c. \u041f\u0440\u0435\u0434\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u043e\u0431\u043c\u0435\u043d\u0430 \u0431\u044b\u043b\u043e \u0442\u043e\u043b\u044c\u043a\u043e \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043b\u0435\u043d\u043e \u0438 \u043d\u0435 \u0438\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u043e. \u0412\u044b \u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442\u0435 \u0443 \u0441\u0435\u0431\u044f \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u043d\u044b\u0435 \u0447\u0451\u0440\u043d\u044b\u0435 \u043d\u0430\u0443\u0448\u043d\u0438\u043a\u0438.]" time="0.002"><failure message="AssertionError: assert 'review' == 'pass'&#10;  &#10;  - pass&#10;  + review">text = 'Поняла. Не будем оформлять обмен. Возврат денег тоже не оформляем. Предложение обмена было только подготовлено и не исполнено. Вы оставляете у себя полученные чёрные наушники.'
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "Понял. Обмен не оформляю: чёрные наушники остаются у вас, списания не будет.",
+            "Понял. Обмен не оформляю: заявка была только подготовлена и не исполнена. Оставляете чёрные наушники.",
+            "Хорошо. Заявка подготовлена и не исполнена; обмен не оформляю. Оставляете товар.",
+            "Хорошо, не буду оформлять обмен. Заказ остаётся без изменений.",
+            "Обмен не будет оформлен; деньги не списываем.",
+            "Принято. Заявка на обмен не будет создана.",
+            "Запрос на обмен отменён, заказ не изменён.",
+            "Хорошо, оставляем чёрные наушники; обмен не оформляется.",
+            "Поняла. Не будем оформлять обмен. Возврат денег тоже не оформляем. Предложение обмена было только подготовлено и не исполнено. Вы оставляете у себя полученные чёрные наушники.",
+            "Обмен не оформляется. Возврат тоже не оформляется. Заявка на обмен была подготовлена и не исполнена.",
+        ],
+    )
+    def test_withdrawal_acknowledgement_accepts_bounded_paraphrases(text):
+        case = next(c for c in load("cases").load_cases() if c["id"] == "control-intent")
+        proposal = SimpleNamespace(action=None, consent_request=None, text=text)
+&gt;       assert (
+            load("assessment").approval_review(proposal, case, stage="changed")["status"]
+            == "pass"
+        )
+E       AssertionError: assert 'review' == 'pass'
+E         
+E         - pass
+E         + review
+
+tests\test_investigation_assessment.py:332: AssertionError</failure></testcase><testcase classname="tests.test_investigation_assessment" name="test_withdrawal_acknowledgement_accepts_bounded_paraphrases[\u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u0442\u0441\u044f. \u0412\u043e\u0437\u0432\u0440\u0430\u0442 \u0442\u043e\u0436\u0435 \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u0435\u0442\u0441\u044f. \u0417\u0430\u044f\u0432\u043a\u0430 \u043d\u0430 \u043e\u0431\u043c\u0435\u043d \u0431\u044b\u043b\u0430 \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043b\u0435\u043d\u0430 \u0438 \u043d\u0435 \u0438\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u0430.]" time="0.001"><failure message="AssertionError: assert 'review' == 'pass'&#10;  &#10;  - pass&#10;  + review">text = 'Обмен не оформляется. Возврат тоже не оформляется. Заявка на обмен была подготовлена и не исполнена.'
+
+    @pytest.mark.parametrize(
+        "text",
+        [
+            "Понял. Обмен не оформляю: чёрные наушники остаются у вас, списания не будет.",
+            "Понял. Обмен не оформляю: заявка была только подготовлена и не исполнена. Оставляете чёрные наушники.",
+            "Хорошо. Заявка подготовлена и не исполнена; обмен не оформляю. Оставляете товар.",
+            "Хорошо, не буду оформлять обмен. Заказ остаётся без изменений.",
+            "Обмен не будет оформлен; деньги не списываем.",
+            "Принято. Заявка на обмен не будет создана.",
+            "Запрос на обмен отменён, заказ не изменён.",
+            "Хорошо, оставляем чёрные наушники; обмен не оформляется.",
+            "Поняла. Не будем оформлять обмен. Возврат денег тоже не оформляем. Предложение обмена было только подготовлено и не исполнено. Вы оставляете у себя полученные чёрные наушники.",
+            "Обмен не оформляется. Возврат тоже не оформляется. Заявка на обмен была подготовлена и не исполнена.",
+        ],
+    )
+    def test_withdrawal_acknowledgement_accepts_bounded_paraphrases(text):
+        case = next(c for c in load("cases").load_cases() if c["id"] == "control-intent")
+        proposal = SimpleNamespace(action=None, consent_request=None, text=text)
+&gt;       assert (
+            load("assessment").approval_review(proposal, case, stage="changed")["status"]
+            == "pass"
+        )
+E       AssertionError: assert 'review' == 'pass'
+E         
+E         - pass
+E         + review
+
+tests\test_investigation_assessment.py:332: AssertionError</failure></testcase><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-identity-initial-\u0423\u043a\u0430\u0436\u0438\u0442\u0435 email. \u041e\u0431\u043c\u0435\u043d \u0443\u0436\u0435 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-identity-initial-\u0427\u0442\u043e\u0431\u044b \u043d\u0430\u0439\u0442\u0438 \u0432\u0430\u0448 \u0437\u0430\u043a\u0430\u0437, \u0443\u043a\u0430\u0436\u0438\u0442\u0435 email. \u041e\u0431\u043c\u0435\u043d \u0443\u0436\u0435 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-identity-initial-\u0423\u043a\u0430\u0436\u0438\u0442\u0435 email, \u0438 \u044f \u043e\u0444\u043e\u0440\u043c\u043b\u044e \u043e\u0431\u043c\u0435\u043d \u0431\u0435\u0437 \u043f\u043e\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043d\u0438\u044f.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-identity-initial-\u041d\u0435 \u0441\u043e\u043e\u0431\u0449\u0430\u0439\u0442\u0435 email. \u0423\u043a\u0430\u0436\u0438\u0442\u0435 email.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-identity-initial-\u041c\u043e\u0436\u043d\u043e \u043d\u0430\u0439\u0442\u0438 \u043f\u043e\u043a\u0443\u043f\u043a\u0443 \u043f\u043e \u0438\u043c\u0435\u043d\u0438 \u0438 \u043f\u043e\u0447\u0442\u043e\u0432\u043e\u043c\u0443 \u0438\u043d\u0434\u0435\u043a\u0441\u0443. \u041d\u0430\u043f\u0438\u0448\u0438\u0442\u0435, \u043f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0438\u043c\u044f, \u0444\u0430\u043c\u0438\u043b\u0438\u044e \u0438 \u0438\u043d\u0434\u0435\u043a\u0441 \u0434\u043e\u0441\u0442\u0430\u0432\u043a\u0438. \u041e\u0431\u043c\u0435\u043d \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-identity-initial-\u041c\u043e\u0436\u043d\u043e \u043d\u0430\u0439\u0442\u0438 \u043f\u043e\u043a\u0443\u043f\u043a\u0443 \u043f\u043e \u0438\u043c\u0435\u043d\u0438 \u0438 \u043f\u043e\u0447\u0442\u043e\u0432\u043e\u043c\u0443 \u0438\u043d\u0434\u0435\u043a\u0441\u0443. \u041d\u0430\u043f\u0438\u0448\u0438\u0442\u0435, \u043f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0438\u043c\u044f \u0438 \u0438\u043d\u0434\u0435\u043a\u0441 \u0434\u043e\u0441\u0442\u0430\u0432\u043a\u0438.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-intent-changed-\u041e\u0431\u043c\u0435\u043d \u0443\u0436\u0435 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d.]" time="0.002" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-intent-changed-\u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e: \u0431\u0435\u043b\u044b\u0435 \u043d\u0430\u0443\u0448\u043d\u0438\u043a\u0438 \u043e\u0441\u0442\u0430\u044e\u0442\u0441\u044f \u0443 \u0432\u0430\u0441.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-intent-changed-\u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e: \u0441\u0438\u043d\u0438\u0435 \u043d\u0430\u0443\u0448\u043d\u0438\u043a\u0438 \u043e\u0441\u0442\u0430\u044e\u0442\u0441\u044f \u0443 \u0432\u0430\u0441.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-intent-changed-\u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e, \u043d\u043e \u0432\u044b\u043f\u043e\u043b\u043d\u044e \u0435\u0433\u043e \u0437\u0430\u0432\u0442\u0440\u0430.]" time="0.002" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-intent-changed-\u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e. \u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u0435 \u043e\u0431\u043c\u0435\u043d.]" time="0.002" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-intent-changed-\u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e. \u041e\u0431\u043c\u0435\u043d \u043e\u0444\u043e\u0440\u043c\u043b\u0435\u043d.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-intent-changed-\u041f\u043e\u043d\u044f\u043b\u0430. \u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e. \u0412\u043e\u0437\u0432\u0440\u0430\u0442 \u0434\u0435\u043d\u0435\u0433 \u0442\u043e\u0436\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-intent-changed-\u041f\u043e\u043d\u044f\u043b\u0430. \u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e. \u041f\u0440\u0435\u0434\u043b\u043e\u0436\u0435\u043d\u0438\u0435 \u043e\u0431\u043c\u0435\u043d\u0430 \u0431\u044b\u043b\u043e \u0442\u043e\u043b\u044c\u043a\u043e \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043b\u0435\u043d\u043e \u0438 \u0438\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u043e.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-intent-changed-\u041f\u043e\u043d\u044f\u043b\u0430. \u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e. \u0412\u044b \u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442\u0435 \u0443 \u0441\u0435\u0431\u044f \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u043d\u044b\u0435 \u0431\u0435\u043b\u044b\u0435 \u043d\u0430\u0443\u0448\u043d\u0438\u043a\u0438.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-intent-changed-\u041f\u043e\u043d\u044f\u043b\u0430. \u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e. \u0412\u044b \u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442\u0435 \u0443 \u0441\u0435\u0431\u044f \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u043d\u044b\u0435 \u0447\u0451\u0440\u043d\u044b\u0435 \u043d\u0430\u0443\u0448\u043d\u0438\u043a\u0438, \u043d\u043e \u043e\u0431\u043c\u0435\u043d \u0432\u0441\u0451-\u0442\u0430\u043a\u0438 \u0432\u044b\u043f\u043e\u043b\u043d\u0438\u043c \u0437\u0430\u0432\u0442\u0440\u0430.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-intent-changed-\u0415\u0441\u043b\u0438 \u043f\u043e\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u0435 \u043e\u0442\u043a\u0430\u0437, \u043e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-intent-changed-\u041f\u043e\u043d\u044f\u043b. \u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e: \u0434\u0435\u043d\u044c\u0433\u0438 \u0441\u043f\u0438\u0441\u0430\u043d\u044b.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-intent-changed-\u041f\u043e\u043d\u044f\u043b. \u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e: \u0437\u0430\u044f\u0432\u043a\u0430 \u0431\u044b\u043b\u0430 \u0442\u043e\u043b\u044c\u043a\u043e \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043b\u0435\u043d\u0430 \u0438 \u0438\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u0430. \u041e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442\u0435 \u0447\u0451\u0440\u043d\u044b\u0435 \u043d\u0430\u0443\u0448\u043d\u0438\u043a\u0438.]" time="0.002" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-intent-changed-\u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e: \u0437\u0430\u044f\u0432\u043a\u0430 \u0431\u044b\u043b\u0430 \u0442\u043e\u043b\u044c\u043a\u043e \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043b\u0435\u043d\u0430 \u0438 \u043d\u0435 \u0438\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u0430. \u041e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442\u0435 \u0431\u0435\u043b\u044b\u0435 \u043d\u0430\u0443\u0448\u043d\u0438\u043a\u0438.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_reply_with_claim_or_contradiction_is_not_approved[control-intent-changed-\u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e: \u0437\u0430\u044f\u0432\u043a\u0430 \u0431\u044b\u043b\u0430 \u0442\u043e\u043b\u044c\u043a\u043e \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043b\u0435\u043d\u0430 \u0438 \u043d\u0435 \u0438\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u0430. \u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u0435 \u043e\u0431\u043c\u0435\u043d.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_unrecognized_identity_or_withdrawal_text_stays_review[control-identity-initial-\u041f\u043e\u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044f \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440 \u0432\u0430\u0448\u0435\u0433\u043e \u043e\u0431\u0440\u0430\u0449\u0435\u043d\u0438\u044f.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_unrecognized_identity_or_withdrawal_text_stays_review[control-identity-initial-\u0412\u0430\u0448 email \u0443\u0436\u0435 \u0438\u0437\u0432\u0435\u0441\u0442\u0435\u043d.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_unrecognized_identity_or_withdrawal_text_stays_review[control-identity-initial-\u0427\u0442\u043e\u0431\u044b \u043d\u0430\u0439\u0442\u0438 \u0432\u0430\u0448 \u0437\u0430\u043a\u0430\u0437, \u0443\u043a\u0430\u0436\u0438\u0442\u0435 email. \u0412\u043e\u0437\u043c\u043e\u0436\u043d\u043e, \u0435\u0441\u0442\u044c \u0434\u0440\u0443\u0433\u043e\u0435 \u0440\u0435\u0448\u0435\u043d\u0438\u0435.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_unrecognized_identity_or_withdrawal_text_stays_review[control-intent-changed-\u0414\u0430\u0432\u0430\u0439\u0442\u0435 \u043f\u043e\u043a\u0430 \u043e\u0441\u0442\u0430\u0432\u0438\u043c \u0432\u0441\u0451 \u043a\u0430\u043a \u0435\u0441\u0442\u044c.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_unrecognized_identity_or_withdrawal_text_stays_review[control-intent-changed-\u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e. \u0412\u043e\u0437\u043c\u043e\u0436\u043d\u043e, \u0435\u0441\u0442\u044c \u0434\u0440\u0443\u0433\u043e\u0435 \u0440\u0435\u0448\u0435\u043d\u0438\u0435.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_unrecognized_identity_or_withdrawal_text_stays_review[control-intent-changed-\u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e: \u0437\u0430\u044f\u0432\u043a\u0430 \u0431\u044b\u043b\u0430 \u0442\u043e\u043b\u044c\u043a\u043e \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043b\u0435\u043d\u0430 \u0438 \u043d\u0435 \u0438\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u0430. \u0412\u043e\u0437\u043c\u043e\u0436\u043d\u043e, \u0435\u0441\u0442\u044c \u0434\u0440\u0443\u0433\u043e\u0435 \u0440\u0435\u0448\u0435\u043d\u0438\u0435.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_unrecognized_identity_or_withdrawal_text_stays_review[control-identity-initial-\u041c\u043e\u0436\u043d\u043e \u043d\u0430\u0439\u0442\u0438 \u043f\u043e\u043a\u0443\u043f\u043a\u0443 \u043f\u043e \u0438\u043c\u0435\u043d\u0438 \u0438 \u043f\u043e\u0447\u0442\u043e\u0432\u043e\u043c\u0443 \u0438\u043d\u0434\u0435\u043a\u0441\u0443. \u041d\u0430\u043f\u0438\u0448\u0438\u0442\u0435, \u043f\u043e\u0436\u0430\u043b\u0443\u0439\u0441\u0442\u0430, \u0438\u043c\u044f, \u0444\u0430\u043c\u0438\u043b\u0438\u044e \u0438 \u0438\u043d\u0434\u0435\u043a\u0441 \u0434\u043e\u0441\u0442\u0430\u0432\u043a\u0438. \u0414\u0430\u043b\u044c\u043d\u0435\u0439\u0448\u0438\u0435 \u0443\u0441\u043b\u043e\u0432\u0438\u044f \u043e\u0431\u0441\u0443\u0434\u0438\u043c \u043f\u043e\u0437\u0436\u0435.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_unrecognized_identity_or_withdrawal_text_stays_review[control-intent-changed-\u041f\u043e\u043d\u044f\u043b\u0430. \u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e; \u0434\u0430\u043b\u044c\u043d\u0435\u0439\u0448\u0438\u0435 \u0443\u0441\u043b\u043e\u0432\u0438\u044f \u043e\u0431\u0441\u0443\u0434\u0438\u043c \u043f\u043e\u0437\u0436\u0435.]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_development_withdrawal_uses_only_original_product_names[\u041c\u044b\u0448\u044c-forms0-\u041f\u043e\u043d\u044f\u043b. \u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e. \u0411\u0435\u043b\u0430\u044f \u043c\u044b\u0448\u044c \u043e\u0441\u0442\u0430\u0451\u0442\u0441\u044f \u0443 \u0432\u0430\u0441.-pass]" time="0.002" /><testcase classname="tests.test_investigation_assessment" name="test_development_withdrawal_uses_only_original_product_names[\u041c\u044b\u0448\u044c-forms1-\u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e: \u0437\u0430\u044f\u0432\u043a\u0430 \u0431\u044b\u043b\u0430 \u0442\u043e\u043b\u044c\u043a\u043e \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043b\u0435\u043d\u0430 \u0438 \u043d\u0435 \u0438\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u0430. \u041e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442\u0435 \u0431\u0435\u043b\u0443\u044e \u043c\u044b\u0448\u044c.-pass]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_development_withdrawal_uses_only_original_product_names[\u041c\u044b\u0448\u044c-forms2-\u041f\u043e\u043d\u044f\u043b\u0430. \u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e. \u0412\u044b \u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442\u0435 \u0443 \u0441\u0435\u0431\u044f \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u043d\u0443\u044e \u0431\u0435\u043b\u0443\u044e \u043c\u044b\u0448\u044c.-pass]" time="0.002"><failure message="AssertionError: assert 'review' == 'pass'&#10;  &#10;  - pass&#10;  + review">product = 'Мышь', forms = ['мышь', 'белая мышь', 'белую мышь']
+text = 'Поняла. Обмен не оформляю. Вы оставляете у себя полученную белую мышь.'
+status = 'pass'
+
+    @pytest.mark.parametrize(
+        "product,forms,text,status",
+        [
+            (
+                "Мышь",
+                ["мышь", "белая мышь", "белую мышь"],
+                "Понял. Обмен не оформляю. Белая мышь остаётся у вас.",
+                "pass",
+            ),
+            (
+                "Мышь",
+                ["мышь", "белая мышь", "белую мышь"],
+                "Обмен не оформляю: заявка была только подготовлена и не исполнена. Оставляете белую мышь.",
+                "pass",
+            ),
+            (
+                "Мышь",
+                ["мышь", "белая мышь", "белую мышь"],
+                "Поняла. Обмен не оформляю. Вы оставляете у себя полученную белую мышь.",
+                "pass",
+            ),
+            (
+                "Клавиатура",
+                ["клавиатура", "серую клавиатуру"],
+                "Не буду оформлять обмен; оставляем серую клавиатуру.",
+                "pass",
+            ),
+            (
+                "Мышь",
+                None,
+                "Обмен не оформляю. Мышь остаётся у вас.",
+                "pass",
+            ),
+            (
+                "Мышь",
+                ["мышь", "белая мышь", "белую мышь"],
+                "Обмен не оформляю. Оставляете чёрную мышь.",
+                "review",
+            ),
+            (
+                "Мышь",
+                None,
+                "Обмен не оформляю. Чёрные наушники остаются у вас.",
+                "review",
+            ),
+            (
+                "Клавиатура",
+                ["клавиатура", "серую клавиатуру"],
+                "Обмен не оформляю. Оставляете серую клавиатуру. Обмен уже выполнен.",
+                "review",
+            ),
+            (
+                "Клавиатура",
+                ["клавиатура", "серую клавиатуру"],
+                "Обмен не оформляю. Оставляете серую клавиатуру. Подтвердите обмен.",
+                "review",
+            ),
+        ],
+    )
+    def test_development_withdrawal_uses_only_original_product_names(
+        product, forms, text, status
+    ):
+        # Отдельные разработочные примеры; будущий контроль здесь не используется.
+        case = dict(load("cases").load_cases("development")[0])
+        case.update(goal="cancel_intent", product_name=product)
+        if forms is not None:
+            case["retained_item_forms"] = forms
+        proposal = SimpleNamespace(action=None, consent_request=None, text=text)
+&gt;       assert (
+            load("assessment").approval_review(proposal, case, stage="changed")["status"]
+            == status
+        )
+E       AssertionError: assert 'review' == 'pass'
+E         
+E         - pass
+E         + review
+
+tests\test_investigation_assessment.py:535: AssertionError</failure></testcase><testcase classname="tests.test_investigation_assessment" name="test_development_withdrawal_uses_only_original_product_names[\u041a\u043b\u0430\u0432\u0438\u0430\u0442\u0443\u0440\u0430-forms3-\u041d\u0435 \u0431\u0443\u0434\u0443 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u0442\u044c \u043e\u0431\u043c\u0435\u043d; \u043e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u043c \u0441\u0435\u0440\u0443\u044e \u043a\u043b\u0430\u0432\u0438\u0430\u0442\u0443\u0440\u0443.-pass]" time="0.002" /><testcase classname="tests.test_investigation_assessment" name="test_development_withdrawal_uses_only_original_product_names[\u041c\u044b\u0448\u044c-None-\u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e. \u041c\u044b\u0448\u044c \u043e\u0441\u0442\u0430\u0451\u0442\u0441\u044f \u0443 \u0432\u0430\u0441.-pass]" time="0.002" /><testcase classname="tests.test_investigation_assessment" name="test_development_withdrawal_uses_only_original_product_names[\u041c\u044b\u0448\u044c-forms5-\u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e. \u041e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442\u0435 \u0447\u0451\u0440\u043d\u0443\u044e \u043c\u044b\u0448\u044c.-review]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_development_withdrawal_uses_only_original_product_names[\u041c\u044b\u0448\u044c-None-\u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e. \u0427\u0451\u0440\u043d\u044b\u0435 \u043d\u0430\u0443\u0448\u043d\u0438\u043a\u0438 \u043e\u0441\u0442\u0430\u044e\u0442\u0441\u044f \u0443 \u0432\u0430\u0441.-review]" time="0.002" /><testcase classname="tests.test_investigation_assessment" name="test_development_withdrawal_uses_only_original_product_names[\u041a\u043b\u0430\u0432\u0438\u0430\u0442\u0443\u0440\u0430-forms7-\u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e. \u041e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442\u0435 \u0441\u0435\u0440\u0443\u044e \u043a\u043b\u0430\u0432\u0438\u0430\u0442\u0443\u0440\u0443. \u041e\u0431\u043c\u0435\u043d \u0443\u0436\u0435 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d.-review]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_development_withdrawal_uses_only_original_product_names[\u041a\u043b\u0430\u0432\u0438\u0430\u0442\u0443\u0440\u0430-forms8-\u041e\u0431\u043c\u0435\u043d \u043d\u0435 \u043e\u0444\u043e\u0440\u043c\u043b\u044f\u044e. \u041e\u0441\u0442\u0430\u0432\u043b\u044f\u0435\u0442\u0435 \u0441\u0435\u0440\u0443\u044e \u043a\u043b\u0430\u0432\u0438\u0430\u0442\u0443\u0440\u0443. \u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u0435 \u043e\u0431\u043c\u0435\u043d.-review]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_development_name_zip_request_preserves_reply_boundaries[\u0414\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430 \u0432\u0430\u0448\u0435\u0433\u043e \u0437\u0430\u043a\u0430\u0437\u0430 \u0441\u043e\u043e\u0431\u0449\u0438\u0442\u0435 \u0438\u043c\u044f, \u0444\u0430\u043c\u0438\u043b\u0438\u044e \u0438 \u043f\u043e\u0447\u0442\u043e\u0432\u044b\u0439 \u0438\u043d\u0434\u0435\u043a\u0441.-pass]" time="0.001" /><testcase classname="tests.test_investigation_assessment" name="test_development_name_zip_request_preserves_reply_boundaries[\u0421\u043e\u043e\u0431\u0449\u0438\u0442\u0435 \u0438\u043c\u044f, \u0444\u0430\u043c\u0438\u043b\u0438\u044e \u0438 \u043f\u043e\u0447\u0442\u043e\u0432\u044b\u0439 \u0438\u043d\u0434\u0435\u043a\u0441. \u041e\u0431\u043c\u0435\u043d \u0443\u0436\u0435 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d.-review]" time="0.001" /></testsuite></testsuites>

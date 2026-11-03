@@ -1,0 +1,20 @@
+[
+  {
+    "proposal_id": "3bc57cdfa2264d258f4b9dda3059bf60",
+    "version": 1,
+    "status": "pass",
+    "reason": "consent_question_about_expected_order"
+  },
+  {
+    "proposal_id": "376395657784417f82db8b79fdc9e4f2",
+    "version": 2,
+    "status": "pass",
+    "reason": "approved_registration_text"
+  },
+  {
+    "proposal_id": "6a20273953b845b6812e4c7a7f430c1a",
+    "version": 3,
+    "status": "review",
+    "reason": "cancellation_acknowledgement"
+  }
+]

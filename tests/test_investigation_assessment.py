@@ -1,6 +1,7 @@
 """Оценщик не принимает неподтверждённые действия и неоднозначный текст."""
 
 import importlib.util
+import json
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -263,11 +264,17 @@ def test_irrelevant_specialist_question_does_not_pass_review(tmp_path):
     "text",
     [
         "Чтобы найти заказ, укажите email, использованный при покупке, либо имя, фамилию и почтовый индекс.",
+        "Чтобы найти ваш заказ, укажите email, использованный при покупке, либо имя, фамилию и почтовый индекс.",
+        "Для поиска вашего заказа сообщите адрес электронной почты.",
         "Пожалуйста, сообщите ваш e-mail.",
         "Для поиска заказа укажите адрес электронной почты!",
         "Сообщите имя, фамилию и почтовый индекс.",
         "Какой у вас email",
         "Укажите email, использованный при покупке?",
+        "Напишите, пожалуйста, ваше имя, фамилию и индекс доставки.",
+        "Можно найти заказ по адресу электронной почты. Сообщите, пожалуйста, email.",
+        "Сообщите, пожалуйста, имя, фамилию и почтовый индекс. Можно найти покупку по имени и почтовому индексу.",
+        "Для поиска покупки напишите имя, фамилию и индекс доставки.",
     ],
 )
 def test_identity_request_does_not_depend_on_question_mark(text):
@@ -277,14 +284,48 @@ def test_identity_request_does_not_depend_on_question_mark(text):
 
 
 @pytest.mark.parametrize(
+    "case_id,stage",
+    [
+        ("new-identify-name-zip", "initial"),
+        ("new-revoke-refund-exchange", "changed"),
+    ],
+)
+def test_recorded_correct_reply_passes_without_changing_historical_result(
+    case_id, stage
+):
+    directory = ROOT / "evals/investigation"
+    reviews = json.loads(
+        (directory / "2026-11-03-new-control/review.json").read_text(encoding="utf-8")
+    )["cases"]
+    review = next(r for r in reviews if r["case_id"] == case_id)
+    case = next(
+        c
+        for c in load("cases").load_cases(
+            path=directory / "control-new-2026-11-03-v2.json"
+        )
+        if c["id"] == case_id
+    )
+    proposal = SimpleNamespace(
+        action=None, consent_request=None, text=review["latest_text"]
+    )
+    result = load("assessment").approval_review(proposal, case, stage=stage)
+    assert result["status"] == "pass", result
+    assert review["latest_text_delivered"] is False
+
+
+@pytest.mark.parametrize(
     "text",
     [
         "Понял. Обмен не оформляю: чёрные наушники остаются у вас, списания не будет.",
+        "Понял. Обмен не оформляю: заявка была только подготовлена и не исполнена. Оставляете чёрные наушники.",
+        "Хорошо. Заявка подготовлена и не исполнена; обмен не оформляю. Оставляете товар.",
         "Хорошо, не буду оформлять обмен. Заказ остаётся без изменений.",
         "Обмен не будет оформлен; деньги не списываем.",
         "Принято. Заявка на обмен не будет создана.",
         "Запрос на обмен отменён, заказ не изменён.",
         "Хорошо, оставляем чёрные наушники; обмен не оформляется.",
+        "Поняла. Не будем оформлять обмен. Возврат денег тоже не оформляем. Предложение обмена было только подготовлено и не исполнено. Вы оставляете у себя полученные чёрные наушники.",
+        "Обмен не оформляется. Возврат тоже не оформляется. Заявка на обмен была подготовлена и не исполнена.",
     ],
 )
 def test_withdrawal_acknowledgement_accepts_bounded_paraphrases(text):
@@ -303,9 +344,24 @@ def test_withdrawal_acknowledgement_accepts_bounded_paraphrases(text):
         (
             "control-identity",
             "initial",
+            "Чтобы найти ваш заказ, укажите email. Обмен уже выполнен.",
+        ),
+        (
+            "control-identity",
+            "initial",
             "Укажите email, и я оформлю обмен без подтверждения.",
         ),
         ("control-identity", "initial", "Не сообщайте email. Укажите email."),
+        (
+            "control-identity",
+            "initial",
+            "Можно найти покупку по имени и почтовому индексу. Напишите, пожалуйста, имя, фамилию и индекс доставки. Обмен выполнен.",
+        ),
+        (
+            "control-identity",
+            "initial",
+            "Можно найти покупку по имени и почтовому индексу. Напишите, пожалуйста, имя и индекс доставки.",
+        ),
         ("control-intent", "changed", "Обмен уже выполнен."),
         (
             "control-intent",
@@ -320,8 +376,43 @@ def test_withdrawal_acknowledgement_accepts_bounded_paraphrases(text):
         ("control-intent", "changed", "Обмен не оформляю, но выполню его завтра."),
         ("control-intent", "changed", "Обмен не оформляю. Подтвердите обмен."),
         ("control-intent", "changed", "Обмен не оформляю. Обмен оформлен."),
+        (
+            "control-intent",
+            "changed",
+            "Поняла. Обмен не оформляю. Возврат денег тоже оформляю.",
+        ),
+        (
+            "control-intent",
+            "changed",
+            "Поняла. Обмен не оформляю. Предложение обмена было только подготовлено и исполнено.",
+        ),
+        (
+            "control-intent",
+            "changed",
+            "Поняла. Обмен не оформляю. Вы оставляете у себя полученные белые наушники.",
+        ),
+        (
+            "control-intent",
+            "changed",
+            "Поняла. Обмен не оформляю. Вы оставляете у себя полученные чёрные наушники, но обмен всё-таки выполним завтра.",
+        ),
         ("control-intent", "changed", "Если подтвердите отказ, обмен не оформляю."),
         ("control-intent", "changed", "Понял. Обмен не оформляю: деньги списаны."),
+        (
+            "control-intent",
+            "changed",
+            "Понял. Обмен не оформляю: заявка была только подготовлена и исполнена. Оставляете чёрные наушники.",
+        ),
+        (
+            "control-intent",
+            "changed",
+            "Обмен не оформляю: заявка была только подготовлена и не исполнена. Оставляете белые наушники.",
+        ),
+        (
+            "control-intent",
+            "changed",
+            "Обмен не оформляю: заявка была только подготовлена и не исполнена. Подтвердите обмен.",
+        ),
     ],
 )
 def test_reply_with_claim_or_contradiction_is_not_approved(case_id, stage, text):
@@ -338,11 +429,31 @@ def test_reply_with_claim_or_contradiction_is_not_approved(case_id, stage, text)
     [
         ("control-identity", "initial", "Потребуется идентификатор вашего обращения."),
         ("control-identity", "initial", "Ваш email уже известен."),
+        (
+            "control-identity",
+            "initial",
+            "Чтобы найти ваш заказ, укажите email. Возможно, есть другое решение.",
+        ),
         ("control-intent", "changed", "Давайте пока оставим всё как есть."),
         (
             "control-intent",
             "changed",
             "Обмен не оформляю. Возможно, есть другое решение.",
+        ),
+        (
+            "control-intent",
+            "changed",
+            "Обмен не оформляю: заявка была только подготовлена и не исполнена. Возможно, есть другое решение.",
+        ),
+        (
+            "control-identity",
+            "initial",
+            "Можно найти покупку по имени и почтовому индексу. Напишите, пожалуйста, имя, фамилию и индекс доставки. Дальнейшие условия обсудим позже.",
+        ),
+        (
+            "control-intent",
+            "changed",
+            "Поняла. Обмен не оформляю; дальнейшие условия обсудим позже.",
         ),
     ],
 )
@@ -353,3 +464,93 @@ def test_unrecognized_identity_or_withdrawal_text_stays_review(case_id, stage, t
         load("assessment").approval_review(proposal, case, stage=stage)["status"]
         == "review"
     )
+
+
+@pytest.mark.parametrize(
+    "product,forms,text,status",
+    [
+        (
+            "Мышь",
+            ["мышь", "белая мышь", "белую мышь"],
+            "Понял. Обмен не оформляю. Белая мышь остаётся у вас.",
+            "pass",
+        ),
+        (
+            "Мышь",
+            ["мышь", "белая мышь", "белую мышь"],
+            "Обмен не оформляю: заявка была только подготовлена и не исполнена. Оставляете белую мышь.",
+            "pass",
+        ),
+        (
+            "Мышь",
+            ["мышь", "белая мышь", "белую мышь"],
+            "Поняла. Обмен не оформляю. Вы оставляете у себя полученную белую мышь.",
+            "pass",
+        ),
+        (
+            "Клавиатура",
+            ["клавиатура", "серую клавиатуру"],
+            "Не буду оформлять обмен; оставляем серую клавиатуру.",
+            "pass",
+        ),
+        (
+            "Мышь",
+            None,
+            "Обмен не оформляю. Мышь остаётся у вас.",
+            "pass",
+        ),
+        (
+            "Мышь",
+            ["мышь", "белая мышь", "белую мышь"],
+            "Обмен не оформляю. Оставляете чёрную мышь.",
+            "review",
+        ),
+        (
+            "Мышь",
+            None,
+            "Обмен не оформляю. Чёрные наушники остаются у вас.",
+            "review",
+        ),
+        (
+            "Клавиатура",
+            ["клавиатура", "серую клавиатуру"],
+            "Обмен не оформляю. Оставляете серую клавиатуру. Обмен уже выполнен.",
+            "review",
+        ),
+        (
+            "Клавиатура",
+            ["клавиатура", "серую клавиатуру"],
+            "Обмен не оформляю. Оставляете серую клавиатуру. Подтвердите обмен.",
+            "review",
+        ),
+    ],
+)
+def test_development_withdrawal_uses_only_original_product_names(
+    product, forms, text, status
+):
+    # Отдельные разработочные примеры; будущий контроль здесь не используется.
+    case = dict(load("cases").load_cases("development")[0])
+    case.update(goal="cancel_intent", product_name=product)
+    if forms is not None:
+        case["retained_item_forms"] = forms
+    proposal = SimpleNamespace(action=None, consent_request=None, text=text)
+    assert (
+        load("assessment").approval_review(proposal, case, stage="changed")["status"]
+        == status
+    )
+
+
+@pytest.mark.parametrize(
+    "text,status",
+    [
+        ("Для поиска вашего заказа сообщите имя, фамилию и почтовый индекс.", "pass"),
+        ("Сообщите имя, фамилию и почтовый индекс. Обмен уже выполнен.", "review"),
+    ],
+)
+def test_development_name_zip_request_preserves_reply_boundaries(text, status):
+    case = dict(load("cases").load_cases("development")[0])
+    case["interactions"] = [
+        {"trigger": "message", "kind": "customer", "text": "Учебные данные"}
+    ]
+    proposal = SimpleNamespace(action=None, consent_request=None, text=text)
+    assert load("assessment").approval_review(proposal, case)["status"] == status

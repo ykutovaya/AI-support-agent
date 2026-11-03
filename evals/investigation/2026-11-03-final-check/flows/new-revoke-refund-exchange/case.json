@@ -1,0 +1,54 @@
+{
+  "id": "new-revoke-refund-exchange",
+  "split": "control",
+  "user_id": "customer_n103",
+  "user_name": {
+    "first_name": "Ирина",
+    "last_name": "Лебедева"
+  },
+  "email": "n103@example.test",
+  "product_id": "rain_jacket_n103",
+  "old_item_id": "burgundy_l_n103",
+  "new_item_id": "burgundy_m_n103",
+  "product_name": "Непромокаемая куртка",
+  "old_options": {
+    "color": "бордовый",
+    "size": "L"
+  },
+  "new_options": {
+    "color": "бордовый",
+    "size": "M"
+  },
+  "initial_status": "delivered",
+  "purchase_price": "129.00",
+  "variant_price": "108.00",
+  "initial_amount": "-21.00",
+  "goal": "cancel_intent",
+  "initial_message": "Покупала бордовую непромокаемую куртку размера L, заказ #N103, почта n103@example.test. Поменяйте на M, цвет оставьте тот же. Размер M сейчас по скидке, возврат разницы на исходную карту 1111 меня устраивает.",
+  "expected": {
+    "order_id": "#N103",
+    "item_ids": [
+      "burgundy_l_n103"
+    ],
+    "payment_method_id": "card",
+    "amount": null,
+    "result_status": "delivered",
+    "new_item_ids": [
+      "burgundy_m_n103"
+    ]
+  },
+  "interactions": [
+    {
+      "trigger": "before_action",
+      "kind": "customer",
+      "customer_intent": "refusal",
+      "text": "Стоп, сестра померила и решила забрать мою куртку размера L. Отзываю согласие на обмен: оставляю бордовую куртку, которую уже получила. Возвращать её и оформлять возврат денег тоже не нужно."
+    }
+  ],
+  "retained_item_forms": [
+    "бордовая куртка размера L",
+    "бордовую куртку размера L",
+    "бордовая непромокаемая куртка размера L",
+    "бордовую непромокаемую куртку размера L"
+  ]
+}

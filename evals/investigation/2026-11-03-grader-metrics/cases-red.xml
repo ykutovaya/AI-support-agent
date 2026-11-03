@@ -1,0 +1,1623 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="61" skipped="0" tests="69" time="5.668" timestamp="2026-11-03T16:31:15.645525+03:00" hostname="DESKTOP-PNPT252"><testcase classname="tests.test_investigation_cases" name="test_fixed_development_and_control_cases_are_distinct" time="0.002" /><testcase classname="tests.test_investigation_cases" name="test_every_snapshot_is_valid_and_independent" time="4.798" /><testcase classname="tests.test_investigation_cases" name="test_explicit_dataset_does_not_mix_in_original_cases" time="0.008" /><testcase classname="tests.test_investigation_cases" name="test_snapshot_preserves_distinct_product_customer_and_payment_facts" time="0.001" /><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[id]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id0')
+field = 'id'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[split]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id1')
+field = 'split'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[user_id]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id2')
+field = 'user_id'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[email]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id3')
+field = 'email'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[product_id]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id4')
+field = 'product_id'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[old_item_id]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id5')
+field = 'old_item_id'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[new_item_id]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id6')
+field = 'new_item_id'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[initial_status]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id7')
+field = 'initial_status'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[purchase_price]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id8')
+field = 'purchase_price'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[variant_price]" time="0.004"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id9')
+field = 'variant_price'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[initial_amount]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id10')
+field = 'initial_amount'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[goal]" time="0.005"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id11')
+field = 'goal'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[initial_message]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id12')
+field = 'initial_message'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[expected]" time="0.004"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id13')
+field = 'expected'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[interactions]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id14')
+field = 'interactions'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[expected.order_id]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id15')
+field = 'expected.order_id'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[expected.item_ids]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id16')
+field = 'expected.item_ids'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[expected.new_item_ids]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id17')
+field = 'expected.new_item_ids'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[expected.payment_method_id]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id18')
+field = 'expected.payment_method_id'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[expected.amount]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id19')
+field = 'expected.amount'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_missing_required_field_identifies_case_and_field[expected.result_status]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_missing_required_field_id20')
+field = 'expected.result_status'
+
+    @pytest.mark.parametrize(
+        "field",
+        [
+            "id", "split", "user_id", "email", "product_id", "old_item_id",
+            "new_item_id", "initial_status", "purchase_price", "variant_price",
+            "initial_amount", "goal", "initial_message", "expected", "interactions",
+            "expected.order_id", "expected.item_ids", "expected.new_item_ids",
+            "expected.payment_method_id", "expected.amount", "expected.result_status",
+        ],
+    )
+    def test_missing_required_field_identifies_case_and_field(tmp_path, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        del target[parts[-1]]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:130: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[id- ]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_0')
+field = 'id', value = ' '
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[initial_message-42]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_1')
+field = 'initial_message', value = 42
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[split-training]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_2')
+field = 'split', value = 'training'
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[goal-delete]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_3')
+field = 'goal', value = 'delete'
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[expected-value4]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_4')
+field = 'expected', value = []
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[interactions-value5]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_5')
+field = 'interactions', value = {}
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[purchase_price-True]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_6')
+field = 'purchase_price', value = True
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[variant_price-NaN]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_7')
+field = 'variant_price', value = 'NaN'
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[initial_amount-unknown]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_8')
+field = 'initial_amount', value = 'unknown'
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[expected.amount-Infinity]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_9')
+field = 'expected.amount', value = 'Infinity'
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[expected.item_ids-old]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_10')
+field = 'expected.item_ids', value = 'old'
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[expected.item_ids-value11]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_11')
+field = 'expected.item_ids', value = []
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[expected.new_item_ids-value12]" time="0.005"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_12')
+field = 'expected.new_item_ids', value = [None]
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[expected.order_id-]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_13')
+field = 'expected.order_id', value = ''
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[retained_item_forms-\u0441\u0438\u043d\u0438\u0439 \u0440\u044e\u043a\u0437\u0430\u043a]" time="0.004"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_14')
+field = 'retained_item_forms', value = 'синий рюкзак'
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[retained_item_forms-value15]" time="0.004"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_15')
+field = 'retained_item_forms', value = []
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[retained_item_forms-value16]" time="0.005"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_16')
+field = 'retained_item_forms', value = [' ']
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[retained_item_forms-value17]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_17')
+field = 'retained_item_forms', value = [42]
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[old_options-value18]" time="0.004"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_18')
+field = 'old_options', value = []
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[new_options-value19]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_19')
+field = 'new_options', value = {'color': None}
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[user_name-value20]" time="0.005"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_20')
+field = 'user_name', value = {'first_name': 'Тест'}
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[user_zip-12345]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_21')
+field = 'user_zip', value = 12345
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_field_identifies_case_and_field[additional_order_overrides-value22]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_field_identifies_22')
+field = 'additional_order_overrides', value = []
+
+    @pytest.mark.parametrize(
+        "field,value",
+        [
+            ("id", " "), ("initial_message", 42), ("split", "training"),
+            ("goal", "delete"), ("expected", []), ("interactions", {}),
+            ("purchase_price", True), ("variant_price", "NaN"),
+            ("initial_amount", "unknown"), ("expected.amount", "Infinity"),
+            ("expected.item_ids", "old"), ("expected.item_ids", []),
+            ("expected.new_item_ids", [None]), ("expected.order_id", ""),
+            ("retained_item_forms", "синий рюкзак"),
+            ("retained_item_forms", []), ("retained_item_forms", [" "]),
+            ("retained_item_forms", [42]),
+            ("old_options", []), ("new_options", {"color": None}),
+            ("user_name", {"first_name": "Тест"}), ("user_zip", 12345),
+            ("additional_order_overrides", []),
+        ],
+    )
+    def test_invalid_field_identifies_case_and_field(tmp_path, field, value):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        parts = field.split(".")
+        target = case if len(parts) == 1 else case[parts[0]]
+        target[parts[-1]] = value
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:159: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_interaction_identifies_case_and_field[None-interactions[0]]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_interaction_ident0')
+event = None, field = 'interactions[0]'
+
+    @pytest.mark.parametrize(
+        "event,field",
+        [
+            (None, "interactions[0]"),
+            ({"kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "text": "Данные"}, "kind"),
+            ({"trigger": "after_action", "kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "kind": "unknown"}, "kind"),
+            ({"trigger": "message", "kind": "customer"}, "text"),
+            ({"trigger": "message", "kind": "customer", "text": " "}, "text"),
+            ({"trigger": "before_action", "kind": "price_change"}, "price"),
+            ({"trigger": "message", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v"}, "trigger"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "variant_id": "v"}, "product_id"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p"}, "variant_id"),
+            ({"trigger": "message", "kind": "customer", "text": "Стоп",
+              "customer_intent": "accept"}, "customer_intent"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v", "customer_intent": "refusal"},
+             "customer_intent"),
+        ],
+    )
+    def test_invalid_interaction_identifies_case_and_field(tmp_path, event, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        case["interactions"] = [event]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:193: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_interaction_identifies_case_and_field[event1-trigger]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_interaction_ident1')
+event = {'kind': 'customer', 'text': 'Данные'}, field = 'trigger'
+
+    @pytest.mark.parametrize(
+        "event,field",
+        [
+            (None, "interactions[0]"),
+            ({"kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "text": "Данные"}, "kind"),
+            ({"trigger": "after_action", "kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "kind": "unknown"}, "kind"),
+            ({"trigger": "message", "kind": "customer"}, "text"),
+            ({"trigger": "message", "kind": "customer", "text": " "}, "text"),
+            ({"trigger": "before_action", "kind": "price_change"}, "price"),
+            ({"trigger": "message", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v"}, "trigger"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "variant_id": "v"}, "product_id"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p"}, "variant_id"),
+            ({"trigger": "message", "kind": "customer", "text": "Стоп",
+              "customer_intent": "accept"}, "customer_intent"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v", "customer_intent": "refusal"},
+             "customer_intent"),
+        ],
+    )
+    def test_invalid_interaction_identifies_case_and_field(tmp_path, event, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        case["interactions"] = [event]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:193: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_interaction_identifies_case_and_field[event2-kind]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_interaction_ident2')
+event = {'text': 'Данные', 'trigger': 'message'}, field = 'kind'
+
+    @pytest.mark.parametrize(
+        "event,field",
+        [
+            (None, "interactions[0]"),
+            ({"kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "text": "Данные"}, "kind"),
+            ({"trigger": "after_action", "kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "kind": "unknown"}, "kind"),
+            ({"trigger": "message", "kind": "customer"}, "text"),
+            ({"trigger": "message", "kind": "customer", "text": " "}, "text"),
+            ({"trigger": "before_action", "kind": "price_change"}, "price"),
+            ({"trigger": "message", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v"}, "trigger"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "variant_id": "v"}, "product_id"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p"}, "variant_id"),
+            ({"trigger": "message", "kind": "customer", "text": "Стоп",
+              "customer_intent": "accept"}, "customer_intent"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v", "customer_intent": "refusal"},
+             "customer_intent"),
+        ],
+    )
+    def test_invalid_interaction_identifies_case_and_field(tmp_path, event, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        case["interactions"] = [event]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:193: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_interaction_identifies_case_and_field[event3-trigger]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_interaction_ident3')
+event = {'kind': 'customer', 'text': 'Данные', 'trigger': 'after_action'}
+field = 'trigger'
+
+    @pytest.mark.parametrize(
+        "event,field",
+        [
+            (None, "interactions[0]"),
+            ({"kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "text": "Данные"}, "kind"),
+            ({"trigger": "after_action", "kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "kind": "unknown"}, "kind"),
+            ({"trigger": "message", "kind": "customer"}, "text"),
+            ({"trigger": "message", "kind": "customer", "text": " "}, "text"),
+            ({"trigger": "before_action", "kind": "price_change"}, "price"),
+            ({"trigger": "message", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v"}, "trigger"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "variant_id": "v"}, "product_id"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p"}, "variant_id"),
+            ({"trigger": "message", "kind": "customer", "text": "Стоп",
+              "customer_intent": "accept"}, "customer_intent"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v", "customer_intent": "refusal"},
+             "customer_intent"),
+        ],
+    )
+    def test_invalid_interaction_identifies_case_and_field(tmp_path, event, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        case["interactions"] = [event]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:193: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_interaction_identifies_case_and_field[event4-kind]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_interaction_ident4')
+event = {'kind': 'unknown', 'trigger': 'message'}, field = 'kind'
+
+    @pytest.mark.parametrize(
+        "event,field",
+        [
+            (None, "interactions[0]"),
+            ({"kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "text": "Данные"}, "kind"),
+            ({"trigger": "after_action", "kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "kind": "unknown"}, "kind"),
+            ({"trigger": "message", "kind": "customer"}, "text"),
+            ({"trigger": "message", "kind": "customer", "text": " "}, "text"),
+            ({"trigger": "before_action", "kind": "price_change"}, "price"),
+            ({"trigger": "message", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v"}, "trigger"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "variant_id": "v"}, "product_id"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p"}, "variant_id"),
+            ({"trigger": "message", "kind": "customer", "text": "Стоп",
+              "customer_intent": "accept"}, "customer_intent"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v", "customer_intent": "refusal"},
+             "customer_intent"),
+        ],
+    )
+    def test_invalid_interaction_identifies_case_and_field(tmp_path, event, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        case["interactions"] = [event]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:193: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_interaction_identifies_case_and_field[event5-text]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_interaction_ident5')
+event = {'kind': 'customer', 'trigger': 'message'}, field = 'text'
+
+    @pytest.mark.parametrize(
+        "event,field",
+        [
+            (None, "interactions[0]"),
+            ({"kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "text": "Данные"}, "kind"),
+            ({"trigger": "after_action", "kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "kind": "unknown"}, "kind"),
+            ({"trigger": "message", "kind": "customer"}, "text"),
+            ({"trigger": "message", "kind": "customer", "text": " "}, "text"),
+            ({"trigger": "before_action", "kind": "price_change"}, "price"),
+            ({"trigger": "message", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v"}, "trigger"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "variant_id": "v"}, "product_id"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p"}, "variant_id"),
+            ({"trigger": "message", "kind": "customer", "text": "Стоп",
+              "customer_intent": "accept"}, "customer_intent"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v", "customer_intent": "refusal"},
+             "customer_intent"),
+        ],
+    )
+    def test_invalid_interaction_identifies_case_and_field(tmp_path, event, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        case["interactions"] = [event]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:193: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_interaction_identifies_case_and_field[event6-text]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_interaction_ident6')
+event = {'kind': 'customer', 'text': ' ', 'trigger': 'message'}, field = 'text'
+
+    @pytest.mark.parametrize(
+        "event,field",
+        [
+            (None, "interactions[0]"),
+            ({"kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "text": "Данные"}, "kind"),
+            ({"trigger": "after_action", "kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "kind": "unknown"}, "kind"),
+            ({"trigger": "message", "kind": "customer"}, "text"),
+            ({"trigger": "message", "kind": "customer", "text": " "}, "text"),
+            ({"trigger": "before_action", "kind": "price_change"}, "price"),
+            ({"trigger": "message", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v"}, "trigger"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "variant_id": "v"}, "product_id"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p"}, "variant_id"),
+            ({"trigger": "message", "kind": "customer", "text": "Стоп",
+              "customer_intent": "accept"}, "customer_intent"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v", "customer_intent": "refusal"},
+             "customer_intent"),
+        ],
+    )
+    def test_invalid_interaction_identifies_case_and_field(tmp_path, event, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        case["interactions"] = [event]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:193: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_interaction_identifies_case_and_field[event7-price]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_interaction_ident7')
+event = {'kind': 'price_change', 'trigger': 'before_action'}, field = 'price'
+
+    @pytest.mark.parametrize(
+        "event,field",
+        [
+            (None, "interactions[0]"),
+            ({"kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "text": "Данные"}, "kind"),
+            ({"trigger": "after_action", "kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "kind": "unknown"}, "kind"),
+            ({"trigger": "message", "kind": "customer"}, "text"),
+            ({"trigger": "message", "kind": "customer", "text": " "}, "text"),
+            ({"trigger": "before_action", "kind": "price_change"}, "price"),
+            ({"trigger": "message", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v"}, "trigger"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "variant_id": "v"}, "product_id"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p"}, "variant_id"),
+            ({"trigger": "message", "kind": "customer", "text": "Стоп",
+              "customer_intent": "accept"}, "customer_intent"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v", "customer_intent": "refusal"},
+             "customer_intent"),
+        ],
+    )
+    def test_invalid_interaction_identifies_case_and_field(tmp_path, event, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        case["interactions"] = [event]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:193: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_interaction_identifies_case_and_field[event8-trigger]" time="0.002"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_interaction_ident8')
+event = {'kind': 'price_change', 'price': 10, 'product_id': 'p', 'trigger': 'message', ...}
+field = 'trigger'
+
+    @pytest.mark.parametrize(
+        "event,field",
+        [
+            (None, "interactions[0]"),
+            ({"kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "text": "Данные"}, "kind"),
+            ({"trigger": "after_action", "kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "kind": "unknown"}, "kind"),
+            ({"trigger": "message", "kind": "customer"}, "text"),
+            ({"trigger": "message", "kind": "customer", "text": " "}, "text"),
+            ({"trigger": "before_action", "kind": "price_change"}, "price"),
+            ({"trigger": "message", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v"}, "trigger"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "variant_id": "v"}, "product_id"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p"}, "variant_id"),
+            ({"trigger": "message", "kind": "customer", "text": "Стоп",
+              "customer_intent": "accept"}, "customer_intent"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v", "customer_intent": "refusal"},
+             "customer_intent"),
+        ],
+    )
+    def test_invalid_interaction_identifies_case_and_field(tmp_path, event, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        case["interactions"] = [event]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:193: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_interaction_identifies_case_and_field[event9-product_id]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_interaction_ident9')
+event = {'kind': 'price_change', 'price': 10, 'trigger': 'before_action', 'variant_id': 'v'}
+field = 'product_id'
+
+    @pytest.mark.parametrize(
+        "event,field",
+        [
+            (None, "interactions[0]"),
+            ({"kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "text": "Данные"}, "kind"),
+            ({"trigger": "after_action", "kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "kind": "unknown"}, "kind"),
+            ({"trigger": "message", "kind": "customer"}, "text"),
+            ({"trigger": "message", "kind": "customer", "text": " "}, "text"),
+            ({"trigger": "before_action", "kind": "price_change"}, "price"),
+            ({"trigger": "message", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v"}, "trigger"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "variant_id": "v"}, "product_id"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p"}, "variant_id"),
+            ({"trigger": "message", "kind": "customer", "text": "Стоп",
+              "customer_intent": "accept"}, "customer_intent"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v", "customer_intent": "refusal"},
+             "customer_intent"),
+        ],
+    )
+    def test_invalid_interaction_identifies_case_and_field(tmp_path, event, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        case["interactions"] = [event]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:193: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_interaction_identifies_case_and_field[event10-variant_id]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_interaction_ident10')
+event = {'kind': 'price_change', 'price': 10, 'product_id': 'p', 'trigger': 'before_action'}
+field = 'variant_id'
+
+    @pytest.mark.parametrize(
+        "event,field",
+        [
+            (None, "interactions[0]"),
+            ({"kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "text": "Данные"}, "kind"),
+            ({"trigger": "after_action", "kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "kind": "unknown"}, "kind"),
+            ({"trigger": "message", "kind": "customer"}, "text"),
+            ({"trigger": "message", "kind": "customer", "text": " "}, "text"),
+            ({"trigger": "before_action", "kind": "price_change"}, "price"),
+            ({"trigger": "message", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v"}, "trigger"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "variant_id": "v"}, "product_id"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p"}, "variant_id"),
+            ({"trigger": "message", "kind": "customer", "text": "Стоп",
+              "customer_intent": "accept"}, "customer_intent"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v", "customer_intent": "refusal"},
+             "customer_intent"),
+        ],
+    )
+    def test_invalid_interaction_identifies_case_and_field(tmp_path, event, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        case["interactions"] = [event]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:193: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_interaction_identifies_case_and_field[event11-customer_intent]" time="0.004"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_interaction_ident11')
+event = {'customer_intent': 'accept', 'kind': 'customer', 'text': 'Стоп', 'trigger': 'message'}
+field = 'customer_intent'
+
+    @pytest.mark.parametrize(
+        "event,field",
+        [
+            (None, "interactions[0]"),
+            ({"kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "text": "Данные"}, "kind"),
+            ({"trigger": "after_action", "kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "kind": "unknown"}, "kind"),
+            ({"trigger": "message", "kind": "customer"}, "text"),
+            ({"trigger": "message", "kind": "customer", "text": " "}, "text"),
+            ({"trigger": "before_action", "kind": "price_change"}, "price"),
+            ({"trigger": "message", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v"}, "trigger"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "variant_id": "v"}, "product_id"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p"}, "variant_id"),
+            ({"trigger": "message", "kind": "customer", "text": "Стоп",
+              "customer_intent": "accept"}, "customer_intent"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v", "customer_intent": "refusal"},
+             "customer_intent"),
+        ],
+    )
+    def test_invalid_interaction_identifies_case_and_field(tmp_path, event, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        case["interactions"] = [event]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:193: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_interaction_identifies_case_and_field[event12-customer_intent]" time="0.005"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_interaction_ident12')
+event = {'customer_intent': 'refusal', 'kind': 'price_change', 'price': 10, 'product_id': 'p', ...}
+field = 'customer_intent'
+
+    @pytest.mark.parametrize(
+        "event,field",
+        [
+            (None, "interactions[0]"),
+            ({"kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "text": "Данные"}, "kind"),
+            ({"trigger": "after_action", "kind": "customer", "text": "Данные"}, "trigger"),
+            ({"trigger": "message", "kind": "unknown"}, "kind"),
+            ({"trigger": "message", "kind": "customer"}, "text"),
+            ({"trigger": "message", "kind": "customer", "text": " "}, "text"),
+            ({"trigger": "before_action", "kind": "price_change"}, "price"),
+            ({"trigger": "message", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v"}, "trigger"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "variant_id": "v"}, "product_id"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p"}, "variant_id"),
+            ({"trigger": "message", "kind": "customer", "text": "Стоп",
+              "customer_intent": "accept"}, "customer_intent"),
+            ({"trigger": "before_action", "kind": "price_change", "price": 10,
+              "product_id": "p", "variant_id": "v", "customer_intent": "refusal"},
+             "customer_intent"),
+        ],
+    )
+    def test_invalid_interaction_identifies_case_and_field(tmp_path, event, field):
+        module = load()
+        case = deepcopy(module.load_cases("development")[0])
+        case["interactions"] = [event]
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:193: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_dataset_container_has_location[None-$]" time="0.004"><failure message="TypeError: 'NoneType' object is not iterable">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_dataset_container0')
+payload = None, field = '$'
+
+    @pytest.mark.parametrize("payload,field", [(None, "$"), ({}, "$"), ([None], "[0]")])
+    def test_invalid_dataset_container_has_location(tmp_path, payload, field):
+        with pytest.raises(ValueError) as error:
+&gt;           load().load_cases(path=write_cases(tmp_path, payload))
+
+tests\test_investigation_cases.py:203: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+split = None
+
+    def load_cases(split=None, *, path=None):
+        cases = json.loads(Path(path or HERE / "cases.json").read_text(encoding="utf-8"))
+        if split not in (None, "development", "control"):
+            raise ValueError("Неизвестная выборка")
+&gt;       return [c for c in cases if split is None or c["split"] == split]
+E       TypeError: 'NoneType' object is not iterable
+
+evals\investigation\cases.py:14: TypeError</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_dataset_container_has_location[payload1-$]" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_dataset_container1')
+payload = {}, field = '$'
+
+    @pytest.mark.parametrize("payload,field", [(None, "$"), ({}, "$"), ([None], "[0]")])
+    def test_invalid_dataset_container_has_location(tmp_path, payload, field):
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:202: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_invalid_dataset_container_has_location[payload2-[0]]" time="0.005"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_invalid_dataset_container2')
+payload = [None], field = '[0]'
+
+    @pytest.mark.parametrize("payload,field", [(None, "$"), ({}, "$"), ([None], "[0]")])
+    def test_invalid_dataset_container_has_location(tmp_path, payload, field):
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:202: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_duplicate_case_id_is_rejected_before_split_filtering" time="0.003"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-680/test_duplicate_case_id_is_reje0')
+
+    def test_duplicate_case_id_is_rejected_before_split_filtering(tmp_path):
+        module = load()
+        case = module.load_cases("development")[0]
+        source = write_cases(tmp_path, [case, case])
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_investigation_cases.py:211: Failed</failure></testcase><testcase classname="tests.test_investigation_cases" name="test_valid_development_contract_preserves_explicit_customer_intent[refusal]" time="0.003" /><testcase classname="tests.test_investigation_cases" name="test_valid_development_contract_preserves_explicit_customer_intent[request_change]" time="0.003" /><testcase classname="tests.test_investigation_cases" name="test_valid_development_contract_preserves_explicit_customer_intent[unknown]" time="0.003" /><testcase classname="tests.test_investigation_cases" name="test_historical_dataset_remains_loadable_without_semantic_form_validation" time="0.001" /></testsuite></testsuites>

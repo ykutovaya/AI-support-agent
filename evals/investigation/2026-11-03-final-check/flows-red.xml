@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="4.205" timestamp="2026-11-03T16:47:37.068645+03:00" hostname="DESKTOP-PNPT252"><testcase classname="tests.test_investigation_offline" name="test_new_control_replies_complete_name_zip_exchange_and_refusal" time="0.020"><failure message="SystemExit: 2">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/pytest-of-USER/pytest-689/test_new_control_replies_compl0')
+
+    def test_new_control_replies_complete_name_zip_exchange_and_refusal(tmp_path):
+        folder = tmp_path / "new-replies"
+&gt;       assert main(["--set", "name-zip-refusal", "--output", str(folder)]) == 0
+
+tests\test_investigation_offline.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+evals\investigation\check_known_replies.py:190: in main
+    args = parser.parse_args(argv)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:1908: in parse_args
+    self.error(msg)
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:2650: in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = ArgumentParser(prog='__main__.py', usage=None, description='Повтор двух известных случаев на подставной модели, без кл...-output &lt;новый-каталог&gt;.\n', formatter_class=&lt;class 'argparse.HelpFormatter'&gt;, conflict_handler='error', add_help=True)
+status = 2
+message = '__main__.py: error: unrecognized arguments: --set name-zip-refusal\n'
+
+    def exit(self, status=0, message=None):
+        if message:
+            self._print_message(message, _sys.stderr)
+&gt;       _sys.exit(status)
+E       SystemExit: 2
+
+..\..\..\Roaming\uv\python\cpython-3.12.12-windows-x86_64-none\Lib\argparse.py:2637: SystemExit</failure></testcase></testsuite></testsuites>

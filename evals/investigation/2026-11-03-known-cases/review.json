@@ -1,0 +1,37 @@
+{
+  "reviewer": "assistant",
+  "changes_to_original_status": false,
+  "control-identity": {
+    "classification": "evaluator_limitation",
+    "status": "review",
+    "reply": "Чтобы найти ваш заказ, укажите email, использованный при покупке, либо имя, фамилию и почтовый индекс.",
+    "finding": "Уточнение корректно. Правило _identity_reply не распознаёт «Чтобы найти ваш заказ». Ответ остался pending; операций и доставок нет. Продолжение после email не проверено.",
+    "evidence": [
+      "02-regression-control-identity/calls.json",
+      "02-regression-control-identity/staff-reviews.json",
+      "02-regression-control-identity/state.json"
+    ]
+  },
+  "control-intent": {
+    "classification": "evaluator_limitation",
+    "status": "review",
+    "reply": "Понял. Обмен не оформляю: заявка была только подготовлена и не исполнена. Оставляете чёрные наушники.",
+    "finding": "Отказ учтён; согласие отозвано, операций нет, заказ delivered. Правило _cancel_reply не распознаёт дополнительные фразы. Итог не доставлен; доставлен только прежний вопрос о согласии.",
+    "evidence": [
+      "03-regression-control-intent/calls.json",
+      "03-regression-control-intent/staff-reviews.json",
+      "03-regression-control-intent/state.json"
+    ]
+  },
+  "control-price": {
+    "classification": "verified_in_this_attempt",
+    "status": "complete",
+    "finding": "После manual_resume модель перечитала заказ и товар, затем вызвала propose_exchange без подсказки. Старые версии stale, новый вопрос на 12.45 USD доставлен, новое согласие и подтверждение сотрудника получены. Одна операция, три доставки. Подсказок и отклонений нет.",
+    "evidence": [
+      "04-regression-control-price/calls.json",
+      "04-regression-control-price/staff-decisions.json",
+      "04-regression-control-price/state.json",
+      "04-regression-control-price/events.json"
+    ]
+  }
+}

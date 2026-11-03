@@ -1,0 +1,64 @@
+{
+  "authorization": {
+    "scope": "new_control",
+    "max_usd": 5.0,
+    "max_attempts": 7,
+    "phase_caps": {
+      "connection": 1,
+      "control": 6,
+      "repeat": 0
+    },
+    "case_ids": [
+      "new-select-delivered-refund",
+      "new-identify-name-zip",
+      "new-revoke-refund-exchange",
+      "new-price-refund-to-charge",
+      "new-return-original-other-card",
+      "new-ticket-replace-existing-exchange"
+    ]
+  },
+  "attempts": [
+    {
+      "number": 1,
+      "phase": "connection",
+      "case_id": "connection",
+      "status": "complete"
+    },
+    {
+      "number": 2,
+      "phase": "control",
+      "case_id": "new-select-delivered-refund",
+      "status": "complete"
+    },
+    {
+      "number": 3,
+      "phase": "control",
+      "case_id": "new-identify-name-zip",
+      "status": "review"
+    },
+    {
+      "number": 4,
+      "phase": "control",
+      "case_id": "new-revoke-refund-exchange",
+      "status": "review"
+    },
+    {
+      "number": 5,
+      "phase": "control",
+      "case_id": "new-price-refund-to-charge",
+      "status": "complete"
+    },
+    {
+      "number": 6,
+      "phase": "control",
+      "case_id": "new-return-original-other-card",
+      "status": "complete"
+    },
+    {
+      "number": 7,
+      "phase": "control",
+      "case_id": "new-ticket-replace-existing-exchange",
+      "status": "complete"
+    }
+  ]
+}

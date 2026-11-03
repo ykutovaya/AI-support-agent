@@ -1,0 +1,83 @@
+[
+  {
+    "index": 0,
+    "model": "openai/responses/gpt-6-luna",
+    "reserved_usd": 0.0078043999999999995,
+    "request": {
+      "messages": [
+        {
+          "role": "user",
+          "content": "Ответь одним словом: готово",
+          "tool_calls": null,
+          "tool_call_id": null,
+          "error": false,
+          "execution_status": "executed"
+        }
+      ],
+      "tools": []
+    },
+    "status": "received",
+    "message": {
+      "role": "assistant",
+      "content": "готово",
+      "tool_calls": null,
+      "tool_call_id": null,
+      "error": false,
+      "execution_status": "executed"
+    },
+    "usage": {
+      "completion_tokens": 6,
+      "prompt_tokens": 14,
+      "total_tokens": 20,
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "text_tokens": null,
+        "image_tokens": null
+      },
+      "prompt_tokens_details": {
+        "audio_tokens": null,
+        "cached_tokens": 0,
+        "text_tokens": null,
+        "image_tokens": null
+      }
+    },
+    "raw_response": {
+      "id": "chatcmpl-d7aef169-10e9-439a-9a40-71dc8b9764d6",
+      "created": 1793710090,
+      "model": "gpt-6-luna",
+      "object": "chat.completion",
+      "system_fingerprint": null,
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "content": "готово",
+            "role": "assistant",
+            "tool_calls": null,
+            "function_call": null
+          }
+        }
+      ],
+      "usage": {
+        "completion_tokens": 6,
+        "prompt_tokens": 14,
+        "total_tokens": 20,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "text_tokens": null,
+          "image_tokens": null
+        },
+        "prompt_tokens_details": {
+          "audio_tokens": null,
+          "cached_tokens": 0,
+          "text_tokens": null,
+          "image_tokens": null
+        }
+      }
+    },
+    "provider_reported_cost": null,
+    "conservative_usage_cost_usd": 4.4e-06,
+    "elapsed_seconds": 3.125
+  }
+]

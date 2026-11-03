@@ -1,0 +1,226 @@
+{
+    "checked_at_utc":  "2026-11-03T13:50:35.4894161Z",
+    "repository":  "https://github.com/ykutovaya/AI-support-agent",
+    "method":  "Публичный GitHub REST API: только чтение, без ключей",
+    "gh_cli_available":  false,
+    "local_head":  "530cb26ff3ae8e37e47bd72087c1a27cd7684463",
+    "local_branch":  "b1",
+    "local_dirty_entry_count":  34,
+    "workflow_sha256":  "a8c861e494e9d3dbc50e29f4bc66243a1f83fb5efc985564c5ac1ebf1c642b26",
+    "remote_branches":  [
+                            {
+                                "name":  "main",
+                                "sha":  "3fb25807c45afbd36431aa534f693f20794c1673"
+                            }
+                        ],
+    "runs":  [
+                 {
+                     "id":  41582482604,
+                     "name":  "Проверки",
+                     "head_branch":  "main",
+                     "head_sha":  "3fb25807c45afbd36431aa534f693f20794c1673",
+                     "status":  "completed",
+                     "conclusion":  "success",
+                     "html_url":  "https://github.com/ykutovaya/AI-support-agent/actions/runs/41582482604",
+                     "created_at":  "2026-11-03T05:11:55Z",
+                     "updated_at":  "2026-11-03T05:15:15Z"
+                 },
+                 {
+                     "id":  41581930031,
+                     "name":  "Проверки",
+                     "head_branch":  "b1",
+                     "head_sha":  "530cb26ff3ae8e37e47bd72087c1a27cd7684463",
+                     "status":  "completed",
+                     "conclusion":  "success",
+                     "html_url":  "https://github.com/ykutovaya/AI-support-agent/actions/runs/41581930031",
+                     "created_at":  "2026-11-03T05:06:25Z",
+                     "updated_at":  "2026-11-03T05:09:50Z"
+                 },
+                 {
+                     "id":  41581827790,
+                     "name":  "Проверки",
+                     "head_branch":  "b1",
+                     "head_sha":  "530cb26ff3ae8e37e47bd72087c1a27cd7684463",
+                     "status":  "completed",
+                     "conclusion":  "success",
+                     "html_url":  "https://github.com/ykutovaya/AI-support-agent/actions/runs/41581827790",
+                     "created_at":  "2026-11-03T05:05:24Z",
+                     "updated_at":  "2026-11-03T05:09:06Z"
+                 },
+                 {
+                     "id":  41580210477,
+                     "name":  "Проверки",
+                     "head_branch":  "b1",
+                     "head_sha":  "279d9e8a7f1df97a21196b7e15adb25142d736af",
+                     "status":  "completed",
+                     "conclusion":  "success",
+                     "html_url":  "https://github.com/ykutovaya/AI-support-agent/actions/runs/41580210477",
+                     "created_at":  "2026-11-03T04:48:10Z",
+                     "updated_at":  "2026-11-03T04:50:46Z"
+                 },
+                 {
+                     "id":  41579742074,
+                     "name":  "Проверки",
+                     "head_branch":  "b1",
+                     "head_sha":  "02d20875e9df091e02fb1b856007d93ddc07e0bc",
+                     "status":  "completed",
+                     "conclusion":  "success",
+                     "html_url":  "https://github.com/ykutovaya/AI-support-agent/actions/runs/41579742074",
+                     "created_at":  "2026-11-03T04:43:13Z",
+                     "updated_at":  "2026-11-03T04:46:24Z"
+                 },
+                 {
+                     "id":  41576852368,
+                     "name":  "Проверки",
+                     "head_branch":  "main",
+                     "head_sha":  "02d20875e9df091e02fb1b856007d93ddc07e0bc",
+                     "status":  "completed",
+                     "conclusion":  "success",
+                     "html_url":  "https://github.com/ykutovaya/AI-support-agent/actions/runs/41576852368",
+                     "created_at":  "2026-11-03T04:13:34Z",
+                     "updated_at":  "2026-11-03T04:17:27Z"
+                 },
+                 {
+                     "id":  41576708985,
+                     "name":  "Проверки",
+                     "head_branch":  "codex/windows-checks-60ceb640",
+                     "head_sha":  "b32a0db616690280c0b5aae18f4218d24c999f1f",
+                     "status":  "completed",
+                     "conclusion":  "success",
+                     "html_url":  "https://github.com/ykutovaya/AI-support-agent/actions/runs/41576708985",
+                     "created_at":  "2026-11-03T04:12:06Z",
+                     "updated_at":  "2026-11-03T04:16:27Z"
+                 },
+                 {
+                     "id":  41576467297,
+                     "name":  "Проверки",
+                     "head_branch":  "main",
+                     "head_sha":  "b306c6a062418e0de87e23dace3e31fa2bbc02a6",
+                     "status":  "completed",
+                     "conclusion":  "success",
+                     "html_url":  "https://github.com/ykutovaya/AI-support-agent/actions/runs/41576467297",
+                     "created_at":  "2026-11-03T04:09:44Z",
+                     "updated_at":  "2026-11-03T04:14:19Z"
+                 },
+                 {
+                     "id":  41575556392,
+                     "name":  "Проверки",
+                     "head_branch":  "codex/windows-checks-60ceb640",
+                     "head_sha":  "b32a0db616690280c0b5aae18f4218d24c999f1f",
+                     "status":  "completed",
+                     "conclusion":  "success",
+                     "html_url":  "https://github.com/ykutovaya/AI-support-agent/actions/runs/41575556392",
+                     "created_at":  "2026-11-03T04:00:47Z",
+                     "updated_at":  "2026-11-03T04:05:05Z"
+                 },
+                 {
+                     "id":  41575087113,
+                     "name":  "Проверки",
+                     "head_branch":  "codex/ci-report-probe-60ceb640",
+                     "head_sha":  "e72aa90360ffdc21cbf307e525b4f413897e205f",
+                     "status":  "completed",
+                     "conclusion":  "failure",
+                     "html_url":  "https://github.com/ykutovaya/AI-support-agent/actions/runs/41575087113",
+                     "created_at":  "2026-11-03T03:55:47Z",
+                     "updated_at":  "2026-11-03T03:56:39Z"
+                 }
+             ],
+    "local_head_run_id":  41581930031,
+    "local_head_jobs":  [
+                            {
+                                "id":  125738512731,
+                                "name":  "Windows · Python 3.12",
+                                "status":  "completed",
+                                "conclusion":  "success",
+                                "html_url":  "https://github.com/ykutovaya/AI-support-agent/actions/runs/41581930031/job/125738512731",
+                                "steps":  [
+                                              {
+                                                  "number":  1,
+                                                  "name":  "Set up job",
+                                                  "status":  "completed",
+                                                  "conclusion":  "success",
+                                                  "started_at":  "2026-11-03T05:06:33Z",
+                                                  "completed_at":  "2026-11-03T05:06:34Z"
+                                              },
+                                              {
+                                                  "number":  2,
+                                                  "name":  "Получить код",
+                                                  "status":  "completed",
+                                                  "conclusion":  "success",
+                                                  "started_at":  "2026-11-03T05:06:34Z",
+                                                  "completed_at":  "2026-11-03T05:06:40Z"
+                                              },
+                                              {
+                                                  "number":  3,
+                                                  "name":  "Установить uv и Python",
+                                                  "status":  "completed",
+                                                  "conclusion":  "success",
+                                                  "started_at":  "2026-11-03T05:06:40Z",
+                                                  "completed_at":  "2026-11-03T05:06:41Z"
+                                              },
+                                              {
+                                                  "number":  4,
+                                                  "name":  "Установить закреплённые зависимости",
+                                                  "status":  "completed",
+                                                  "conclusion":  "success",
+                                                  "started_at":  "2026-11-03T05:06:41Z",
+                                                  "completed_at":  "2026-11-03T05:07:15Z"
+                                              },
+                                              {
+                                                  "number":  5,
+                                                  "name":  "Выполнить тесты без API",
+                                                  "status":  "completed",
+                                                  "conclusion":  "success",
+                                                  "started_at":  "2026-11-03T05:07:15Z",
+                                                  "completed_at":  "2026-11-03T05:09:44Z"
+                                              },
+                                              {
+                                                  "number":  6,
+                                                  "name":  "Сохранить отчёт при ошибке тестов",
+                                                  "status":  "completed",
+                                                  "conclusion":  "skipped",
+                                                  "started_at":  "2026-11-03T05:09:44Z",
+                                                  "completed_at":  "2026-11-03T05:09:44Z"
+                                              },
+                                              {
+                                                  "number":  7,
+                                                  "name":  "Проверить код Ruff",
+                                                  "status":  "completed",
+                                                  "conclusion":  "success",
+                                                  "started_at":  "2026-11-03T05:09:44Z",
+                                                  "completed_at":  "2026-11-03T05:09:45Z"
+                                              },
+                                              {
+                                                  "number":  13,
+                                                  "name":  "Post Установить uv и Python",
+                                                  "status":  "completed",
+                                                  "conclusion":  "success",
+                                                  "started_at":  "2026-11-03T05:09:45Z",
+                                                  "completed_at":  "2026-11-03T05:09:45Z"
+                                              },
+                                              {
+                                                  "number":  14,
+                                                  "name":  "Post Получить код",
+                                                  "status":  "completed",
+                                                  "conclusion":  "success",
+                                                  "started_at":  "2026-11-03T05:09:45Z",
+                                                  "completed_at":  "2026-11-03T05:09:48Z"
+                                              },
+                                              {
+                                                  "number":  15,
+                                                  "name":  "Complete job",
+                                                  "status":  "completed",
+                                                  "conclusion":  "success",
+                                                  "started_at":  "2026-11-03T05:09:48Z",
+                                                  "completed_at":  "2026-11-03T05:09:48Z"
+                                              }
+                                          ]
+                            }
+                        ],
+    "final_worktree_checked_on_github":  false,
+    "limitation":  "Успешный запуск проверяет только закоммиченный HEAD. Локальные изменения и новые файлы им не проверены. Удалённая b1 сейчас отсутствует; локальная origin/b1 не обновлялась и не изменялась.",
+    "mutations":  [
+
+                  ],
+    "paid_model_calls":  0
+}

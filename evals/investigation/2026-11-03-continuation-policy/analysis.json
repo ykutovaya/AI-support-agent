@@ -1,0 +1,20 @@
+{
+  "scope": "Пункт 1 плана 4: продолжение после изменения условий",
+  "source_case": "../2026-11-03/12-control-control-price/",
+  "source_call_index": 4,
+  "source_call_number": 5,
+  "history_present": true,
+  "proposal_tool_available": true,
+  "application_events_in_request": 1,
+  "application_event_role": "assistant",
+  "changed_amount": "12.45",
+  "observed_response": "{\"message\":\"Цена белого варианта изменилась с 40.25 до 49.45 USD. Поэтому доплата за обмен теперь составляет 12.45 USD вместо 3.25 USD. Обмен чёрных наушников black_c008 на белые white_c008 с оплатой картой, оканчивающейся на 1111, пока не оформлен. Если вы согласны с обновлёнными условиями и доплатой 12.45 USD, подтвердите их.\"}",
+  "response_tool_calls": null,
+  "after_employee_correction_call_index": 5,
+  "after_employee_correction_tool": "propose_exchange",
+  "diagnosis": "Модель не выполнила уже имевшееся требование propose_*. Потеря контекста или инструмента не обнаружена. Причина выбора ответа по одной попытке не установлена.",
+  "change": "Уточнена APP_POLICY: прежний proposal_prepared относится к старым условиям; перечитать сведения и подготовить допустимую операцию заново. Уточнение и отказ остаются возможны.",
+  "unstructured_reply_behavior": "Остаётся неподтверждённым предложением сообщения, не создаёт действие или запрос согласия. Автоматического распознавания смысла такого ответа не добавлено.",
+  "model_quality_remeasured": false,
+  "historical_control_result": "4/6"
+}

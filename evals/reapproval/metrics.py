@@ -2,8 +2,9 @@
 
 from collections import Counter
 
-METRICS_VERSION = "interventions-v1"
+METRICS_VERSION = "interventions-v3"
 ERROR_CATEGORIES = ("application", "evaluator", "external", "limit", "unclassified")
+CUSTOMER_REASONS = ("refusal", "request_change", "unknown")
 EVENT_KINDS = {
     "staff_rejections": "rejected",
     "manual_resumes": "manual_resume",
@@ -25,6 +26,139 @@ def _ratio(numerator, denominator):
     }
 
 
+def _client_responses(
+    state, events, annotations, baseline_state, partial_scope, annotations_available
+):
+    """Причины задаёт разметка оценщика; текст сообщения не классифицируется."""
+    case_id = state["case"]["id"]
+    events_by_id = {e["id"]: e for e in events}
+    tables = state.get("tables", {})
+    consents = {
+        row["id"]: row
+        for row in tables.get("consents", [])
+        if row.get("case_id") == case_id
+    }
+    revoked_ids = {
+        identifier
+        for identifier, row in consents.items()
+        if row.get("accepted") == 1 and row.get("revoked") == 1
+    }
+    available = "consents" in tables and all(
+        "accepted" in row and "revoked" in row for row in consents.values()
+    )
+    consents_available = available
+    coverage = "complete_snapshot" if available else "unavailable"
+    if baseline_state is not None:
+        before = baseline_state.get("tables", {})
+        old = [r for r in before.get("consents", []) if r.get("case_id") == case_id]
+        available = (
+            available
+            and "consents" in before
+            and all("accepted" in r and "revoked" in r for r in old)
+        )
+        revoked_ids -= {
+            r["id"] for r in old if r.get("accepted") == 1 and r.get("revoked") == 1
+        }
+        coverage = "baseline_delta" if available else "unavailable"
+    elif partial_scope and available:
+        available = False
+        coverage = "event_annotations_only"
+
+    # record_client_response пишет customer и затем подтверждённый выбор.
+    choices = {
+        previous["id"]: current["kind"]
+        for previous, current in zip(events, events[1:])
+        if previous["kind"] == "customer"
+        and current["kind"] in {"consent", "consent_refused", "consent_outdated"}
+    }
+    by_event, reasons = {}, {}
+    for annotation in annotations:
+        identifier = annotation["event_id"]
+        event = events_by_id.get(identifier)
+        if event is None or event["kind"] != "customer":
+            raise ValueError("Аннотация должна ссылаться на событие customer")
+        reason = annotation["reason"]
+        if reason not in CUSTOMER_REASONS:
+            raise ValueError("Неизвестная причина ответа клиента")
+        linked_ids = sorted(set(annotation["revoked_consent_ids"]))
+        if any(
+            identifier not in consents
+            or consents[identifier].get("accepted") != 1
+            or consents[identifier].get("revoked") != 1
+            for identifier in linked_ids
+        ):
+            raise ValueError("Аннотация отзыва требует отозванного согласия обращения")
+        normalized = {**annotation, "revoked_consent_ids": linked_ids}
+        if identifier in by_event and by_event[identifier] != normalized:
+            raise ValueError("Противоречивые аннотации одного сообщения")
+        by_event[identifier] = normalized
+        choice = choices.get(identifier)
+        if (choice == "consent_refused" and reason == "request_change") or (
+            choice in {"consent", "consent_outdated"} and reason == "refusal"
+        ):
+            raise ValueError("Аннотация противоречит подтверждённому ответу клиента")
+        confirmed_reason = "refusal" if choice == "consent_refused" else reason
+        for consent_id in linked_ids:
+            if consent_id in reasons and reasons[consent_id] != confirmed_reason:
+                raise ValueError("Противоречивые причины отзыва одного согласия")
+            reasons[consent_id] = confirmed_reason
+    if not available:
+        # Один конечный снимок не датирует отзыв внутри частичного интервала.
+        revoked_ids &= reasons.keys()
+    # revoked отмечает также использованное или недействительное после ошибки
+    # согласие. Связь с новым сообщением клиента подтверждает только аннотация.
+    client_revoked_ids = revoked_ids & reasons.keys()
+    button_ids = [e["id"] for e in events if e["kind"] == "consent_refused"]
+    text_ids = [
+        identifier
+        for identifier, annotation in sorted(by_event.items())
+        if annotation["reason"] == "refusal" and identifier not in choices
+    ]
+    by_reason = {
+        reason: sorted(
+            identifier
+            for identifier in client_revoked_ids
+            if reasons[identifier] == reason
+        )
+        for reason in CUSTOMER_REASONS
+    }
+    return (
+        {
+            "client_button_refusals": button_ids,
+            "client_text_refusals": text_ids,
+            "client_refusals": sorted(button_ids + text_ids),
+        },
+        {
+            "available": annotations_available and consents_available,
+            "coverage": "confirmed_customer_events_only"
+            if annotations_available and consents_available
+            else "unavailable",
+            "consent_ids": sorted(client_revoked_ids),
+            "by_reason": by_reason,
+        },
+        {
+            "available": available,
+            "coverage": coverage,
+            "consent_ids": sorted(revoked_ids),
+            "unattributed_consent_ids": sorted(revoked_ids - client_revoked_ids),
+        },
+        {
+            "button_basis": "consent_refused",
+            "reason_basis": "explicit_annotation",
+            "annotations": [by_event[identifier] for identifier in sorted(by_event)],
+            "unclassified_customer_event_ids": [
+                e["id"]
+                for e in events
+                if e["kind"] == "customer"
+                and e["id"] not in choices
+                and (
+                    e["id"] not in by_event or by_event[e["id"]]["reason"] == "unknown"
+                )
+            ],
+        },
+    )
+
+
 def evaluate_interventions(
     state,
     events,
@@ -32,6 +166,7 @@ def evaluate_interventions(
     baseline_state=None,
     baseline_proposal_id=None,
     event_boundary=None,
+    customer_annotations=None,
     correct=None,
     error_category=None,
 ):
@@ -42,6 +177,14 @@ def evaluate_interventions(
     baseline_proposal_id: его версия и последующие составляют знаменатель.
     events должны относиться к тому же интервалу; при полном журнале задаётся
     event_boundary. Правильность передаётся отдельно из оценки результата.
+
+    customer_annotations привязывает явно заданную оценщиком причину к customer:
+    case_id, event_id, reason (refusal/request_change/unknown), revoked_consent_ids.
+    Это разметка сценария, а не распознавание смысла сообщения. Отзыв вследствие
+    сообщения клиента требует связи с событием и accepted=1/revoked=1. Остальные
+    revoked согласия учитываются отдельно, без предположения об их причине.
+    Если аргумент не задан, используется customer_annotations сохранённого state.
+    При границе неявные аннотации ограничиваются переданным интервалом событий.
 
     «Без правок» означает совпадение подписи утверждённой версии. Это не
     доказывает правильность предложения или отсутствие правок в прошлых версиях.
@@ -57,19 +200,49 @@ def evaluate_interventions(
     case = state["case"]
     if baseline_state is not None and baseline_state["case"]["id"] != case["id"]:
         raise ValueError("Контрольная точка относится к другому обращению")
-    selected_events = sorted(
-        (
-            e
-            for e in events
-            if e.get("case_id") == case["id"]
-            and (event_boundary is None or e["id"] > event_boundary)
-        ),
-        key=lambda e: e["id"],
+    unique_events = {}
+    for event in events:
+        if event.get("case_id") != case["id"] or (
+            event_boundary is not None and event["id"] <= event_boundary
+        ):
+            continue
+        if event["id"] in unique_events and unique_events[event["id"]] != event:
+            raise ValueError("Противоречивые записи одного события")
+        unique_events[event["id"]] = event
+    selected_events = sorted(unique_events.values(), key=lambda e: e["id"])
+    annotations_available = (
+        customer_annotations is not None or "customer_annotations" in state
     )
+    if customer_annotations is None:
+        customer_annotations = state.get("customer_annotations", [])
+        if (
+            baseline_state is not None
+            or baseline_proposal_id is not None
+            or event_boundary is not None
+        ):
+            customer_annotations = [
+                annotation
+                for annotation in customer_annotations
+                if annotation["event_id"] in unique_events
+            ]
     event_ids = {
         key: [e["id"] for e in selected_events if e["kind"] == kind]
         for key, kind in EVENT_KINDS.items()
     }
+    responses, revocations, invalidations, response_sources = _client_responses(
+        state,
+        selected_events,
+        [
+            annotation
+            for annotation in customer_annotations
+            if annotation["case_id"] == case["id"]
+            and (event_boundary is None or annotation["event_id"] > event_boundary)
+        ],
+        baseline_state,
+        event_boundary is not None or baseline_proposal_id is not None,
+        annotations_available,
+    )
+    event_ids.update(responses)
     # reject() пишет rejected и затем employee с той же причиной. Это одна команда.
     paired, followups = [], []
     for index, event in enumerate(selected_events):
@@ -88,6 +261,20 @@ def evaluate_interventions(
         e["id"] for e in selected_events if e["kind"] in {"error", "recovery_failed"}
     ]
     counts = {key: len(ids) for key, ids in event_ids.items()}
+    counts["client_consent_revocations"] = (
+        len(revocations["consent_ids"]) if revocations["available"] else None
+    )
+    counts["client_consent_revocations_unknown_reason"] = (
+        len(revocations["by_reason"]["unknown"]) if revocations["available"] else None
+    )
+    counts["consent_invalidations"] = (
+        len(invalidations["consent_ids"]) if invalidations["available"] else None
+    )
+    counts["consent_invalidations_unattributed"] = (
+        len(invalidations["unattributed_consent_ids"])
+        if invalidations["available"]
+        else None
+    )
     counts["additional_staff_commands"] = sum(
         counts[key]
         for key in (
@@ -160,7 +347,14 @@ def evaluate_interventions(
         "Причина исправления и ошибка модели не выводятся из изменения условий.",
         "События error/recovery_failed могут описывать один сбой; источник без разбора неизвестен.",
         "Время человека по этим событиям не измеряется.",
+        "Отказ свободным текстом считается только по явной разметке оценщика; смысл текста не определяется.",
+        "Клиентские отзывы считаются только по подтверждённым связям с сообщениями; это не полный охват всех причин утраты согласия.",
+        "Флаг revoked включает использование согласия и другие причины; без аннотации причина не устанавливается.",
     ]
+    if not revocations["available"]:
+        limitations.append(
+            "Нет разметки или сведений о согласиях; счётчик клиентских отзывов недоступен."
+        )
     if not available:
         limitations.append(
             "История предложений или согласований неполна; доля принятия недоступна."
@@ -171,6 +365,9 @@ def evaluate_interventions(
         "scope": scope,
         "counts": counts,
         "event_ids": event_ids,
+        "client_response_sources": response_sources,
+        "consent_revocations": revocations,
+        "consent_invalidations": invalidations,
         "proposals": {
             "offered_ids": offered_ids,
             "accepted_ids": accepted_ids,
@@ -189,6 +386,9 @@ def evaluate_interventions(
 def summarize_interventions(rows):
     """Суммировать все попытки, сохраняя неизвестные и неуспешные в знаменателе."""
     rows = list(rows)
+    versions = {row["version"] for row in rows}
+    if len(versions) > 1:
+        raise ValueError("Нельзя суммировать метрики разных версий")
     known = [r for r in rows if r["accepted_without_edits"]["denominator"] is not None]
     approved = sum(r["accepted_without_edits"]["numerator"] for r in known)
     offered = sum(r["accepted_without_edits"]["denominator"] for r in known)
@@ -204,7 +404,7 @@ def summarize_interventions(rows):
             else None
         )
     return {
-        "version": METRICS_VERSION,
+        "version": next(iter(versions), METRICS_VERSION),
         "attempts": len(rows),
         "correct_results": {
             **_ratio(correct, len(rows)),

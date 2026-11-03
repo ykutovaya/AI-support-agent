@@ -1,0 +1,34 @@
+{
+  "id": "control-identity",
+  "split": "control",
+  "user_id": "customer_c005",
+  "email": "c005@example.test",
+  "product_id": "headphones_c005",
+  "old_item_id": "black_c005",
+  "new_item_id": "white_c005",
+  "initial_status": "delivered",
+  "purchase_price": "31.10",
+  "variant_price": "34.25",
+  "initial_amount": "3.15",
+  "goal": "exchange",
+  "initial_message": "Наушники хочу белые вместо чёрных, разницу той же картой 1111. Что нужно, чтобы найти мой заказ?",
+  "expected": {
+    "order_id": "#C005",
+    "item_ids": [
+      "black_c005"
+    ],
+    "payment_method_id": "card",
+    "amount": "3.15",
+    "result_status": "exchange requested",
+    "new_item_ids": [
+      "white_c005"
+    ]
+  },
+  "interactions": [
+    {
+      "trigger": "message",
+      "kind": "customer",
+      "text": "Мой email c005@example.test. Нужны белые вместо чёрных; разницу оплачиваю исходной картой 1111."
+    }
+  ]
+}

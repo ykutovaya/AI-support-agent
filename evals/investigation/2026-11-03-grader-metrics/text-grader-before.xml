@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="2" time="0.092" timestamp="2026-11-03T16:35:50.001098+03:00" hostname="DESKTOP-PNPT252"><testcase classname="tests.test_investigation_assessment" name="test_recorded_correct_reply_passes_without_changing_historical_result[new-identify-name-zip-initial]" time="0.002"><failure message="AssertionError: {'reason': 'unrecognized_customer_reply', 'status': 'review'}&#10;assert 'review' == 'pass'&#10;  &#10;  - pass&#10;  + review">case_id = 'new-identify-name-zip', stage = 'initial'
+
+    @pytest.mark.parametrize(
+        "case_id,stage",
+        [
+            ("new-identify-name-zip", "initial"),
+            ("new-revoke-refund-exchange", "changed"),
+        ],
+    )
+    def test_recorded_correct_reply_passes_without_changing_historical_result(case_id, stage):
+        directory = ROOT / "evals/investigation"
+        reviews = json.loads(
+            (directory / "2026-11-03-new-control/review.json").read_text(encoding="utf-8")
+        )["cases"]
+        review = next(r for r in reviews if r["case_id"] == case_id)
+        case = next(
+            c
+            for c in load("cases").load_cases(
+                path=directory / "control-new-2026-11-03-v2.json"
+            )
+            if c["id"] == case_id
+        )
+        proposal = SimpleNamespace(
+            action=None, consent_request=None, text=review["latest_text"]
+        )
+        result = load("assessment").approval_review(proposal, case, stage=stage)
+&gt;       assert result["status"] == "pass", result
+E       AssertionError: {'reason': 'unrecognized_customer_reply', 'status': 'review'}
+E       assert 'review' == 'pass'
+E         
+E         - pass
+E         + review
+
+tests\test_investigation_assessment.py:306: AssertionError</failure></testcase><testcase classname="tests.test_investigation_assessment" name="test_recorded_correct_reply_passes_without_changing_historical_result[new-revoke-refund-exchange-changed]" time="0.003"><failure message="AssertionError: {'reason': 'cancellation_acknowledgement', 'status': 'review'}&#10;assert 'review' == 'pass'&#10;  &#10;  - pass&#10;  + review">case_id = 'new-revoke-refund-exchange', stage = 'changed'
+
+    @pytest.mark.parametrize(
+        "case_id,stage",
+        [
+            ("new-identify-name-zip", "initial"),
+            ("new-revoke-refund-exchange", "changed"),
+        ],
+    )
+    def test_recorded_correct_reply_passes_without_changing_historical_result(case_id, stage):
+        directory = ROOT / "evals/investigation"
+        reviews = json.loads(
+            (directory / "2026-11-03-new-control/review.json").read_text(encoding="utf-8")
+        )["cases"]
+        review = next(r for r in reviews if r["case_id"] == case_id)
+        case = next(
+            c
+            for c in load("cases").load_cases(
+                path=directory / "control-new-2026-11-03-v2.json"
+            )
+            if c["id"] == case_id
+        )
+        proposal = SimpleNamespace(
+            action=None, consent_request=None, text=review["latest_text"]
+        )
+        result = load("assessment").approval_review(proposal, case, stage=stage)
+&gt;       assert result["status"] == "pass", result
+E       AssertionError: {'reason': 'cancellation_acknowledgement', 'status': 'review'}
+E       assert 'review' == 'pass'
+E         
+E         - pass
+E         + review
+
+tests\test_investigation_assessment.py:306: AssertionError</failure></testcase></testsuite></testsuites>
