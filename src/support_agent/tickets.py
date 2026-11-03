@@ -8,8 +8,11 @@ REASON_CODE = "requested_order_result"
 def existing_ticket_result(conn, case, proposal):
     """Прочитать результат исходной операции для повторного предложения."""
     request = proposal.action.arguments
-    if request["target"] != "local" or request["user_id"] != case["user_id"]:
-        raise ValueError("Некорректный получатель или клиент локальной заявки")
+    if (
+        request["target"] not in {"local", "zammad"}
+        or request["user_id"] != case["user_id"]
+    ):
+        raise ValueError("Некорректный получатель или клиент заявки")
     row = conn.execute(
         """SELECT o.result FROM support_tickets t
         JOIN operations o ON o.proposal_id=t.proposal_id
@@ -17,6 +20,14 @@ def existing_ticket_result(conn, case, proposal):
         WHERE t.case_id=? AND p.case_id=? AND t.user_id=? AND t.order_id=? AND t.reason_code=?""",
         (case["id"], case["id"], case["user_id"], request["order_id"], REASON_CODE),
     ).fetchone()
+    if row is None:
+        row = conn.execute(
+            """SELECT o.result FROM external_ticket_operations t
+            JOIN operations o ON o.proposal_id=t.proposal_id
+            WHERE t.case_id=? AND t.user_id=? AND t.order_id=? AND t.reason_code=?
+            AND t.status='verified'""",
+            (case["id"], case["user_id"], request["order_id"], REASON_CODE),
+        ).fetchone()
     if row is None:
         raise ValueError("Не найден результат исходной регистрации заявки")
     return json.loads(row["result"])

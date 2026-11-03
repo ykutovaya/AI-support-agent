@@ -1,0 +1,85 @@
+{
+  "checked_at": "2026-11-03T01:05:45.354218+00:00",
+  "base_commit": "7de20ca51f09ccf08a037a69fd179451f5a64acd",
+  "python": "3.12.12",
+  "versions": {
+    "streamlit": "1.56.0",
+    "pytest": "8.3.5",
+    "ruff": "0.11.7",
+    "tau2": "2.0.0",
+    "python-dotenv": "1.2.4"
+  },
+  "tests": {
+    "successful_distinct": 389,
+    "full_passed": 378,
+    "full_fixture_errors": 11,
+    "fixture_only_rerun_passed": 11,
+    "records": [
+      {
+        "file": "offline/pytest.xml",
+        "name": "pytest",
+        "errors": "11",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "389",
+        "time": "31.533",
+        "timestamp": "2026-11-03T03:58:13.140939+03:00",
+        "hostname": "DESKTOP-PNPT252"
+      },
+      {
+        "file": "offline/bootstrap-fixture-fixed.xml",
+        "name": "pytest",
+        "errors": "0",
+        "failures": "0",
+        "skipped": "0",
+        "tests": "11",
+        "time": "2.758",
+        "timestamp": "2026-11-03T03:59:34.969481+03:00",
+        "hostname": "DESKTOP-PNPT252"
+      }
+    ]
+  },
+  "live": {
+    "normal": {
+      "ticket_number": "22003",
+      "post_count": 1,
+      "code_matches_current": true
+    },
+    "lost-response": {
+      "ticket_number": "22004",
+      "post_count": 1,
+      "code_matches_current": true
+    }
+  },
+  "trial_ends": "2026-11-04",
+  "trial_date_source": "Подтверждение пользователя в переписке",
+  "protected_files_unchanged": 12,
+  "api_model_calls": 0,
+  "human_zammad_acceptance": false,
+  "code_hashes": {
+    "src/support_agent/agent.py": "1d4247931ddb96c3f73118a0b7839472b7ff52e75d29020beab0f52fd5d6fe54",
+    "src/support_agent/bootstrap.py": "e56b7d8f372b04f144faf87688f2831c0f93d71d422bc22f3170503e8d89b9ab",
+    "src/support_agent/demo.py": "b7c3991bc27aa09c9032da1f53aba752a9d2f20e46c39df48d021d3eea70aa5d",
+    "src/support_agent/execution.py": "9e3acfa90ef52188cbe84a47c11854653d08910bf35c669f1bfeacf34caf0ee9",
+    "src/support_agent/external_tickets.py": "dc8d538a46f1e17c88db9eb99c1047aa7a12bc707d07df9fecc0e5407791da25",
+    "src/support_agent/models.py": "1e9487bae05f7c824ed8bb29f62b9629014987871b5b16bd31d487e69d8060a9",
+    "src/support_agent/proposals.py": "6a88890ae4f2945fd8cdb34c8de19f559631e946a6f026aa5423d1b29f6bc057",
+    "src/support_agent/storage.py": "12b28921def5c11080f1258e9eac93a45e815c0012cab1e55749539fdc7a4775",
+    "src/support_agent/tickets.py": "d7d3d4e4d378f8fa7e2139a7c09ab494c935f891dcabd6e6e44ddb16afafe842",
+    "src/support_agent/ui.py": "f1a0ece7160611b83e9dee640e82aba6db1663ca4f31117c8ce1884afac5edc9",
+    "src/support_agent/workflow.py": "509c9628bc0e6b279c5d2b2375dd13360c3804444beb3b95690a4fe571e5b13f",
+    "src/support_agent/__init__.py": "3dab7fa392438c0f8fb323f52e3999144b77cfc71ee6ca91cde18f4e6e73bcdf",
+    "src/support_agent/adapters/demo_model.py": "27dfb52925124e422032857ba39d49416e7fabed005519a8031fcf71cb48a555",
+    "src/support_agent/adapters/llm.py": "59190880af8d5f88fa86eb3c573a6b2c7f6d2ea2c53126946a4c5e6a0b9d80a7",
+    "src/support_agent/adapters/retail.py": "feece21849bbed4929dd6d8e5a617ccc9f3c0cdb119f3993b99c2c28ab87c52c",
+    "src/support_agent/adapters/tau_bench.py": "bd8208af850ee61a2fa92926b13ac192d32f50a4698e472ece2ac9437229df22",
+    "src/support_agent/adapters/ticket_retail.py": "1837356b69d6d671de87569c35e1e23bf0b37485f70cf696bb62dfdede12a087",
+    "src/support_agent/adapters/zammad.py": "082b91e93f9dbe9ad80b6f51816d4748e934fbbe41c4e00cd153ba13e343f6d2",
+    "src/support_agent/adapters/__init__.py": "01a9b010035def2b4ba4b6d05eab45f93d3f6aab32dc3406ec61e94e02201aec"
+  },
+  "fixture_hashes": {
+    "evals/zammad/base_shop.json": "5c6b5527b9a86af6bcbd3bf3fe485710042f77f19408ff003a29ee85426cbd49",
+    "evals/zammad/check_live.py": "576074d533186434dbaad39a7085b47d12ad8ea5f755c681b4b075de40c79f4f",
+    "evals/zammad/policy.md": "cef0e20af367cf9f6613dce4037bfc2ab62c25d37261c152633947ddba2dfa5b"
+  }
+}

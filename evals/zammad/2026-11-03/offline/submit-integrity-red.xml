@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="3" time="3.044" timestamp="2026-11-03T03:51:42.098029+03:00" hostname="DESKTOP-PNPT252"><testcase classname="tests.test_zammad_submit_integrity" name="test_modified_saved_approval_blocks_post_after_reservation[body]" time="0.064"><failure message="AssertionError: assert [('1e750353f8...мена?', ...})] == []&#10;  &#10;  Left contains one more item: ('1e750353f8d94ff5ad1610b62db519ce', {'body': 'Неподтверждённый текст', 'destination': {'base_url': 'https://support.e...stomer_id': 4, 'group_id': 2, 'group_name': 'Support'}, 'order_id': '#O1', 'question': 'Каков результат обмена?', ...})&#10;  Use -v to get more diff">reserved_ticket = (&lt;support_agent.storage.Store object at 0x00000217C75D9C10&gt;, &lt;test_zammad_submit_integrity.SubmissionBackend object at...ustomer_id': 4}}), consent_request=None, evidence=[]), &lt;support_agent.execution.Executor object at 0x00000217C75DBFB0&gt;)
+change = 'body'
+
+    @pytest.mark.parametrize("change", ["body", "approval"])
+    def test_modified_saved_approval_blocks_post_after_reservation(reserved_ticket, change):
+        store, backend, proposal, executor = reserved_ticket
+        with store.transaction() as conn:
+            if change == "body":
+                request = deepcopy(proposal.action.arguments)
+                request["body"] = "Неподтверждённый текст"
+                conn.execute(
+                    "UPDATE external_ticket_operations SET request=? WHERE proposal_id=?",
+                    (encode(request), proposal.id),
+                )
+            else:
+                conn.execute("DELETE FROM approvals WHERE proposal_id=?", (proposal.id,))
+        with pytest.raises(ValueError, match="Сохранённые условия"):
+            executor._submit_external(proposal.id)
+&gt;       assert backend.creates == []
+E       AssertionError: assert [('1e750353f8...мена?', ...})] == []
+E         
+E         Left contains one more item: ('1e750353f8d94ff5ad1610b62db519ce', {'body': 'Неподтверждённый текст', 'destination': {'base_url': 'https://support.e...stomer_id': 4, 'group_id': 2, 'group_name': 'Support'}, 'order_id': '#O1', 'question': 'Каков результат обмена?', ...})
+E         Use -v to get more diff
+
+tests\test_zammad_submit_integrity.py:52: AssertionError</failure></testcase><testcase classname="tests.test_zammad_submit_integrity" name="test_modified_saved_approval_blocks_post_after_reservation[approval]" time="0.055"><failure message="AssertionError: assert [('69e7ffb2a8...мена?', ...})] == []&#10;  &#10;  Left contains one more item: ('69e7ffb2a87746dba49dced0f04a21bb', {'body': 'Заказ клиента: Заказ #O1, клиент u1, статус exchange requested. Источни...stomer_id': 4, 'group_id': 2, 'group_name': 'Support'}, 'order_id': '#O1', 'question': 'Каков результат обмена?', ...})&#10;  Use -v to get more diff">reserved_ticket = (&lt;support_agent.storage.Store object at 0x00000217C75DB380&gt;, &lt;test_zammad_submit_integrity.SubmissionBackend object at...ustomer_id': 4}}), consent_request=None, evidence=[]), &lt;support_agent.execution.Executor object at 0x00000217C75D9D00&gt;)
+change = 'approval'
+
+    @pytest.mark.parametrize("change", ["body", "approval"])
+    def test_modified_saved_approval_blocks_post_after_reservation(reserved_ticket, change):
+        store, backend, proposal, executor = reserved_ticket
+        with store.transaction() as conn:
+            if change == "body":
+                request = deepcopy(proposal.action.arguments)
+                request["body"] = "Неподтверждённый текст"
+                conn.execute(
+                    "UPDATE external_ticket_operations SET request=? WHERE proposal_id=?",
+                    (encode(request), proposal.id),
+                )
+            else:
+                conn.execute("DELETE FROM approvals WHERE proposal_id=?", (proposal.id,))
+        with pytest.raises(ValueError, match="Сохранённые условия"):
+            executor._submit_external(proposal.id)
+&gt;       assert backend.creates == []
+E       AssertionError: assert [('69e7ffb2a8...мена?', ...})] == []
+E         
+E         Left contains one more item: ('69e7ffb2a87746dba49dced0f04a21bb', {'body': 'Заказ клиента: Заказ #O1, клиент u1, статус exchange requested. Источни...stomer_id': 4, 'group_id': 2, 'group_name': 'Support'}, 'order_id': '#O1', 'question': 'Каков результат обмена?', ...})
+E         Use -v to get more diff
+
+tests\test_zammad_submit_integrity.py:52: AssertionError</failure></testcase><testcase classname="tests.test_zammad_submit_integrity" name="test_changed_backend_instance_blocks_post_after_reservation" time="0.055"><failure message="AssertionError: assert [('11ead384dd...мена?', ...})] == []&#10;  &#10;  Left contains one more item: ('11ead384ddf940dbb758020eb80e816e', {'body': 'Заказ клиента: Заказ #O1, клиент u1, статус exchange requested. Источни...stomer_id': 4, 'group_id': 2, 'group_name': 'Support'}, 'order_id': '#O1', 'question': 'Каков результат обмена?', ...})&#10;  Use -v to get more diff">reserved_ticket = (&lt;support_agent.storage.Store object at 0x00000217C75DA1E0&gt;, &lt;test_zammad_submit_integrity.SubmissionBackend object at...ustomer_id': 4}}), consent_request=None, evidence=[]), &lt;support_agent.execution.Executor object at 0x00000217C75D8B90&gt;)
+
+    def test_changed_backend_instance_blocks_post_after_reservation(reserved_ticket):
+        store, backend, proposal, executor = reserved_ticket
+        backend.base_url = "https://other.example.test"
+        outcome = executor._submit_external(proposal.id)
+        assert outcome["status"] == "unknown"
+&gt;       assert backend.creates == []
+E       AssertionError: assert [('11ead384dd...мена?', ...})] == []
+E         
+E         Left contains one more item: ('11ead384ddf940dbb758020eb80e816e', {'body': 'Заказ клиента: Заказ #O1, клиент u1, статус exchange requested. Источни...stomer_id': 4, 'group_id': 2, 'group_name': 'Support'}, 'order_id': '#O1', 'question': 'Каков результат обмена?', ...})
+E         Use -v to get more diff
+
+tests\test_zammad_submit_integrity.py:61: AssertionError</failure></testcase></testsuite></testsuites>

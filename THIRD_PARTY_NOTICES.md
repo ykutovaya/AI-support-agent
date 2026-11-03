@@ -28,7 +28,9 @@
 
 ## Собственные учебные материалы
 
-`tests/retail_data.py`, `evals/ticket-integration/base_shop.json`, `evals/ticket-integration/policy.md`, `evals/reapproval/base_shop.json`, `evals/reapproval/policy.md` и `evals/reapproval/scenarios.json` — собственные синтетические примеры в формате retail. Они не являются исходными заданиями τ-bench или действующими правилами Softline. Результаты в `evals/reapproval/` и `evals/acceptance/` описывают эти отдельные испытания; происхождение данных также указано в [описании стенда](evals/reapproval/README.md).
+`tests/retail_data.py`, `evals/ticket-integration/base_shop.json`, `evals/ticket-integration/policy.md`, `evals/zammad/base_shop.json`, `evals/zammad/policy.md`, `evals/reapproval/base_shop.json`, `evals/reapproval/policy.md` и `evals/reapproval/scenarios.json` — собственные синтетические примеры в формате retail. Они не являются исходными заданиями τ-bench или действующими правилами Softline. Снимок `evals/zammad/base_shop.json` создан как отдельная копия собственного учебного магазина; соседняя политика описывает проверку внешней регистрации в Zammad. Прежние локальные данные и правила сохранены.
+
+Результаты в `evals/reapproval/`, `evals/acceptance/` и `evals/zammad/` описывают отдельные испытания; происхождение данных также указано в [описании стенда пересогласования](evals/reapproval/README.md) и [отчёте Zammad](documents/evaluation/zammad-integration.md). Заявки Zammad содержат синтетические сведения этого учебного случая, а не обращения реальных клиентов.
 
 ## MIT License — Sierra Research
 

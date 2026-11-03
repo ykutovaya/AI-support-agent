@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="10" skipped="0" tests="11" time="6.126" timestamp="2026-11-03T03:44:09.279663+03:00" hostname="DESKTOP-PNPT252"><testcase classname="tests.test_zammad_bootstrap" name="test_explicit_zammad_loads_only_ticket_settings_and_keeps_demo" time="0.567"><failure message="AssertionError: assert 'local' == 'zammad'&#10;  &#10;  - zammad&#10;  + local">zammad_project = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-bootstrap-red/test_explicit_zammad_loads_onl0/application')
+
+    def test_explicit_zammad_loads_only_ticket_settings_and_keeps_demo(zammad_project):
+        app = create_service(zammad_project)
+        action = plan(app)
+        assert isinstance(app.model, DemoModel) and app.mode == "demo"
+&gt;       assert action.arguments["target"] == "zammad"
+E       AssertionError: assert 'local' == 'zammad'
+E         
+E         - zammad
+E         + local
+
+tests\test_zammad_bootstrap.py:59: AssertionError</failure></testcase><testcase classname="tests.test_zammad_bootstrap" name="test_ticket_backend_is_enabled_only_in_process_environment" time="0.152" /><testcase classname="tests.test_zammad_bootstrap" name="test_environment_destination_overrides_file" time="0.147"><failure message="KeyError: 'destination'">zammad_project = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-bootstrap-red/test_environment_destination_o0/application')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000212E1D27200&gt;
+
+    def test_environment_destination_overrides_file(zammad_project, monkeypatch):
+        monkeypatch.setenv("ZAMMAD_GROUP_ID", "7")
+        monkeypatch.setenv("ZAMMAD_GROUP_NAME", "Another Demo")
+        monkeypatch.setenv("ZAMMAD_CUSTOMER_MAP", '{"u1":9}')
+&gt;       destination = plan(create_service(zammad_project)).arguments["destination"]
+E       KeyError: 'destination'
+
+tests\test_zammad_bootstrap.py:84: KeyError</failure></testcase><testcase classname="tests.test_zammad_bootstrap" name="test_invalid_settings_fail_without_local_fallback[SUPPORT_AGENT_TICKET_BACKEND-wrong]" time="0.107"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">zammad_project = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-bootstrap-red/test_invalid_settings_fail_wit0/application')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000212E1D26ED0&gt;
+name = 'SUPPORT_AGENT_TICKET_BACKEND', value = 'wrong'
+
+    @pytest.mark.parametrize("name,value", [
+        ("SUPPORT_AGENT_TICKET_BACKEND", "wrong"),
+        ("ZAMMAD_TOKEN", ""),
+        ("ZAMMAD_GROUP_ID", "0"),
+        ("ZAMMAD_GROUP_NAME", ""),
+        ("ZAMMAD_CUSTOMER_MAP", "[]"),
+        ("ZAMMAD_CUSTOMER_MAP", '{"u1":true}'),
+        ("ZAMMAD_CUSTOMER_MAP", '{"u1":0}'),
+        ("ZAMMAD_CUSTOMER_MAP", "not-json"),
+    ])
+    def test_invalid_settings_fail_without_local_fallback(zammad_project, monkeypatch, name, value):
+        monkeypatch.setenv(name, value)
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_zammad_bootstrap.py:102: Failed</failure></testcase><testcase classname="tests.test_zammad_bootstrap" name="test_invalid_settings_fail_without_local_fallback[ZAMMAD_TOKEN-]" time="0.116"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">zammad_project = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-bootstrap-red/test_invalid_settings_fail_wit1/application')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000212E1D26360&gt;
+name = 'ZAMMAD_TOKEN', value = ''
+
+    @pytest.mark.parametrize("name,value", [
+        ("SUPPORT_AGENT_TICKET_BACKEND", "wrong"),
+        ("ZAMMAD_TOKEN", ""),
+        ("ZAMMAD_GROUP_ID", "0"),
+        ("ZAMMAD_GROUP_NAME", ""),
+        ("ZAMMAD_CUSTOMER_MAP", "[]"),
+        ("ZAMMAD_CUSTOMER_MAP", '{"u1":true}'),
+        ("ZAMMAD_CUSTOMER_MAP", '{"u1":0}'),
+        ("ZAMMAD_CUSTOMER_MAP", "not-json"),
+    ])
+    def test_invalid_settings_fail_without_local_fallback(zammad_project, monkeypatch, name, value):
+        monkeypatch.setenv(name, value)
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_zammad_bootstrap.py:102: Failed</failure></testcase><testcase classname="tests.test_zammad_bootstrap" name="test_invalid_settings_fail_without_local_fallback[ZAMMAD_GROUP_ID-0]" time="0.115"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">zammad_project = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-bootstrap-red/test_invalid_settings_fail_wit2/application')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000212E1D2D0A0&gt;
+name = 'ZAMMAD_GROUP_ID', value = '0'
+
+    @pytest.mark.parametrize("name,value", [
+        ("SUPPORT_AGENT_TICKET_BACKEND", "wrong"),
+        ("ZAMMAD_TOKEN", ""),
+        ("ZAMMAD_GROUP_ID", "0"),
+        ("ZAMMAD_GROUP_NAME", ""),
+        ("ZAMMAD_CUSTOMER_MAP", "[]"),
+        ("ZAMMAD_CUSTOMER_MAP", '{"u1":true}'),
+        ("ZAMMAD_CUSTOMER_MAP", '{"u1":0}'),
+        ("ZAMMAD_CUSTOMER_MAP", "not-json"),
+    ])
+    def test_invalid_settings_fail_without_local_fallback(zammad_project, monkeypatch, name, value):
+        monkeypatch.setenv(name, value)
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_zammad_bootstrap.py:102: Failed</failure></testcase><testcase classname="tests.test_zammad_bootstrap" name="test_invalid_settings_fail_without_local_fallback[ZAMMAD_GROUP_NAME-]" time="0.101"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">zammad_project = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-bootstrap-red/test_invalid_settings_fail_wit3/application')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000212E1D2FBF0&gt;
+name = 'ZAMMAD_GROUP_NAME', value = ''
+
+    @pytest.mark.parametrize("name,value", [
+        ("SUPPORT_AGENT_TICKET_BACKEND", "wrong"),
+        ("ZAMMAD_TOKEN", ""),
+        ("ZAMMAD_GROUP_ID", "0"),
+        ("ZAMMAD_GROUP_NAME", ""),
+        ("ZAMMAD_CUSTOMER_MAP", "[]"),
+        ("ZAMMAD_CUSTOMER_MAP", '{"u1":true}'),
+        ("ZAMMAD_CUSTOMER_MAP", '{"u1":0}'),
+        ("ZAMMAD_CUSTOMER_MAP", "not-json"),
+    ])
+    def test_invalid_settings_fail_without_local_fallback(zammad_project, monkeypatch, name, value):
+        monkeypatch.setenv(name, value)
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_zammad_bootstrap.py:102: Failed</failure></testcase><testcase classname="tests.test_zammad_bootstrap" name="test_invalid_settings_fail_without_local_fallback[ZAMMAD_CUSTOMER_MAP-[]]" time="0.105"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">zammad_project = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-bootstrap-red/test_invalid_settings_fail_wit4/application')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000212E1D2D5B0&gt;
+name = 'ZAMMAD_CUSTOMER_MAP', value = '[]'
+
+    @pytest.mark.parametrize("name,value", [
+        ("SUPPORT_AGENT_TICKET_BACKEND", "wrong"),
+        ("ZAMMAD_TOKEN", ""),
+        ("ZAMMAD_GROUP_ID", "0"),
+        ("ZAMMAD_GROUP_NAME", ""),
+        ("ZAMMAD_CUSTOMER_MAP", "[]"),
+        ("ZAMMAD_CUSTOMER_MAP", '{"u1":true}'),
+        ("ZAMMAD_CUSTOMER_MAP", '{"u1":0}'),
+        ("ZAMMAD_CUSTOMER_MAP", "not-json"),
+    ])
+    def test_invalid_settings_fail_without_local_fallback(zammad_project, monkeypatch, name, value):
+        monkeypatch.setenv(name, value)
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_zammad_bootstrap.py:102: Failed</failure></testcase><testcase classname="tests.test_zammad_bootstrap" name="test_invalid_settings_fail_without_local_fallback[ZAMMAD_CUSTOMER_MAP-{&quot;u1&quot;:true}]" time="0.114"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">zammad_project = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-bootstrap-red/test_invalid_settings_fail_wit5/application')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000212E1D2F470&gt;
+name = 'ZAMMAD_CUSTOMER_MAP', value = '{"u1":true}'
+
+    @pytest.mark.parametrize("name,value", [
+        ("SUPPORT_AGENT_TICKET_BACKEND", "wrong"),
+        ("ZAMMAD_TOKEN", ""),
+        ("ZAMMAD_GROUP_ID", "0"),
+        ("ZAMMAD_GROUP_NAME", ""),
+        ("ZAMMAD_CUSTOMER_MAP", "[]"),
+        ("ZAMMAD_CUSTOMER_MAP", '{"u1":true}'),
+        ("ZAMMAD_CUSTOMER_MAP", '{"u1":0}'),
+        ("ZAMMAD_CUSTOMER_MAP", "not-json"),
+    ])
+    def test_invalid_settings_fail_without_local_fallback(zammad_project, monkeypatch, name, value):
+        monkeypatch.setenv(name, value)
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_zammad_bootstrap.py:102: Failed</failure></testcase><testcase classname="tests.test_zammad_bootstrap" name="test_invalid_settings_fail_without_local_fallback[ZAMMAD_CUSTOMER_MAP-{&quot;u1&quot;:0}]" time="0.105"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">zammad_project = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-bootstrap-red/test_invalid_settings_fail_wit6/application')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000212E1D272F0&gt;
+name = 'ZAMMAD_CUSTOMER_MAP', value = '{"u1":0}'
+
+    @pytest.mark.parametrize("name,value", [
+        ("SUPPORT_AGENT_TICKET_BACKEND", "wrong"),
+        ("ZAMMAD_TOKEN", ""),
+        ("ZAMMAD_GROUP_ID", "0"),
+        ("ZAMMAD_GROUP_NAME", ""),
+        ("ZAMMAD_CUSTOMER_MAP", "[]"),
+        ("ZAMMAD_CUSTOMER_MAP", '{"u1":true}'),
+        ("ZAMMAD_CUSTOMER_MAP", '{"u1":0}'),
+        ("ZAMMAD_CUSTOMER_MAP", "not-json"),
+    ])
+    def test_invalid_settings_fail_without_local_fallback(zammad_project, monkeypatch, name, value):
+        monkeypatch.setenv(name, value)
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_zammad_bootstrap.py:102: Failed</failure></testcase><testcase classname="tests.test_zammad_bootstrap" name="test_invalid_settings_fail_without_local_fallback[ZAMMAD_CUSTOMER_MAP-not-json]" time="0.114"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">zammad_project = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-bootstrap-red/test_invalid_settings_fail_wit7/application')
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x00000212E1D2FDD0&gt;
+name = 'ZAMMAD_CUSTOMER_MAP', value = 'not-json'
+
+    @pytest.mark.parametrize("name,value", [
+        ("SUPPORT_AGENT_TICKET_BACKEND", "wrong"),
+        ("ZAMMAD_TOKEN", ""),
+        ("ZAMMAD_GROUP_ID", "0"),
+        ("ZAMMAD_GROUP_NAME", ""),
+        ("ZAMMAD_CUSTOMER_MAP", "[]"),
+        ("ZAMMAD_CUSTOMER_MAP", '{"u1":true}'),
+        ("ZAMMAD_CUSTOMER_MAP", '{"u1":0}'),
+        ("ZAMMAD_CUSTOMER_MAP", "not-json"),
+    ])
+    def test_invalid_settings_fail_without_local_fallback(zammad_project, monkeypatch, name, value):
+        monkeypatch.setenv(name, value)
+&gt;       with pytest.raises(ValueError) as error:
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+tests\test_zammad_bootstrap.py:102: Failed</failure></testcase></testsuite></testsuites>

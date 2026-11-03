@@ -11,11 +11,69 @@ def _path(value: str, root: Path) -> Path:
     return path if path.is_absolute() else root / path
 
 
+def _ticket_settings(root: Path):
+    """Включить внешние заявки явно, не загружая настройки модели в окружение."""
+    target = os.environ.get("SUPPORT_AGENT_TICKET_BACKEND", "local")
+    if target not in {"local", "zammad"}:
+        raise ValueError("SUPPORT_AGENT_TICKET_BACKEND должен быть local или zammad")
+    if target == "local":
+        return target, None, None, None
+
+    from dotenv import dotenv_values
+
+    from support_agent.adapters.zammad import ZammadBackend
+
+    values = dotenv_values(root / ".env") if (root / ".env").is_file() else {}
+
+    def setting(name):
+        value = os.environ[name] if name in os.environ else values.get(name)
+        if not isinstance(value, str) or not value.strip():
+            raise ValueError(f"Для Zammad задайте {name}")
+        return value.strip()
+
+    url, token = setting("ZAMMAD_URL"), setting("ZAMMAD_TOKEN")
+    try:
+        group_id = int(setting("ZAMMAD_GROUP_ID"))
+        if group_id < 1:
+            raise ValueError
+    except ValueError:
+        raise ValueError(
+            "ZAMMAD_GROUP_ID должен быть положительным целым числом"
+        ) from None
+    group_name = setting("ZAMMAD_GROUP_NAME")
+    try:
+        mapping = json.loads(setting("ZAMMAD_CUSTOMER_MAP"))
+        if (
+            not isinstance(mapping, dict)
+            or not mapping
+            or any(
+                not isinstance(key, str)
+                or not key.strip()
+                or type(value) is not int
+                or value < 1
+                for key, value in mapping.items()
+            )
+        ):
+            raise ValueError
+    except ValueError:
+        raise ValueError(
+            "ZAMMAD_CUSTOMER_MAP должен задавать JSON-объект: клиент retail и положительный ID клиента Zammad"
+        ) from None
+    backend = ZammadBackend(url, token)
+    destination = {
+        "base_url": backend.base_url,
+        "group_id": group_id,
+        "group_name": group_name,
+    }
+    return target, backend, destination, mapping
+
+
 def create_service(root: Path | None = None):
     """Загрузить магазин один раз и подключить модель без вызова API.
 
     SUPPORT_AGENT_MODE=api разрешает чтение .env из корня приложения.
-    Другие режимы не читают файл с ключами. Рабочие данные остаются в SQLite.
+    SUPPORT_AGENT_TICKET_BACKEND=zammad отдельно разрешает настройки Zammad.
+    Локальный demo не читает файл с ключами. Рабочие данные остаются в SQLite.
     """
     # Установить до любого импорта tau2: его настройки иначе могут загрузить .env.
     os.environ["PYTHON_DOTENV_DISABLED"] = "1"
@@ -28,6 +86,9 @@ def create_service(root: Path | None = None):
     mode = os.environ.get("SUPPORT_AGENT_MODE", "demo")
     if mode not in {"demo", "api"}:
         raise ValueError("SUPPORT_AGENT_MODE должен быть demo или api")
+    ticket_target, ticket_backend, destination, customer_mapping = _ticket_settings(
+        root
+    )
     if mode == "api":
         from dotenv import dotenv_values
 
@@ -85,11 +146,18 @@ def create_service(root: Path | None = None):
                 "Не удалось прочитать исходные db.json и соседний policy.md; задайте SUPPORT_AGENT_RETAIL_DB"
             ) from error
         store.initialize(RetailAdapter(snapshot, policy).snapshot(), policy)
+    adapter_options = {"target": ticket_target}
+    if ticket_target == "zammad":
+        adapter_options.update(
+            destination=destination, customer_mapping=customer_mapping
+        )
     service = SupportService(
         store,
         model,
-        partial(TicketRetailAdapter, target="local"),
+        partial(TicketRetailAdapter, **adapter_options),
         recovery_mode=os.environ.get("SUPPORT_AGENT_RECOVERY_MODE", "manual"),
+        ticket_backend=ticket_backend,
     )
     service.mode = mode
+    service.ticket_target = ticket_target
     return service

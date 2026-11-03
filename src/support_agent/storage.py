@@ -44,6 +44,15 @@ class Store:
                     order_id TEXT NOT NULL, reason_code TEXT NOT NULL,
                     title TEXT NOT NULL, body TEXT NOT NULL, status TEXT NOT NULL DEFAULT 'open',
                     UNIQUE(case_id,order_id,reason_code));
+                CREATE TABLE IF NOT EXISTS external_ticket_operations (
+                    operation_id TEXT PRIMARY KEY,
+                    proposal_id TEXT UNIQUE NOT NULL REFERENCES proposals(id),
+                    case_id TEXT NOT NULL REFERENCES cases(id), user_id TEXT NOT NULL,
+                    order_id TEXT NOT NULL, reason_code TEXT NOT NULL,
+                    digest TEXT NOT NULL, request TEXT NOT NULL, text TEXT NOT NULL,
+                    status TEXT NOT NULL, ticket_id INTEGER, result TEXT,
+                    reason TEXT NOT NULL DEFAULT '',
+                    UNIQUE(case_id,order_id,reason_code));
                 CREATE TABLE IF NOT EXISTS outbox (
                     id TEXT PRIMARY KEY, proposal_id TEXT UNIQUE NOT NULL REFERENCES proposals(id),
                     case_id TEXT NOT NULL REFERENCES cases(id), text TEXT NOT NULL,
@@ -162,6 +171,22 @@ class Store:
                 "SELECT * FROM support_tickets WHERE proposal_id=?", (proposal_id,)
             ).fetchone()
             return dict(row) if row else None
+
+    def external_ticket(self, proposal_id):
+        """Сохранённое внешнее исполнение; локальная заявка остаётся отдельной записью."""
+        with self.connection() as conn:
+            row = conn.execute(
+                "SELECT * FROM external_ticket_operations WHERE proposal_id=?",
+                (proposal_id,),
+            ).fetchone()
+            if row is None:
+                return None
+            result = dict(row)
+            result["request"] = json.loads(result["request"])
+            result["result"] = (
+                json.loads(result["result"]) if result["result"] else None
+            )
+            return result
 
     @staticmethod
     def next_version(conn, case_id):

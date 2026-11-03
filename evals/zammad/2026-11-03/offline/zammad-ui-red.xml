@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="3" time="8.073" timestamp="2026-11-03T03:44:57.649691+03:00" hostname="DESKTOP-PNPT252"><testcase classname="tests.test_zammad_ui" name="test_remote_card_shows_exact_contents_and_destination_without_local_claim" time="2.347"><failure message="AssertionError: assert 'Локальная учебная заявка' not in 'Рабочее мес...ебная заявка'&#10;  &#10;  'Локальная учебная заявка' is contained here:&#10;    т заглушка&#10;    Локальная учебная заявка">open_app = &lt;function open_app.&lt;locals&gt;.start at 0x000001CB7C294360&gt;
+
+    def test_remote_card_shows_exact_contents_and_destination_without_local_claim(open_app):
+        service = FakeService()
+        service.ticket_target = "zammad"
+        proposal = remote_proposal(service.first)
+        service.views[service.first].update(proposal=proposal, proposal_status="pending")
+        at = open_app(service)
+        content = visible_text(at)
+        for expected in ("Заявка в Zammad", "support.example.test", "Тестовая группа", "31", proposal.action.arguments["title"], proposal.action.arguments["body"], proposal.text):
+            assert expected in content
+&gt;       assert "Локальная учебная заявка" not in content
+E       AssertionError: assert 'Локальная учебная заявка' not in 'Рабочее мес...ебная заявка'
+E         
+E         'Локальная учебная заявка' is contained here:
+E           т заглушка
+E           Локальная учебная заявка
+
+tests\test_zammad_ui.py:30: AssertionError</failure></testcase><testcase classname="tests.test_zammad_ui" name="test_unknown_card_reconciles_original_approval_without_recreating" time="0.062"><failure message="AssertionError: assert 'Исход создания неизвестен' in 'Рабочее место поддержки\nПервый Клиент · one@example.test\nИстория обращения\nПредложение сотруднику\nТочный текст от...трирована; исполнение обмена не подтверждено.\nУчебный режим без API: ответы задаёт заглушка\nЛокальная учебная заявка'&#10; +  where 'Рабочее место поддержки\nПервый Клиент · one@example.test\nИстория обращения\nПредложение сотруднику\nТочный текст от...трирована; исполнение обмена не подтверждено.\nУчебный режим без API: ответы задаёт заглушка\nЛокальная учебная заявка' = visible_text(AppTest(\n    _script_path='C:\\Users\\USER\\AppData\\Local\\Temp\\zammad-integration-2026-11-03\\project\\src\\support...o@example.test · case-2'])\n            }\n        ),\n        2: SpecialBlock(\n            type='event'\n        )\n    }\n))">open_app = &lt;function open_app.&lt;locals&gt;.start at 0x000001CB7C476340&gt;
+
+    def test_unknown_card_reconciles_original_approval_without_recreating(open_app):
+        service = FakeService()
+        proposal = remote_proposal(service.first)
+        service.views[service.first].update(proposal=proposal, proposal_status="unknown")
+        reads = []
+    
+        def reconcile(*args):
+            reads.append(args)
+            return {"status": "unknown", "reason": "Заявка пока не найдена"}
+    
+        service.reconcile = reconcile
+        at = open_app(service)
+&gt;       assert "Исход создания неизвестен" in visible_text(at)
+E       AssertionError: assert 'Исход создания неизвестен' in 'Рабочее место поддержки\nПервый Клиент · one@example.test\nИстория обращения\nПредложение сотруднику\nТочный текст от...трирована; исполнение обмена не подтверждено.\nУчебный режим без API: ответы задаёт заглушка\nЛокальная учебная заявка'
+E        +  where 'Рабочее место поддержки\nПервый Клиент · one@example.test\nИстория обращения\nПредложение сотруднику\nТочный текст от...трирована; исполнение обмена не подтверждено.\nУчебный режим без API: ответы задаёт заглушка\nЛокальная учебная заявка' = visible_text(AppTest(\n    _script_path='C:\\Users\\USER\\AppData\\Local\\Temp\\zammad-integration-2026-11-03\\project\\src\\support...o@example.test · case-2'])\n            }\n        ),\n        2: SpecialBlock(\n            type='event'\n        )\n    }\n))
+
+tests\test_zammad_ui.py:48: AssertionError</failure></testcase><testcase classname="tests.test_zammad_ui" name="test_duplicate_remote_result_displays_verified_number_status_and_link" time="0.065"><failure message="AssertionError: assert 'Локальная учебная заявка' not in 'Рабочее мес...ебная заявка'&#10;  &#10;  'Локальная учебная заявка' is contained here:&#10;    верждено.&#10;    Локальная учебная заявка&#10;    Номер заявки: 83001&#10;    Статус заявки: new&#10;    Учебный режим без API: ответы задаёт заглушка&#10;    Локальная учебная заявка">open_app = &lt;function open_app.&lt;locals&gt;.start at 0x000001CB7C4EF100&gt;
+
+    def test_duplicate_remote_result_displays_verified_number_status_and_link(open_app):
+        service = FakeService()
+        service.views[service.first].update(
+            proposal=remote_proposal(service.first), proposal_status="duplicate",
+            operation_result={"status": "ticket created", "target": "zammad",
+                              "ticket_number": "83001", "ticket_status": "new",
+                              "ticket_url": "https://support.example.test/#ticket/zoom/42"},
+        )
+        at = open_app(service)
+        content = visible_text(at)
+        assert "Номер заявки: 83001" in content
+        assert "Статус заявки: new" in content
+&gt;       assert "Локальная учебная заявка" not in content
+E       AssertionError: assert 'Локальная учебная заявка' not in 'Рабочее мес...ебная заявка'
+E         
+E         'Локальная учебная заявка' is contained here:
+E           верждено.
+E           Локальная учебная заявка
+E           Номер заявки: 83001
+E           Статус заявки: new
+E           Учебный режим без API: ответы задаёт заглушка
+E           Локальная учебная заявка
+
+tests\test_zammad_ui.py:70: AssertionError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,159 @@
+{
+  "scenario": "lost-response",
+  "checker": "assistant_streamlit_apptest",
+  "calls": [
+    {
+      "method": "POST",
+      "path": "/api/v1/tickets",
+      "query": "",
+      "status": 201,
+      "created_id": 4,
+      "injection": "Ответ после успешной записи скрыт от адаптера"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/tickets/search",
+      "query": "query=tags%3A%22asa-op-e5a90d1a7bbe4c82aee7bed093825de1%22&expand=true&limit=2&per_page=2&page=1",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/tickets/search",
+      "query": "query=tags%3A%22asa-op-e5a90d1a7bbe4c82aee7bed093825de1%22&expand=true&limit=2&per_page=2&page=1",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/tickets/4",
+      "query": "expand=true",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/tags",
+      "query": "object=Ticket&o_id=4",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/ticket_articles/by_ticket/4",
+      "query": "",
+      "status": 200
+    }
+  ],
+  "checkpoints": [
+    {
+      "name": "before_approval",
+      "counts": {
+        "approvals": 0,
+        "operations": 0,
+        "outbox": 0,
+        "deliveries": 0,
+        "support_tickets": 0
+      }
+    },
+    {
+      "name": "after_approval",
+      "counts": {
+        "approvals": 1,
+        "operations": 0,
+        "outbox": 0,
+        "deliveries": 0,
+        "support_tickets": 0
+      }
+    },
+    {
+      "name": "restored_before_reconcile",
+      "counts": {
+        "approvals": 1,
+        "operations": 0,
+        "outbox": 0,
+        "deliveries": 0,
+        "support_tickets": 0
+      }
+    },
+    {
+      "name": "restored_before_reconcile",
+      "counts": {
+        "approvals": 1,
+        "operations": 0,
+        "outbox": 0,
+        "deliveries": 0,
+        "support_tickets": 0
+      }
+    },
+    {
+      "name": "after_restart_and_repeat",
+      "counts": {
+        "approvals": 1,
+        "operations": 1,
+        "outbox": 1,
+        "deliveries": 1,
+        "support_tickets": 0
+      }
+    }
+  ],
+  "config": {
+    "url": "https://ai-support-agent.zammad.com",
+    "group_id": 2,
+    "group_name": "Retail Demo",
+    "customer_id": 4,
+    "model": "DemoModel",
+    "api_model_calls": 0,
+    "channel": "local_test"
+  },
+  "code_hashes": {
+    "src/support_agent/__init__.py": "3dab7fa392438c0f8fb323f52e3999144b77cfc71ee6ca91cde18f4e6e73bcdf",
+    "src/support_agent/adapters/__init__.py": "01a9b010035def2b4ba4b6d05eab45f93d3f6aab32dc3406ec61e94e02201aec",
+    "src/support_agent/adapters/demo_model.py": "27dfb52925124e422032857ba39d49416e7fabed005519a8031fcf71cb48a555",
+    "src/support_agent/adapters/llm.py": "59190880af8d5f88fa86eb3c573a6b2c7f6d2ea2c53126946a4c5e6a0b9d80a7",
+    "src/support_agent/adapters/retail.py": "feece21849bbed4929dd6d8e5a617ccc9f3c0cdb119f3993b99c2c28ab87c52c",
+    "src/support_agent/adapters/tau_bench.py": "bd8208af850ee61a2fa92926b13ac192d32f50a4698e472ece2ac9437229df22",
+    "src/support_agent/adapters/ticket_retail.py": "1837356b69d6d671de87569c35e1e23bf0b37485f70cf696bb62dfdede12a087",
+    "src/support_agent/adapters/zammad.py": "082b91e93f9dbe9ad80b6f51816d4748e934fbbe41c4e00cd153ba13e343f6d2",
+    "src/support_agent/agent.py": "1d4247931ddb96c3f73118a0b7839472b7ff52e75d29020beab0f52fd5d6fe54",
+    "src/support_agent/bootstrap.py": "e56b7d8f372b04f144faf87688f2831c0f93d71d422bc22f3170503e8d89b9ab",
+    "src/support_agent/demo.py": "b7c3991bc27aa09c9032da1f53aba752a9d2f20e46c39df48d021d3eea70aa5d",
+    "src/support_agent/execution.py": "9e3acfa90ef52188cbe84a47c11854653d08910bf35c669f1bfeacf34caf0ee9",
+    "src/support_agent/external_tickets.py": "dc8d538a46f1e17c88db9eb99c1047aa7a12bc707d07df9fecc0e5407791da25",
+    "src/support_agent/models.py": "1e9487bae05f7c824ed8bb29f62b9629014987871b5b16bd31d487e69d8060a9",
+    "src/support_agent/proposals.py": "6a88890ae4f2945fd8cdb34c8de19f559631e946a6f026aa5423d1b29f6bc057",
+    "src/support_agent/storage.py": "12b28921def5c11080f1258e9eac93a45e815c0012cab1e55749539fdc7a4775",
+    "src/support_agent/tickets.py": "d7d3d4e4d378f8fa7e2139a7c09ab494c935f891dcabd6e6e44ddb16afafe842",
+    "src/support_agent/ui.py": "f1a0ece7160611b83e9dee640e82aba6db1663ca4f31117c8ce1884afac5edc9",
+    "src/support_agent/workflow.py": "509c9628bc0e6b279c5d2b2375dd13360c3804444beb3b95690a4fe571e5b13f"
+  },
+  "case_id": "0ce46052b71646f18678ebda96127ef8",
+  "proposal_id": "18b2d6584f874f3e9f9c95eb6527468e",
+  "approved_request": {
+    "order_id": "#O1",
+    "user_id": "u1",
+    "target": "zammad",
+    "title": "Уточнение результата заявки по заказу #O1",
+    "body": "Заказ клиента: Заказ #O1, клиент u1, статус exchange requested. Источник: orders/#O1.\nПрименённое правило: Версия правила 1; версия правил магазина 6ccbd245e952d87107dbd9649c07900eef9ed0d012f23a248f0116fffa6406ed. Заявка на обмен или возврат зарегистрирована. Фактическое исполнение не установлено по данным retail; для ответа о текущем результате требуется проверка специалиста. Источник: policy.md#requested-order-result.\nВыполненные проверки: Проверены принадлежность заказа клиенту обращения, наличие заказа в списке его заказов и статус зарегистрированной заявки. Источник: orders/#O1.\nНерешённый вопрос клиента: Проверьте результат обмена.",
+    "question": "Проверьте результат обмена.",
+    "destination": {
+      "base_url": "https://ai-support-agent.zammad.com",
+      "group_id": 2,
+      "group_name": "Retail Demo",
+      "customer_id": 4
+    }
+  },
+  "approved_reply": "Зарегистрирована заявка в Zammad для проверки результата по заказу #O1. Фактическое завершение обмена или возврата пока не подтверждено.",
+  "first_outcome": "unknown",
+  "unknown_saved": true,
+  "status": "passed",
+  "error": null,
+  "result": {
+    "status": "ticket created",
+    "target": "zammad",
+    "ticket_id": 4,
+    "ticket_number": "22004",
+    "ticket_status": "new",
+    "ticket_url": "https://ai-support-agent.zammad.com/#ticket/zoom/4",
+    "group_id": 2,
+    "customer_id": 4,
+    "duplicate": false
+  },
+  "external_operation": "e5a90d1a7bbe4c82aee7bed093825de1"
+}

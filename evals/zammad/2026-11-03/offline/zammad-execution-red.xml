@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="19" failures="0" skipped="0" tests="19" time="6.313" timestamp="2026-11-03T03:43:48.060189+03:00" hostname="DESKTOP-PNPT252"><testcase classname="tests.test_zammad_execution" name="test_confirm_registers_once_and_delivers_exact_approved_text" time="0.046"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_confirm_registers_once_an0')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase><testcase classname="tests.test_zammad_execution" name="test_invalid_confirmation_cannot_call_backend[employee]" time="0.034"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_invalid_confirmation_cann0')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase><testcase classname="tests.test_zammad_execution" name="test_invalid_confirmation_cannot_call_backend[version]" time="0.037"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_invalid_confirmation_cann1')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase><testcase classname="tests.test_zammad_execution" name="test_invalid_confirmation_cannot_call_backend[digest]" time="0.040"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_invalid_confirmation_cann2')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase><testcase classname="tests.test_zammad_execution" name="test_changed_conditions_block_post[policy]" time="0.048"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_changed_conditions_block_0')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase><testcase classname="tests.test_zammad_execution" name="test_changed_conditions_block_post[status]" time="0.072"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_changed_conditions_block_1')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase><testcase classname="tests.test_zammad_execution" name="test_changed_conditions_block_post[ownership]" time="0.059"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_changed_conditions_block_2')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase><testcase classname="tests.test_zammad_execution" name="test_changed_conditions_block_post[body]" time="0.066"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_changed_conditions_block_3')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase><testcase classname="tests.test_zammad_execution" name="test_changed_conditions_block_post[target]" time="0.064"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_changed_conditions_block_4')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase><testcase classname="tests.test_zammad_execution" name="test_changed_conditions_block_post[destination]" time="0.070"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_changed_conditions_block_5')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase><testcase classname="tests.test_zammad_execution" name="test_rephrasing_or_mode_change_cannot_register_completed_ticket_again[adapter]" time="0.061"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_rephrasing_or_mode_change0')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase><testcase classname="tests.test_zammad_execution" name="test_rephrasing_or_mode_change_cannot_register_completed_ticket_again[local_adapter]" time="0.064"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_rephrasing_or_mode_change1')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase><testcase classname="tests.test_zammad_execution" name="test_timeout_after_write_restarts_with_get_only_and_same_request" time="0.071"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_timeout_after_write_resta0')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase><testcase classname="tests.test_zammad_execution" name="test_unresolved_or_changed_instance_stays_unknown_without_delivery[False]" time="0.062"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_unresolved_or_changed_ins0')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase><testcase classname="tests.test_zammad_execution" name="test_unresolved_or_changed_instance_stays_unknown_without_delivery[wrong_instance]" time="0.064"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_unresolved_or_changed_ins1')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase><testcase classname="tests.test_zammad_execution" name="test_unknown_blocks_new_local_registration" time="0.061"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_unknown_blocks_new_local_0')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase><testcase classname="tests.test_zammad_execution" name="test_known_rejection_requires_approval_of_new_error_message" time="0.067"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_known_rejection_requires_0')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase><testcase classname="tests.test_zammad_execution" name="test_delivery_retry_does_not_register_again" time="0.060"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_delivery_retry_does_not_r0')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase><testcase classname="tests.test_zammad_execution" name="test_concurrent_confirmation_has_one_post" time="0.060"><error message="failed on setup with &quot;TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'&quot;">tmp_path = WindowsPath('C:/Users/USER/AppData/Local/Temp/zammad-integration-2026-11-03/tmp-zammad-execution-red/test_concurrent_confirmation_h0')
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    @pytest.fixture
+    def remote_setup(tmp_path, snapshot):
+        snapshot["orders"]["#O1"]["status"] = "exchange requested"
+        store = Store(tmp_path / "remote.sqlite3")
+        store.initialize(snapshot, "Правила магазина")
+        case_id = store.create_case("u1", "employee")
+        backend = FakeBackend(store)
+&gt;       return store, backend, add_ticket(store, case_id)
+
+tests\test_zammad_execution.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_zammad_execution.py:35: in add_ticket
+    action = factory(snapshot, policy).plan(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+policy = 'Правила магазина'
+
+    def adapter(snapshot, policy):
+&gt;       return TicketRetailAdapter(snapshot, policy, target="zammad", destination=DESTINATION)
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_execution.py:26: TypeError</error></testcase></testsuite></testsuites>

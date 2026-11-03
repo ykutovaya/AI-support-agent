@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="62" time="0.178" timestamp="2026-11-03T03:45:13.628744+03:00" hostname="DESKTOP-PNPT252"><testcase classname="tests.test_zammad" name="test_create_preserves_approved_text_and_requires_verified_readback" time="0.002" /><testcase classname="tests.test_zammad" name="test_definite_http_rejection_never_becomes_success_or_retries[400]" time="0.000" /><testcase classname="tests.test_zammad" name="test_definite_http_rejection_never_becomes_success_or_retries[401]" time="0.000" /><testcase classname="tests.test_zammad" name="test_definite_http_rejection_never_becomes_success_or_retries[403]" time="0.000" /><testcase classname="tests.test_zammad" name="test_definite_http_rejection_never_becomes_success_or_retries[404]" time="0.000" /><testcase classname="tests.test_zammad" name="test_definite_http_rejection_never_becomes_success_or_retries[422]" time="0.000" /><testcase classname="tests.test_zammad" name="test_uncertain_post_never_retries_or_exposes_raw_error[failure0]" time="0.001" /><testcase classname="tests.test_zammad" name="test_uncertain_post_never_retries_or_exposes_raw_error[failure1]" time="0.001" /><testcase classname="tests.test_zammad" name="test_uncertain_post_never_retries_or_exposes_raw_error[failure2]" time="0.000" /><testcase classname="tests.test_zammad" name="test_uncertain_post_never_retries_or_exposes_raw_error[failure3]" time="0.000" /><testcase classname="tests.test_zammad" name="test_uncertain_post_never_retries_or_exposes_raw_error[failure4]" time="0.000" /><testcase classname="tests.test_zammad" name="test_uncertain_post_never_retries_or_exposes_raw_error[failure5]" time="0.001" /><testcase classname="tests.test_zammad" name="test_changed_ticket_readback_remains_unknown_with_known_id[title-\u0418\u0437\u043c\u0435\u043d\u0451\u043d\u043d\u044b\u0439 \u0437\u0430\u0433\u043e\u043b\u043e\u0432\u043e\u043a]" time="0.000" /><testcase classname="tests.test_zammad" name="test_changed_ticket_readback_remains_unknown_with_known_id[group_id-3]" time="0.000" /><testcase classname="tests.test_zammad" name="test_changed_ticket_readback_remains_unknown_with_known_id[customer_id-8]" time="0.000" /><testcase classname="tests.test_zammad" name="test_changed_ticket_readback_remains_unknown_with_known_id[state-closed]" time="0.000" /><testcase classname="tests.test_zammad" name="test_changed_ticket_readback_remains_unknown_with_known_id[id-28]" time="0.000" /><testcase classname="tests.test_zammad" name="test_changed_ticket_readback_remains_unknown_with_known_id[number-]" time="0.000" /><testcase classname="tests.test_zammad" name="test_changed_ticket_readback_remains_unknown_with_known_id[group-\u0414\u0440\u0443\u0433\u0430\u044f \u0433\u0440\u0443\u043f\u043f\u0430]" time="0.000" /><testcase classname="tests.test_zammad" name="test_malformed_state_is_unknown_with_known_id[state0]" time="0.000"><failure message="TypeError: unhashable type: 'list'">state = []
+
+    @pytest.mark.parametrize("state", [[], {}])
+    def test_malformed_state_is_unknown_with_known_id(state):
+        service, _ = backend([
+            response({"id": 27}, 201), *readback(ticket={**TICKET, "state": state})
+        ])
+        with pytest.raises(TicketOutcomeUnknown) as caught:
+&gt;           service.create(OPERATION_ID, REQUEST)
+
+tests\test_zammad.py:176: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\support_agent\adapters\zammad.py:183: in create
+    return self._verify(ticket_id, tag, request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;support_agent.adapters.zammad.ZammadBackend object at 0x0000028BD5B0F950&gt;
+ticket_id = 27, tag = 'asa-op-a07e19b3dd524e6bbbc4ba5df5971cb6'
+request = {'body': 'Согласованные факты.\nНерешённый вопрос: когда завершится обмен?', 'destination': {'base_url': 'https://supp...mer_id': 4, 'group_id': 2, 'group_name': 'Retail Demo'}, 'order_id': '#O1', 'question': 'Когда завершится обмен?', ...}
+
+    def _verify(self, ticket_id, tag, request):
+        ticket = self._json("GET", f"tickets/{ticket_id}?expand=true", ticket_id=ticket_id)
+        destination = request["destination"]
+        if (
+            not isinstance(ticket, dict)
+            or ticket.get("id") != ticket_id
+            or not _positive_id(ticket.get("id"))
+            or ticket.get("title") != request["title"]
+            or ticket.get("group_id") != destination["group_id"]
+            or ticket.get("group") != destination["group_name"]
+            or ticket.get("customer_id") != destination["customer_id"]
+&gt;           or ticket.get("state") not in {"new", "open"}
+            or not isinstance(ticket.get("number"), str)
+            or not ticket["number"].strip()
+        ):
+E       TypeError: unhashable type: 'list'
+
+src\support_agent\adapters\zammad.py:222: TypeError</failure></testcase><testcase classname="tests.test_zammad" name="test_malformed_state_is_unknown_with_known_id[state1]" time="0.001"><failure message="TypeError: unhashable type: 'dict'">state = {}
+
+    @pytest.mark.parametrize("state", [[], {}])
+    def test_malformed_state_is_unknown_with_known_id(state):
+        service, _ = backend([
+            response({"id": 27}, 201), *readback(ticket={**TICKET, "state": state})
+        ])
+        with pytest.raises(TicketOutcomeUnknown) as caught:
+&gt;           service.create(OPERATION_ID, REQUEST)
+
+tests\test_zammad.py:176: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\support_agent\adapters\zammad.py:183: in create
+    return self._verify(ticket_id, tag, request)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = &lt;support_agent.adapters.zammad.ZammadBackend object at 0x0000028BD5B0E390&gt;
+ticket_id = 27, tag = 'asa-op-a07e19b3dd524e6bbbc4ba5df5971cb6'
+request = {'body': 'Согласованные факты.\nНерешённый вопрос: когда завершится обмен?', 'destination': {'base_url': 'https://supp...mer_id': 4, 'group_id': 2, 'group_name': 'Retail Demo'}, 'order_id': '#O1', 'question': 'Когда завершится обмен?', ...}
+
+    def _verify(self, ticket_id, tag, request):
+        ticket = self._json("GET", f"tickets/{ticket_id}?expand=true", ticket_id=ticket_id)
+        destination = request["destination"]
+        if (
+            not isinstance(ticket, dict)
+            or ticket.get("id") != ticket_id
+            or not _positive_id(ticket.get("id"))
+            or ticket.get("title") != request["title"]
+            or ticket.get("group_id") != destination["group_id"]
+            or ticket.get("group") != destination["group_name"]
+            or ticket.get("customer_id") != destination["customer_id"]
+&gt;           or ticket.get("state") not in {"new", "open"}
+            or not isinstance(ticket.get("number"), str)
+            or not ticket["number"].strip()
+        ):
+E       TypeError: unhashable type: 'dict'
+
+src\support_agent\adapters\zammad.py:222: TypeError</failure></testcase><testcase classname="tests.test_zammad" name="test_boolean_destination_id_in_readback_cannot_confirm_integer_id[group_id]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'support_agent.adapters.zammad.TicketOutcomeUnknown'&gt;">field = 'group_id'
+
+    @pytest.mark.parametrize("field", ["group_id", "customer_id"])
+    def test_boolean_destination_id_in_readback_cannot_confirm_integer_id(field):
+        request = deepcopy(REQUEST)
+        request["destination"][field] = 1
+        service, _ = backend([
+            response({"id": 27}, 201), *readback(ticket={**TICKET, field: True})
+        ])
+&gt;       with pytest.raises(TicketOutcomeUnknown):
+E       Failed: DID NOT RAISE &lt;class 'support_agent.adapters.zammad.TicketOutcomeUnknown'&gt;
+
+tests\test_zammad.py:187: Failed</failure></testcase><testcase classname="tests.test_zammad" name="test_boolean_destination_id_in_readback_cannot_confirm_integer_id[customer_id]" time="0.001"><failure message="Failed: DID NOT RAISE &lt;class 'support_agent.adapters.zammad.TicketOutcomeUnknown'&gt;">field = 'customer_id'
+
+    @pytest.mark.parametrize("field", ["group_id", "customer_id"])
+    def test_boolean_destination_id_in_readback_cannot_confirm_integer_id(field):
+        request = deepcopy(REQUEST)
+        request["destination"][field] = 1
+        service, _ = backend([
+            response({"id": 27}, 201), *readback(ticket={**TICKET, field: True})
+        ])
+&gt;       with pytest.raises(TicketOutcomeUnknown):
+E       Failed: DID NOT RAISE &lt;class 'support_agent.adapters.zammad.TicketOutcomeUnknown'&gt;
+
+tests\test_zammad.py:187: Failed</failure></testcase><testcase classname="tests.test_zammad" name="test_wrong_article_is_not_evidence_of_approved_internal_note[body-\u0414\u0440\u0443\u0433\u0438\u0435 \u0444\u0430\u043a\u0442\u044b]" time="0.001" /><testcase classname="tests.test_zammad" name="test_wrong_article_is_not_evidence_of_approved_internal_note[type-email]" time="0.000" /><testcase classname="tests.test_zammad" name="test_wrong_article_is_not_evidence_of_approved_internal_note[sender-Customer]" time="0.000" /><testcase classname="tests.test_zammad" name="test_wrong_article_is_not_evidence_of_approved_internal_note[internal-False]" time="0.000" /><testcase classname="tests.test_zammad" name="test_wrong_article_is_not_evidence_of_approved_internal_note[content_type-text/html]" time="0.000" /><testcase classname="tests.test_zammad" name="test_wrong_article_is_not_evidence_of_approved_internal_note[ticket_id-29]" time="0.000" /><testcase classname="tests.test_zammad" name="test_success_requires_exact_persisted_operation_tag[tags0]" time="0.000" /><testcase classname="tests.test_zammad" name="test_success_requires_exact_persisted_operation_tag[tags1]" time="0.000" /><testcase classname="tests.test_zammad" name="test_success_requires_exact_persisted_operation_tag[tags2]" time="0.000" /><testcase classname="tests.test_zammad" name="test_read_failure_after_post_is_unknown_even_for_http_rejection[failure0]" time="0.000" /><testcase classname="tests.test_zammad" name="test_read_failure_after_post_is_unknown_even_for_http_rejection[failure1]" time="0.000" /><testcase classname="tests.test_zammad" name="test_read_failure_after_post_is_unknown_even_for_http_rejection[failure2]" time="0.000" /><testcase classname="tests.test_zammad" name="test_find_known_ticket_reads_and_verifies_without_post_or_search" time="0.000" /><testcase classname="tests.test_zammad" name="test_find_by_tag_reads_current_values_and_does_not_trust_search_copy" time="0.000" /><testcase classname="tests.test_zammad" name="test_empty_search_is_inconclusive_and_never_creates_ticket" time="0.000" /><testcase classname="tests.test_zammad" name="test_multiple_search_matches_require_manual_reconciliation" time="0.000" /><testcase classname="tests.test_zammad" name="test_known_ticket_id_does_not_bypass_operation_tag_validation" time="0.000" /><testcase classname="tests.test_zammad" name="test_constructor_has_no_io_and_normalizes_same_destination" time="0.000" /><testcase classname="tests.test_zammad" name="test_invalid_destination_is_rejected_before_network[base_url-https://other.example.test]" time="0.000" /><testcase classname="tests.test_zammad" name="test_invalid_destination_is_rejected_before_network[group_id-0]" time="0.000" /><testcase classname="tests.test_zammad" name="test_invalid_destination_is_rejected_before_network[group_id-True]" time="0.000" /><testcase classname="tests.test_zammad" name="test_invalid_destination_is_rejected_before_network[customer_id-4]" time="0.000" /><testcase classname="tests.test_zammad" name="test_invalid_destination_is_rejected_before_network[group_name-]" time="0.000" /><testcase classname="tests.test_zammad" name="test_unsafe_backend_url_is_rejected_without_io[http://support.example.test]" time="0.000" /><testcase classname="tests.test_zammad" name="test_unsafe_backend_url_is_rejected_without_io[https://user:secret@support.example.test]" time="0.000" /><testcase classname="tests.test_zammad" name="test_unsafe_backend_url_is_rejected_without_io[https://support.example.test/?token=secret]" time="0.001" /><testcase classname="tests.test_zammad" name="test_unsafe_backend_url_is_rejected_without_io[https://support.example.test/#a]" time="0.000" /><testcase classname="tests.test_zammad" name="test_unsafe_backend_url_is_rejected_without_io[https://support.example.test/api/v1]" time="0.000" /><testcase classname="tests.test_zammad" name="test_unsafe_backend_url_is_rejected_without_io[https://support.example.test/\n]" time="0.000" /><testcase classname="tests.test_zammad" name="test_unsafe_operation_id_cannot_inject_tag_or_search[]" time="0.000" /><testcase classname="tests.test_zammad" name="test_unsafe_operation_id_cannot_inject_tag_or_search[one,two]" time="0.000" /><testcase classname="tests.test_zammad" name="test_unsafe_operation_id_cannot_inject_tag_or_search[one&quot; OR *]" time="0.000" /><testcase classname="tests.test_zammad" name="test_unsafe_operation_id_cannot_inject_tag_or_search[a\nb]" time="0.000" /><testcase classname="tests.test_zammad" name="test_created_http_status_without_valid_id_is_not_success[not-json]" time="0.000" /><testcase classname="tests.test_zammad" name="test_created_http_status_without_valid_id_is_not_success[[]]" time="0.000" /><testcase classname="tests.test_zammad" name="test_created_http_status_without_valid_id_is_not_success[{&quot;id&quot;:true}]" time="0.000" /><testcase classname="tests.test_zammad" name="test_urllib_transport_verifies_tls_bounds_reads_and_disables_redirects" time="0.012" /><testcase classname="tests.test_zammad" name="test_urllib_http_error_does_not_read_or_expose_response_body" time="0.008" /><testcase classname="tests.test_zammad" name="test_oversized_response_is_unknown_and_never_retried" time="0.001" /></testsuite></testsuites>

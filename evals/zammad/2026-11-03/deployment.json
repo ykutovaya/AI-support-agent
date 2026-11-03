@@ -1,0 +1,13 @@
+{
+  "copied_files": 52,
+  "hashes_verified": true,
+  "protected_files_unchanged": 12,
+  "demo_database": "var/zammad-demo.sqlite3",
+  "source_result": "normal/result.json",
+  "counts": {
+    "cases": 1,
+    "operations": 1,
+    "outbox": 1,
+    "deliveries": 1
+  }
+}

@@ -30,6 +30,18 @@ TICKET_POLICY = """
 Регистрация не означает передачу обращения во внешнюю службу поддержки.
 """
 
+ZAMMAD_TICKET_POLICY = """
+Инструмент propose_support_ticket готовит заявку в Zammad.
+Если обмен или возврат уже зарегистрирован, но его исполнение не подтверждено,
+проверь клиента, заказ и правила, затем передай нерешённый вопрос в эту заявку.
+Сервер, группу и тестового клиента задаёт конфигурация приложения.
+Заявку и точный ответ согласует сотрудник; дополнительное согласие клиента не нужно.
+Не утверждай, что обмен завершён, товар отправлен или деньги возвращены.
+Номер и состояние заявки подтверждает исполнитель чтением Zammad после создания.
+Регистрация не означает решение проблемы или отправку ответа специалистом.
+Согласованный ответ приложение передаёт только в тестовый канал после проверки результата.
+"""
+
 
 def amount_text(action):
     if action.amount > 0:
@@ -49,8 +61,13 @@ def confirmation_text(action):
 
 def result_text(action):
     if action.name == "create_support_ticket":
+        registration = (
+            "Зарегистрирована заявка в Zammad"
+            if action.arguments["target"] == "zammad"
+            else "Зарегистрирована локальная учебная заявка"
+        )
         return (
-            "Зарегистрирована локальная учебная заявка для проверки результата "
+            f"{registration} для проверки результата "
             f"по заказу {action.arguments['order_id']}. "
             "Фактическое завершение обмена или возврата пока не подтверждено."
         )
@@ -102,6 +119,7 @@ class SupportService:
         channel=None,
         *,
         recovery_mode="manual",
+        ticket_backend=None,
     ):
         if recovery_mode not in ("manual", "auto"):
             raise ValueError("Режим продолжения должен быть manual или auto")
@@ -112,7 +130,9 @@ class SupportService:
         self.store = store
         self.model = model
         self.adapter_factory = adapter_factory
-        self.executor = Executor(store, adapter_factory, channel)
+        self.executor = Executor(
+            store, adapter_factory, channel, ticket_backend=ticket_backend
+        )
         self.recovery_mode = recovery_mode
 
     def create_case(self, user_id, employee_id):
@@ -148,6 +168,11 @@ class SupportService:
         with self.store.transaction() as conn:
             case = self.store.load_case(conn, case_id)
             check_employee(case, employee_id)
+            if conn.execute(
+                "SELECT 1 FROM proposals WHERE case_id=? AND status IN ('submitting','unknown')",
+                (case_id,),
+            ).fetchone():
+                raise ValueError("Сначала проверьте результат создания заявки в Zammad")
             if recovery_source:
                 recovery = conn.execute(
                     "SELECT * FROM recoveries WHERE source_proposal_id=? AND case_id=?",
@@ -197,9 +222,14 @@ class SupportService:
         adapter = self.adapter_factory(snapshot, policy)
         tools = adapter.specs()
         ticket_enabled = any(tool.name == "propose_support_ticket" for tool in tools)
+        ticket_policy = (
+            ZAMMAD_TICKET_POLICY
+            if getattr(adapter, "target", None) == "zammad"
+            else TICKET_POLICY
+        )
         core = AgentCore(
             model=self.model,
-            policy=policy + APP_POLICY + (TICKET_POLICY if ticket_enabled else ""),
+            policy=policy + APP_POLICY + (ticket_policy if ticket_enabled else ""),
             tools=tools,
             language="ru",
         )
@@ -360,6 +390,12 @@ class SupportService:
                         "Подготовка новой версии остановлена; проверьте журнал"
                     )
         return result
+
+    def reconcile(self, case_id, proposal_id, version, expected_digest, employee_id):
+        """Прочитать исход ранее согласованной операции, без новой подготовки."""
+        return self.executor.reconcile(
+            case_id, proposal_id, version, expected_digest, employee_id
+        )
 
     def resume(self, case_id, source_proposal_id, employee_id, *, automatic=False):
         """Один запуск общей подготовки на событие; запись и отправка не разрешаются."""

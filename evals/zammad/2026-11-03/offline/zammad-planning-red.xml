@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="11" skipped="0" tests="11" time="4.037" timestamp="2026-11-03T03:43:50.958055+03:00" hostname="DESKTOP-PNPT252"><testcase classname="tests.test_zammad_planning" name="test_destination_and_customer_are_bound_to_approval_without_extra_model_parameters" time="0.001"><failure message="TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'">snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    def test_destination_and_customer_are_bound_to_approval_without_extra_model_parameters(snapshot):
+&gt;       adapter = remote(requested(snapshot))
+
+tests\test_zammad_planning.py:23: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    def remote(snapshot, *, destination=None, customers=None, target="zammad"):
+&gt;       return TicketRetailAdapter(
+            snapshot, POLICY, target=target,
+            destination=DESTINATION if destination is None else destination,
+            customer_mapping=CUSTOMERS if customers is None else customers,
+        )
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_planning.py:15: TypeError</failure></testcase><testcase classname="tests.test_zammad_planning" name="test_changed_remote_destination_requires_new_approval[base_url-https://other.example.test]" time="0.003"><failure message="TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'">snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+field = 'base_url', value = 'https://other.example.test'
+
+    @pytest.mark.parametrize("field,value", [("base_url", "https://other.example.test"), ("group_id", 9), ("group_name", "Другая"), ("customer_id", 32), ("target", "local")])
+    def test_changed_remote_destination_requires_new_approval(snapshot, field, value):
+&gt;       action = plan(remote(requested(snapshot)))
+
+tests\test_zammad_planning.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    def remote(snapshot, *, destination=None, customers=None, target="zammad"):
+&gt;       return TicketRetailAdapter(
+            snapshot, POLICY, target=target,
+            destination=DESTINATION if destination is None else destination,
+            customer_mapping=CUSTOMERS if customers is None else customers,
+        )
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_planning.py:15: TypeError</failure></testcase><testcase classname="tests.test_zammad_planning" name="test_changed_remote_destination_requires_new_approval[group_id-9]" time="0.003"><failure message="TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'">snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+field = 'group_id', value = 9
+
+    @pytest.mark.parametrize("field,value", [("base_url", "https://other.example.test"), ("group_id", 9), ("group_name", "Другая"), ("customer_id", 32), ("target", "local")])
+    def test_changed_remote_destination_requires_new_approval(snapshot, field, value):
+&gt;       action = plan(remote(requested(snapshot)))
+
+tests\test_zammad_planning.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    def remote(snapshot, *, destination=None, customers=None, target="zammad"):
+&gt;       return TicketRetailAdapter(
+            snapshot, POLICY, target=target,
+            destination=DESTINATION if destination is None else destination,
+            customer_mapping=CUSTOMERS if customers is None else customers,
+        )
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_planning.py:15: TypeError</failure></testcase><testcase classname="tests.test_zammad_planning" name="test_changed_remote_destination_requires_new_approval[group_name-\u0414\u0440\u0443\u0433\u0430\u044f]" time="0.003"><failure message="TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'">snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+field = 'group_name', value = 'Другая'
+
+    @pytest.mark.parametrize("field,value", [("base_url", "https://other.example.test"), ("group_id", 9), ("group_name", "Другая"), ("customer_id", 32), ("target", "local")])
+    def test_changed_remote_destination_requires_new_approval(snapshot, field, value):
+&gt;       action = plan(remote(requested(snapshot)))
+
+tests\test_zammad_planning.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    def remote(snapshot, *, destination=None, customers=None, target="zammad"):
+&gt;       return TicketRetailAdapter(
+            snapshot, POLICY, target=target,
+            destination=DESTINATION if destination is None else destination,
+            customer_mapping=CUSTOMERS if customers is None else customers,
+        )
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_planning.py:15: TypeError</failure></testcase><testcase classname="tests.test_zammad_planning" name="test_changed_remote_destination_requires_new_approval[customer_id-32]" time="0.003"><failure message="TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'">snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+field = 'customer_id', value = 32
+
+    @pytest.mark.parametrize("field,value", [("base_url", "https://other.example.test"), ("group_id", 9), ("group_name", "Другая"), ("customer_id", 32), ("target", "local")])
+    def test_changed_remote_destination_requires_new_approval(snapshot, field, value):
+&gt;       action = plan(remote(requested(snapshot)))
+
+tests\test_zammad_planning.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    def remote(snapshot, *, destination=None, customers=None, target="zammad"):
+&gt;       return TicketRetailAdapter(
+            snapshot, POLICY, target=target,
+            destination=DESTINATION if destination is None else destination,
+            customer_mapping=CUSTOMERS if customers is None else customers,
+        )
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_planning.py:15: TypeError</failure></testcase><testcase classname="tests.test_zammad_planning" name="test_changed_remote_destination_requires_new_approval[target-local]" time="0.002"><failure message="TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'">snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+field = 'target', value = 'local'
+
+    @pytest.mark.parametrize("field,value", [("base_url", "https://other.example.test"), ("group_id", 9), ("group_name", "Другая"), ("customer_id", 32), ("target", "local")])
+    def test_changed_remote_destination_requires_new_approval(snapshot, field, value):
+&gt;       action = plan(remote(requested(snapshot)))
+
+tests\test_zammad_planning.py:40: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    def remote(snapshot, *, destination=None, customers=None, target="zammad"):
+&gt;       return TicketRetailAdapter(
+            snapshot, POLICY, target=target,
+            destination=DESTINATION if destination is None else destination,
+            customer_mapping=CUSTOMERS if customers is None else customers,
+        )
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_planning.py:15: TypeError</failure></testcase><testcase classname="tests.test_zammad_planning" name="test_missing_mapping_does_not_prepare_external_ticket" time="0.002"><failure message="TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'">snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    def test_missing_mapping_does_not_prepare_external_ticket(snapshot):
+&gt;       adapter = remote(requested(snapshot), customers={})
+
+tests\test_zammad_planning.py:55: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    def remote(snapshot, *, destination=None, customers=None, target="zammad"):
+&gt;       return TicketRetailAdapter(
+            snapshot, POLICY, target=target,
+            destination=DESTINATION if destination is None else destination,
+            customer_mapping=CUSTOMERS if customers is None else customers,
+        )
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_planning.py:15: TypeError</failure></testcase><testcase classname="tests.test_zammad_planning" name="test_tampered_saved_destination_is_rejected_before_current_change[customer_id-99]" time="0.002"><failure message="TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'">snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+field = 'customer_id', value = 99
+
+    @pytest.mark.parametrize("field,value", [("customer_id", 99), ("group_id", 99), ("base_url", "https://other.example.test")])
+    def test_tampered_saved_destination_is_rejected_before_current_change(snapshot, field, value):
+&gt;       action = plan(remote(requested(snapshot)))
+
+tests\test_zammad_planning.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    def remote(snapshot, *, destination=None, customers=None, target="zammad"):
+&gt;       return TicketRetailAdapter(
+            snapshot, POLICY, target=target,
+            destination=DESTINATION if destination is None else destination,
+            customer_mapping=CUSTOMERS if customers is None else customers,
+        )
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_planning.py:15: TypeError</failure></testcase><testcase classname="tests.test_zammad_planning" name="test_tampered_saved_destination_is_rejected_before_current_change[group_id-99]" time="0.002"><failure message="TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'">snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+field = 'group_id', value = 99
+
+    @pytest.mark.parametrize("field,value", [("customer_id", 99), ("group_id", 99), ("base_url", "https://other.example.test")])
+    def test_tampered_saved_destination_is_rejected_before_current_change(snapshot, field, value):
+&gt;       action = plan(remote(requested(snapshot)))
+
+tests\test_zammad_planning.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    def remote(snapshot, *, destination=None, customers=None, target="zammad"):
+&gt;       return TicketRetailAdapter(
+            snapshot, POLICY, target=target,
+            destination=DESTINATION if destination is None else destination,
+            customer_mapping=CUSTOMERS if customers is None else customers,
+        )
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_planning.py:15: TypeError</failure></testcase><testcase classname="tests.test_zammad_planning" name="test_tampered_saved_destination_is_rejected_before_current_change[base_url-https://other.example.test]" time="0.002"><failure message="TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'">snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+field = 'base_url', value = 'https://other.example.test'
+
+    @pytest.mark.parametrize("field,value", [("customer_id", 99), ("group_id", 99), ("base_url", "https://other.example.test")])
+    def test_tampered_saved_destination_is_rejected_before_current_change(snapshot, field, value):
+&gt;       action = plan(remote(requested(snapshot)))
+
+tests\test_zammad_planning.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    def remote(snapshot, *, destination=None, customers=None, target="zammad"):
+&gt;       return TicketRetailAdapter(
+            snapshot, POLICY, target=target,
+            destination=DESTINATION if destination is None else destination,
+            customer_mapping=CUSTOMERS if customers is None else customers,
+        )
+E       TypeError: TicketRetailAdapter.__init__() got an unexpected keyword argument 'destination'
+
+tests\test_zammad_planning.py:15: TypeError</failure></testcase><testcase classname="tests.test_zammad_planning" name="test_default_local_action_keeps_legacy_fields_and_fingerprint" time="0.003"><failure message="TypeError: TicketRetailAdapter.__init__() missing 1 required keyword-only argument: 'target'">snapshot = {'orders': {'#O1': {'address': {'address1': 'Учебная 1', 'address2': '', 'city': 'Город', 'country': 'US', ...}, 'fulf... ...}, 'email': 'user2@example.test', 'name': {'first_name': 'Имя2', 'last_name': 'Фамилия'}, 'orders': ['#O2'], ...}}}
+
+    def test_default_local_action_keeps_legacy_fields_and_fingerprint(snapshot):
+&gt;       action = plan(TicketRetailAdapter(requested(snapshot), POLICY))
+E       TypeError: TicketRetailAdapter.__init__() missing 1 required keyword-only argument: 'target'
+
+tests\test_zammad_planning.py:73: TypeError</failure></testcase></testsuite></testsuites>

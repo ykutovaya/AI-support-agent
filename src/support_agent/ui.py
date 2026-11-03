@@ -1,6 +1,7 @@
 """Рабочее место сотрудника: история, точное предложение и отдельные согласования."""
 
 import json
+from urllib.parse import urlsplit
 
 import streamlit as st
 
@@ -16,6 +17,8 @@ STATUS_LABELS = {
     "rejected": "Отклонено сотрудником",
     "failed": "Исполнение отменено",
     "duplicate": "Заявка по этому вопросу уже существует",
+    "submitting": "Создание в Zammad начато — результат проверяется",
+    "unknown": "Исход создания неизвестен",
 }
 EVENT_LABELS = {
     "employee": "Комментарий сотрудника",
@@ -94,6 +97,19 @@ def _approve(case_id, proposal_id, version, digest):
         st.session_state["_last_result"] = result
 
 
+def _reconcile(case_id, proposal_id, version, digest):
+    ok, result = _invoke(
+        st.session_state["_service"].reconcile,
+        case_id,
+        proposal_id,
+        version,
+        digest,
+        EMPLOYEE,
+    )
+    if ok:
+        st.session_state["_last_result"] = result
+
+
 def _resume(case_id, source_proposal_id):
     ok, _ = _invoke(
         st.session_state["_service"].resume,
@@ -162,7 +178,11 @@ def _history(view):
 
 def _action_details(action):
     if action.name == "create_support_ticket":
-        st.info("Локальная учебная заявка")
+        st.info(
+            "Заявка в Zammad"
+            if action.arguments.get("target") == "zammad"
+            else "Локальная учебная заявка"
+        )
     st.text(action.description)
     labels = {
         "order_id": "Заказ",
@@ -176,6 +196,11 @@ def _action_details(action):
         "question": "Нерешённый вопрос",
     }
     for name, value in action.arguments.items():
+        if name == "destination":
+            st.text(f"Сервер Zammad: {urlsplit(value['base_url']).netloc}")
+            st.text(f"Группа: {value['group_name']} (ID {value['group_id']})")
+            st.text(f"Тестовый клиент Zammad: {value['customer_id']}")
+            continue
         if name == "target" and value == "local":
             value = "Локальная база приложения"
         shown = (
@@ -307,6 +332,16 @@ def _card(view):
             on_click=_approve,
             args=args,
         )
+        if status in ("submitting", "unknown"):
+            st.warning(
+                "Повторное создание заблокировано. Проверка только читает результат в Zammad; ответ об успехе ожидает подтверждённую заявку."
+            )
+            st.button(
+                "Проверить результат в Zammad",
+                key="reconcile",
+                on_click=_reconcile,
+                args=args,
+            )
         st.text_area(
             "Причина отклонения", key="rejection_reason", disabled=status != "pending"
         )
@@ -354,7 +389,7 @@ def _results(view):
         message = STATUS_LABELS.get(status, "Запрос обработан")
         (
             st.warning
-            if status in ("stale", "delivery_failed", "failed")
+            if status in ("stale", "delivery_failed", "failed", "submitting", "unknown")
             else st.success
         )(message)
         if result.get("reason"):
@@ -368,9 +403,17 @@ def _results(view):
             pass
     if operation_result and operation_result.get("status") == "ticket created":
         st.subheader("Фактический результат")
-        st.text("Локальная учебная заявка")
+        st.text(
+            "Заявка в Zammad"
+            if operation_result.get("target") == "zammad"
+            else "Локальная учебная заявка"
+        )
         st.text(f"Номер заявки: {operation_result['ticket_number']}")
         st.text(f"Статус заявки: {operation_result['ticket_status']}")
+        if operation_result.get("target") == "zammad" and operation_result.get(
+            "ticket_url"
+        ):
+            st.markdown(f"[Ссылка на заявку]({operation_result['ticket_url']})")
     elif operations:
         st.subheader("Фактический результат")
         try:
@@ -404,7 +447,11 @@ def main():
         from support_agent.adapters.demo_model import INSTRUCTION
 
         st.info("Учебный режим без API: ответы задаёт заглушка")
-        st.text(INSTRUCTION)
+        st.text(
+            INSTRUCTION.replace("Для локальной учебной заявки", "Для заявки в Zammad")
+            if getattr(service, "ticket_target", "local") == "zammad"
+            else INSTRUCTION
+        )
     snapshot, _ = service.store.snapshot()
     users = snapshot["users"]
     with st.sidebar:

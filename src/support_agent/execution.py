@@ -3,6 +3,12 @@
 import json
 from uuid import uuid4
 
+from support_agent.external_tickets import (
+    ExternalTicketExecution,
+    check_saved_approval,
+    external_operation,
+    unknown_outcome,
+)
 from support_agent.models import Message
 from support_agent.proposals import Proposal
 from support_agent.storage import encode
@@ -52,17 +58,20 @@ class TestChannel:
             )
 
 
-class Executor:
-    def __init__(self, store, adapter_factory, channel=None):
+class Executor(ExternalTicketExecution):
+    def __init__(self, store, adapter_factory, channel=None, *, ticket_backend=None):
         self.store = store
         self.adapter_factory = adapter_factory
         self.channel = channel if channel is not None else TestChannel(store)
+        self.ticket_backend = ticket_backend
 
     def approve(self, case_id, proposal_id, version, expected_digest, employee_id):
         """Подтвердить показанную версию; повтор не выполняет действие второй раз."""
         outcome = self._approve(
             case_id, proposal_id, version, expected_digest, employee_id
         )
+        if outcome.pop("_submit", False):
+            outcome = self._submit_external(proposal_id)
         with self.store.connection() as conn:
             operation = conn.execute(
                 "SELECT result FROM operations WHERE proposal_id=?", (proposal_id,)
@@ -102,6 +111,13 @@ class Executor:
                 )
                 delivery_id = delivery["id"]
             else:
+                external = external_operation(conn, proposal_id=proposal_id)
+                if external is not None:
+                    check_saved_approval(conn, proposal, external)
+                    if external["status"] in {"submitting", "unknown"}:
+                        return unknown_outcome(external)
+                    if external["status"] == "failed":
+                        return {"status": "failed", "reason": external["reason"]}
                 if record["status"] == "duplicate":
                     approval = conn.execute(
                         "SELECT digest FROM approvals WHERE proposal_id=?",
@@ -142,10 +158,11 @@ class Executor:
                     snapshot, policy = self.store.retail(conn)
                     adapter = self.adapter_factory(snapshot, policy)
                     try:
-                        if is_ticket and action.arguments.get("target") != "local":
-                            raise ValueError(
-                                "Поддерживается только локальная регистрация заявки"
-                            )
+                        if is_ticket and action.arguments.get("target") not in {
+                            "local",
+                            "zammad",
+                        }:
+                            raise ValueError("Неизвестный получатель заявки")
                         check = adapter.check(action, case["user_id"])
                         if check.status != "unchanged":
                             return self.mark_changed(conn, case, proposal, check)
@@ -162,6 +179,12 @@ class Executor:
                         )
                         self.store.event(conn, case_id, "blocked", str(error))
                         return {"status": "stale", "reason": str(error)}
+                if is_ticket:
+                    prepared = self._ticket_preflight(
+                        conn, case, proposal, expected_digest, employee_id
+                    )
+                    if prepared is not None:
+                        return prepared
                 # Откат действия не освобождает блокировку до фиксации состояния ошибки.
                 conn.execute("SAVEPOINT operation_attempt")
                 try:

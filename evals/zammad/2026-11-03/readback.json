@@ -1,0 +1,113 @@
+{
+  "checked_at": "2026-11-03T01:01:46.993913+00:00",
+  "tickets": [
+    {
+      "scenario": "normal",
+      "number": "22003",
+      "fields": [
+        {
+          "field": "title",
+          "agreed": "Уточнение результата заявки по заказу #O1",
+          "read": "Уточнение результата заявки по заказу #O1",
+          "match": true
+        },
+        {
+          "field": "body_sha256",
+          "agreed": "72aecb7e93a8817e37ff609bf4b80cb5f5dc95af44e3fd7cef03f8e061a94a28",
+          "read": "72aecb7e93a8817e37ff609bf4b80cb5f5dc95af44e3fd7cef03f8e061a94a28",
+          "match": true
+        },
+        {
+          "field": "group_id",
+          "agreed": 2,
+          "read": 2,
+          "match": true
+        },
+        {
+          "field": "group_name",
+          "agreed": "Retail Demo",
+          "read": "Retail Demo",
+          "match": true
+        },
+        {
+          "field": "customer_id",
+          "agreed": 4,
+          "read": 4,
+          "match": true
+        },
+        {
+          "field": "initial_state",
+          "agreed": "new",
+          "read": "new",
+          "match": true
+        },
+        {
+          "field": "article_type",
+          "agreed": "note",
+          "read": "note",
+          "match": true
+        },
+        {
+          "field": "internal",
+          "agreed": true,
+          "read": true,
+          "match": true
+        }
+      ]
+    },
+    {
+      "scenario": "lost-response",
+      "number": "22004",
+      "fields": [
+        {
+          "field": "title",
+          "agreed": "Уточнение результата заявки по заказу #O1",
+          "read": "Уточнение результата заявки по заказу #O1",
+          "match": true
+        },
+        {
+          "field": "body_sha256",
+          "agreed": "72aecb7e93a8817e37ff609bf4b80cb5f5dc95af44e3fd7cef03f8e061a94a28",
+          "read": "72aecb7e93a8817e37ff609bf4b80cb5f5dc95af44e3fd7cef03f8e061a94a28",
+          "match": true
+        },
+        {
+          "field": "group_id",
+          "agreed": 2,
+          "read": 2,
+          "match": true
+        },
+        {
+          "field": "group_name",
+          "agreed": "Retail Demo",
+          "read": "Retail Demo",
+          "match": true
+        },
+        {
+          "field": "customer_id",
+          "agreed": 4,
+          "read": 4,
+          "match": true
+        },
+        {
+          "field": "initial_state",
+          "agreed": "new",
+          "read": "new",
+          "match": true
+        },
+        {
+          "field": "article_type",
+          "agreed": "note",
+          "read": "note",
+          "match": true
+        },
+        {
+          "field": "internal",
+          "agreed": true,
+          "read": true,
+          "match": true
+        }
+      ]
+    }
+  ]
+}
