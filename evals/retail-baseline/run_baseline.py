@@ -6,8 +6,8 @@ import os
 import re
 import sys
 import time
-from pathlib import Path
 from datetime import datetime, timezone
+from pathlib import Path
 
 sys.dont_write_bytecode = True
 os.environ['PYTHONDONTWRITEBYTECODE'] = '1'
@@ -21,7 +21,9 @@ p.add_argument('--dry-run', action='store_true')
 a = p.parse_args()
 if not set(a.task_ids) <= {'75', '0', '6', '95', '105'}:
     raise SystemExit('Only the fixed baseline task IDs are allowed')
-from dotenv import dotenv_values, load_dotenv
+# Читаем настройки только после проверки аргументов запуска.
+from dotenv import dotenv_values, load_dotenv  # noqa: E402
+
 cfg = dotenv_values(a.repo / '.env')
 load_dotenv(a.repo / '.env', override=True)
 model = cfg.get('OPENAI_MODEL')
@@ -33,6 +35,7 @@ if model != 'gpt-6-luna':
 if sys.platform == 'win32' and not os.environ.get('SSL_CERT_FILE'):
     import ssl
     import tempfile
+
     import certifi
     certs = []
     for cert_store in ('ROOT', 'CA'):
@@ -44,10 +47,11 @@ if sys.platform == 'win32' and not os.environ.get('SSL_CERT_FILE'):
     os.environ['SSL_CERT_FILE'] = str(bundle)
 
 os.environ['TAU2_DATA_DIR'] = str(a.repo / 'data')
-from tau2.data_model.simulation import TextRunConfig
-from tau2.runner import run_domain
-from tau2.utils.llm_utils import set_llm_log_mode
-import tau2.evaluator.evaluator_nl_assertions as nl
+# tau2 читает окружение при импорте; сначала задаём каталог данных и TLS.
+import tau2.evaluator.evaluator_nl_assertions as nl  # noqa: E402
+from tau2.data_model.simulation import TextRunConfig  # noqa: E402
+from tau2.runner import run_domain  # noqa: E402
+from tau2.utils.llm_utils import set_llm_log_mode  # noqa: E402
 
 api_model = 'openai/responses/' + model
 llm_args = {'reasoning_effort': 'low', 'max_tokens': 8192,

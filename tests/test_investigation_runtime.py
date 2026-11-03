@@ -18,7 +18,7 @@ def test_reservation_is_durable_and_blocks_overspending(tmp_path):
     ledger = tmp_path / "budget.json"
     budget = runtime.Budget(ledger, 0.01)
     first = budget.reserve(0.008, "first")
-    assert json.loads(ledger.read_text())["calls"][first]["status"] == "reserved"
+    assert json.loads(ledger.read_text(encoding="utf-8"))["calls"][first]["status"] == "reserved"
     with pytest.raises(runtime.BudgetLimit):
         budget.reserve(0.003, "second")
     budget.finish(first, None, "unknown")
@@ -47,7 +47,7 @@ def test_lost_response_is_saved_and_not_retried(tmp_path):
     )
     with pytest.raises(ConnectionError):
         model.generate([Message(role="user", content="hello")], [])
-    report = (tmp_path / "calls.json").read_text()
+    report = (tmp_path / "calls.json").read_text(encoding="utf-8")
     assert "ConnectionError" in report
     assert "fake credential" not in report
     assert inner.calls == 1 and budget.used > 0

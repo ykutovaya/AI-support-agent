@@ -147,6 +147,8 @@ if (Test-Path -LiteralPath $env:SUPPORT_AGENT_DB) { throw 'Выберите ещ
 
 Проверки используют заглушки модели, отдельные временные базы и Streamlit AppTest; реальные ключи не нужны. Они охватывают ядро, источники, согласования, исполнение, сохранение состояния и экран сотрудника.
 
+[GitHub Actions](.github/workflows/checks.yml) выполняет pytest и Ruff при `push` и `pull_request`: Windows, Python 3.12.12, uv 0.10.4, зависимости из `uv.lock` с дополнениями `retail` и `dev`. Ключи модели и Zammad не нужны. Ошибка любой проверки делает запуск неуспешным; Ruff выполняется и после ошибки pytest. В таком запуске раздел **Artifacts → pytest-report** содержит отчёт тестов в формате JUnit XML.
+
 Отдельный пример ядра запускается из того же окружения:
 
 ```powershell
